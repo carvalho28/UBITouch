@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="first_name">Primeiro Nome</string>
+    <string name="last_name">Último Nome</string>
+    <string name="username">Nome de utilizador</string>
+    <string name="password">Senha</string>
+    <string name="confirm_password">Confirme a senha</string>
+    <string name="register">Registar</string>
+    <string name="username_email">Nome de utilizador/Email</string>
+    <string name="forgot_password">Esqueceu-se da sua senha?</string>
+    <string name="no_account">Ainda não tem conta? Registe-se aqui!</string>
+</resources>
