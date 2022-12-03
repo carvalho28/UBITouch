@@ -9,4 +9,5 @@
     <string name="username_email">Nome de utilizador/Email</string>
     <string name="forgot_password">Esqueceu-se da sua senha?</string>
     <string name="no_account">Ainda não tem conta? Registe-se aqui!</string>
+    <string name="fill_all_fields">Por favor, preencha todos os campos.</string>
 </resources>
