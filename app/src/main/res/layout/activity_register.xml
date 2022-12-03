@@ -39,7 +39,7 @@
       app:startIconDrawable="@drawable/ic_person">
 
       <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/inputFirstName"
+        android:id="@+id/registerInputFirstName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="text"
@@ -62,7 +62,7 @@
       app:startIconDrawable="@drawable/ic_person">
 
       <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/inputLastName"
+        android:id="@+id/registerInputLastName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="text"
@@ -85,7 +85,7 @@
       app:startIconDrawable="@drawable/ic_email">
 
       <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/inputEmail"
+        android:id="@+id/registerInputEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textEmailAddress"
@@ -110,7 +110,7 @@
       app:startIconDrawable="@drawable/ic_username">
 
       <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/inputUsername"
+        android:id="@+id/registerInputUsername"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="text"
@@ -134,7 +134,7 @@
       app:startIconDrawable="@drawable/ic_password">
 
       <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/inputPassword"
+        android:id="@+id/registerInputPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPassword"
@@ -158,7 +158,7 @@
       app:startIconDrawable="@drawable/ic_password">
 
       <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/inputConfirmPassword"
+        android:id="@+id/registerInputConfirmPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPassword"

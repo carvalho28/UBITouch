@@ -41,12 +41,12 @@ public class RegisterActivity extends AppCompatActivity {
 
         btnRegister = findViewById(R.id.buttonRegister);
 
-        firstName = findViewById(R.id.inputFirstName);
-        lastName = findViewById(R.id.inputLastName);
-        email = findViewById(R.id.inputEmail);
-        username = findViewById(R.id.inputUsername);
-        password = findViewById(R.id.inputPassword);
-        confirmPassword = findViewById(R.id.inputConfirmPassword);
+        firstName = findViewById(R.id.registerInputFirstName);
+        lastName = findViewById(R.id.registerInputLastName);
+        email = findViewById(R.id.registerInputEmail);
+        username = findViewById(R.id.registerInputUsername);
+        password = findViewById(R.id.registerInputPassword);
+        confirmPassword = findViewById(R.id.registerInputConfirmPassword);
         msgError = findViewById(R.id.textViewError);
 
         Log.i(TAG, "RegisterActivity: onCreate()");
