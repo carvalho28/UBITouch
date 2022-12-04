@@ -2,6 +2,7 @@ package pt.ubi.di.pdm.ubitouch;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -38,6 +39,12 @@ public class RegisterActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+
+
+        SharedPreferences sharedPref = getSharedPreferences("user", Context.MODE_PRIVATE);
+        if (sharedPref != null){
+            sharedPref.edit().clear().apply();
+        }
 
         btnRegister = findViewById(R.id.buttonRegister);
 
