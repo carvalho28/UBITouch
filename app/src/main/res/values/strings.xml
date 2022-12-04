@@ -11,5 +11,9 @@
     <string name="login" translatable="false">Log In</string>
     <string name="forgot_password">Forgot your password?</string>
     <string name="no_account">Don\'t have an account yet? Register here!</string>
+    <!-- activity_feed.xml -->
+    <string name="header_title" translatable="false">Timeline</string>
+    <string name="no_posts">Oops! No posts yet.</string>
+    <!-- activity_profile.xml -->
     <string name="edit_profile">Edit profile</string>
 </resources>

@@ -9,5 +9,8 @@
     <string name="username_email">Nome de utilizador/Email</string>
     <string name="forgot_password">Esqueceu-se da sua senha?</string>
     <string name="no_account">Ainda não tem conta? Registe-se aqui!</string>
+    <!-- activity_feed.xml -->
+    <string name="no_posts">Oops! Ainda não existem publicações.</string>
+    <!-- activity_profile.xml -->
     <string name="edit_profile">Editar perfil</string>
 </resources>
