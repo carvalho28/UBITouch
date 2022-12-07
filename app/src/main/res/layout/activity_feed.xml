@@ -15,7 +15,7 @@
       android:minHeight="50dp">
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/profileImageView"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginStart="10dp"
