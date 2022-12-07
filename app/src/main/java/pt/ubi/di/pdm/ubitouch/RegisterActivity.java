@@ -66,20 +66,20 @@ public class RegisterActivity extends AppCompatActivity {
                             || password.getText().toString().isEmpty()
                             || confirmPassword.getText().toString().isEmpty()) {
                         Log.i(TAG, "RegisterActivity: onCreate(): empty field");
-                        msgError.setText("Please fill all the fields");
+                        msgError.setText(R.string.emptyFieldError);
                         msgError.setVisibility(TextView.VISIBLE);
                     }
                     // if the password and the confirm password are different
                     else if (!password.getText().toString().equals(confirmPassword.getText().toString())) {
-                        msgError.setText("The password and the confirm password are different");
+                        msgError.setText(R.string.differentPasswords);
                     }
                     // if the password is less than 10 characters
                     else if (password.getText().toString().length() < 8) {
-                        msgError.setText("The password must have at least 10 characters");
+                        msgError.setText(R.string.tooShortPassword);
                     }
                     // if the email is not valid
                     else if (!email.getText().toString().contains("@") || !email.getText().toString().contains(".")) {
-                        msgError.setText("The email is not valid");
+                        msgError.setText(R.string.invalidEmail);
                     }
                     // create the user
                     else {
@@ -103,7 +103,7 @@ public class RegisterActivity extends AppCompatActivity {
                                     },
                                     error -> {
                                         Log.i(TAG, "RegisterActivity: onCreate(): error: " + error.toString());
-                                        msgError.setText("The username or the email already exists");
+                                        msgError.setText(R.string.existing_user);
                                         msgError.setVisibility(TextView.VISIBLE);
                                         // close the keyboard
                                         View view = this.getCurrentFocus();
