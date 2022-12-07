@@ -16,12 +16,6 @@
     <string name="no_posts">Oops! No posts yet.</string>
     <!-- activity_profile.xml -->
     <string name="edit_profile">Edit profile</string>
-    <string name="name">Name</string>
-
-    <string name="emptyFieldError">Please fill all the fields!</string>
-    <string name="differentPasswords">The passwords are different!</string>
-    <string name="tooShortPassword">The password must have at least 10 characters!</string>
-    <string name="invalidEmail">The email is not valid!</string>
-    <string name="existing_user">The inserted username or email is already in use. Try another!</string>
-    <string name="incorrect_credentials">The username or password is incorrect!</string>
+    <string name="bio" translatable="false">Bio</string>
+    <string name="save">Save</string>
 </resources>
