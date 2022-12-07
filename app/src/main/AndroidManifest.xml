@@ -15,6 +15,13 @@
         android:theme="@style/Theme.UBItouch"
         tools:targetApi="31">
         <activity
+            android:name=".CreateActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".LoginActivity"
             android:exported="false">
             <meta-data
@@ -28,13 +35,15 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-        <activity android:name=".FeedActivity"
+        <activity
+            android:name=".FeedActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-        <activity android:name=".ProfileActivity"
+        <activity
+            android:name=".ProfileActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -54,4 +63,5 @@
                 android:value="" />
         </activity>
     </application>
+
 </manifest>
