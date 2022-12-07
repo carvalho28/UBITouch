@@ -21,6 +21,8 @@ import com.google.android.material.textfield.TextInputEditText;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.Objects;
+
 public class LoginActivity extends AppCompatActivity {
 
     MaterialButton btnLogin;
@@ -40,7 +42,9 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         SharedPreferences sharedPref = getSharedPreferences("user", Context.MODE_PRIVATE);
-        if(sharedPref != null) {
+        String x = sharedPref.getString("token", "");
+        Log.i(TAG, x);
+        if(!x.isEmpty()) {
             // go to the feed activity
             Intent intent = new Intent(LoginActivity.this, FeedActivity.class);
             startActivity(intent);
@@ -80,7 +84,7 @@ public class LoginActivity extends AppCompatActivity {
         // create the JSON object
         JSONObject jsonBody = new JSONObject();
         try {
-            if (URL == URLEmail) {
+            if (Objects.equals(URL, URLEmail)) {
                 jsonBody.put("email", username.getText().toString());
             } else {
                 jsonBody.put("username", username.getText().toString());
@@ -90,27 +94,25 @@ public class LoginActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        // print the JSON object
-        Log.i(TAG, "LoginActivity: login() - JSON: " + jsonBody.toString());
-
         // create the request
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, URL, jsonBody,
                 response -> {
                     // if the login was successful
                     if (response.has("token")) {
+                        Log.i(TAG, response.toString());
                         // save the token, id and username
-                        SharedPreferences sharedPref = getSharedPreferences("user", Context.MODE_PRIVATE);
+                        SharedPreferences sharedPref = getSharedPreferences("user", MODE_PRIVATE);
                         SharedPreferences.Editor editor = sharedPref.edit();
                         try {
                             editor.putString("token", response.getString("token"));
-                            editor.putString("id", response.getString("id"));
+                            editor.putString("id", response.getString("idUser"));
                             editor.putString("username", response.getString("username"));
+                            editor.putString("picture", response.getString("picture"));
                             editor.apply();
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
 
-                        Log.i(TAG, "Cheguei aqui");
                         // go to the feed activity
                         Intent intent = new Intent(LoginActivity.this, FeedActivity.class);
                         startActivity(intent);
