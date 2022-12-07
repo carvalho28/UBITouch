@@ -2,12 +2,12 @@
     <!-- Base application theme. -->
     <style name="Theme.UBItouch" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/azul400</item>
-        <item name="colorPrimaryVariant">@color/azul500</item>
+        <item name="colorPrimary">@color/azul200</item>
+        <item name="colorPrimaryVariant">@color/azul300</item>
         <item name="colorOnPrimary">@color/black</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/azul200</item>
-        <item name="colorSecondaryVariant">@color/azul300</item>
+        <item name="colorSecondary">@color/azul100</item>
+        <item name="colorSecondaryVariant">@color/azul200</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>

@@ -80,7 +80,8 @@
             android:text="@string/forgot_password"
             android:textSize="11sp"
             android:gravity="end"
-            android:textColor="@color/azul100"></TextView>
+            android:textColor="@color/azul100">
+        </TextView>
 
         <!-- log in button -->
 
@@ -113,7 +114,8 @@
             android:text="@string/no_account"
             android:textSize="11sp"
             android:gravity="end"
-            android:textColor="@color/azul100"></TextView>
+            android:textColor="@color/azul100">
+        </TextView>
 
         <ProgressBar
             android:id="@+id/loginProgressBar"
