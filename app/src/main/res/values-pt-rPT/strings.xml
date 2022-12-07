@@ -14,4 +14,11 @@
     <!-- activity_profile.xml -->
     <string name="edit_profile">Editar perfil</string>
     <string name="save">Guardar</string>
+    <string name="name">Nome</string>
+    <string name="emptyFieldError">Por favor, preencha todos os campos!</string>
+    <string name="differentPasswords">As senhas são diferentes!</string>
+    <string name="tooShortPassword">A senha tem de ter pelo menos 10 caracteres!</string>
+    <string name="invalidEmail">O email não é válido!</string>
+    <string name="existing_user">O nome de utilizador ou email inserido já está em uso! Tente outro!</string>
+    <string name="incorrect_credentials">O nome de utilizador ou senha está incorreto!</string>
 </resources>
