@@ -55,7 +55,7 @@ public class LoginActivity extends AppCompatActivity {
                 v -> {
                     // if there is an empty field
                     if (username.getText().toString().isEmpty() || password.getText().toString().isEmpty()) {
-                        msgError.setText("Please fill all the fields");
+                        msgError.setText(R.string.emptyFieldError);
                         msgError.setVisibility(View.VISIBLE);
                     } else {
                         // check if the username is an email or not
@@ -118,7 +118,7 @@ public class LoginActivity extends AppCompatActivity {
                 },
                 error -> {
                     // if there was an error
-                    msgError.setText("Password or username/email wrong");
+                    msgError.setText(R.string.incorrect_credentials);
                     msgError.setVisibility(View.VISIBLE);
                 });
 
