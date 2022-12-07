@@ -64,7 +64,9 @@
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:layout_weight="1"
-          app:srcCompat="@drawable/ic_person" />
+          android:backgroundTint="#00FFFFFF"
+          app:tint="@color/white"
+          app:srcCompat="@drawable/ic_baseline_search_24" />
 
       <!-- TIMELINE TAB -->
       <!-- Still has placeholder icon -->
@@ -73,7 +75,9 @@
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:layout_weight="1"
-          app:srcCompat="@drawable/ic_email" />
+          android:backgroundTint="#00FFFFFF"
+          app:tint="@color/white"
+          app:srcCompat="@drawable/ic_baseline_home_24" />
 
       <!-- SETTINGS TAB -->
       <!-- Still has placeholder icon -->
@@ -82,7 +86,9 @@
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:layout_weight="1"
-          app:srcCompat="@drawable/ic_lock" />
+          android:backgroundTint="#00FFFFFF"
+          app:tint="@color/white"
+          app:srcCompat="@drawable/ic_baseline_notifications_24" />
     </LinearLayout>
   </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -118,15 +124,14 @@
         android:id="@+id/floatingActionButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginEnd="15dp"
         android:layout_marginBottom="15dp"
-        android:clickable="true"
         android:backgroundTint="@color/azul200"
-        app:srcCompat="@drawable/ic_username"
-        tools:layout_editor_absoluteX="339dp"
-        tools:layout_editor_absoluteY="551dp" />
+        app:tint="@color/white"
+        android:clickable="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/ic_baseline_add_24" />
   </androidx.constraintlayout.widget.ConstraintLayout>
 
 </RelativeLayout>
