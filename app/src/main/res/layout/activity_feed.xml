@@ -10,7 +10,7 @@
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:layout_alignParentTop="true"
-      android:background="#FF3700B3"
+      android:background="@color/azul300"
       android:gravity="center"
       android:minHeight="50dp">
 
@@ -48,7 +48,7 @@
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:layout_alignParentBottom="true"
-      android:background="#FF3700B3"
+      android:background="@color/azul300"
       android:minHeight="50dp" >
 
     <LinearLayout
@@ -123,7 +123,7 @@
         android:layout_marginEnd="15dp"
         android:layout_marginBottom="15dp"
         android:clickable="true"
-        android:backgroundTint="#FF3700B3"
+        android:backgroundTint="@color/azul200"
         app:srcCompat="@drawable/ic_username"
         tools:layout_editor_absoluteX="339dp"
         tools:layout_editor_absoluteY="551dp" />
