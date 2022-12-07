@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.android.volley.Request;
@@ -28,6 +29,7 @@ public class LoginActivity extends AppCompatActivity {
     MaterialButton btnLogin;
     TextInputEditText username, password;
     TextView msgError;
+    ProgressBar progressBar;
 
     // URL of the API
     private final String URLEmail = "https://server-ubi-touch.herokuapp.com/users/loginEmail";
@@ -44,7 +46,7 @@ public class LoginActivity extends AppCompatActivity {
         SharedPreferences sharedPref = getSharedPreferences("user", Context.MODE_PRIVATE);
         String x = sharedPref.getString("token", "");
         Log.i(TAG, x);
-        if(!x.isEmpty()) {
+        if (!x.isEmpty()) {
             // go to the feed activity
             Intent intent = new Intent(LoginActivity.this, FeedActivity.class);
             startActivity(intent);
@@ -54,6 +56,7 @@ public class LoginActivity extends AppCompatActivity {
         username = findViewById(R.id.loginInputUsernameOrEmail);
         password = findViewById(R.id.loginInputPassword);
         msgError = findViewById(R.id.loginTextViewError);
+        progressBar = findViewById(R.id.loginProgressBar);
 
         btnLogin.setOnClickListener(
                 v -> {
@@ -112,6 +115,9 @@ public class LoginActivity extends AppCompatActivity {
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
+
+                        // show loading circle
+                        progressBar.setVisibility(View.VISIBLE);
 
                         // go to the feed activity
                         Intent intent = new Intent(LoginActivity.this, FeedActivity.class);
