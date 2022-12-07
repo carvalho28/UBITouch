@@ -6,9 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".EditProfileActivity">
 
-    <!--Edit First Name-->
-
-    <!--Edit Last Name-->
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -38,6 +35,7 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editProfileFirstName"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:textColorHint="#0066FF" />
@@ -61,6 +59,7 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editProfileLastName"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:textColorHint="#0066FF" />
@@ -88,6 +87,7 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editProfileBio"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:textColorHint="#0066FF" />
@@ -107,8 +107,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        app:layout_constraintVertical_bias="0.0"></androidx.constraintlayout.widget.ConstraintLayout>
 
     <!--Edit Image-->
     <ImageButton
@@ -125,7 +124,7 @@
         tools:srcCompat="@tools:sample/avatars" />
 
     <Button
-        android:id="@+id/saveButton"
+        android:id="@+id/editProfileButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="117dp"
