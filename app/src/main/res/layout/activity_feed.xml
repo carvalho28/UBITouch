@@ -102,23 +102,27 @@
       android:layout_below="@id/header">
 
     <!-- If no posts are retrieved -->
+
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        >
+        tools:layout_editor_absoluteX="-35dp"
+        tools:layout_editor_absoluteY="114dp">
 
     </androidx.recyclerview.widget.RecyclerView>
 
     <TextView
+        android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="@string/no_posts"
+        android:textColor="#DCDCDC"
+        android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:text="@string/no_posts"
-        android:textColor="#DCDCDC"
-        android:textSize="15sp" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/floatingActionButton"
@@ -132,6 +136,16 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/ic_baseline_add_24" />
+
+    <ProgressBar
+        android:id="@+id/feedProgressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/recyclerView"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        android:visibility="gone"
+        />
   </androidx.constraintlayout.widget.ConstraintLayout>
 
 </RelativeLayout>
