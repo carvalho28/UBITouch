@@ -20,4 +20,8 @@
     <string name="invalidEmail">O email não é válido!</string>
     <string name="existing_user">O nome de utilizador ou email inserido já está em uso! Tente outro!</string>
     <string name="incorrect_credentials">O nome de utilizador ou senha está incorreto!</string>
+    <!-- activity_create.xml -->
+    <string name="post_publish">Publicar</string>
+    <string name="post_title">Título</string>
+    <string name="post_description">Descrição</string>
 </resources>
