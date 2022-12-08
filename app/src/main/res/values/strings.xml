@@ -28,4 +28,13 @@
     <string name="post_publish">Post</string>
     <string name="post_title">Title</string>
     <string name="post_description">Description</string>
+    <string name="post_attach">Attach media</string>
+    <string name="post_pick_date">Pick date</string>
+    <string name="post_pick_time">Pick time</string>
+    <string name="post_empty_title">Title cannot be empty.</string>
+    <string name="post_tmc_title">Title is too long.</string>
+    <string name="post_tmc_desc">Description is too long.</string>
+    <string name="post_media_error">Error loading attachment.</string>
+    <string name="post_date_error">Error inserting date.</string>
+    <string name="post_time_error">Error inserting hour.</string>
 </resources>

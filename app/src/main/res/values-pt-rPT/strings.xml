@@ -24,4 +24,13 @@
     <string name="post_publish">Publicar</string>
     <string name="post_title">Título</string>
     <string name="post_description">Descrição</string>
+    <string name="post_attach">Anexar mídia</string>
+    <string name="post_pick_date">Escolher dia</string>
+    <string name="post_pick_time">Escolher hora</string>
+    <string name="post_empty_title">O título não pode ser vazio.</string>
+    <string name="post_tmc_title">O limite de caracteres do título foi excedido.</string>
+    <string name="post_tmc_desc">O limite de caracteres da descrição foi excedido.</string>
+    <string name="post_media_error">Erro ao carregar o anexo.</string>
+    <string name="post_date_error">Erro ao inserir a data.</string>
+    <string name="post_time_error">Erro ao inserir a hora.</string>
 </resources>

@@ -24,7 +24,6 @@
         android:textSize="20sp"
         android:visibility="gone" />
 
-
     <!-- firstName -->
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout"
@@ -41,7 +40,7 @@
         app:startIconDrawable="@drawable/ic_person">
 
       <com.google.android.material.textfield.TextInputEditText
-          android:id="@+id/registerInputFirstName"
+          android:id="@+id/registerFirstName"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:inputType="text"
@@ -64,7 +63,7 @@
         app:startIconDrawable="@drawable/ic_person">
 
       <com.google.android.material.textfield.TextInputEditText
-          android:id="@+id/registerInputLastName"
+          android:id="@+id/registerLastName"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:inputType="text"

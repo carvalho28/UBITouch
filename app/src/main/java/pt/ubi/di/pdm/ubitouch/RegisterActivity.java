@@ -48,8 +48,8 @@ public class RegisterActivity extends AppCompatActivity {
 
         btnRegister = findViewById(R.id.buttonRegister);
 
-        firstName = findViewById(R.id.registerInputFirstName);
-        lastName = findViewById(R.id.registerInputLastName);
+        firstName = findViewById(R.id.registerFirstName);
+        lastName = findViewById(R.id.registerLastName);
         email = findViewById(R.id.registerInputEmail);
         username = findViewById(R.id.registerInputUsername);
         password = findViewById(R.id.registerInputPassword);
