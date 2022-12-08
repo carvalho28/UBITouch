@@ -35,7 +35,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ImageView
-        android:id="@+id/userImage"
+        android:id="@+id/editProfileImage"
         android:layout_width="126dp"
         android:layout_height="109dp"
         android:layout_marginStart="8dp"
@@ -61,7 +61,7 @@
         app:layout_constraintBottom_toTopOf="@+id/userPosts"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.707"
-        app:layout_constraintStart_toEndOf="@+id/userImage"
+        app:layout_constraintStart_toEndOf="@+id/editProfileImage"
         app:layout_constraintTop_toBottomOf="@+id/bannerImage" />
 
     <TextView
@@ -76,7 +76,7 @@
         app:layout_constraintEnd_toStartOf="@+id/editProfileButton"
         app:layout_constraintHorizontal_bias="0.24"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/userImage" />
+        app:layout_constraintTop_toBottomOf="@+id/editProfileImage" />
 
     <TextView
         android:id="@+id/username"
