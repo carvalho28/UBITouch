@@ -7,7 +7,7 @@
     tools:context=".ProfileActivity">
 
     <TextView
-        android:id="@+id/bioProfile"
+        android:id="@+id/profileBio"
         android:layout_width="93dp"
         android:layout_height="27dp"
         android:layout_marginStart="3dp"
@@ -18,7 +18,7 @@
         app:layout_constraintEnd_toStartOf="@+id/editProfileButton"
         app:layout_constraintHorizontal_bias="0.529"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/username" />
+        app:layout_constraintTop_toBottomOf="@+id/profileUsername" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/bannerImage"
@@ -35,7 +35,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ImageView
-        android:id="@+id/userImage"
+        android:id="@+id/editProfileImage"
         android:layout_width="126dp"
         android:layout_height="109dp"
         android:layout_marginStart="8dp"
@@ -61,11 +61,11 @@
         app:layout_constraintBottom_toTopOf="@+id/userPosts"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.707"
-        app:layout_constraintStart_toEndOf="@+id/userImage"
+        app:layout_constraintStart_toEndOf="@+id/editProfileImage"
         app:layout_constraintTop_toBottomOf="@+id/bannerImage" />
 
     <TextView
-        android:id="@+id/name"
+        android:id="@+id/profileName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="3dp"
@@ -76,10 +76,10 @@
         app:layout_constraintEnd_toStartOf="@+id/editProfileButton"
         app:layout_constraintHorizontal_bias="0.24"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/userImage" />
+        app:layout_constraintTop_toBottomOf="@+id/editProfileImage" />
 
     <TextView
-        android:id="@+id/username"
+        android:id="@+id/profileUsername"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -88,7 +88,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/name" />
+        app:layout_constraintTop_toBottomOf="@+id/profileName" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/postButton"
@@ -117,7 +117,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bioProfile"
+        app:layout_constraintTop_toBottomOf="@+id/profileBio"
         app:layout_constraintVertical_bias="0.964" />
 
 

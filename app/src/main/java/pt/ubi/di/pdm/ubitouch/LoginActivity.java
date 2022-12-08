@@ -112,6 +112,9 @@ public class LoginActivity extends AppCompatActivity {
                             editor.putString("username", response.getString("username"));
                             editor.putString("picture", response.getString("picture"));
                             editor.apply();
+
+                            // print the token
+                            Log.i(TAG, "token: " + response.getString("token"));
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
