@@ -72,6 +72,7 @@
         <!-- forgot password text -->
         <TextView
             android:id="@+id/forgotPasswordText"
+            style="@style/LoginColorsStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
@@ -79,33 +80,31 @@
             android:layout_marginEnd="32dp"
             android:text="@string/forgot_password"
             android:textSize="11sp"
-            android:gravity="end"
-            android:textColor="@color/azul100">
+            android:gravity="end">
         </TextView>
 
         <!-- log in button -->
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/buttonLogin"
-            style="@style/Widget.MaterialComponents.Button"
+            style="@style/LoginButtonStyle"
             android:layout_width="match_parent"
             android:layout_height="80dp"
             android:layout_marginStart="32dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="32dp"
-            android:backgroundTint="@color/azul200"
             android:text="@string/login"
-            android:textColor="#FFFFFF"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/loginPasswordInputLayout"
-            app:strokeColor="@color/azul200"
+            app:strokeColor="@color/azul4"
             app:strokeWidth="2dp" />
 
         <!-- register text -->
         <TextView
             android:id="@+id/noAccountText"
+            style="@style/LoginColorsStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
@@ -113,8 +112,7 @@
             android:layout_marginEnd="32dp"
             android:text="@string/no_account"
             android:textSize="11sp"
-            android:gravity="end"
-            android:textColor="@color/azul100">
+            android:gravity="end">
         </TextView>
 
         <ProgressBar
