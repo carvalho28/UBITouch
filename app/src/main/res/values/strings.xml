@@ -26,4 +26,5 @@
     <string name="invalidEmail">The email is not valid!</string>
     <string name="existing_user">The inserted username or email is already in use. Try another!</string>
     <string name="incorrect_credentials">The username or password is incorrect!</string>
+    <string name="error_msg">An error has occurred. Try again!</string>
 </resources>

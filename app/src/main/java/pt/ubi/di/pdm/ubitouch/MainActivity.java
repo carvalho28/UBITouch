@@ -20,14 +20,14 @@ public class MainActivity extends AppCompatActivity {
         btnMain = findViewById(R.id.btnMain);
 
         // TO REMOVE token, id, username
-        SharedPreferences sharedPref = getSharedPreferences("user", Context.MODE_PRIVATE);
-        sharedPref.edit().clear().apply();
+//        SharedPreferences sharedPref = getSharedPreferences("user", Context.MODE_PRIVATE);
+//        sharedPref.edit().clear().apply();
 
 
         // on click go to register activity
         btnMain.setOnClickListener(
                 v -> {
-                    Intent intent = new Intent(this, LoginActivity.class);
+                    Intent intent = new Intent(this, FeedActivity.class);
                     startActivity(intent);
                 });
     }

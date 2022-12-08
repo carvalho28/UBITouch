@@ -102,10 +102,13 @@
       android:layout_below="@id/header">
 
     <!-- If no posts are retrieved -->
+
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        >
+        tools:layout_editor_absoluteX="-35dp"
+        tools:layout_editor_absoluteY="114dp">
 
     </androidx.recyclerview.widget.RecyclerView>
 
@@ -132,6 +135,14 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/ic_baseline_add_24" />
+
+    <ProgressBar
+        android:id="@+id/feedProgressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        />
   </androidx.constraintlayout.widget.ConstraintLayout>
 
 </RelativeLayout>
