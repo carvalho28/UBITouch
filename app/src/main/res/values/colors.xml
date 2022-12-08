@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="azul500">#0E0E52</color>
-    <color name="azul400">#150578</color>
-    <color name="azul300">#192BC2</color>
-    <color name="azul200">#449DD1</color>
-    <color name="azul100">#78C0E0</color>
+    <color name="azul9">#00072D</color>
+    <color name="azul8">#0E0E52</color>
+    <color name="azul7">#001C55</color>
+    <color name="azul6">#150578</color>
+    <color name="azul5">#192BC2</color>
+    <color name="azul4">#0E6BA8</color>
+    <color name="azul3">#449DD1</color>
+    <color name="azul2">#78C0E0</color>
+    <color name="azul1">#A6E1FA</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 </resources>
-
-<!--00072D, 001C55, 0A2472, 0E6BA8, A6E1FA -->

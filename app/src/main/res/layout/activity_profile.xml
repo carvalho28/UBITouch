@@ -22,10 +22,10 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/bannerImage"
+        style="@style/ProfileColorsStyle"
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:layout_marginBottom="8dp"
-        android:background="@color/azul400"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -49,12 +49,12 @@
 
     <Button
         android:id="@+id/editProfileButton"
+        style="@style/ProfileButtonStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="136dp"
         android:layout_marginEnd="28dp"
         android:layout_marginBottom="50dp"
-        android:backgroundTint="@color/azul200"
         android:text="@string/edit_profile"
         android:textSize="12sp"
         app:cornerRadius="50dp"
@@ -92,13 +92,14 @@
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/postButton"
+        style="@style/ProfileButtonStyle"
         android:layout_width="63dp"
         android:layout_height="60dp"
         android:layout_marginStart="320dp"
         android:layout_marginEnd="31dp"
         android:layout_marginBottom="35dp"
         android:clickable="true"
-        app:backgroundTint="@color/azul200"
+        app:tint="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"

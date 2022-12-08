@@ -7,10 +7,10 @@
 
   <androidx.constraintlayout.widget.ConstraintLayout
       android:id="@+id/header"
+      style="@style/FeedColorsStyle"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:layout_alignParentTop="true"
-      android:background="@color/azul300"
       android:gravity="center"
       android:minHeight="50dp">
 
@@ -33,7 +33,7 @@
         android:layout_marginEnd="5dp"
         android:layout_marginBottom="10dp"
         android:text="@string/header_title"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/white"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -45,10 +45,10 @@
 
   <androidx.constraintlayout.widget.ConstraintLayout
       android:id="@+id/footer"
+      style="@style/FeedColorsStyle"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:layout_alignParentBottom="true"
-      android:background="@color/azul300"
       android:minHeight="50dp" >
 
     <LinearLayout
@@ -126,11 +126,11 @@
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/floatingActionButton"
+        style="@style/FeedButtonStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="15dp"
         android:layout_marginBottom="15dp"
-        android:backgroundTint="@color/azul200"
         app:tint="@color/white"
         android:clickable="true"
         app:layout_constraintBottom_toBottomOf="parent"
