@@ -7,12 +7,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
-import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -32,7 +28,6 @@ import com.squareup.picasso.Picasso;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.ByteArrayOutputStream;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -48,6 +43,8 @@ public class EditProfileActivity extends AppCompatActivity {
     String token;
     Map config = new HashMap();
     private Uri imageUri;
+    boolean imageChanged = false;
+    String originalImage, originalFirstName, originalLastName, originalBio;
 
     // Debug
     private final String TAG = "Diogo";
@@ -66,11 +63,6 @@ public class EditProfileActivity extends AppCompatActivity {
     // URL of the API
     private final String URL = "https://server-ubi-touch.herokuapp.com/users/";
     private final String URLupdate = URL + "update/";
-
-    // Cloudinary
-    private final String CLOUDINARY_URL = "https://api.cloudinary.com/v1_1/dvo3vlsl3/image/upload";
-    private final String CLOUD_NAME = "dvo3vlsl3";
-    private final String UPLOAD_PRESET = "ubitouch";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -93,7 +85,7 @@ public class EditProfileActivity extends AppCompatActivity {
         Log.i("Diogo", "EditProfileActivity: onCreate() - userId: " + userId);
         Log.i("Diogo", "EditProfileActivity: onCreate() - token: " + token);
 
-        initConfig();
+        // initConfig();
 
         profileImage.setOnClickListener(
                 v -> {
@@ -112,76 +104,52 @@ public class EditProfileActivity extends AppCompatActivity {
         Intent intent = new Intent(Intent.ACTION_PICK);
         intent.setType("image/*");
         activityResultLauncher.launch(intent);
+        imageChanged = true;
     }
 
     // update the user profile
     private void updateProfile(String userId) {
         Log.d(TAG, ": " + " button clicked");
+        String imageUrl = "";
 
-        MediaManager.get().upload(imageUri).callback(new UploadCallback() {
-            @Override
-            public void onStart(String requestId) {
-                Log.d(TAG, "onStart: " + "started");
-            }
-
-            @Override
-            public void onProgress(String requestId, long bytes, long totalBytes) {
-                Log.d(TAG, "onStart: " + "uploading");
-                progressBar.setVisibility(View.VISIBLE);
-            }
-
-            @Override
-            public void onSuccess(String requestId, Map resultData) {
-                // get the image url
-                String imageUrl = (String) resultData.get("url");
-                // convert to https
-                imageUrl = imageUrl.replace("http", "https");
-
-                // make the request
-                RequestQueue queue = Volley.newRequestQueue(EditProfileActivity.this);
-                JSONObject jsonBody = new JSONObject();
-                try {
-                    jsonBody.put("firstName", firstName.getText().toString());
-                    jsonBody.put("lastName", lastName.getText().toString());
-                    jsonBody.put("biography", bio.getText().toString());
-                    jsonBody.put("picture", imageUrl);
-                } catch (JSONException e) {
-                    e.printStackTrace();
+        if (imageChanged) {
+            MediaManager.get().upload(imageUri).callback(new UploadCallback() {
+                @Override
+                public void onStart(String requestId) {
+                    Log.d(TAG, "onStart: " + "started");
                 }
 
-                JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
-                        Request.Method.PUT,
-                        URLupdate + userId,
-                        jsonBody,
-                        response -> {
-                            Log.i("Diogo", "Response: " + response.toString());
-                            Intent intent = new Intent(EditProfileActivity.this, ProfileActivity.class);
-                            startActivity(intent);
-                        },
-                        error -> {
-                            Log.e("Diogo", "Error: " + error.toString());
-                        }) {
-                    @Override
-                    public Map<String, String> getHeaders() {
-                        Map<String, String> params = new HashMap<>();
-                        params.put("Content-Type", "application/json");
-                        params.put("Authorization", "Bearer " + token);
-                        return params;
-                    }
-                };
-                queue.add(jsonObjectRequest);
-            }
+                @Override
+                public void onProgress(String requestId, long bytes, long totalBytes) {
+                    Log.d(TAG, "onStart: " + "uploading");
+                    progressBar.setVisibility(View.VISIBLE);
+                }
 
-            @Override
-            public void onError(String requestId, ErrorInfo error) {
-                Log.d(TAG, "onStart: " + error);
-            }
+                @Override
+                public void onSuccess(String requestId, Map resultData) {
+                    // get the image url
+                    String imageUrl = (String) resultData.get("url");
+                    // convert to https
+                    imageUrl = imageUrl.replace("http", "https");
+                    // post the data to the API
+                    postData(firstName.getText().toString(), lastName.getText().toString(), bio.getText().toString(),
+                            imageUrl);
+                }
 
-            @Override
-            public void onReschedule(String requestId, ErrorInfo error) {
-                Log.d(TAG, "onStart: " + error);
-            }
-        }).dispatch();
+                @Override
+                public void onError(String requestId, ErrorInfo error) {
+                    Log.d(TAG, "onStart: " + error);
+                }
+
+                @Override
+                public void onReschedule(String requestId, ErrorInfo error) {
+                    Log.d(TAG, "onStart: " + error);
+                }
+            }).dispatch();
+        } else {
+            postData(firstName.getText().toString(), lastName.getText().toString(), bio.getText().toString(),
+                    originalImage);
+        }
     }
 
     // get data from the API using the user id
@@ -201,6 +169,10 @@ public class EditProfileActivity extends AppCompatActivity {
                         lastName.setText(response.getString("lastName"));
                         bio.setText(response.getString("biography"));
                         Picasso.get().load(response.getString("picture")).fit().centerCrop().into(profileImage);
+                        originalImage = response.getString("picture");
+                        originalFirstName = response.getString("firstName");
+                        originalLastName = response.getString("lastName");
+                        originalBio = response.getString("biography");
                     } catch (JSONException e) {
                         e.printStackTrace();
                         Log.i(TAG, "Erro no load");
@@ -220,12 +192,41 @@ public class EditProfileActivity extends AppCompatActivity {
         queue.add(jsonObjectRequest);
     }
 
-    private void initConfig() {
-        Map config = new HashMap();
-        config.put("cloud_name", CLOUD_NAME);
-        config.put("api_key", "966681439871748");
-        config.put("api_secret", "QYlGWWg5A9I7JSt4D0r4GXdnG6w");
-        // config.put("secure", true);
-        MediaManager.init(this, config);
+    // method to post the data to the API
+    private void postData(String firstName, String lastName, String bio, String imageUrl) {
+        // make the request
+        RequestQueue queue = Volley.newRequestQueue(EditProfileActivity.this);
+        JSONObject jsonBody = new JSONObject();
+        try {
+            jsonBody.put("firstName", firstName);
+            jsonBody.put("lastName", lastName);
+            jsonBody.put("biography", bio);
+            jsonBody.put("picture", imageUrl);
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
+                Request.Method.PUT,
+                URLupdate + userId,
+                jsonBody,
+                response -> {
+                    Log.i("Diogo", "Response: " + response.toString());
+                    Intent intent = new Intent(EditProfileActivity.this, ProfileActivity.class);
+                    startActivity(intent);
+                },
+                error -> {
+                    Log.e("Diogo", "Error: " + error.toString());
+                }) {
+            @Override
+            public Map<String, String> getHeaders() {
+                Map<String, String> params = new HashMap<>();
+                params.put("Content-Type", "application/json");
+                params.put("Authorization", "Bearer " + token);
+                return params;
+            }
+        };
+        queue.add(jsonObjectRequest);
     }
 }
