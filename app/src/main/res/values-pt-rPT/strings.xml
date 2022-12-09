@@ -50,4 +50,11 @@
     <string name="november">novembro</string>
     <string name="december">dezembro</string>
     <string name="error_msg">Aconteceu um erro. Tente novamente!</string>
+    <!-- Settings -->
+    <string name="settings">Definições</string>
+    <string name="night_mode">Modo Noturno</string>
+    <string name="notifications">Notificações</string>
+    <string name="security_privacy">Segurança e Privacidade</string>
+    <string name="language">Idioma</string>
+    <string name="about_us">Sobre Nós</string>
 </resources>
