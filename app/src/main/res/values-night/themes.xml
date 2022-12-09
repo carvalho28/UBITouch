@@ -2,17 +2,59 @@
     <!-- Base application theme. -->
     <style name="Theme.UBItouch" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/azul400</item>
-        <item name="colorPrimaryVariant">@color/azul500</item>
+        <item name="colorPrimary">@color/azul5</item>
+        <item name="colorPrimaryVariant">@color/azul8</item>
         <item name="colorOnPrimary">@color/black</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/azul200</item>
-        <item name="colorSecondaryVariant">@color/azul300</item>
+        <item name="colorSecondary">@color/azul5</item>
+        <item name="colorSecondaryVariant">@color/azul8</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Font Style -->
         <item name="android:fontFamily">@font/abeezeeregular</item>
         <!-- Customize your theme here. -->
+    </style>
+
+    <!-- Login colors -->
+    <style name="LoginTextStyle">
+        <item name="android:textColor">@color/azul1</item>
+    </style>
+    <style name="LoginButtonStyle">
+        <item name="android:backgroundTint">@color/azul5</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:strokeColor">@color/white</item>
+    </style>
+
+    <!-- Register colors -->
+    <style name="RegisterButtonStyle">
+        <item name="android:backgroundTint">@color/azul5</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <!-- Feed colors -->
+    <style name="FeedColorsStyle">
+        <item name="android:background">@color/azul8</item>
+    </style>
+    <style name="FeedButtonStyle">
+        <item name="backgroundTint">@color/azul5</item>
+    </style>
+
+    <!-- Profile colors -->
+    <style name="ProfileColorsStyle">
+        <item name="android:background">@color/azul8</item>
+    </style>
+    <style name="ProfileButtonStyle">
+        <item name="backgroundTint">@color/azul5</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <!-- Edit Profile colors -->
+    <style name="EditProfileColorsStyle">
+        <item name="android:background">@color/azul8</item>
+    </style>
+    <style name="EditProfileButtons">
+        <item name="android:backgroundTint">@color/azul5</item>
+        <item name="android:textColor">@color/white</item>
     </style>
 </resources>

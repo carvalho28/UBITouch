@@ -16,6 +16,8 @@
     <string name="no_posts">Oops! No posts yet.</string>
     <!-- activity_profile.xml -->
     <string name="edit_profile">Edit profile</string>
+    <string name="bio" translatable="false">Bio</string>
+    <string name="save">Save</string>
     <string name="name">Name</string>
 
     <string name="emptyFieldError">Please fill all the fields!</string>
@@ -52,4 +54,5 @@
     <string name="october">October</string>
     <string name="november">November</string>
     <string name="december">December</string>
+    <string name="error_msg">An error has occurred. Try again!</string>
 </resources>

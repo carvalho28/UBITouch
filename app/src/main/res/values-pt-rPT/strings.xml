@@ -13,6 +13,7 @@
     <string name="no_posts">Oops! Ainda não existem publicações.</string>
     <!-- activity_profile.xml -->
     <string name="edit_profile">Editar perfil</string>
+    <string name="save">Guardar</string>
     <string name="name">Nome</string>
     <string name="emptyFieldError">Por favor, preencha todos os campos!</string>
     <string name="differentPasswords">As senhas são diferentes!</string>
@@ -48,4 +49,5 @@
     <string name="october">outubro</string>
     <string name="november">novembro</string>
     <string name="december">dezembro</string>
+    <string name="error_msg">Aconteceu um erro. Tente novamente!</string>
 </resources>
