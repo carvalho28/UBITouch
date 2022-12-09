@@ -63,4 +63,7 @@
     <string name="language">Language</string>
     <string name="about_us">About Us</string>
     <string name="logout" translatable="false">Logout</string>
+    <!-- Post -->
+    <string name="post_default_username">Anonymous</string>
+    <string name="post_default_text">Undefined</string>
 </resources>

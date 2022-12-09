@@ -57,4 +57,7 @@
     <string name="security_privacy">Segurança e Privacidade</string>
     <string name="language">Idioma</string>
     <string name="about_us">Sobre Nós</string>
+    <!-- Post -->
+    <string name="post_default_username">Anónimo</string>
+    <string name="post_default_text">Não definido</string>
 </resources>

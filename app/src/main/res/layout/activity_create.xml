@@ -212,6 +212,7 @@
                         android:backgroundTint="@color/azul2"
                         android:text="@string/post_publish"
                         android:textAllCaps="false"
+                        android:textColor="@color/white"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
