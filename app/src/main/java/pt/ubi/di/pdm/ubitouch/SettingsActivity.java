@@ -1,7 +1,7 @@
 package pt.ubi.di.pdm.ubitouch;
-
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class SettingsActivity extends AppCompatActivity {
 
