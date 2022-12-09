@@ -34,6 +34,7 @@
     <string name="post_date_error">Erro ao inserir a data.</string>
     <string name="post_time_error">Erro ao inserir a hora.</string>
     <string name="post_nd">Não definido</string>
+    <string name="select_time">Selecione a hora</string>
     <!-- Months -->
     <string name="january">janeiro</string>
     <string name="february">fevereiro</string>

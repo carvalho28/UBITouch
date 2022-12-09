@@ -38,6 +38,7 @@
     <string name="post_date_error">Error inserting date.</string>
     <string name="post_time_error">Error inserting hour.</string>
     <string name="post_nd">Undefined</string>
+    <string name="select_time">Select time</string>
     <!-- Months -->
     <string name="january">January</string>
     <string name="february">February</string>

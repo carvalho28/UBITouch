@@ -198,6 +198,7 @@
                         android:layout_marginStart="5dp"
                         android:backgroundTint="@color/azul200"
                         android:contentDescription="@string/post_pick_time"
+                        android:onClick="openTimePicker"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/btnPickDate"
                         app:layout_constraintTop_toTopOf="parent"

@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -11,6 +12,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.TimePicker;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
@@ -20,6 +22,7 @@ import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Locale;
 
 public class CreateActivity extends AppCompatActivity {
 
@@ -31,6 +34,9 @@ public class CreateActivity extends AppCompatActivity {
 
     // DEBUG
     private final String TAG = "USER";
+
+    // Time
+    int hour, minute;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +53,7 @@ public class CreateActivity extends AppCompatActivity {
 
         initDatePicker();
 
-        /*
+        /* BACKEND STUFF
         btnCreatePost.setOnClickListener(
                 (v) -> {
                     if (createTitle.getText().toString().isEmpty()) {
@@ -147,7 +153,20 @@ public class CreateActivity extends AppCompatActivity {
     // ---------------------------------------------------------------------------------------------
 
     // TIME PICKER ---------------------------------------------------------------------------------
-
+    public void openTimePicker(View view) {
+        TimePickerDialog.OnTimeSetListener onTimeSetListener = new TimePickerDialog.OnTimeSetListener() {
+            @Override
+            public void onTimeSet(android.widget.TimePicker timePicker, int h, int m) {
+                hour = h;
+                minute = m;
+                timeText.setText(String.format(Locale.getDefault(), "%02d:%02d", hour, minute));
+            }
+        };
+        int style = AlertDialog.THEME_DEVICE_DEFAULT_DARK;
+        TimePickerDialog timePickerDialog = new TimePickerDialog(this, onTimeSetListener, hour, minute, true);
+        timePickerDialog.setTitle(getString(R.string.select_time));
+        timePickerDialog.show();
+    }
     // ---------------------------------------------------------------------------------------------
 
 
