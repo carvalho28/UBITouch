@@ -29,8 +29,8 @@ public class MainActivity extends AppCompatActivity {
         btnMain = findViewById(R.id.btnMain);
 
         // TO REMOVE token, id, username
-//        SharedPreferences sharedPref = getSharedPreferences("user", Context.MODE_PRIVATE);
-//        sharedPref.edit().clear().apply();
+        SharedPreferences sharedPref = getSharedPreferences("user", Context.MODE_PRIVATE);
+        sharedPref.edit().clear().apply();
 
         initConfig();
 
@@ -38,7 +38,8 @@ public class MainActivity extends AppCompatActivity {
         // on click go to register activity
         btnMain.setOnClickListener(
                 v -> {
-                    Intent intent = new Intent(this, EditProfileActivity.class);
+                    Intent intent = new Intent(this, CreateActivity.class);
+
                     startActivity(intent);
                 });
     }

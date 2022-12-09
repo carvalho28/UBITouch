@@ -25,6 +25,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class FeedActivity extends AppCompatActivity {
 
     ImageView imageView;
+
     ProgressBar progressBar;
 
     // DEBUG
@@ -46,11 +47,14 @@ public class FeedActivity extends AppCompatActivity {
         setContentView(R.layout.activity_feed);
 
         imageView = findViewById(R.id.profileImageView);
+
         progressBar = findViewById(R.id.feedProgressBar);
+
 
         SharedPreferences sharedPref = getSharedPreferences("user", Context.MODE_PRIVATE);
         String imageProfile = sharedPref.getString("picture", "false");
         Picasso.get().load(imageProfile).into(imageView);
+
 
         getEventsData();
     }

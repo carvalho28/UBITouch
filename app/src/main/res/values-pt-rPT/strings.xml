@@ -21,5 +21,33 @@
     <string name="invalidEmail">O email não é válido!</string>
     <string name="existing_user">O nome de utilizador ou email inserido já está em uso! Tente outro!</string>
     <string name="incorrect_credentials">O nome de utilizador ou senha está incorreto!</string>
+    <!-- activity_create.xml -->
+    <string name="post_publish">Publicar</string>
+    <string name="post_title">Título</string>
+    <string name="post_description">Descrição</string>
+    <string name="post_attach">Anexar mídia</string>
+    <string name="post_pick_date">Escolher dia</string>
+    <string name="post_pick_time">Escolher hora</string>
+    <string name="post_empty_title">O título não pode ser vazio.</string>
+    <string name="post_tmc_title">O limite de caracteres do título foi excedido.</string>
+    <string name="post_tmc_desc">O limite de caracteres da descrição foi excedido.</string>
+    <string name="post_media_error">Erro ao carregar o anexo.</string>
+    <string name="post_date_error">Erro ao inserir a data.</string>
+    <string name="post_time_error">Erro ao inserir a hora.</string>
+    <string name="post_nd">Não definido</string>
+    <string name="select_time">Selecione a hora</string>
+    <!-- Months -->
+    <string name="january">janeiro</string>
+    <string name="february">fevereiro</string>
+    <string name="march">março</string>
+    <string name="april">abril</string>
+    <string name="may">maio</string>
+    <string name="june">junho</string>
+    <string name="july">julho</string>
+    <string name="august">agosto</string>
+    <string name="september">setembro</string>
+    <string name="october">outubro</string>
+    <string name="november">novembro</string>
+    <string name="december">dezembro</string>
     <string name="error_msg">Aconteceu um erro. Tente novamente!</string>
 </resources>
