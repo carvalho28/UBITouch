@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 
 import com.cloudinary.android.MediaManager;
@@ -29,8 +30,8 @@ public class MainActivity extends AppCompatActivity {
         btnMain = findViewById(R.id.btnMain);
 
         // TO REMOVE token, id, username
-        SharedPreferences sharedPref = getSharedPreferences("user", Context.MODE_PRIVATE);
-        sharedPref.edit().clear().apply();
+//        SharedPreferences sharedPref = getSharedPreferences("user", Context.MODE_PRIVATE);
+//        sharedPref.edit().clear().apply();
 
         initConfig();
 
