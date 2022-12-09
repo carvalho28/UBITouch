@@ -16,6 +16,13 @@
         tools:replace="android:fullBackupContent"
         tools:targetApi="31">
         <activity
+            android:name=".SettingsActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".CreateActivity"
             android:exported="false">
             <meta-data
@@ -50,7 +57,8 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-        <activity android:name=".EditProfileActivity"
+        <activity
+            android:name=".EditProfileActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -73,7 +81,6 @@
         <meta-data
             android:name="CLOUINARY_URL"
             android:value="cloudinary://966681439871748:QYlGWWg5A9I7JSt4D0r4GXdnG6w@dvo3vlsl3" />
-
     </application>
 
 </manifest>

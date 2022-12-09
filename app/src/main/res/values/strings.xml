@@ -55,4 +55,12 @@
     <string name="november">November</string>
     <string name="december">December</string>
     <string name="error_msg">An error has occurred. Try again!</string>
+    <!-- Settings -->
+    <string name="settings">Settings</string>
+    <string name="night_mode">Night Mode</string>
+    <string name="notifications">Notifications</string>
+    <string name="security_privacy">Security and Privacy</string>
+    <string name="language">Language</string>
+    <string name="about_us">About Us</string>
+    <string name="logout" translatable="false">Logout</string>
 </resources>
