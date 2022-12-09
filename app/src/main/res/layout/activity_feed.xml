@@ -11,7 +11,7 @@
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:layout_alignParentTop="true"
-      android:background="@color/azul200"
+      android:background="@color/azul2"
       android:gravity="center"
       android:minHeight="50dp">
 
@@ -50,7 +50,7 @@
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:layout_alignParentBottom="true"
-      android:background="@color/azul200"
+      android:background="@color/azul2"
       android:minHeight="50dp">
 
     <LinearLayout
