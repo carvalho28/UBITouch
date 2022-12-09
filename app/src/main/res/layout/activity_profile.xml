@@ -7,24 +7,25 @@
     tools:context=".ProfileActivity">
 
     <TextView
-        android:id="@+id/profileBio"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/bioProfile"
+        android:layout_width="93dp"
+        android:layout_height="27dp"
         android:layout_marginStart="3dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="140dp"
         android:text="Bio"
         android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@+id/editProfileButton"
         app:layout_constraintHorizontal_bias="0.529"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profileUsername" />
+        app:layout_constraintTop_toBottomOf="@+id/username" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/bannerImage"
-        style="@style/ProfileColorsStyle"
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:layout_marginBottom="8dp"
+        android:background="@color/azul400"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -48,12 +49,12 @@
 
     <Button
         android:id="@+id/editProfileButton"
-        style="@style/ProfileButtonStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="136dp"
         android:layout_marginEnd="28dp"
         android:layout_marginBottom="50dp"
+        android:backgroundTint="@color/azul200"
         android:text="@string/edit_profile"
         android:textSize="12sp"
         app:cornerRadius="50dp"
@@ -64,7 +65,7 @@
         app:layout_constraintTop_toBottomOf="@+id/bannerImage" />
 
     <TextView
-        android:id="@+id/profileName"
+        android:id="@+id/name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="3dp"
@@ -78,7 +79,7 @@
         app:layout_constraintTop_toBottomOf="@+id/editProfileImage" />
 
     <TextView
-        android:id="@+id/profileUsername"
+        android:id="@+id/username"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -87,18 +88,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profileName" />
+        app:layout_constraintTop_toBottomOf="@+id/name" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/postButton"
-        style="@style/ProfileButtonStyle"
         android:layout_width="63dp"
         android:layout_height="60dp"
         android:layout_marginStart="320dp"
         android:layout_marginEnd="31dp"
         android:layout_marginBottom="35dp"
         android:clickable="true"
-        app:tint="@color/white"
+        app:backgroundTint="@color/azul200"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -117,7 +117,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profileBio"
+        app:layout_constraintTop_toBottomOf="@+id/bioProfile"
         app:layout_constraintVertical_bias="0.964" />
 
 

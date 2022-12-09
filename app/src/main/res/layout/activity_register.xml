@@ -24,6 +24,7 @@
         android:textSize="20sp"
         android:visibility="gone" />
 
+
     <!-- firstName -->
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout"
@@ -40,7 +41,7 @@
         app:startIconDrawable="@drawable/ic_person">
 
       <com.google.android.material.textfield.TextInputEditText
-          android:id="@+id/registerFirstName"
+          android:id="@+id/registerInputFirstName"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:inputType="text"
@@ -63,7 +64,7 @@
         app:startIconDrawable="@drawable/ic_person">
 
       <com.google.android.material.textfield.TextInputEditText
-          android:id="@+id/registerLastName"
+          android:id="@+id/registerInputLastName"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:inputType="text"
@@ -169,18 +170,21 @@
     <!-- register button -->
     <com.google.android.material.button.MaterialButton
         android:id="@+id/buttonRegister"
-        style="@style/RegisterButtonStyle"
+        style="@style/Widget.MaterialComponents.Button"
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="32dp"
+        android:backgroundTint="@color/azul200"
         android:text="@string/register"
+        android:textColor="#FFFFFF"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout6"
-        app:strokeColor="@color/azul4"
+
+        app:strokeColor="@color/azul200"
         app:strokeWidth="2dp" />
 
   </LinearLayout>

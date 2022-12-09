@@ -46,7 +46,6 @@ public class LoginActivity extends AppCompatActivity {
         SharedPreferences sharedPref = getSharedPreferences("user", Context.MODE_PRIVATE);
         String x = sharedPref.getString("token", "");
         Log.i(TAG, x);
-
         if (!x.isEmpty()) {
             // go to the feed activity
             Intent intent = new Intent(LoginActivity.this, FeedActivity.class);
