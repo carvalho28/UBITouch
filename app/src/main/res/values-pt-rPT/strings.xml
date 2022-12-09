@@ -33,4 +33,18 @@
     <string name="post_media_error">Erro ao carregar o anexo.</string>
     <string name="post_date_error">Erro ao inserir a data.</string>
     <string name="post_time_error">Erro ao inserir a hora.</string>
+    <string name="post_nd">Não definido</string>
+    <!-- Months -->
+    <string name="january">janeiro</string>
+    <string name="february">fevereiro</string>
+    <string name="march">março</string>
+    <string name="april">abril</string>
+    <string name="may">maio</string>
+    <string name="june">junho</string>
+    <string name="july">julho</string>
+    <string name="august">agosto</string>
+    <string name="september">setembro</string>
+    <string name="october">outubro</string>
+    <string name="november">novembro</string>
+    <string name="december">dezembro</string>
 </resources>

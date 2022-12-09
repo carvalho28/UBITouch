@@ -47,7 +47,7 @@
                     android:layout_marginStart="15dp"
                     android:hint="@string/post_title"
                     app:counterEnabled="true"
-                    app:counterMaxLength="64"
+                    app:counterMaxLength="50"
                     app:hintTextColor="@color/azul300"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -86,6 +86,50 @@
                         android:maxLines="7"
                         android:minLines="3" />
                 </com.google.android.material.textfield.TextInputLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/dateText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:drawableStart="@drawable/ic_baseline_calendar_month_24"
+                    android:drawablePadding="5dp"
+                    android:drawableTint="@color/azul100"
+                    android:gravity="center_vertical"
+                    android:text="@string/post_nd"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/timeText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:drawableStart="@drawable/ic_baseline_access_time_24"
+                    android:drawablePadding="5dp"
+                    android:drawableTint="@color/azul100"
+                    android:gravity="center_vertical"
+                    android:text="@string/post_nd"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -137,6 +181,7 @@
                         android:layout_marginStart="5dp"
                         android:backgroundTint="@color/azul200"
                         android:contentDescription="@string/post_pick_date"
+                        android:onClick="openDatePicker"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/btnAttachFile"
                         app:layout_constraintTop_toTopOf="parent"
