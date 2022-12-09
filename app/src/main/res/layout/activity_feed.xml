@@ -127,7 +127,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton"
+        android:id="@+id/btnNewEvent"
         style="@style/FeedButtonStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

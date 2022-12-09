@@ -3,6 +3,7 @@ package pt.ubi.di.pdm.ubitouch;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
@@ -14,6 +15,7 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
@@ -25,8 +27,8 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class FeedActivity extends AppCompatActivity {
 
     ImageView imageView;
-
     ProgressBar progressBar;
+    FloatingActionButton newEvent;
 
     // DEBUG
     private final String TAG = "JOAO";
@@ -47,23 +49,26 @@ public class FeedActivity extends AppCompatActivity {
         setContentView(R.layout.activity_feed);
 
         imageView = findViewById(R.id.profileImageView);
-
         progressBar = findViewById(R.id.feedProgressBar);
-
+        newEvent = findViewById(R.id.btnNewEvent);
 
         SharedPreferences sharedPref = getSharedPreferences("user", Context.MODE_PRIVATE);
         String imageProfile = sharedPref.getString("picture", "false");
         Picasso.get().load(imageProfile).into(imageView);
 
-
         getEventsData();
+
+        newEvent.setOnClickListener(v -> {
+            Intent intent = new Intent(FeedActivity.this, CreateActivity.class);
+            startActivity(intent);
+        });
     }
 
     public void getEventsData() {
         // show loading circle
         progressBar.setVisibility(View.VISIBLE);
 
-//        Get events from DB
+        // Get events from DB
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, events_query_URI, null,
                 response -> {
                     try {
@@ -94,8 +99,8 @@ public class FeedActivity extends AppCompatActivity {
                 },
                 error -> {
                     // if there was an error
-//                    msgError.setText(R.string.error_msg);
-//                    msgError.setVisibility(View.VISIBLE);
+                    // msgError.setText(R.string.error_msg);
+                    // msgError.setVisibility(View.VISIBLE);
                     Log.e(TAG, "Error");
                 });
 
@@ -103,7 +108,7 @@ public class FeedActivity extends AppCompatActivity {
         RequestQueue queue = Volley.newRequestQueue(this);
         queue.add(request);
 
-//         hide loading circle
+        // hide loading circle
         progressBar.setVisibility(View.GONE);
     }
 }
