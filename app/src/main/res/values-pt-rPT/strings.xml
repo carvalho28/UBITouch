@@ -68,4 +68,7 @@
     <string name="deactivate">Desativar</string>
     <!-- Language -->
     <string name="choose_language">Escolha o idioma</string>
+    <!-- Post -->
+    <string name="post_default_username">Anónimo</string>
+    <string name="post_default_text">Não definido</string>
 </resources>

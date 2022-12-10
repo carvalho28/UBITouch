@@ -74,4 +74,7 @@
     <string name="deactivate">Deactivate</string>
     <!-- Language -->
     <string name="choose_language">Choose language</string>
+    <!-- Post -->
+    <string name="post_default_username">Anonymous</string>
+    <string name="post_default_text">Undefined</string>
 </resources>
