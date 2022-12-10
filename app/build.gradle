@@ -40,7 +40,7 @@ dependencies {
 // adding volley
     implementation("com.android.volley:volley:1.2.1")
 // adding picasso
-    implementation 'com.squareup.picasso:picasso:2.8'
+    implementation('com.squareup.picasso:picasso:2.8')
 // adding cloudinary
-    implementation 'com.cloudinary:cloudinary-android:2.3.0'
+    implementation('com.cloudinary:cloudinary-android:2.3.0')
 }
