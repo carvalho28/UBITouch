@@ -39,6 +39,8 @@ public class FeedActivity extends AppCompatActivity {
     private String[] event_descriptions;
     private String[] event_images;
     private Integer[] event_creators;
+    private String[] event_dates;
+    private String[] event_times;
     private String[] event_creation_dates;
     private String[] event_updated_dates;
     private int nOfEvents;
@@ -79,6 +81,8 @@ public class FeedActivity extends AppCompatActivity {
                         event_descriptions = new String[nOfEvents];
                         event_images = new String[nOfEvents];
                         event_creators = new Integer[nOfEvents];
+                        event_dates = new String[nOfEvents];
+                        event_times = new String[nOfEvents];
                         event_creation_dates = new String[nOfEvents];
                         event_updated_dates = new String[nOfEvents];
 
@@ -89,6 +93,8 @@ public class FeedActivity extends AppCompatActivity {
                             event_descriptions[i] = e.getString("description");
                             event_images[i] = e.getString(e.getString("image"));
                             event_creators[i] = Integer.parseInt(e.getString("idUser"));
+                            event_dates[i] = e.getString("eventDate");
+                            event_times[i] = e.getString("eventHour");
                             event_creation_dates[i] = e.getString("createdAt");
                             event_updated_dates[i] = e.getString("updatedAt");
                         }
@@ -98,7 +104,7 @@ public class FeedActivity extends AppCompatActivity {
                     }
                 },
                 error -> {
-                    // if there was an error
+                    // if there was an error TODO
                     // msgError.setText(R.string.error_msg);
                     // msgError.setVisibility(View.VISIBLE);
                     Log.e(TAG, "Error");
