@@ -23,7 +23,6 @@
     <style name="LoginButtonStyle">
         <item name="android:backgroundTint">@color/azul5</item>
         <item name="android:textColor">@color/white</item>
-        <item name="android:strokeColor">@color/white</item>
     </style>
 
     <!-- Register colors -->
@@ -54,6 +53,43 @@
         <item name="android:background">@color/azul8</item>
     </style>
     <style name="EditProfileButtons">
+        <item name="android:backgroundTint">@color/azul5</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <!-- Setting colors -->
+    <style name="SettingColorsStyle">
+        <item name="android:backgroundTint">@color/azul5</item>
+    </style>
+
+    <!-- Post colors -->
+    <style name="PostIconColor">
+        <item name="android:drawableTint">@color/azul1</item>
+    </style>
+
+    <!-- Create colors -->
+    <style name="CreateIconColors">
+        <item name="android:drawableTint">@color/azul1</item>
+    </style>
+    <style name="CreateButtonsStyle">
+        <item name="android:backgroundTint">@color/azul5</item>
+    </style>
+
+    <!-- Security Colors -->
+    <style name="SecurityColorsStyle">
+        <item name="android:backgroundTint">@color/azul5</item>
+    </style>
+
+    <!-- Language Colors -->
+    <style name="LanguageColorsStyle">
+        <item name="android:backgroundTint">@color/azul5</item>
+    </style>
+
+    <!-- Change Password Colors -->
+    <style name="CPTextStyle">
+        <item name="android:textColor">@color/azul1</item>
+    </style>
+    <style name="CPButtonStyle">
         <item name="android:backgroundTint">@color/azul5</item>
         <item name="android:textColor">@color/white</item>
     </style>
