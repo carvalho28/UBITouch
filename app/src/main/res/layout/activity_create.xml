@@ -94,6 +94,7 @@
 
                 <TextView
                     android:id="@+id/dateText"
+                    style="@style/CreateIconColors"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="15dp"
@@ -101,7 +102,6 @@
                     android:layout_marginBottom="5dp"
                     android:drawableStart="@drawable/ic_baseline_calendar_month_24"
                     android:drawablePadding="5dp"
-                    android:drawableTint="@color/azul1"
                     android:gravity="center_vertical"
                     android:text="@string/post_nd"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -116,6 +116,7 @@
 
                 <TextView
                     android:id="@+id/timeText"
+                    style="@style/CreateIconColors"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="15dp"
@@ -123,7 +124,6 @@
                     android:layout_marginBottom="5dp"
                     android:drawableStart="@drawable/ic_baseline_access_time_24"
                     android:drawablePadding="5dp"
-                    android:drawableTint="@color/azul1"
                     android:gravity="center_vertical"
                     android:text="@string/post_nd"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -162,10 +162,10 @@
                     <!-- attach -->
                     <ImageButton
                         android:id="@+id/btnAttachFile"
+                        style="@style/CreateButtonsStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="0dp"
                         android:layout_marginStart="15dp"
-                        android:backgroundTint="@color/azul2"
                         android:contentDescription="@string/post_attach"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -176,10 +176,10 @@
                     <!-- date -->
                     <ImageButton
                         android:id="@+id/btnPickDate"
+                        style="@style/CreateButtonsStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="0dp"
                         android:layout_marginStart="5dp"
-                        android:backgroundTint="@color/azul2"
                         android:contentDescription="@string/post_pick_date"
                         android:onClick="openDatePicker"
                         app:layout_constraintBottom_toBottomOf="parent"
@@ -193,10 +193,10 @@
 
                     <ImageButton
                         android:id="@+id/btnPickTime"
+                        style="@style/CreateButtonsStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="0dp"
                         android:layout_marginStart="5dp"
-                        android:backgroundTint="@color/azul2"
                         android:contentDescription="@string/post_pick_time"
                         android:onClick="openTimePicker"
                         app:layout_constraintBottom_toBottomOf="parent"
@@ -207,9 +207,9 @@
 
                     <Button
                         android:id="@+id/btnCreatePost"
+                        style="@style/CreateButtonsStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:backgroundTint="@color/azul2"
                         android:text="@string/post_publish"
                         android:textAllCaps="false"
                         android:textColor="@color/white"
