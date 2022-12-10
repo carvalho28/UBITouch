@@ -57,6 +57,17 @@
     <string name="security_privacy">Segurança e Privacidade</string>
     <string name="language">Idioma</string>
     <string name="about_us">Sobre Nós</string>
+    <!-- Security and Privacy -->
+    <string name="change_password">Alterar a sua senha</string>
+    <string name="deactivate_account">Desative a sua conta</string>
+    <!-- Change Password -->
+    <string name="current_password">Senha atual</string>
+    <string name="new_password">Nova senha</string>
+    <!-- Deactivate Account -->
+    <string name="deactivate_info">Você está prestes a desativar a sua conta UBItouch. Para concluir a sua solicitação, insira a sua senha.</string>
+    <string name="deactivate">Desativar</string>
+    <!-- Language -->
+    <string name="choose_language">Escolha o idioma</string>
     <!-- Post -->
     <string name="post_default_username">Anónimo</string>
     <string name="post_default_text">Não definido</string>
