@@ -63,4 +63,15 @@
     <string name="language">Language</string>
     <string name="about_us">About Us</string>
     <string name="logout" translatable="false">Logout</string>
+    <!-- Security and Privacy -->
+    <string name="change_password">Change Password</string>
+    <string name="deactivate_account">Deactivate your account</string>
+    <!-- Change Password -->
+    <string name="current_password">Current password</string>
+    <string name="new_password">New password</string>
+    <!-- Deactivate -->
+    <string name="deactivate_info">You are about to deactivate your UBItouch account. In order to complete your request, please enter your password.</string>
+    <string name="deactivate">Deactivate</string>
+    <!-- Language -->
+    <string name="choose_language">Choose language</string>
 </resources>
