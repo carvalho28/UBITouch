@@ -1,5 +1,7 @@
 package pt.ubi.di.pdm.ubitouch;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
@@ -8,12 +10,16 @@ import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.TimePicker;
 
@@ -23,7 +29,11 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.cloudinary.android.MediaManager;
+import com.cloudinary.android.callback.ErrorInfo;
+import com.cloudinary.android.callback.UploadCallback;
 import com.google.android.material.textfield.TextInputEditText;
+import com.squareup.picasso.Picasso;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -37,10 +47,13 @@ import java.util.Map;
 public class CreateActivity extends AppCompatActivity {
 
     ImageView profilePicture;
-    Button btnCreatePost, btnAttachFile, btnPickDate, btnPickTime;
+    Button btnCreatePost, btnPickDate, btnPickTime;
+    ImageButton btnAttachFile;
     TextInputEditText createTitle, createDescription;
     TextView dateText, timeText, msgError;
     DatePickerDialog datePickerDialog;
+    ImageView createImage;
+    ProgressBar progressBar;
 
     // DEBUG
     private final String TAG = "Diogo";
@@ -50,6 +63,23 @@ public class CreateActivity extends AppCompatActivity {
 
     // Variables
     private String userId, token;
+    boolean imageChanged = false;
+    private Uri imageUri;
+
+    // Intent to get image
+    ActivityResultLauncher<Intent> activityResultLauncher = registerForActivityResult(
+            new ActivityResultContracts.StartActivityForResult(),
+            result -> {
+                if (result.getResultCode() == RESULT_OK) {
+                    Intent data = result.getData();
+                    imageUri = data.getData();
+                    // print the image URI
+                    Log.i(TAG, "CreateActivity: onCreate(): Image URI: " + imageUri);
+                    createImage.setVisibility(View.VISIBLE);
+                    // set the image to the image view
+                    Picasso.get().load(imageUri).into(createImage);
+                }
+            });
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +94,9 @@ public class CreateActivity extends AppCompatActivity {
         timeText = findViewById(R.id.timeText);
         msgError = findViewById(R.id.msgError);
         btnCreatePost = findViewById(R.id.btnCreatePost);
+        createImage = findViewById(R.id.createImage);
+        btnAttachFile = findViewById(R.id.btnAttachFile);
+        progressBar = findViewById(R.id.createProgressBar);
 
         // shared preferences
         SharedPreferences sharedPref = getSharedPreferences("user", Context.MODE_PRIVATE);
@@ -74,6 +107,11 @@ public class CreateActivity extends AppCompatActivity {
         Log.i(TAG, "CreateActivity: onCreate(): Token: " + token);
 
         initDatePicker();
+
+        // Image
+        btnAttachFile.setOnClickListener(v -> {
+            getImageOrVideo();
+        });
 
         // BACKEND STUFF
         btnCreatePost.setOnClickListener(
@@ -194,19 +232,60 @@ public class CreateActivity extends AppCompatActivity {
 
     // API Call
     private void createPost() {
-        String url = "https://server-ubi-touch.herokuapp.com/events/create";
+        String selectedDate = convertDate(dateText.getText().toString());
+        String selectedTime = convertTime(timeText.getText().toString());
 
+        if (imageChanged) {
+            MediaManager.get().upload(imageUri).callback(new UploadCallback() {
+                @Override
+                public void onStart(String requestId) {
+                    Log.d(TAG, "onStart: " + "started");
+                }
+
+                @Override
+                public void onProgress(String requestId, long bytes, long totalBytes) {
+                    Log.d(TAG, "onStart: " + "uploading");
+                    progressBar.setVisibility(View.VISIBLE);
+                }
+
+                @Override
+                public void onSuccess(String requestId, Map resultData) {
+                    // get the image url
+                    String imageUrl = (String) resultData.get("url");
+                    // convert to https
+                    imageUrl = imageUrl.replace("http", "https");
+                    // post the data to the API
+                    postData(createTitle.getText().toString(), createDescription.getText().toString(), imageUrl,
+                            selectedDate, selectedTime);
+                }
+
+                @Override
+                public void onError(String requestId, ErrorInfo error) {
+                    Log.d(TAG, "onError: " + error.getDescription());
+                }
+
+                @Override
+                public void onReschedule(String requestId, ErrorInfo error) {
+                    Log.d(TAG, "onStart: " + error);
+                }
+            }).dispatch();
+        } else {
+            postData(createTitle.getText().toString(), createDescription.getText().toString(), "",
+                    selectedDate, selectedTime);
+        }
+    }
+
+    private void postData(String title, String description, String image, String eventDate, String eventHour) {
+        String url = "https://server-ubi-touch.herokuapp.com/events/create";
         RequestQueue queue = Volley.newRequestQueue(this);
         JSONObject jsonBody = new JSONObject();
         try {
-            String selectedDate = convertDate(dateText.getText().toString());
-            String selectedTime = convertTime(timeText.getText().toString());
-            jsonBody.put("title", createTitle.getText().toString());
-            jsonBody.put("description", createDescription.getText().toString());
-            jsonBody.put("image", "");
+            jsonBody.put("title", title);
+            jsonBody.put("description", description);
+            jsonBody.put("image", image);
             jsonBody.put("idUser", userId);
-            jsonBody.put("eventDate", selectedDate);
-            jsonBody.put("eventHour", selectedTime);
+            jsonBody.put("eventDate", eventDate);
+            jsonBody.put("eventHour", eventHour);
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -274,5 +353,12 @@ public class CreateActivity extends AppCompatActivity {
         String minute = timeArray[1];
 
         return hour + ":" + minute + ":00";
+    }
+
+    private void getImageOrVideo() {
+        Intent intent = new Intent(Intent.ACTION_PICK);
+        intent.setType("image/* video/*");
+        activityResultLauncher.launch(intent);
+        imageChanged = true;
     }
 }
