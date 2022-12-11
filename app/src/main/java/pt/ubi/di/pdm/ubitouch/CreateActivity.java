@@ -86,7 +86,7 @@ public class CreateActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create);
 
-        // profilePicture = findViewById(R.id.imageViewProfilePicture);
+        profilePicture = findViewById(R.id.profilePicture);
 
         createTitle = findViewById(R.id.createTitle);
         createDescription = findViewById(R.id.createDescription);
@@ -107,6 +107,7 @@ public class CreateActivity extends AppCompatActivity {
         Log.i(TAG, "CreateActivity: onCreate(): Token: " + token);
 
         initDatePicker();
+        getUserData();
 
         // Image
         btnAttachFile.setOnClickListener(v -> {
@@ -360,5 +361,30 @@ public class CreateActivity extends AppCompatActivity {
         intent.setType("image/* video/*");
         activityResultLauncher.launch(intent);
         imageChanged = true;
+    }
+
+    private void getUserData() {
+        String url = "https://server-ubi-touch.herokuapp.com/users/" + userId;
+        RequestQueue queue = Volley.newRequestQueue(this);
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null,
+                response -> {
+                    Log.i(TAG, "CreateActivity: getUserData(): onResponse(): " + response.toString());
+                    try {
+                        Picasso.get().load(response.getString("picture")).into(profilePicture);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                },
+                error -> Log.i(TAG, "CreateActivity: getUserData(): onErrorResponse(): " + error.toString())) {
+            @Override
+            public Map<String, String> getHeaders() {
+                Map<String, String> params = new HashMap<>();
+                params.put("Content-Type", "application/json");
+                params.put("Authorization", "Bearer " + token);
+                return params;
+            }
+        };
+
+        queue.add(jsonObjectRequest);
     }
 }
