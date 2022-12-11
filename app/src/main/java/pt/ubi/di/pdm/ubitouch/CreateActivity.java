@@ -22,6 +22,7 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.VideoView;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -53,6 +54,7 @@ public class CreateActivity extends AppCompatActivity {
     TextView dateText, timeText, msgError;
     DatePickerDialog datePickerDialog;
     ImageView createImage;
+    VideoView createVideo;
     ProgressBar progressBar;
 
     // DEBUG
@@ -75,9 +77,25 @@ public class CreateActivity extends AppCompatActivity {
                     imageUri = data.getData();
                     // print the image URI
                     Log.i(TAG, "CreateActivity: onCreate(): Image URI: " + imageUri);
-                    createImage.setVisibility(View.VISIBLE);
-                    // set the image to the image view
-                    Picasso.get().load(imageUri).into(createImage);
+                    // if is a video
+                    if (imageUri.toString().contains("video")) {
+                        createVideo.setVisibility(View.VISIBLE);
+                        createVideo.setVideoURI(imageUri);
+                        // play the video in loop
+                        createVideo.setOnPreparedListener(mp -> {
+                            mp.setLooping(true);
+                        });
+                        createVideo.start();
+                    }
+                    // if is an image
+                    else {
+                        createImage.setVisibility(View.VISIBLE);
+                        // set the image to the image view
+                        Picasso.get().load(imageUri).into(createImage);
+                    }
+                    // createImage.setVisibility(View.VISIBLE);
+                    // // set the image to the image view
+                    // Picasso.get().load(imageUri).into(createImage);
                 }
             });
 
@@ -95,6 +113,7 @@ public class CreateActivity extends AppCompatActivity {
         msgError = findViewById(R.id.msgError);
         btnCreatePost = findViewById(R.id.btnCreatePost);
         createImage = findViewById(R.id.createImage);
+        createVideo = findViewById(R.id.createVideo);
         btnAttachFile = findViewById(R.id.btnAttachFile);
         progressBar = findViewById(R.id.createProgressBar);
 
@@ -237,39 +256,78 @@ public class CreateActivity extends AppCompatActivity {
         String selectedTime = convertTime(timeText.getText().toString());
 
         if (imageChanged) {
-            MediaManager.get().upload(imageUri).callback(new UploadCallback() {
-                @Override
-                public void onStart(String requestId) {
-                    Log.d(TAG, "onStart: " + "started");
-                }
+            // if it is an image or video
+            if (imageUri.toString().contains("image")) {
 
-                @Override
-                public void onProgress(String requestId, long bytes, long totalBytes) {
-                    Log.d(TAG, "onStart: " + "uploading");
-                    progressBar.setVisibility(View.VISIBLE);
-                }
+                MediaManager.get().upload(imageUri).callback(new UploadCallback() {
+                    @Override
+                    public void onStart(String requestId) {
+                        Log.d(TAG, "onStart: " + "started");
+                        progressBar.setVisibility(View.VISIBLE);
+                    }
 
-                @Override
-                public void onSuccess(String requestId, Map resultData) {
-                    // get the image url
-                    String imageUrl = (String) resultData.get("url");
-                    // convert to https
-                    imageUrl = imageUrl.replace("http", "https");
-                    // post the data to the API
-                    postData(createTitle.getText().toString(), createDescription.getText().toString(), imageUrl,
-                            selectedDate, selectedTime);
-                }
+                    @Override
+                    public void onProgress(String requestId, long bytes, long totalBytes) {
+                        Log.d(TAG, "onStart: " + "uploading");
+                    }
 
-                @Override
-                public void onError(String requestId, ErrorInfo error) {
-                    Log.d(TAG, "onError: " + error.getDescription());
-                }
+                    @Override
+                    public void onSuccess(String requestId, Map resultData) {
+                        // get the image url
+                        String imageUrl = (String) resultData.get("url");
+                        // convert to https
+                        imageUrl = imageUrl.replace("http", "https");
+                        // post the data to the API
+                        postData(createTitle.getText().toString(), createDescription.getText().toString(), imageUrl,
+                                selectedDate, selectedTime);
+                    }
 
-                @Override
-                public void onReschedule(String requestId, ErrorInfo error) {
-                    Log.d(TAG, "onStart: " + error);
-                }
-            }).dispatch();
+                    @Override
+                    public void onError(String requestId, ErrorInfo error) {
+                        Log.d(TAG, "onError: " + error.getDescription());
+                    }
+
+                    @Override
+                    public void onReschedule(String requestId, ErrorInfo error) {
+                        Log.d(TAG, "onStart: " + error);
+                    }
+                }).dispatch();
+            } else {
+                // if it is a video
+                MediaManager.get().upload(imageUri).option("resource_type", "video").callback(new UploadCallback() {
+                    @Override
+                    public void onStart(String requestId) {
+                        Log.d(TAG, "onStart: " + "started");
+                        progressBar.setVisibility(View.VISIBLE);
+                    }
+
+                    @Override
+                    public void onProgress(String requestId, long bytes, long totalBytes) {
+                        Log.d(TAG, "onStart: " + "uploading");
+                    }
+
+                    @Override
+                    public void onSuccess(String requestId, Map resultData) {
+                        // get the image url
+                        String imageUrl = (String) resultData.get("url");
+                        // convert to https
+                        imageUrl = imageUrl.replace("http", "https");
+                        // post the data to the API
+                        postData(createTitle.getText().toString(), createDescription.getText().toString(), imageUrl,
+                                selectedDate, selectedTime);
+                    }
+
+                    @Override
+                    public void onError(String requestId, ErrorInfo error) {
+                        Log.d(TAG, "onError: " + error.getDescription());
+                    }
+
+                    @Override
+                    public void onReschedule(String requestId, ErrorInfo error) {
+                        Log.d(TAG, "onStart: " + error);
+                    }
+                }).dispatch();
+            }
         } else {
             postData(createTitle.getText().toString(), createDescription.getText().toString(), "",
                     selectedDate, selectedTime);
@@ -357,8 +415,9 @@ public class CreateActivity extends AppCompatActivity {
     }
 
     private void getImageOrVideo() {
-        Intent intent = new Intent(Intent.ACTION_PICK);
-        intent.setType("image/* video/*");
+        Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        intent.setType("*/*");
+        intent.putExtra(Intent.EXTRA_MIME_TYPES, new String[] { "image/*", "video/*" });
         activityResultLauncher.launch(intent);
         imageChanged = true;
     }
