@@ -6,25 +6,64 @@ import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class PostActivity extends AppCompatActivity {
+public class PostActivity {
 
-    ImageView postUserImage;
-    TextView postUsername, postTitle, postDescription, postDate, postTime;
+    //private final String username;
+    private final String title;
+    private final String description;
+    private final String date;
+    private final String eventDate;
+    private final String eventHour;
+    private final String image;
+    
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_post);
-
-        postUserImage = findViewById(R.id.postUserImage);
-        postUsername = findViewById(R.id.postUsername);
-        postTitle = findViewById(R.id.postTitle);
-        postDescription = findViewById(R.id.postDescription);
-        postDate = findViewById(R.id.postDate);
-        postTime = findViewById(R.id.postTime);
-
-        // BACKEND STUFF WORK IN PROGRESS
+    public PostActivity(String title, String description, String date, String eventDate, String eventHour, String image)
+    {
+        // this.username = username;
+        this.title = title;
+        this.description = description;
+        this.date = date;
+        this.eventDate = eventDate;
+        this.eventHour = eventHour;
+        this.image = image;
     }
 
+    // public String getUsername() {
+    //     return username;
+    // }
 
+    public String getDate() {
+        return date;
+    }
+
+    public String getEventDescription() {
+        return description;
+    }
+
+    public String getEventDate() {
+        return eventDate;
+    }
+
+    public String getEventHour() {
+        return eventHour;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    /*
+    get from database:
+    - creator name
+    - post title
+    - post description
+    - post image/video
+    - post date
+    - post title
+    - post verification flag
+    */
 }
