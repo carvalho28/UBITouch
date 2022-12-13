@@ -1,6 +1,8 @@
 package pt.ubi.di.pdm.ubitouch;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
 import android.content.Intent;
@@ -22,6 +24,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class FeedActivity extends AppCompatActivity {
@@ -29,21 +32,26 @@ public class FeedActivity extends AppCompatActivity {
     ImageView imageView;
     ProgressBar progressBar;
     FloatingActionButton newEvent;
+    RecyclerView recyclerView;
 
     // DEBUG
     private final String TAG = "JOAO";
     private final String events_query_URI = "https://server-ubi-touch.herokuapp.com/events/all";
 
-    private Integer[] event_IDs;
-    private String[] event_titles;
-    private String[] event_descriptions;
-    private String[] event_images;
-    private Integer[] event_creators;
-    private String[] event_dates;
-    private String[] event_times;
-    private String[] event_creation_dates;
-    private String[] event_updated_dates;
+    // private ArrayList<Integer> event_IDs;
+    // private ArrayList<String> event_titles;
+    // private ArrayList<String> event_descriptions;
+    // private ArrayList<String> event_images;
+    // private ArrayList<Integer> event_creators;
+    // private ArrayList<String> event_dates;
+    // private ArrayList<String> event_times;
+    // private ArrayList<String> event_creation_dates;
+    // private ArrayList<String> event_updated_dates;
     private int nOfEvents;
+
+    private ArrayList<PostActivity> listEvents;
+
+    private RecyclerAdapter customAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,16 +62,31 @@ public class FeedActivity extends AppCompatActivity {
         progressBar = findViewById(R.id.feedProgressBar);
         newEvent = findViewById(R.id.btnNewEvent);
 
+        recyclerView = findViewById(R.id.recyclerView);
+
         SharedPreferences sharedPref = getSharedPreferences("user", Context.MODE_PRIVATE);
         String imageProfile = sharedPref.getString("picture", "false");
         Picasso.get().load(imageProfile).into(imageView);
 
         getEventsData();
 
+        displayEvents();
+
         newEvent.setOnClickListener(v -> {
             Intent intent = new Intent(FeedActivity.this, CreateActivity.class);
             startActivity(intent);
         });
+    }
+
+    private void displayEvents() {
+        if (nOfEvents == 0) {
+            // no events
+        }
+        else {
+            customAdapter = new RecyclerAdapter(FeedActivity.this, listEvents);
+            recyclerView.setAdapter(customAdapter);
+            recyclerView.setLayoutManager(new LinearLayoutManager(FeedActivity.this));
+        }
     }
 
     public void getEventsData() {
@@ -76,27 +99,38 @@ public class FeedActivity extends AppCompatActivity {
                     try {
                         JSONArray events = response.getJSONArray("data");
                         nOfEvents = events.length();
-                        event_IDs = new Integer[nOfEvents];
-                        event_titles = new String[nOfEvents];
-                        event_descriptions = new String[nOfEvents];
-                        event_images = new String[nOfEvents];
-                        event_creators = new Integer[nOfEvents];
-                        event_dates = new String[nOfEvents];
-                        event_times = new String[nOfEvents];
-                        event_creation_dates = new String[nOfEvents];
-                        event_updated_dates = new String[nOfEvents];
-
+                        // event_IDs = new Integer[nOfEvents];
+                        // event_titles = new String[nOfEvents];
+                        // event_descriptions = new String[nOfEvents];
+                        // event_images = new String[nOfEvents];
+                        // event_creators = new Integer[nOfEvents];
+                        // event_dates = new String[nOfEvents];
+                        // event_times = new String[nOfEvents];
+                        // event_creation_dates = new String[nOfEvents];
+                        // event_updated_dates = new String[nOfEvents];
+                        Log.i(TAG, "bEFORE FOR");
                         for (int i = 0; i < events.length(); i++) {
                             JSONObject e = (JSONObject) events.get(i);
-                            event_IDs[i] = Integer.parseInt(e.getString("idEvent"));
-                            event_titles[i] = e.getString("title");
-                            event_descriptions[i] = e.getString("description");
-                            event_images[i] = e.getString(e.getString("image"));
-                            event_creators[i] = Integer.parseInt(e.getString("idUser"));
-                            event_dates[i] = e.getString("eventDate");
-                            event_times[i] = e.getString("eventHour");
-                            event_creation_dates[i] = e.getString("createdAt");
-                            event_updated_dates[i] = e.getString("updatedAt");
+                            // int id = Integer.parseInt(e.getString("idEvent"));
+                            Log.i(TAG, "Here 1");
+                            String title = e.getString("title");
+                            Log.i(TAG, "Here 2");
+                            String description = e.getString("description");
+                            // verify if image exists
+                            Log.i(TAG, "Here 3");
+                            String image = e.getString("image");
+                            Log.i(TAG, "Here 4");
+                            String userId = e.getString("idUser");
+                            String eventDate = e.getString("eventDate");
+                            String eventTime = e.getString("eventHour");
+                            String creationDate = e.getString("createdAt");
+                            String updated_dates = e.getString("updatedAt");
+                            Log.i(TAG, "After getStrings " + i);
+                            PostActivity event = new PostActivity(
+                                title, description, creationDate, eventDate, eventTime, image
+                            );
+                            Log.i(TAG, "After new event + " + i);
+                            listEvents.add(event);
                         }
 
                     } catch (JSONException e) {
