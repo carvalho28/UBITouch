@@ -78,4 +78,6 @@
     <!-- Post -->
     <string name="post_default_username">Anonymous</string>
     <string name="post_default_text">Undefined</string>
+    <string name="post_verified">Verified</string>
+    <string name="post_unverified">Unverified</string>
 </resources>

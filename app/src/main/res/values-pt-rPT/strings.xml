@@ -72,4 +72,6 @@
     <!-- Post -->
     <string name="post_default_username">Anónimo</string>
     <string name="post_default_text">Não definido</string>
+    <string name="post_verified">Verificado</string>
+    <string name="post_unverified">Não verificado</string>
 </resources>
