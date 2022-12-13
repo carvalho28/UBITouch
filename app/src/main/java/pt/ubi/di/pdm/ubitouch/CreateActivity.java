@@ -48,7 +48,7 @@ import java.util.Map;
 public class CreateActivity extends AppCompatActivity {
 
     ImageView profilePicture;
-    Button btnCreatePost, btnPickDate, btnPickTime;
+    Button btnCreatePost, btnDiscard;
     ImageButton btnAttachFile;
     TextInputEditText createTitle, createDescription;
     TextView dateText, timeText, msgError;
@@ -115,6 +115,7 @@ public class CreateActivity extends AppCompatActivity {
         createImage = findViewById(R.id.createImage);
         createVideo = findViewById(R.id.createVideo);
         btnAttachFile = findViewById(R.id.btnAttachFile);
+        btnDiscard = findViewById(R.id.btnDiscard);
         progressBar = findViewById(R.id.createProgressBar);
 
         // shared preferences
@@ -127,6 +128,12 @@ public class CreateActivity extends AppCompatActivity {
 
         initDatePicker();
         getUserData();
+
+        // Discard
+        btnDiscard.setOnClickListener(v -> {
+            Intent intent = new Intent(CreateActivity.this, FeedActivity.class);
+            startActivity(intent);
+        });
 
         // Image
         btnAttachFile.setOnClickListener(v -> {

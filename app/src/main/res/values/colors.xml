@@ -11,4 +11,5 @@
     <color name="azul1">#A6E1FA</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <!-- nova cor: vermelho? usada nas discard changes -->
 </resources>

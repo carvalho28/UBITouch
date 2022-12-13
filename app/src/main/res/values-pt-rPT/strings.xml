@@ -9,9 +9,9 @@
     <string name="username_email">Nome de utilizador/Email</string>
     <string name="forgot_password">Esqueceu-se da sua senha?</string>
     <string name="no_account">Ainda não tem conta? Registe-se aqui!</string>
-    <!-- activity_feed.xml -->
+    <!-- Feed -->
     <string name="no_posts">Oops! Ainda não existem publicações.</string>
-    <!-- activity_profile.xml -->
+    <!-- Profile -->
     <string name="edit_profile">Editar perfil</string>
     <string name="save">Guardar</string>
     <string name="name">Nome</string>
@@ -21,7 +21,7 @@
     <string name="invalidEmail">O email não é válido!</string>
     <string name="existing_user">O nome de utilizador ou email inserido já está em uso! Tente outro!</string>
     <string name="incorrect_credentials">O nome de utilizador ou senha está incorreto!</string>
-    <!-- activity_create.xml -->
+    <!-- Create -->
     <string name="post_publish">Publicar</string>
     <string name="post_title">Título</string>
     <string name="post_description">Descrição</string>
@@ -36,6 +36,7 @@
     <string name="post_time_error">Erro ao inserir a hora.</string>
     <string name="post_nd">Não definido</string>
     <string name="select_time">Selecione a hora</string>
+    <string name="discard">Descartar alterações</string>
     <!-- Months -->
     <string name="january">janeiro</string>
     <string name="february">fevereiro</string>

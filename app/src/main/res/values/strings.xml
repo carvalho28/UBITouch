@@ -11,10 +11,10 @@
     <string name="login" translatable="false">Log In</string>
     <string name="forgot_password">Forgot your password?</string>
     <string name="no_account">Don\'t have an account yet? Register here!</string>
-    <!-- activity_feed.xml -->
+    <!-- Feed -->
     <string name="header_title" translatable="false">Timeline</string>
     <string name="no_posts">Oops! No posts yet.</string>
-    <!-- activity_profile.xml -->
+    <!-- Profile -->
     <string name="edit_profile">Edit profile</string>
     <string name="bio" translatable="false">Bio</string>
     <string name="save">Save</string>
@@ -26,7 +26,7 @@
     <string name="invalidEmail">The email is not valid!</string>
     <string name="existing_user">The inserted username or email is already in use. Try another!</string>
     <string name="incorrect_credentials">The username or password is incorrect!</string>
-    <!-- activity_create.xml -->
+    <!-- Create -->
     <string name="post_publish">Post</string>
     <string name="post_title">Title</string>
     <string name="post_description">Description</string>
@@ -41,6 +41,7 @@
     <string name="post_time_error">Error inserting hour.</string>
     <string name="post_nd">Undefined</string>
     <string name="select_time">Select time</string>
+    <string name="discard">Discard changes</string>
     <!-- Months -->
     <string name="january">January</string>
     <string name="february">February</string>
