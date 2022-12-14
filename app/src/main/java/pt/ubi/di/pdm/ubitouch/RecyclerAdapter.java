@@ -28,19 +28,21 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         // private TextView Username; // first name + last name
         private TextView Title;
         private TextView Description;
-        private TextView Date;
         private TextView EventDate;
         private TextView EventHour;
         private ImageView UserImage;
+        private TextView verifiedFlag;
+        private TextView unverifiedFLag;
 
         public ItemViewHolder(@NonNull View itemView){
             super(itemView);
             Title = itemView.findViewById(R.id.postTitle);
             Description = itemView.findViewById(R.id.postDescription);
-            Date = itemView.findViewById(R.id.postDate);
+            EventDate = itemView.findViewById(R.id.postDate);
             UserImage = itemView.findViewById(R.id.postUserImage);
-//            EventDate = itemView.findViewById(R.id.eventDate);
-//            EventHour = itemView.findViewById(R.id.eventHour);
+            EventHour = itemView.findViewById(R.id.postTime);
+            verifiedFlag = itemView.findViewById(R.id.verifiedFlag);
+            unverifiedFLag = itemView.findViewById(R.id.unverifiedFlag);
         }
     }
 
@@ -58,9 +60,14 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         ItemViewHolder itemViewHolder = (ItemViewHolder) holder;
         PostActivity posts = (PostActivity) listRecyclerView.get(position);
         itemViewHolder.Title.setText(posts.getTitle());
-        itemViewHolder.Date.setText(posts.getDate());
-//        itemViewHolder.UserImage.Picasso.; //imagem
+        itemViewHolder.EventDate.setText(posts.getEventDate());
         Picasso.get().load(posts.getImage()).into(itemViewHolder.UserImage);
+        itemViewHolder.Description.setText(posts.getDescription());
+        if (itemViewHolder.Description.length() > 0)
+            itemViewHolder.Description.setVisibility(View.VISIBLE);
+        itemViewHolder.EventHour.setText(posts.getEventHour());
+        if(itemViewHolder.EventHour.length() > 0)
+            itemViewHolder.EventHour.setVisibility(View.VISIBLE);
     }
 
     @Override

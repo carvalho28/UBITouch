@@ -41,15 +41,6 @@ public class FeedActivity extends AppCompatActivity {
     private final String TAG = "JOAO";
     private final String events_query_URI = "https://server-ubi-touch.herokuapp.com/events/all";
 
-    // private ArrayList<Integer> event_IDs;
-    // private ArrayList<String> event_titles;
-    // private ArrayList<String> event_descriptions;
-    // private ArrayList<String> event_images;
-    // private ArrayList<Integer> event_creators;
-    // private ArrayList<String> event_dates;
-    // private ArrayList<String> event_times;
-    // private ArrayList<String> event_creation_dates;
-    // private ArrayList<String> event_updated_dates;
     private int nOfEvents;
 
     private ArrayList<PostActivity> listEvents = new ArrayList<>();
@@ -96,35 +87,25 @@ public class FeedActivity extends AppCompatActivity {
                         JSONArray events = response.getJSONArray("data");
                         nOfEvents = events.length();
 
-                        // Show no posts text if there are no posts
-                        if (nOfEvents == 0) {
-                            noPostsText.setVisibility(View.VISIBLE);
-                        } else {
-                            noPostsText.setVisibility(View.GONE);
-                        }
-
-                        Log.i(TAG, "BEFORE FOR");
 
                         for (int i = 0; i < events.length(); i++) {
                             JSONObject e = (JSONObject) events.get(i);
                             // int id = Integer.parseInt(e.getString("idEvent"));
-                            Log.i(TAG, "Here 1");
                             String title = e.getString("title");
-                            Log.i(TAG, "Here 2");
                             String description = e.getString("description");
-                            // verify if image exists
-                            Log.i(TAG, "Here 3");
                             String image = e.getString("image");
-                            Log.i(TAG, "Here 4");
-                            String userId = e.getString("idUser");
+                            String isVerified = e.getString("isVerified");
+                            //String userId = e.getString("idUser");
                             String eventDate = e.getString("eventDate");
-                            String eventTime = e.getString("eventHour");
+                            String eventHour = e.getString("eventHour");
                             String creationDate = e.getString("createdAt");
-                            String updated_dates = e.getString("updatedAt");
-                            Log.i(TAG, "After getStrings " + i);
-                            Log.i(TAG, "After new event + " + i);
-                            listEvents.add(new PostActivity(title, creationDate, image));
+                            //String updated_dates = e.getString("updatedAt");
+                            listEvents.add(new PostActivity(title, image, description, eventHour, eventDate, "1", "0"));
+                            // if user is admin then verified flag is visible
+                            // ----- if verified == 1 then it is verified, else verified == 0 it is unverified
+                            // if the user is not an admin then the flag is invisible
                         }
+
                         customAdapter = new RecyclerAdapter(this, listEvents);
                         recyclerView.setAdapter(customAdapter);
                     } catch (JSONException e) {

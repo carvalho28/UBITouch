@@ -10,25 +10,30 @@ public class PostActivity {
 
     //private final String username;
     private final String title;
-    private final String date;
+    private final String eventDate;
     private final String image;
-    
+    private final String description;
+    private final String eventHour;
+    private final String verifiedFlag;
+    private final String unverifiedFlag;
 
-    public PostActivity(String title, String date, String image)
+
+
+    public PostActivity(String title, String image, String description, String eventHour, String eventDate, String verifiedFlag, String unverifiedFlag)
     {
         // this.username = username;
         this.title = title;
-        this.date = date;
+        this.eventDate = eventDate;
         this.image = image;
+        this.description = description;
+        this.eventHour = eventHour;
+        this.verifiedFlag = verifiedFlag;
+        this.unverifiedFlag = unverifiedFlag;
     }
 
     // public String getUsername() {
     //     return username;
     // }
-
-    public String getDate() {
-        return date;
-    }
 
     public String getImage() {
         return image;
@@ -38,7 +43,17 @@ public class PostActivity {
         return title;
     }
 
-    /*
+    public String getDescription() { return description; }
+
+    public String getEventDate() { return eventDate; }
+
+    public String getEventHour() { return eventHour; }
+
+    public String getVerifiedFlag() { return verifiedFlag; }
+
+    public String getUnverifiedFlag() { return unverifiedFlag; }
+
+/*
     get from database:
     - creator name
     - post title
