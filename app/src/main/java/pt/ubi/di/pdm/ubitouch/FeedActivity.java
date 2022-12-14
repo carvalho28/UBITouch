@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -32,7 +33,9 @@ public class FeedActivity extends AppCompatActivity {
     ImageView imageView;
     ProgressBar progressBar;
     FloatingActionButton newEvent;
+    TextView noPostsText;
     RecyclerView recyclerView;
+
 
     // DEBUG
     private final String TAG = "JOAO";
@@ -62,6 +65,7 @@ public class FeedActivity extends AppCompatActivity {
         imageView = findViewById(R.id.profileImageView);
         progressBar = findViewById(R.id.feedProgressBar);
         newEvent = findViewById(R.id.btnNewEvent);
+        noPostsText = findViewById(R.id.noPostsText);
 
         recyclerView = findViewById(R.id.recyclerView);
 
@@ -91,16 +95,15 @@ public class FeedActivity extends AppCompatActivity {
                     try {
                         JSONArray events = response.getJSONArray("data");
                         nOfEvents = events.length();
-                        // event_IDs = new Integer[nOfEvents];
-                        // event_titles = new String[nOfEvents];
-                        // event_descriptions = new String[nOfEvents];
-                        // event_images = new String[nOfEvents];
-                        // event_creators = new Integer[nOfEvents];
-                        // event_dates = new String[nOfEvents];
-                        // event_times = new String[nOfEvents];
-                        // event_creation_dates = new String[nOfEvents];
-                        // event_updated_dates = new String[nOfEvents];
-                        Log.i(TAG, "bEFORE FOR");
+
+                        // Show no posts text if there are no posts
+                        if (nOfEvents == 0) {
+                            noPostsText.setVisibility(View.VISIBLE);
+                        } else {
+                            noPostsText.setVisibility(View.GONE);
+                        }
+
+                        Log.i(TAG, "BEFORE FOR");
 
                         for (int i = 0; i < events.length(); i++) {
                             JSONObject e = (JSONObject) events.get(i);
@@ -143,4 +146,3 @@ public class FeedActivity extends AppCompatActivity {
         progressBar.setVisibility(View.GONE);
     }
 }
-
