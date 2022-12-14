@@ -24,30 +24,7 @@
         android:textSize="20sp"
         android:visibility="gone" />
 
-    <!-- firstName -->
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="32dp"
-        android:hint="@string/first_name"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:startIconDrawable="@drawable/ic_person">
-
-      <com.google.android.material.textfield.TextInputEditText
-          android:id="@+id/registerFirstName"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:inputType="text"
-          android:textColorHint="#0066FF" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <!-- lastName -->
+    <!-- Name -->
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout2"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -56,14 +33,14 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="32dp"
-        android:hint="@string/last_name"
+        android:hint="@string/name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout"
         app:startIconDrawable="@drawable/ic_person">
 
       <com.google.android.material.textfield.TextInputEditText
-          android:id="@+id/registerLastName"
+          android:id="@+id/registerName"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:inputType="text"
