@@ -33,7 +33,7 @@ import java.util.Map;
 
 public class EditProfileActivity extends AppCompatActivity {
 
-    TextInputEditText firstName, lastName, bio;
+    TextInputEditText name, bio;
     Button btnEditSave;
     ImageButton profileImage;
     ProgressBar progressBar;
@@ -44,7 +44,7 @@ public class EditProfileActivity extends AppCompatActivity {
     Map config = new HashMap();
     private Uri imageUri;
     boolean imageChanged = false;
-    String originalImage, originalFirstName, originalLastName, originalBio;
+    String originalImage, originalName, originalBio;
 
     // Debug
     private final String TAG = "Diogo";
@@ -69,8 +69,7 @@ public class EditProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_profile);
 
-        firstName = findViewById(R.id.editProfileFirstName);
-        lastName = findViewById(R.id.editProfileLastName);
+        name = findViewById(R.id.editProfileName);
         bio = findViewById(R.id.editProfileBio);
         btnEditSave = findViewById(R.id.editProfileButton);
         profileImage = findViewById(R.id.editProfileImage);
@@ -132,7 +131,7 @@ public class EditProfileActivity extends AppCompatActivity {
                     // convert to https
                     imageUrl = imageUrl.replace("http", "https");
                     // post the data to the API
-                    postData(firstName.getText().toString(), lastName.getText().toString(), bio.getText().toString(),
+                    postData(name.getText().toString(), bio.getText().toString(),
                             imageUrl);
                 }
 
@@ -147,7 +146,7 @@ public class EditProfileActivity extends AppCompatActivity {
                 }
             }).dispatch();
         } else {
-            postData(firstName.getText().toString(), lastName.getText().toString(), bio.getText().toString(),
+            postData(name.getText().toString(), bio.getText().toString(),
                     originalImage);
         }
     }
@@ -165,13 +164,11 @@ public class EditProfileActivity extends AppCompatActivity {
                     // print the response
                     Log.i("Diogo", "Response: " + response.toString());
                     try {
-                        firstName.setText(response.getString("firstName"));
-                        lastName.setText(response.getString("lastName"));
+                        name.setText(response.getString("name"));
                         bio.setText(response.getString("biography"));
                         Picasso.get().load(response.getString("picture")).fit().centerCrop().into(profileImage);
                         originalImage = response.getString("picture");
-                        originalFirstName = response.getString("firstName");
-                        originalLastName = response.getString("lastName");
+                        originalName = response.getString("name");
                         originalBio = response.getString("biography");
                     } catch (JSONException e) {
                         e.printStackTrace();
@@ -193,13 +190,12 @@ public class EditProfileActivity extends AppCompatActivity {
     }
 
     // method to post the data to the API
-    private void postData(String firstName, String lastName, String bio, String imageUrl) {
+    private void postData(String name, String bio, String imageUrl) {
         // make the request
         RequestQueue queue = Volley.newRequestQueue(EditProfileActivity.this);
         JSONObject jsonBody = new JSONObject();
         try {
-            jsonBody.put("firstName", firstName);
-            jsonBody.put("lastName", lastName);
+            jsonBody.put("name", name);
             jsonBody.put("biography", bio);
             jsonBody.put("picture", imageUrl);
 

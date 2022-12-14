@@ -97,7 +97,7 @@ public class ProfileActivity extends AppCompatActivity {
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null,
                 response -> {
                     try {
-                        name.setText(response.getString("firstName") + " " + response.getString("lastName"));
+                        name.setText(response.getString("name"));
                         username.setText(response.getString("username"));
                         bio.setText(response.getString("biography"));
                         Picasso.get().load(response.getString("picture")).into(profileUserImage);

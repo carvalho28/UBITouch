@@ -33,8 +33,10 @@ public class FeedActivity extends AppCompatActivity {
     ImageView imageView;
     ProgressBar progressBar;
     FloatingActionButton newEvent;
+    TextView noPostsText;
     RecyclerView recyclerView;
     TextView noPostsText;
+
 
     // DEBUG
     private final String TAG = "JOAO";
@@ -86,6 +88,7 @@ public class FeedActivity extends AppCompatActivity {
                         JSONArray events = response.getJSONArray("data");
                         nOfEvents = events.length();
 
+                        // Show no posts text if there are no posts
                         if (nOfEvents == 0) {
                             noPostsText.setVisibility(View.VISIBLE);
                         } else {
@@ -131,4 +134,3 @@ public class FeedActivity extends AppCompatActivity {
         progressBar.setVisibility(View.GONE);
     }
 }
-

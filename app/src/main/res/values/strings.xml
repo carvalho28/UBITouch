@@ -1,7 +1,5 @@
 <resources>
     <string name="app_name" translatable="false">UBItouch</string>
-    <string name="first_name">First Name</string>
-    <string name="last_name">Last Name</string>
     <string name="email" translatable="false">Email</string>
     <string name="username">Username</string>
     <string name="password">Password</string>
