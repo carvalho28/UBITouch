@@ -113,7 +113,7 @@
     </androidx.recyclerview.widget.RecyclerView>
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/noPostsText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/no_posts"
@@ -143,7 +143,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="@+id/recyclerView"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/noPostsText"
         android:visibility="gone"
         />
   </androidx.constraintlayout.widget.ConstraintLayout>

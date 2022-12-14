@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -33,20 +34,12 @@ public class FeedActivity extends AppCompatActivity {
     ProgressBar progressBar;
     FloatingActionButton newEvent;
     RecyclerView recyclerView;
+    TextView noPostsText;
 
     // DEBUG
     private final String TAG = "JOAO";
     private final String events_query_URI = "https://server-ubi-touch.herokuapp.com/events/all";
 
-    // private ArrayList<Integer> event_IDs;
-    // private ArrayList<String> event_titles;
-    // private ArrayList<String> event_descriptions;
-    // private ArrayList<String> event_images;
-    // private ArrayList<Integer> event_creators;
-    // private ArrayList<String> event_dates;
-    // private ArrayList<String> event_times;
-    // private ArrayList<String> event_creation_dates;
-    // private ArrayList<String> event_updated_dates;
     private int nOfEvents;
 
     private ArrayList<PostActivity> listEvents = new ArrayList<>();
@@ -62,6 +55,7 @@ public class FeedActivity extends AppCompatActivity {
         imageView = findViewById(R.id.profileImageView);
         progressBar = findViewById(R.id.feedProgressBar);
         newEvent = findViewById(R.id.btnNewEvent);
+        noPostsText = findViewById(R.id.noPostsText);
 
         recyclerView = findViewById(R.id.recyclerView);
 
@@ -91,37 +85,31 @@ public class FeedActivity extends AppCompatActivity {
                     try {
                         JSONArray events = response.getJSONArray("data");
                         nOfEvents = events.length();
-                        // event_IDs = new Integer[nOfEvents];
-                        // event_titles = new String[nOfEvents];
-                        // event_descriptions = new String[nOfEvents];
-                        // event_images = new String[nOfEvents];
-                        // event_creators = new Integer[nOfEvents];
-                        // event_dates = new String[nOfEvents];
-                        // event_times = new String[nOfEvents];
-                        // event_creation_dates = new String[nOfEvents];
-                        // event_updated_dates = new String[nOfEvents];
-                        Log.i(TAG, "bEFORE FOR");
+
+                        if (nOfEvents == 0) {
+                            noPostsText.setVisibility(View.VISIBLE);
+                        } else {
+                            noPostsText.setVisibility(View.GONE);
+                        }
 
                         for (int i = 0; i < events.length(); i++) {
                             JSONObject e = (JSONObject) events.get(i);
                             // int id = Integer.parseInt(e.getString("idEvent"));
-                            Log.i(TAG, "Here 1");
                             String title = e.getString("title");
-                            Log.i(TAG, "Here 2");
                             String description = e.getString("description");
-                            // verify if image exists
-                            Log.i(TAG, "Here 3");
                             String image = e.getString("image");
-                            Log.i(TAG, "Here 4");
-                            String userId = e.getString("idUser");
+                            String isVerified = e.getString("isVerified");
+                            //String userId = e.getString("idUser");
                             String eventDate = e.getString("eventDate");
-                            String eventTime = e.getString("eventHour");
+                            String eventHour = e.getString("eventHour");
                             String creationDate = e.getString("createdAt");
-                            String updated_dates = e.getString("updatedAt");
-                            Log.i(TAG, "After getStrings " + i);
-                            Log.i(TAG, "After new event + " + i);
-                            listEvents.add(new PostActivity(title, creationDate, image));
+                            //String updated_dates = e.getString("updatedAt");
+                            listEvents.add(new PostActivity(title, image, description, eventHour, eventDate, "1", "0"));
+                            // if user is admin then verified flag is visible
+                            // ----- if verified == 1 then it is verified, else verified == 0 it is unverified
+                            // if the user is not an admin then the flag is invisible
                         }
+
                         customAdapter = new RecyclerAdapter(this, listEvents);
                         recyclerView.setAdapter(customAdapter);
                     } catch (JSONException e) {
