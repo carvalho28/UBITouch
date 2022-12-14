@@ -58,10 +58,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         ItemViewHolder itemViewHolder = (ItemViewHolder) holder;
         PostActivity posts = (PostActivity) listRecyclerView.get(position);
         itemViewHolder.Title.setText(posts.getTitle());
-        itemViewHolder.Description.setText(posts.getEventDescription());
         itemViewHolder.Date.setText(posts.getDate());
-        itemViewHolder.EventDate.setText(posts.getEventDate());
-        itemViewHolder.EventHour.setText(posts.getEventHour());
 //        itemViewHolder.UserImage.Picasso.; //imagem
         Picasso.get().load(posts.getImage()).into(itemViewHolder.UserImage);
     }

@@ -10,21 +10,15 @@ public class PostActivity {
 
     //private final String username;
     private final String title;
-    private final String description;
     private final String date;
-    private final String eventDate;
-    private final String eventHour;
     private final String image;
     
 
-    public PostActivity(String title, String description, String date, String eventDate, String eventHour, String image)
+    public PostActivity(String title, String date, String image)
     {
         // this.username = username;
         this.title = title;
-        this.description = description;
         this.date = date;
-        this.eventDate = eventDate;
-        this.eventHour = eventHour;
         this.image = image;
     }
 
@@ -34,18 +28,6 @@ public class PostActivity {
 
     public String getDate() {
         return date;
-    }
-
-    public String getEventDescription() {
-        return description;
-    }
-
-    public String getEventDate() {
-        return eventDate;
-    }
-
-    public String getEventHour() {
-        return eventHour;
     }
 
     public String getImage() {

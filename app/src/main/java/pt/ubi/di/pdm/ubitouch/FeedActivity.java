@@ -49,9 +49,10 @@ public class FeedActivity extends AppCompatActivity {
     // private ArrayList<String> event_updated_dates;
     private int nOfEvents;
 
-    private ArrayList<PostActivity> listEvents;
+    private ArrayList<PostActivity> listEvents = new ArrayList<>();
 
     private RecyclerAdapter customAdapter;
+    private RecyclerView.LayoutManager layoutManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,29 +65,20 @@ public class FeedActivity extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.recyclerView);
 
+        layoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(layoutManager);
+
         SharedPreferences sharedPref = getSharedPreferences("user", Context.MODE_PRIVATE);
         String imageProfile = sharedPref.getString("picture", "false");
         Picasso.get().load(imageProfile).into(imageView);
 
         getEventsData();
 
-        displayEvents();
 
         newEvent.setOnClickListener(v -> {
             Intent intent = new Intent(FeedActivity.this, CreateActivity.class);
             startActivity(intent);
         });
-    }
-
-    private void displayEvents() {
-        if (nOfEvents == 0) {
-            // no events
-        }
-        else {
-            customAdapter = new RecyclerAdapter(FeedActivity.this, listEvents);
-            recyclerView.setAdapter(customAdapter);
-            recyclerView.setLayoutManager(new LinearLayoutManager(FeedActivity.this));
-        }
     }
 
     public void getEventsData() {
@@ -109,6 +101,7 @@ public class FeedActivity extends AppCompatActivity {
                         // event_creation_dates = new String[nOfEvents];
                         // event_updated_dates = new String[nOfEvents];
                         Log.i(TAG, "bEFORE FOR");
+
                         for (int i = 0; i < events.length(); i++) {
                             JSONObject e = (JSONObject) events.get(i);
                             // int id = Integer.parseInt(e.getString("idEvent"));
@@ -126,13 +119,11 @@ public class FeedActivity extends AppCompatActivity {
                             String creationDate = e.getString("createdAt");
                             String updated_dates = e.getString("updatedAt");
                             Log.i(TAG, "After getStrings " + i);
-                            PostActivity event = new PostActivity(
-                                title, description, creationDate, eventDate, eventTime, image
-                            );
                             Log.i(TAG, "After new event + " + i);
-                            listEvents.add(event);
+                            listEvents.add(new PostActivity(title, creationDate, image));
                         }
-
+                        customAdapter = new RecyclerAdapter(this, listEvents);
+                        recyclerView.setAdapter(customAdapter);
                     } catch (JSONException e) {
                         Log.e(TAG, "json error");
                     }
@@ -152,3 +143,4 @@ public class FeedActivity extends AppCompatActivity {
         progressBar.setVisibility(View.GONE);
     }
 }
+
