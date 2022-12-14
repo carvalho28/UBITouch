@@ -33,8 +33,9 @@ public class FeedActivity extends AppCompatActivity {
     ImageView imageView;
     ProgressBar progressBar;
     FloatingActionButton newEvent;
-    RecyclerView recyclerView;
     TextView noPostsText;
+    RecyclerView recyclerView;
+
 
     // DEBUG
     private final String TAG = "JOAO";
@@ -86,11 +87,6 @@ public class FeedActivity extends AppCompatActivity {
                         JSONArray events = response.getJSONArray("data");
                         nOfEvents = events.length();
 
-                        if (nOfEvents == 0) {
-                            noPostsText.setVisibility(View.VISIBLE);
-                        } else {
-                            noPostsText.setVisibility(View.GONE);
-                        }
 
                         for (int i = 0; i < events.length(); i++) {
                             JSONObject e = (JSONObject) events.get(i);
@@ -131,4 +127,3 @@ public class FeedActivity extends AppCompatActivity {
         progressBar.setVisibility(View.GONE);
     }
 }
-

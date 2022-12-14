@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="first_name">Primeiro Nome</string>
-    <string name="last_name">Último Nome</string>
+    <string name="name">Nome</string>
     <string name="username">Nome de utilizador</string>
     <string name="password">Senha</string>
     <string name="confirm_password">Confirme a senha</string>
@@ -14,7 +13,6 @@
     <!-- Profile -->
     <string name="edit_profile">Editar perfil</string>
     <string name="save">Guardar</string>
-    <string name="name">Nome</string>
     <string name="emptyFieldError">Por favor, preencha todos os campos!</string>
     <string name="differentPasswords">As senhas são diferentes!</string>
     <string name="tooShortPassword">A senha tem de ter pelo menos 10 caracteres!</string>

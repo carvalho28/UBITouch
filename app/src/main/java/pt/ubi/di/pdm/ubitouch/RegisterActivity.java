@@ -26,7 +26,7 @@ import org.json.JSONObject;
 public class RegisterActivity extends AppCompatActivity {
 
     MaterialButton btnRegister;
-    TextInputEditText firstName, lastName, email, username, password, confirmPassword;
+    TextInputEditText name, email, username, password, confirmPassword;
     TextView msgError;
 
     // DEBUG
@@ -48,8 +48,7 @@ public class RegisterActivity extends AppCompatActivity {
 
         btnRegister = findViewById(R.id.buttonRegister);
 
-        firstName = findViewById(R.id.registerFirstName);
-        lastName = findViewById(R.id.registerLastName);
+        name = findViewById(R.id.registerName);
         email = findViewById(R.id.registerInputEmail);
         username = findViewById(R.id.registerInputUsername);
         password = findViewById(R.id.registerInputPassword);
@@ -61,7 +60,7 @@ public class RegisterActivity extends AppCompatActivity {
         btnRegister.setOnClickListener(
                 v -> {
                     // if there is an empty field
-                    if (firstName.getText().toString().isEmpty() || lastName.getText().toString().isEmpty()
+                    if (name.getText().toString().isEmpty()
                             || email.getText().toString().isEmpty() || username.getText().toString().isEmpty()
                             || password.getText().toString().isEmpty()
                             || confirmPassword.getText().toString().isEmpty()) {
@@ -86,8 +85,7 @@ public class RegisterActivity extends AppCompatActivity {
                         try {
                             RequestQueue requestQueue = Volley.newRequestQueue(this);
                             JSONObject jsonObject = new JSONObject();
-                            jsonObject.put("firstName", firstName.getText().toString());
-                            jsonObject.put("lastName", lastName.getText().toString());
+                            jsonObject.put("name", name.getText().toString());
                             jsonObject.put("username", username.getText().toString());
                             jsonObject.put("email", email.getText().toString());
                             jsonObject.put("password", password.getText().toString());
