@@ -9,7 +9,6 @@ android {
     defaultConfig {
         applicationId "pt.ubi.di.pdm.ubitouch"
         minSdk 26
-        minSdkVersion 21
         targetSdk 32
         versionCode 1
         versionName "1.0"
