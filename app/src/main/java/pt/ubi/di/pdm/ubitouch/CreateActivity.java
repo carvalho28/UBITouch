@@ -1,15 +1,20 @@
 package pt.ubi.di.pdm.ubitouch;
 
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.ColorFilter;
+import android.graphics.LightingColorFilter;
+import android.graphics.Paint;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -21,25 +26,36 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.TimePicker;
 import android.widget.VideoView;
+
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.cloudinary.android.MediaManager;
 import com.cloudinary.android.callback.ErrorInfo;
 import com.cloudinary.android.callback.UploadCallback;
 import com.google.android.material.textfield.TextInputEditText;
+import com.mapbox.maps.MapView;
+import com.mapbox.maps.Style;
+import com.mapbox.maps.plugin.annotation.AnnotationManager;
+import com.mapbox.maps.plugin.annotation.AnnotationPlugin;
+import com.mapbox.maps.plugin.annotation.AnnotationPluginImplKt;
+import com.mapbox.maps.plugin.annotation.generated.PointAnnotationManager;
+import com.mapbox.maps.plugin.annotation.generated.PointAnnotationManagerKt;
+import com.mapbox.maps.plugin.annotation.generated.PointAnnotationOptions;
+import com.mapbox.maps.plugin.delegates.MapPluginProviderDelegate;
+import com.mapbox.maps.plugin.gestures.GesturesPlugin;
+import com.mapbox.maps.plugin.gestures.GesturesUtils;
 import com.squareup.picasso.Picasso;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Locale;
@@ -56,6 +72,8 @@ public class CreateActivity extends AppCompatActivity {
     ImageView createImage;
     VideoView createVideo;
     ProgressBar progressBar;
+
+    MapView mapView;
 
     // DEBUG
     private final String TAG = "Diogo";
@@ -117,6 +135,13 @@ public class CreateActivity extends AppCompatActivity {
         btnAttachFile = findViewById(R.id.btnAttachFile);
         btnDiscard = findViewById(R.id.btnDiscard);
         progressBar = findViewById(R.id.createProgressBar);
+
+        // maps
+        mapView = findViewById(R.id.mapView);
+        mapView.getMapboxMap().loadStyleUri(Style.MAPBOX_STREETS,
+                style -> {
+                    addAnnotationToMap();
+                });
 
         // shared preferences
         SharedPreferences sharedPref = getSharedPreferences("user", Context.MODE_PRIVATE);
@@ -302,6 +327,7 @@ public class CreateActivity extends AppCompatActivity {
             } else {
                 // if it is a video
                 MediaManager.get().upload(imageUri).option("resource_type", "video").callback(new UploadCallback() {
+
                     @Override
                     public void onStart(String requestId) {
                         Log.d(TAG, "onStart: " + "started");
@@ -333,11 +359,12 @@ public class CreateActivity extends AppCompatActivity {
                     public void onReschedule(String requestId, ErrorInfo error) {
                         Log.d(TAG, "onStart: " + error);
                     }
+
                 }).dispatch();
             }
         } else {
-            postData(createTitle.getText().toString(), createDescription.getText().toString(), "",
-                    selectedDate, selectedTime);
+            postData(createTitle.getText().toString(), createDescription.getText().toString(), "", selectedDate,
+                    selectedTime);
         }
     }
 
@@ -442,6 +469,7 @@ public class CreateActivity extends AppCompatActivity {
                     }
                 },
                 error -> Log.i(TAG, "CreateActivity: getUserData(): onErrorResponse(): " + error.toString())) {
+
             @Override
             public Map<String, String> getHeaders() {
                 Map<String, String> params = new HashMap<>();
@@ -452,5 +480,54 @@ public class CreateActivity extends AppCompatActivity {
         };
 
         queue.add(jsonObjectRequest);
+    }
+
+    // convert drawable to bitmap
+    private Bitmap drawableToBitmap(Drawable drawable) {
+        Bitmap bitmap = null;
+
+        if (drawable instanceof BitmapDrawable) {
+            BitmapDrawable bitmapDrawable = (BitmapDrawable) drawable;
+            if (bitmapDrawable.getBitmap() != null) {
+                return bitmapDrawable.getBitmap();
+            }
+        }
+
+        if (drawable.getIntrinsicWidth() <= 0 || drawable.getIntrinsicHeight() <= 0) {
+            bitmap = Bitmap.createBitmap(1, 1, Bitmap.Config.ARGB_8888);
+        } else {
+            bitmap = Bitmap.createBitmap(drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight(),
+                    Bitmap.Config.ARGB_8888);
+        }
+
+        Canvas canvas = new Canvas(bitmap);
+        drawable.setBounds(0, 0, canvas.getWidth(), canvas.getHeight());
+        drawable.draw(canvas);
+        return bitmap;
+    }
+
+    private void addAnnotationToMap() {
+
+        Bitmap marker = drawableToBitmap(getResources().getDrawable(R.drawable.ic_marker));
+        Bitmap smallMarker = Bitmap.createScaledBitmap(marker, 100, 100, false);
+
+        AnnotationPlugin annotationAPI = AnnotationPluginImplKt.getAnnotations(mapView);
+        PointAnnotationManager pointAnnotationManager = PointAnnotationManagerKt
+                .createPointAnnotationManager(annotationAPI, mapView);
+
+        // change annotation position on map click
+        GesturesPlugin gesturesPlugin = GesturesUtils.getGestures(mapView);
+        gesturesPlugin.addOnMapClickListener(
+                point -> {
+                    pointAnnotationManager.deleteAll();
+                    PointAnnotationOptions pointAnnotationOptions = new PointAnnotationOptions()
+                            .withPoint(com.mapbox.geojson.Point.fromLngLat(point.longitude(), point.latitude()))
+                            .withIconImage(smallMarker);
+                    pointAnnotationManager.create(pointAnnotationOptions);
+                    Log.i("Diogo", point.toString());
+                    Log.i("Diogo", pointAnnotationManager.toString());
+                    return false;
+                });
+
     }
 }
