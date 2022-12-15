@@ -9,6 +9,7 @@ android {
     defaultConfig {
         applicationId "pt.ubi.di.pdm.ubitouch"
         minSdk 26
+        minSdkVersion 21
         targetSdk 32
         versionCode 1
         versionName "1.0"
@@ -37,10 +38,12 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.4'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.0'
 
-// adding volley
+    // adding volley
     implementation("com.android.volley:volley:1.2.1")
-// adding picasso
+    // adding picasso
     implementation('com.squareup.picasso:picasso:2.8')
-// adding cloudinary
+    // adding cloudinary
     implementation('com.cloudinary:cloudinary-android:2.3.0')
+    // mapbox
+    implementation ('com.mapbox.maps:android:10.10.0')
 }
