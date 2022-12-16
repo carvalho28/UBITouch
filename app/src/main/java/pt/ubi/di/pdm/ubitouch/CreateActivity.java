@@ -97,6 +97,28 @@ public class CreateActivity extends AppCompatActivity {
                     Log.i(TAG, "CreateActivity: onCreate(): Image URI: " + imageUri);
                     // if is a video
                     if (imageUri.toString().contains("video")) {
+                        // get size of the video
+                        long size = 0;
+                        try {
+                            size = getContentResolver().openFileDescriptor(imageUri, "r").getStatSize();
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                        // if the video is bigger than 10MB
+                        if (size > 10000000) {
+                            AlertDialog.Builder builder = new AlertDialog.Builder(CreateActivity.this);
+                            builder.setTitle("Video too big!");
+                            builder.setMessage("Video size is bigger than 10MB.");
+                            builder.setPositiveButton("Ok", (dialog, which) -> {
+                                // hide the video view
+                                createVideo.setVisibility(View.GONE);
+                                // hide the AlertDialog
+                                dialog.dismiss();
+                            });
+                            builder.show();
+                            return;
+                        }
+
                         createVideo.setVisibility(View.VISIBLE);
                         createVideo.setVideoURI(imageUri);
                         // play the video in loop
@@ -107,6 +129,28 @@ public class CreateActivity extends AppCompatActivity {
                     }
                     // if is an image
                     else {
+                        // get size of the image
+                        long size = 0;
+                        try {
+                            size = getContentResolver().openFileDescriptor(imageUri, "r").getStatSize();
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                        // if the image is bigger than 1MB
+                        if (size > 1000000) {
+                            // create a AlertDialog
+                            AlertDialog.Builder builder = new AlertDialog.Builder(CreateActivity.this);
+                            builder.setTitle("Image too big!");
+                            builder.setMessage("Image size is bigger than 1MB.");
+                            builder.setPositiveButton("Ok", (dialog, which) -> {
+                                // hide the image view
+                                createImage.setVisibility(View.GONE);
+                                // hide the AlertDialog
+                                dialog.dismiss();
+                            });
+                            builder.show();
+                            return;
+                        }
                         createImage.setVisibility(View.VISIBLE);
                         // set the image to the image view
                         Picasso.get().load(imageUri).into(createImage);
@@ -114,6 +158,13 @@ public class CreateActivity extends AppCompatActivity {
                     // createImage.setVisibility(View.VISIBLE);
                     // // set the image to the image view
                     // Picasso.get().load(imageUri).into(createImage);
+                } else {
+                    // keep the previous image if the user has already selected one
+                    if (imageUri != null) {
+                        createImage.setVisibility(View.VISIBLE);
+                        // set the image to the image view
+                        Picasso.get().load(imageUri).into(createImage);
+                    }
                 }
             });
 
