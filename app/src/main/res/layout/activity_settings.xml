@@ -66,6 +66,7 @@
                         android:text="@string/night_mode" />
 
                     <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/switchLD"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
@@ -98,6 +99,7 @@
                         android:text="@string/notifications" />
 
                     <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/switchN"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
