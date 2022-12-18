@@ -10,6 +10,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -35,6 +36,10 @@ public class FeedActivity extends AppCompatActivity {
     FloatingActionButton newEvent;
     TextView noPostsText;
     RecyclerView recyclerView;
+    ImageButton imageButton1;
+    ImageButton imageButton2;
+    ImageButton imageButton3;
+    ImageButton imageButton4;
 
 
     // DEBUG
@@ -57,6 +62,7 @@ public class FeedActivity extends AppCompatActivity {
         progressBar = findViewById(R.id.feedProgressBar);
         newEvent = findViewById(R.id.btnNewEvent);
         noPostsText = findViewById(R.id.noPostsText);
+        imageButton4 = findViewById(R.id.imageButton4);
 
         recyclerView = findViewById(R.id.recyclerView);
 
@@ -69,6 +75,12 @@ public class FeedActivity extends AppCompatActivity {
 
         getEventsData();
 
+        imageButton4.setOnClickListener(
+                v -> {
+                    Intent intent = new Intent(this, SettingsActivity.class);
+
+                    startActivity(intent);
+        });
 
         newEvent.setOnClickListener(v -> {
             Intent intent = new Intent(FeedActivity.this, CreateActivity.class);

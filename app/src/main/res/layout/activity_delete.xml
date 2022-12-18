@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".DeactivateActivity">
+    tools:context=".DeleteActivity">
     <RelativeLayout
         android:layout_marginTop="10dp"
         android:layout_width="match_parent"
@@ -16,7 +16,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:text="@string/deactivate"
+            android:text="Delete"
             android:textSize="18sp"
             android:textStyle="bold" />
     </RelativeLayout>
@@ -72,12 +72,12 @@
         android:layout_marginStart="80dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="80dp"
-        android:text="@string/deactivate"
+        android:text="Delete"
         android:textSize="20sp"
-        android:backgroundTint="#FF4B4B"
+        android:backgroundTint="@color/red"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/loginPasswordInputLayout"
-        app:strokeColor="#FF4B4B"
+        app:strokeColor="@color/red"
         app:strokeWidth="2dp" />
 </LinearLayout>

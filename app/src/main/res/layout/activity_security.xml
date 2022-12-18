@@ -44,6 +44,7 @@
 
                 <!-- Change your password -->
                 <RelativeLayout
+                    android:id="@+id/changePasswordSetting"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
@@ -67,6 +68,7 @@
 
                 <!-- Deactivate account -->
                 <RelativeLayout
+                    android:id="@+id/deleteSetting"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp">
@@ -86,7 +88,7 @@
                         android:layout_centerVertical="true"
                         android:layout_marginStart="20dp"
                         android:layout_toEndOf="@+id/deactivate"
-                        android:text="@string/deactivate_account" />
+                        android:text="Delete your account" />
 
                     <ImageView
                         android:layout_width="wrap_content"

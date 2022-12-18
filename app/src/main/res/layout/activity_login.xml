@@ -21,7 +21,8 @@
             android:layout_margin="10dp"
             android:gravity="center"
             android:textColor="#FF0000"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:textAllCaps="true"/>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/loginUsernameTextInputLayout"
