@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -28,6 +29,7 @@ public class RegisterActivity extends AppCompatActivity {
     MaterialButton btnRegister;
     TextInputEditText name, email, username, password, confirmPassword;
     TextView msgError;
+    ProgressBar progressBar;
 
     // DEBUG
     private final String TAG = "Diogo";
@@ -40,9 +42,8 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-
         SharedPreferences sharedPref = getSharedPreferences("user", Context.MODE_PRIVATE);
-        if (sharedPref != null){
+        if (sharedPref != null) {
             sharedPref.edit().clear().apply();
         }
 
@@ -54,6 +55,7 @@ public class RegisterActivity extends AppCompatActivity {
         password = findViewById(R.id.registerInputPassword);
         confirmPassword = findViewById(R.id.registerInputConfirmPassword);
         msgError = findViewById(R.id.textViewError);
+        progressBar = findViewById(R.id.registerProgressBar);
 
         Log.i(TAG, "RegisterActivity: onCreate()");
 
@@ -82,6 +84,14 @@ public class RegisterActivity extends AppCompatActivity {
                     }
                     // create the user
                     else {
+                        // dismiss keyboard
+                        View thisView = this.getCurrentFocus();
+                        if (thisView != null) {
+                            InputMethodManager imm = (InputMethodManager) getSystemService(
+                                    Context.INPUT_METHOD_SERVICE);
+                            imm.hideSoftInputFromWindow(thisView.getWindowToken(), 0);
+                        }
+                        progressBar.setVisibility(ProgressBar.VISIBLE);
                         try {
                             RequestQueue requestQueue = Volley.newRequestQueue(this);
                             JSONObject jsonObject = new JSONObject();
@@ -94,12 +104,14 @@ public class RegisterActivity extends AppCompatActivity {
                             JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, URL,
                                     jsonObject,
                                     response -> {
+                                        progressBar.setVisibility(ProgressBar.INVISIBLE);
                                         Log.i(TAG, "RegisterActivity: onCreate(): response: " + response.toString());
                                         // go to the login activity
                                         Intent intent = new Intent(this, LoginActivity.class);
                                         startActivity(intent);
                                     },
                                     error -> {
+                                        progressBar.setVisibility(ProgressBar.INVISIBLE);
                                         Log.i(TAG, "RegisterActivity: onCreate(): error: " + error.toString());
                                         msgError.setText(R.string.existing_user);
                                         msgError.setVisibility(TextView.VISIBLE);
