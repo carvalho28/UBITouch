@@ -11,15 +11,15 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
-import java.util.List;
+
 import com.squareup.picasso.Picasso;
 
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
 
     private final Context context;
-    private final ArrayList<PostActivity> listRecyclerView;
+    private final ArrayList<Event> listRecyclerView;
 
-    public RecyclerAdapter(Context context, ArrayList<PostActivity> posts){
+    public RecyclerAdapter(Context context, ArrayList<Event> posts){
         this.context = context;
         this.listRecyclerView = posts;
     }
@@ -58,7 +58,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         int viewType = getItemViewType(position);
         ItemViewHolder itemViewHolder = (ItemViewHolder) holder;
-        PostActivity posts = (PostActivity) listRecyclerView.get(position);
+        Event posts = (Event) listRecyclerView.get(position);
         itemViewHolder.Title.setText(posts.getTitle());
         itemViewHolder.EventDate.setText(posts.getEventDate());
         Picasso.get().load(posts.getImage()).into(itemViewHolder.UserImage);

@@ -1,6 +1,8 @@
 package pt.ubi.di.pdm.ubitouch;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
 import android.content.Intent;
@@ -23,6 +25,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -32,21 +35,26 @@ public class ProfileActivity extends AppCompatActivity {
     ImageView profileUserImage;
     Button editProfileButton;
     ProgressBar progressBar;
+    RecyclerView recyclerView;
 
     // Variables
     String userId;
     String token;
 
-    private Integer[] event_IDs;
-    private String[] event_titles;
-    private String[] event_descriptions;
-    private String[] event_images;
+//    private Integer[] event_IDs;
+//    private String[] event_titles;
+//    private String[] event_descriptions;
+//    private String[] event_images;
     private int event_creator;
-    private String[] event_creation_dates;
-    private String[] event_updated_dates;
-    private String[] event_dates;
-    private String[] event_times;
+//    private String[] event_creation_dates;
+//    private String[] event_updated_dates;
+//    private String[] event_dates;
+//    private String[] event_times;
     private int nOfEvents;
+    private ArrayList<Event> listEvents = new ArrayList<>();
+
+    private RecyclerAdapter customAdapter;
+    private RecyclerView.LayoutManager layoutManager;
 
     // URL
     private final String URL = "https://server-ubi-touch.herokuapp.com/users/";
@@ -65,12 +73,17 @@ public class ProfileActivity extends AppCompatActivity {
         editProfileButton = findViewById(R.id.editProfileButton);
         progressBar = findViewById(R.id.userProgressBar);
 
+        recyclerView = findViewById(R.id.userPosts);
+        layoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(layoutManager);
+
         progressBar.setVisibility(View.VISIBLE);
 
         // get the user id from the shared preferences
         SharedPreferences sharedPref = getSharedPreferences("user", Context.MODE_PRIVATE);
         userId = sharedPref.getString("id", "false");
         token = sharedPref.getString("token", "false");
+        // TODO If false, will it lead to not found, login ...?
 
         event_creator = Integer.parseInt(userId);
         user_events_URL += event_creator;
@@ -127,27 +140,45 @@ public class ProfileActivity extends AppCompatActivity {
                     try {
                         JSONArray events = response.getJSONArray("data");
                         nOfEvents = events.length();
-                        event_IDs = new Integer[nOfEvents];
-                        event_titles = new String[nOfEvents];
-                        event_descriptions = new String[nOfEvents];
-                        event_images = new String[nOfEvents];
-                        event_dates = new String[nOfEvents];
-                        event_times = new String[nOfEvents];
-                        event_creation_dates = new String[nOfEvents];
-                        event_updated_dates = new String[nOfEvents];
+                        Log.i(TAG, "N of events: " + nOfEvents);
+
+//                        event_IDs = new Integer[nOfEvents];
+//                        event_titles = new String[nOfEvents];
+//                        event_descriptions = new String[nOfEvents];
+//                        event_images = new String[nOfEvents];
+//                        event_dates = new String[nOfEvents];
+//                        event_times = new String[nOfEvents];
+//                        event_creation_dates = new String[nOfEvents];
+//                        event_updated_dates = new String[nOfEvents];
 
                         for (int i = 0; i < events.length(); i++) {
                             JSONObject e = (JSONObject) events.get(i);
-                            event_IDs[i] = Integer.parseInt(e.getString("idEvent"));
-                            event_titles[i] = e.getString("title");
-                            event_descriptions[i] = e.getString("description");
-                            event_images[i] = e.getString(e.getString("image"));
-                            event_dates[i] = e.getString("eventDate");
-                            event_times[i] = e.getString("eventHour");
-                            event_creation_dates[i] = e.getString("createdAt");
-                            event_updated_dates[i] = e.getString("updatedAt");
+//                            event_IDs[i] = Integer.parseInt(e.getString("idEvent"));
+//                            event_titles[i] = e.getString("title");
+//                            event_descriptions[i] = e.getString("description");
+//                            event_images[i] = e.getString(e.getString("image"));
+//                            event_dates[i] = e.getString("eventDate");
+//                            event_times[i] = e.getString("eventHour");
+//                            event_creation_dates[i] = e.getString("createdAt");
+//                            event_updated_dates[i] = e.getString("updatedAt");
+                            // int id = Integer.parseInt(e.getString("idEvent"));
+                            String title = e.getString("title");
+                            String description = e.getString("description");
+                            String image = e.getString("image");
+                            String isVerified = e.getString("isVerified");
+                            //String userId = e.getString("idUser");
+                            String eventDate = e.getString("eventDate");
+                            String eventHour = e.getString("eventHour");
+                            String creationDate = e.getString("createdAt");
+                            //String updated_dates = e.getString("updatedAt");
+                            listEvents.add(new Event(title, image, description, eventHour, eventDate, "1", "0"));
+                            // if user is admin then verified flag is visible
+                            // ----- if verified == 1 then it is verified, else verified == 0 it is unverified
+                            // if the user is not an admin then the flag is invisible
                         }
 
+                        customAdapter = new RecyclerAdapter(this, listEvents);
+                        recyclerView.setAdapter(customAdapter);
                     } catch (JSONException e) {
                         Log.e(TAG, "json error");
                     }

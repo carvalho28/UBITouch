@@ -48,7 +48,7 @@ public class FeedActivity extends AppCompatActivity {
 
     private int nOfEvents;
 
-    private ArrayList<PostActivity> listEvents = new ArrayList<>();
+    private ArrayList<Event> listEvents = new ArrayList<>();
 
     private RecyclerAdapter customAdapter;
     private RecyclerView.LayoutManager layoutManager;
@@ -112,7 +112,7 @@ public class FeedActivity extends AppCompatActivity {
                             String eventHour = e.getString("eventHour");
                             String creationDate = e.getString("createdAt");
                             //String updated_dates = e.getString("updatedAt");
-                            listEvents.add(new PostActivity(title, image, description, eventHour, eventDate, "1", "0"));
+                            listEvents.add(new Event(title, image, description, eventHour, eventDate, "1", "0"));
                             // if user is admin then verified flag is visible
                             // ----- if verified == 1 then it is verified, else verified == 0 it is unverified
                             // if the user is not an admin then the flag is invisible

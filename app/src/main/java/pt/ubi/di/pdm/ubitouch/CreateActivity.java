@@ -11,6 +11,7 @@ import android.graphics.Canvas;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import android.nfc.Tag;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
@@ -225,7 +226,7 @@ public class CreateActivity extends AppCompatActivity {
                         msgError.setVisibility(TextView.VISIBLE);
                     }
 
-                else if (createDescription.getText().toString().length() > 50) {
+                else if (createDescription.getText().toString().length() > 200) {
                         Log.i(TAG, "CreateActivity: onCreate(): Description is too long.");
                         msgError.setText(R.string.post_tmc_desc);
                         msgError.setVisibility(TextView.VISIBLE);
@@ -234,6 +235,7 @@ public class CreateActivity extends AppCompatActivity {
                 else {
                         Log.i(TAG, "CreateActivity: onCreate(): Creating post...");
                         createPost();
+                        Log.i(TAG, "CreateActivity: onCreate(): Created post!");
                     }
                 });
     }
@@ -329,13 +331,26 @@ public class CreateActivity extends AppCompatActivity {
 
     // API Call
     private void createPost() {
-        String selectedDate = convertDate(dateText.getText().toString());
-        String selectedTime = convertTime(timeText.getText().toString());
+        Log.i(TAG, "Just got on CreatePost");
+        String Date;
+        String Time;
+        try {
+            Date = convertDate(dateText.getText().toString());
+            Time = convertTime(timeText.getText().toString());
+        } catch (Exception e) {
+            Log.e(TAG, e.getMessage());
+            Date = "";
+            Time = "";
+        }
+        final String selectedDate = Date;
+        final String selectedTime = Time;
+        Log.i(TAG, "Got date and time");
 
         if (imageChanged) {
+            Log.i(TAG, "Got on imageChanged");
             // if it is an image or video
             if (imageUri.toString().contains("image")) {
-
+                Log.i(TAG, "Got on contains Image");
                 MediaManager.get().upload(imageUri).callback(new UploadCallback() {
                     @Override
                     public void onStart(String requestId) {
@@ -371,6 +386,7 @@ public class CreateActivity extends AppCompatActivity {
                 }).dispatch();
             } else {
                 // if it is a video
+                Log.i(TAG, "Got on video");
                 MediaManager.get().upload(imageUri).option("resource_type", "video").callback(new UploadCallback() {
 
                     @Override
@@ -408,6 +424,7 @@ public class CreateActivity extends AppCompatActivity {
                 }).dispatch();
             }
         } else {
+            Log.i(TAG,"No media");
             postData(createTitle.getText().toString(), createDescription.getText().toString(), "", selectedDate,
                     selectedTime);
         }
