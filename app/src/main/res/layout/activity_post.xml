@@ -42,7 +42,7 @@
 
                 <TextView
                     android:id="@+id/postUsername"
-
+                    style="@style/PostTextColor"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="15dp"
@@ -61,7 +61,7 @@
 
                 <TextView
                     android:id="@+id/postTitle"
-
+                    style="@style/PostTextColor"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="15dp"
@@ -80,6 +80,7 @@
 
                 <TextView
                     android:id="@+id/postDescription"
+                    style="@style/PostTextColor"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="15dp"
@@ -136,7 +137,7 @@
 
                     <TextView
                         android:id="@+id/postDate"
-
+                        style="@style/PostIconColor"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="15dp"
@@ -152,6 +153,7 @@
 
                     <TextView
                         android:id="@+id/postTime"
+                        style="@style/PostIconColor"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="5dp"
