@@ -8,11 +8,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.ColorFilter;
-import android.graphics.LightingColorFilter;
-import android.graphics.Paint;
-import android.graphics.PorterDuff;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
@@ -36,20 +31,17 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
-import com.cloudinary.Cloudinary;
 import com.cloudinary.android.MediaManager;
 import com.cloudinary.android.callback.ErrorInfo;
 import com.cloudinary.android.callback.UploadCallback;
 import com.google.android.material.textfield.TextInputEditText;
 import com.mapbox.maps.MapView;
 import com.mapbox.maps.Style;
-import com.mapbox.maps.plugin.annotation.AnnotationManager;
 import com.mapbox.maps.plugin.annotation.AnnotationPlugin;
 import com.mapbox.maps.plugin.annotation.AnnotationPluginImplKt;
 import com.mapbox.maps.plugin.annotation.generated.PointAnnotationManager;
 import com.mapbox.maps.plugin.annotation.generated.PointAnnotationManagerKt;
 import com.mapbox.maps.plugin.annotation.generated.PointAnnotationOptions;
-import com.mapbox.maps.plugin.delegates.MapPluginProviderDelegate;
 import com.mapbox.maps.plugin.gestures.GesturesPlugin;
 import com.mapbox.maps.plugin.gestures.GesturesUtils;
 import com.squareup.picasso.Picasso;
@@ -534,7 +526,6 @@ public class CreateActivity extends AppCompatActivity {
         queue.add(jsonObjectRequest);
     }
 
-    // convert drawable to bitmap
     private Bitmap drawableToBitmap(Drawable drawable) {
         Bitmap bitmap = null;
 
@@ -546,6 +537,7 @@ public class CreateActivity extends AppCompatActivity {
         }
 
         if (drawable.getIntrinsicWidth() <= 0 || drawable.getIntrinsicHeight() <= 0) {
+            // Single color bitmap will be created of 1x1 pixel
             bitmap = Bitmap.createBitmap(1, 1, Bitmap.Config.ARGB_8888);
         } else {
             bitmap = Bitmap.createBitmap(drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight(),
@@ -555,13 +547,14 @@ public class CreateActivity extends AppCompatActivity {
         Canvas canvas = new Canvas(bitmap);
         drawable.setBounds(0, 0, canvas.getWidth(), canvas.getHeight());
         drawable.draw(canvas);
+
         return bitmap;
     }
 
     private void addAnnotationToMap() {
 
-        Bitmap marker = drawableToBitmap(getResources().getDrawable(R.drawable.ic_marker));
-        Bitmap smallMarker = Bitmap.createScaledBitmap(marker, 100, 100, false);
+        Bitmap marker = drawableToBitmap(getDrawable(R.drawable.red_marker));
+        // Bitmap smallMarker = Bitmap.createScaledBitmap(marker, 100, 100, false);
 
         AnnotationPlugin annotationAPI = AnnotationPluginImplKt.getAnnotations(mapView);
         PointAnnotationManager pointAnnotationManager = PointAnnotationManagerKt
@@ -574,11 +567,11 @@ public class CreateActivity extends AppCompatActivity {
                     pointAnnotationManager.deleteAll();
                     PointAnnotationOptions pointAnnotationOptions = new PointAnnotationOptions()
                             .withPoint(com.mapbox.geojson.Point.fromLngLat(point.longitude(), point.latitude()))
-                            .withIconImage(smallMarker);
+                            .withIconImage(marker);
                     pointAnnotationManager.create(pointAnnotationOptions);
                     Log.i("Diogo", point.toString());
                     Log.i("Diogo", pointAnnotationManager.toString());
-                    return false;
+                    return true;
                 });
 
     }

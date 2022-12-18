@@ -28,6 +28,14 @@ android {
     }
 }
 
+// for debug purposes
+
+//allprojects {
+//    tasks.withType(JavaCompile) {
+//        options.compilerArgs << "-Xlint:unchecked" << "-Xlint:deprecation"
+//    }
+//}
+
 dependencies {
 
     implementation 'androidx.appcompat:appcompat:1.5.1'
