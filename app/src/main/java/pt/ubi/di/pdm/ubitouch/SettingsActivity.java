@@ -1,5 +1,6 @@
 package pt.ubi.di.pdm.ubitouch;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.widget.CompoundButton;
@@ -12,6 +13,7 @@ import androidx.appcompat.widget.SwitchCompat;
 public class SettingsActivity extends AppCompatActivity {
 
     SwitchCompat switchLightDark;
+    SwitchCompat switchNotification;
     RelativeLayout languageSetting;
     RelativeLayout securityPrivacySetting;
     RelativeLayout aboutUsSetting;
@@ -23,11 +25,13 @@ public class SettingsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_settings);
 
         switchLightDark = findViewById(R.id.switchLD);
+        switchNotification = findViewById(R.id.switchN);
         languageSetting = findViewById(R.id.languageSetting);
         securityPrivacySetting = findViewById(R.id.securityPrivacySetting);
         aboutUsSetting = findViewById(R.id.aboutUsSetting);
         logoutSetting = findViewById(R.id.logoutSetting);
 
+        //Verificar se o sistema se encontra em dark mode ou nao
         int currentNightMode = getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK;
         switch (currentNightMode) {
             case Configuration.UI_MODE_NIGHT_NO:
@@ -37,6 +41,7 @@ public class SettingsActivity extends AppCompatActivity {
                 break;
         }
 
+        //Mudar theme
         switchLightDark.setOnCheckedChangeListener((buttonView, isChecked) -> {
             if (isChecked){
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);

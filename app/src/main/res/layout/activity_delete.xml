@@ -65,7 +65,7 @@
 
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/buttonSave"
+        android:id="@+id/buttonDeleteAcc"
         style="@style/LoginButtonStyle"
         android:layout_width="match_parent"
         android:layout_height="70dp"
