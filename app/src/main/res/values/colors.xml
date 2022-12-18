@@ -11,6 +11,7 @@
     <color name="azul1">#A6E1FA</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="red">#FF0000</color>
     <!-- nova cor: vermelho? usada nas discard changes -->
     <!-- nova cor: amarelo? usada no unverified post -->
     <!-- <color name="warning">#FFE252</color> -->

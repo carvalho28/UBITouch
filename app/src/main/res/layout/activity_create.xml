@@ -55,6 +55,7 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/createTitle"
+                        style="@style/CreateTextColor"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:maxLines="3"
@@ -81,6 +82,7 @@
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/createDescription"
+                        style="@style/CreateTextColor"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:maxLines="7"
@@ -276,8 +278,7 @@
                     android:layout_height="match_parent"
                     mapbox:mapbox_cameraTargetLat="40.27782"
                     mapbox:mapbox_cameraTargetLng="-7.50902"
-                    mapbox:mapbox_cameraZoom="15.0"
-                />
+                    mapbox:mapbox_cameraZoom="15.0" />
             </LinearLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -289,7 +290,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="15dp"
-                    android:backgroundTint="#a64f59"
+                    android:backgroundTint="@color/red"
                     android:text="@string/discard"
                     android:textAllCaps="false"
                     android:textColor="@color/white"

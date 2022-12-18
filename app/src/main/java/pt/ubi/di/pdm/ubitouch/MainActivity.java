@@ -37,8 +37,12 @@ public class MainActivity extends AppCompatActivity {
         // on click go to register activity
         btnMain.setOnClickListener(
                 v -> {
+<<<<<<< HEAD
                     Intent intent = new Intent(this,
                             DeactivateActivity.class);
+=======
+                    Intent intent = new Intent(this, LoginActivity.class);
+>>>>>>> origin/master
 
                     startActivity(intent);
                 });
