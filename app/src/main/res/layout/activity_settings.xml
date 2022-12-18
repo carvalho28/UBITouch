@@ -128,6 +128,7 @@
 
                 <!-- Language -->
                 <RelativeLayout
+                    android:id="@+id/languageSetting"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
@@ -160,6 +161,7 @@
 
                 <!-- Security and Privacy -->
                 <RelativeLayout
+                    android:id="@+id/securityPrivacySetting"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp">
@@ -207,6 +209,7 @@
 
                 <!-- About Us -->
                 <RelativeLayout
+                    android:id="@+id/aboutUsSetting"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
@@ -250,6 +253,7 @@
 
                 <!-- Logout -->
                 <RelativeLayout
+                    android:id="@+id/logoutSetting"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 

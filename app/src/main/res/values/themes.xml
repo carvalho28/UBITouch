@@ -65,14 +65,25 @@
     <!-- Post colors -->
     <style name="PostIconColor">
         <item name="android:drawableTint">@color/azul1</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+    <style name="PostBackColors">
+        <item name="android:background">@color/white</item>
+    </style>
+    <style name="PostTextColor">
+        <item name="android:textColor">@color/black</item>
     </style>
 
     <!-- Create colors -->
     <style name="CreateIconColors">
         <item name="android:drawableTint">@color/azul1</item>
+        <item name="android:textColor">@color/black</item>
     </style>
     <style name="CreateButtonsStyle">
         <item name="android:backgroundTint">@color/azul3</item>
+    </style>
+    <style name="CreateTextColor">
+        <item name="android:textColor">@color/black</item>
     </style>
 
     <!-- Security Colors -->
