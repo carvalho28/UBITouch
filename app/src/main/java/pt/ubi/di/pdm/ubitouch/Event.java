@@ -1,11 +1,5 @@
 package pt.ubi.di.pdm.ubitouch;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.os.Bundle;
-import android.widget.ImageView;
-import android.widget.TextView;
-
 public class Event {
 
     //private final String username;

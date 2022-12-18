@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
         // on click go to register activity
         btnMain.setOnClickListener(
                 v -> {
-                    Intent intent = new Intent(this, ChangePasswordActivity.class);
+                    Intent intent = new Intent(this, FeedActivity.class);
 
 
                     startActivity(intent);

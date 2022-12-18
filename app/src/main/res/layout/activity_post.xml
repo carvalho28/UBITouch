@@ -6,7 +6,7 @@
     android:layout_height="wrap_content"
     android:paddingHorizontal="15sp"
     android:paddingVertical="15sp"
-    tools:context=".PostActivity"
+    tools:context=".Event"
     style="@style/PostBackColors">
 
     <LinearLayout
@@ -170,6 +170,12 @@
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
             </LinearLayout>
+
+            <Switch
+                android:id="@+id/switchInterest"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Switch" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"

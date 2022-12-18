@@ -1,6 +1,7 @@
 package pt.ubi.di.pdm.ubitouch;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,7 +25,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         this.listRecyclerView = posts;
     }
 
-    public class ItemViewHolder extends RecyclerView.ViewHolder{
+    public class ItemViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         // private TextView Username; // first name + last name
         private TextView Title;
         private TextView Description;
@@ -43,6 +44,18 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             EventHour = itemView.findViewById(R.id.postTime);
             verifiedFlag = itemView.findViewById(R.id.verifiedFlag);
             unverifiedFLag = itemView.findViewById(R.id.unverifiedFlag);
+
+            UserImage.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View view) {
+            int position = getAdapterPosition();
+            Event event = listRecyclerView.get(position);
+
+            if (view.getId() == R.id.postUserImage) {
+                Log.d("Diogo", "Click" + position);
+            }
         }
     }
 
