@@ -79,6 +79,7 @@ public class CreateActivity extends AppCompatActivity {
     private String userId, token;
     boolean imageChanged = false;
     private Uri imageUri;
+    private String latitude, longitude = "";
 
     // Intent to get image
     ActivityResultLauncher<Intent> activityResultLauncher = registerForActivityResult(
@@ -440,6 +441,8 @@ public class CreateActivity extends AppCompatActivity {
             jsonBody.put("idUser", userId);
             jsonBody.put("eventDate", eventDate);
             jsonBody.put("eventHour", eventHour);
+            jsonBody.put("latitude", latitude);
+            jsonBody.put("longitude", longitude);
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -588,6 +591,9 @@ public class CreateActivity extends AppCompatActivity {
                     pointAnnotationManager.create(pointAnnotationOptions);
                     Log.i("Diogo", point.toString());
                     Log.i("Diogo", pointAnnotationManager.toString());
+                    // add latitude and longitude to the vars
+                    latitude = String.valueOf(point.latitude());
+                    longitude = String.valueOf(point.longitude());
                     return true;
                 });
 
