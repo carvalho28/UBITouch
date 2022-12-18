@@ -46,7 +46,7 @@
                 android:value="" />
         </activity>
 <!--        <activity-->
-<!--            android:name=".PostActivity"-->
+<!--            android:name=".Event"-->
 <!--            android:exported="false">-->
 <!--            <meta-data-->
 <!--                android:name="android.app.lib_name"-->

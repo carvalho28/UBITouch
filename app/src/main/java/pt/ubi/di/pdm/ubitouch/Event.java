@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class PostActivity {
+public class Event {
 
     //private final String username;
     private final String title;
@@ -19,7 +19,7 @@ public class PostActivity {
 
 
 
-    public PostActivity(String title, String image, String description, String eventHour, String eventDate, String verifiedFlag, String unverifiedFlag)
+    public Event(String title, String image, String description, String eventHour, String eventDate, String verifiedFlag, String unverifiedFlag)
     {
         // this.username = username;
         this.title = title;
