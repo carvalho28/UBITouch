@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -18,6 +19,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -119,6 +121,22 @@ public class LoginActivity extends AppCompatActivity {
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
+
+                        // firebase token
+                        FirebaseMessaging.getInstance().getToken()
+                                .addOnCompleteListener(task -> {
+                                    if (!task.isSuccessful()) {
+                                        Log.w("Diogo", "Fetching FCM registration token failed", task.getException());
+                                        return;
+                                    }
+
+                                    // Get new FCM registration token
+                                    String token = task.getResult();
+
+                                    // Log and toast
+                                    Log.d("Diogo", token);
+                                    Toast.makeText(LoginActivity.this, "Token: " + token, Toast.LENGTH_SHORT).show();
+                                });
 
                         // show loading circle
                         progressBar.setVisibility(View.VISIBLE);

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "46861563250",
+    "project_id": "ubitouch-8f5e4",
+    "storage_bucket": "ubitouch-8f5e4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:46861563250:android:d3f0abc91f97bf7579d9eb",
+        "android_client_info": {
+          "package_name": "pt.ubi.di.pdm.ubitouch"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "46861563250-bljvd49s9gl05bfvrpm6fbofha87gojq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB7iwau1cNkmLxy-Sdzs3Wq0VBBrSlPRcQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "46861563250-bljvd49s9gl05bfvrpm6fbofha87gojq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

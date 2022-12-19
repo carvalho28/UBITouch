@@ -1,5 +1,6 @@
 plugins {
     id 'com.android.application'
+    id 'com.google.gms.google-services'
 }
 
 android {
@@ -53,4 +54,6 @@ dependencies {
     implementation('com.cloudinary:cloudinary-android:2.3.0')
     // mapbox
     implementation ('com.mapbox.maps:android:10.10.0')
+    // FCM
+    implementation 'com.google.firebase:firebase-messaging:23.1.1'
 }

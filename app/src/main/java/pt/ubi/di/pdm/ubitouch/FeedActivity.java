@@ -1,12 +1,17 @@
 package pt.ubi.di.pdm.ubitouch;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -19,7 +24,10 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.messaging.FirebaseMessaging;
 import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
@@ -40,7 +48,6 @@ public class FeedActivity extends AppCompatActivity {
     ImageButton imageButton2;
     ImageButton imageButton3;
     ImageButton imageButton4;
-
 
     // DEBUG
     private final String TAG = "JOAO";
@@ -80,7 +87,7 @@ public class FeedActivity extends AppCompatActivity {
                     Intent intent = new Intent(this, SettingsActivity.class);
 
                     startActivity(intent);
-        });
+                });
 
         newEvent.setOnClickListener(v -> {
             Intent intent = new Intent(FeedActivity.this, CreateActivity.class);
@@ -99,7 +106,6 @@ public class FeedActivity extends AppCompatActivity {
                         JSONArray events = response.getJSONArray("data");
                         nOfEvents = events.length();
 
-
                         for (int i = 0; i < events.length(); i++) {
                             JSONObject e = (JSONObject) events.get(i);
                             // int id = Integer.parseInt(e.getString("idEvent"));
@@ -107,14 +113,15 @@ public class FeedActivity extends AppCompatActivity {
                             String description = e.getString("description");
                             String image = e.getString("image");
                             String isVerified = e.getString("isVerified");
-                            //String userId = e.getString("idUser");
+                            // String userId = e.getString("idUser");
                             String eventDate = e.getString("eventDate");
                             String eventHour = e.getString("eventHour");
                             String creationDate = e.getString("createdAt");
-                            //String updated_dates = e.getString("updatedAt");
+                            // String updated_dates = e.getString("updatedAt");
                             listEvents.add(new Event(title, image, description, eventHour, eventDate, "1", "0"));
                             // if user is admin then verified flag is visible
-                            // ----- if verified == 1 then it is verified, else verified == 0 it is unverified
+                            // ----- if verified == 1 then it is verified, else verified == 0 it is
+                            // unverified
                             // if the user is not an admin then the flag is invisible
                         }
 
@@ -138,4 +145,5 @@ public class FeedActivity extends AppCompatActivity {
         // hide loading circle
         progressBar.setVisibility(View.GONE);
     }
+
 }

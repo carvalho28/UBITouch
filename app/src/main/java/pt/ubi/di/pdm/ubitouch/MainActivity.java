@@ -8,8 +8,10 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.cloudinary.android.MediaManager;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -37,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         // on click go to register activity
         btnMain.setOnClickListener(
                 v -> {
-                    Intent intent = new Intent(this, FeedActivity.class);
+                    Intent intent = new Intent(this, LoginActivity.class);
 
 
                     startActivity(intent);

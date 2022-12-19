@@ -1,4 +1,5 @@
 package pt.ubi.di.pdm.ubitouch;
+
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
@@ -31,7 +32,7 @@ public class SettingsActivity extends AppCompatActivity {
         aboutUsSetting = findViewById(R.id.aboutUsSetting);
         logoutSetting = findViewById(R.id.logoutSetting);
 
-        //Verificar se o sistema se encontra em dark mode ou nao
+        // Verificar se o sistema se encontra em dark mode ou nao
         int currentNightMode = getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK;
         switch (currentNightMode) {
             case Configuration.UI_MODE_NIGHT_NO:
@@ -41,9 +42,9 @@ public class SettingsActivity extends AppCompatActivity {
                 break;
         }
 
-        //Mudar theme
+        // Mudar theme
         switchLightDark.setOnCheckedChangeListener((buttonView, isChecked) -> {
-            if (isChecked){
+            if (isChecked) {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
             } else {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
@@ -64,11 +65,23 @@ public class SettingsActivity extends AppCompatActivity {
                     startActivity(intent);
                 });
 
-//        aboutUsSetting.setOnClickListener(
-//                v -> {
-//                    Intent intent = new Intent(this, AboutUsActivity.class);
-//
-//                    startActivity(intent);
-//                });
+        // aboutUsSetting.setOnClickListener(
+        // v -> {
+        // Intent intent = new Intent(this, AboutUsActivity.class);
+        //
+        // startActivity(intent);
+        // });
+
+        logoutSetting.setOnClickListener(
+                v -> {
+                    SharedPreferences sharedPref = getSharedPreferences("user", MODE_PRIVATE);
+                    SharedPreferences.Editor editor = sharedPref.edit();
+                    editor.clear();
+                    editor.apply();
+
+                    Intent intent = new Intent(this, LoginActivity.class);
+
+                    startActivity(intent);
+                });
     }
 }
