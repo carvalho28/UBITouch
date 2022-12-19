@@ -2,19 +2,12 @@ package pt.ubi.di.pdm.ubitouch;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
-import android.widget.Toast;
 
-import com.cloudinary.android.MediaManager;
 import com.google.firebase.messaging.FirebaseMessaging;
-
-import java.util.HashMap;
-import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -26,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Log.d("Diogo", String.valueOf(Configs.isConfigInitialized));
 
-        btnMain = findViewById(R.id.btnMain);
+        btnMain = findViewById(R.id.btnRegister);
 
         // TO REMOVE token, id, username
 //        SharedPreferences sharedPref = getSharedPreferences("user", Context.MODE_PRIVATE);

@@ -82,4 +82,12 @@
 <!--    Maps -->
     <string name="mapbox_access_token" translatable="false">pk.eyJ1IjoiY2FydmFsaG8yOCIsImEiOiJjbGJwYmlrcXYwOXFzM29wazZxZHU5eGJmIn0.SKuQy2CnJf3NLeT2c1MljQ</string>
 
+
+    <!-- Landing page -->
+    <string name="lp_register">Register</string>
+    <string name="lp_login">Login</string>
+    <string name="lp_copyright" translatable="false">UBITouch Team © 2022</string>
+    <string name="lp_slogan">Get in touch with what’s happening at UBI.</string>
+    <string name="lp_slogan_hl">touch</string>
+
 </resources>

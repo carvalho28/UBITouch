@@ -72,4 +72,10 @@
     <string name="post_default_text">Não definido</string>
     <string name="post_verified">Verificado</string>
     <string name="post_unverified">Não verificado</string>
+
+    <!-- Landing page -->
+    <string name="lp_register">Registar-se</string>
+    <string name="lp_login">Iniciar sessão</string>
+    <string name="lp_slogan">Mantém o contacto com as novidades da tua UBI.</string>
+    <string name="lp_slogan_hl">contacto</string>
 </resources>
