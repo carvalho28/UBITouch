@@ -39,7 +39,8 @@
             android:background="@android:color/transparent"
             android:contentDescription="TODO"
             app:srcCompat="@drawable/notification"
-            tools:ignore="SpeakableTextPresentCheck"></ImageButton>
+            tools:ignore="SpeakableTextPresentCheck">
+        </ImageButton>
 
         <ImageButton
             android:id="@+id/btnSettings"
@@ -50,7 +51,8 @@
             android:background="@android:color/transparent"
             android:contentDescription="TODO"
             app:srcCompat="@drawable/settings"
-            tools:ignore="SpeakableTextPresentCheck"></ImageButton>
+            tools:ignore="SpeakableTextPresentCheck">
+        </ImageButton>
 
     </LinearLayout>
 
