@@ -12,6 +12,23 @@
         android:gravity="center_vertical"
         android:orientation="vertical">
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:text="LOGIN"
+            android:textColor="@color/blue"
+            android:textSize="36sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="10dp"
+            android:text="Welcome back!"
+            android:textColor="@color/blue"
+            android:textSize="20sp" />
+
         <!-- username or email -->
 
         <TextView
@@ -79,10 +96,10 @@
             android:layout_marginStart="32dp"
             android:layout_marginTop="5dp"
             android:layout_marginEnd="32dp"
+            android:gravity="end"
             android:text="@string/forgot_password"
-            android:textSize="11sp"
-            android:gravity="end">
-        </TextView>
+            android:textColor="@color/blue"
+            android:textSize="11sp"></TextView>
 
         <!-- log in button -->
 
@@ -90,12 +107,14 @@
             android:id="@+id/buttonLogin"
             style="@style/LoginButtonStyle"
             android:layout_width="match_parent"
-            android:layout_height="80dp"
+            android:layout_height="60dp"
             android:layout_marginStart="32dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="32dp"
+            android:background="@color/orange"
             android:text="@string/login"
             android:textSize="20sp"
+            app:backgroundTint="@color/orange"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/loginPasswordInputLayout"
@@ -111,10 +130,10 @@
             android:layout_marginStart="32dp"
             android:layout_marginTop="5dp"
             android:layout_marginEnd="32dp"
+            android:gravity="end"
             android:text="@string/no_account"
-            android:textSize="11sp"
-            android:gravity="end">
-        </TextView>
+            android:textColor="@color/blue"
+            android:textSize="11sp"></TextView>
 
         <ProgressBar
             android:id="@+id/loginProgressBar"
