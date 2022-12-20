@@ -78,4 +78,9 @@
     <string name="lp_login">Iniciar sessão</string>
     <string name="lp_slogan">Mantém o contacto com as novidades da tua UBI.</string>
     <string name="lp_slogan_hl">contacto</string>
+
+    <!-- Create page -->
+    <string name="cr_title">NOVO EVENTO</string>
+    <string name="cr_subtitle">O que está a acontecer na tua UBI?</string>
+    <string name="cr_subtitle_hl">acontecer</string>
 </resources>
