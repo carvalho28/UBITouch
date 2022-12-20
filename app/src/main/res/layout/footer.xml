@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/footer"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true"
+    android:background="@color/blue">
+
+
+    <ImageButton
+        android:id="@+id/home"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        app:srcCompat="@drawable/ic_baseline_home_24"
+        android:background="@android:color/transparent"
+        android:layout_marginStart="40dp">
+    </ImageButton>
+
+    <ImageButton
+        android:id="@+id/search"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        app:srcCompat="@drawable/ic_baseline_search_24"
+        android:background="@android:color/transparent"
+        android:layout_toEndOf="@+id/home"
+        android:layout_marginStart="90dp">
+    </ImageButton>
+
+    <ImageButton
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        app:srcCompat="@drawable/ic_person"
+        android:background="@android:color/transparent"
+        android:layout_toEndOf="@+id/search"
+        android:layout_marginStart="100dp">
+    </ImageButton>
+
+</RelativeLayout>
