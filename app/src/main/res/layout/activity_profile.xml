@@ -104,7 +104,7 @@
                     <com.google.android.material.tabs.TabItem
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Events"/>
+                        android:text="Events" />
 
                     <com.google.android.material.tabs.TabItem
                         android:layout_width="wrap_content"
@@ -127,9 +127,8 @@
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentBottom="true"
                     android:layout_gravity="end|bottom"
-                    android:layout_margin="16dp"
                     android:clickable="true"
-                    app:srcCompat="@drawable/ic_username"
+                    app:srcCompat="@drawable/ic_baseline_add_24"
                     app:tint="@color/white"
                     android:background="@color/orange"
                     android:backgroundTint="@color/orange"

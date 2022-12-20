@@ -47,14 +47,15 @@
                 android:layout_marginTop="15dp"
                 android:layout_marginEnd="15dp"
                 android:layout_marginBottom="15dp"
-                android:layout_toEndOf="@+id/header"
+                android:layout_toEndOf="@+id/headerLogo"
                 android:background="@android:color/transparent"
                 android:contentDescription="TODO"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/btnSettings"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/notification"
-                tools:ignore="SpeakableTextPresentCheck"></ImageButton>
+                tools:ignore="SpeakableTextPresentCheck">
+            </ImageButton>
 
             <ImageButton
                 android:id="@+id/btnSettings"
@@ -70,7 +71,8 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/settings"
-                tools:ignore="SpeakableTextPresentCheck"></ImageButton>
+                tools:ignore="SpeakableTextPresentCheck">
+            </ImageButton>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
