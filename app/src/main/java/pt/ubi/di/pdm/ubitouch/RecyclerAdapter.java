@@ -74,7 +74,8 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         Event posts = (Event) listRecyclerView.get(position);
         itemViewHolder.Title.setText(posts.getTitle());
         itemViewHolder.EventDate.setText(posts.getEventDate());
-        Picasso.get().load(posts.getImage()).into(itemViewHolder.UserImage);
+        if (posts.getImage().length() > 0)
+            Picasso.get().load(posts.getImage()).into(itemViewHolder.UserImage);
         itemViewHolder.Description.setText(posts.getDescription());
         if (itemViewHolder.Description.length() > 0)
             itemViewHolder.Description.setVisibility(View.VISIBLE);
