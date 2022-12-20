@@ -79,7 +79,8 @@ public class CreateActivity extends AppCompatActivity {
     private String userId, token;
     boolean imageChanged = false;
     private Uri imageUri;
-    private String latitude, longitude = "";
+    private String latitude= "";
+    private String longitude = "";
 
     // Intent to get image
     ActivityResultLauncher<Intent> activityResultLauncher = registerForActivityResult(
@@ -446,6 +447,8 @@ public class CreateActivity extends AppCompatActivity {
         } catch (JSONException e) {
             e.printStackTrace();
         }
+
+        Log.d("Diogo", jsonBody.toString());
 
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url, jsonBody,
                 response -> {
