@@ -11,7 +11,6 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -25,6 +24,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.Objects;
+import java.util.concurrent.atomic.AtomicReference;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -83,6 +83,7 @@ public class LoginActivity extends AppCompatActivity {
     private void login(String URL) {
 
         Log.i(TAG, "LoginActivity: login()");
+        AtomicReference<String> fcmToken = new AtomicReference<>("");
 
         // hide the keyboard
         InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
@@ -96,6 +97,28 @@ public class LoginActivity extends AppCompatActivity {
                 jsonBody.put("username", username.getText().toString());
             }
             jsonBody.put("password", password.getText().toString());
+            // firebase token
+            FirebaseMessaging.getInstance().getToken()
+                    .addOnCompleteListener(task -> {
+                        if (!task.isSuccessful()) {
+                            Log.w("Diogo", "Fetching FCM registration token failed", task.getException());
+                            return;
+                        }
+
+                        // Get new FCM registration token
+                        fcmToken.set(task.getResult());
+
+                        // Log and toast
+                        Log.d("Diogo", fcmToken.get());
+                        // Toast.makeText(LoginActivity.this, "Token: " + token,
+                        // Toast.LENGTH_SHORT).show();
+                    });
+            if (!fcmToken.get().isEmpty()) {
+                jsonBody.put("fcmToken", fcmToken);
+            } else {
+                jsonBody.put("fcmToken", "null");
+            }
+            console.log(jsonBody);
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -121,22 +144,6 @@ public class LoginActivity extends AppCompatActivity {
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
-
-                        // firebase token
-                        FirebaseMessaging.getInstance().getToken()
-                                .addOnCompleteListener(task -> {
-                                    if (!task.isSuccessful()) {
-                                        Log.w("Diogo", "Fetching FCM registration token failed", task.getException());
-                                        return;
-                                    }
-
-                                    // Get new FCM registration token
-                                    String token = task.getResult();
-
-                                    // Log and toast
-                                    Log.d("Diogo", token);
-                                    Toast.makeText(LoginActivity.this, "Token: " + token, Toast.LENGTH_SHORT).show();
-                                });
 
                         // show loading circle
                         progressBar.setVisibility(View.VISIBLE);
