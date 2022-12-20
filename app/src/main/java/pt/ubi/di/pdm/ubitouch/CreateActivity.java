@@ -79,7 +79,7 @@ public class CreateActivity extends AppCompatActivity {
     private String userId, token;
     boolean imageChanged = false;
     private Uri imageUri;
-    private String latitude= "";
+    private String latitude = "";
     private String longitude = "";
 
     // Intent to get image
@@ -183,9 +183,20 @@ public class CreateActivity extends AppCompatActivity {
         btnDiscard = findViewById(R.id.btnDiscard);
         progressBar = findViewById(R.id.createProgressBar);
 
+        // check if dark mode is enabled
+        SharedPreferences sharedPrefMode = getSharedPreferences("DarkMode", Context.MODE_PRIVATE);
+        boolean darkMode = sharedPrefMode.getBoolean("DarkModeEnabled", false);
+        String mapStyle = "";
+        if (darkMode) {
+            // set map style to dark
+            mapStyle = Style.DARK;
+        } else {
+            mapStyle = Style.MAPBOX_STREETS;
+        }
+
         // maps
         mapView = findViewById(R.id.mapView);
-        mapView.getMapboxMap().loadStyleUri(Style.MAPBOX_STREETS,
+        mapView.getMapboxMap().loadStyleUri(mapStyle,
                 style -> {
                     addAnnotationToMap();
                 });
@@ -425,7 +436,7 @@ public class CreateActivity extends AppCompatActivity {
                 }).dispatch();
             }
         } else {
-            Log.i(TAG,"No media");
+            Log.i(TAG, "No media");
             postData(createTitle.getText().toString(), createDescription.getText().toString(), "", selectedDate,
                     selectedTime);
         }

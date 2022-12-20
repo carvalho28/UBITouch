@@ -3,7 +3,9 @@ package pt.ubi.di.pdm.ubitouch;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
@@ -35,8 +37,8 @@ public class MainActivity extends AppCompatActivity {
         btnLogin = findViewById(R.id.btnLogin);
 
         // TO REMOVE token, id, username
-//        SharedPreferences sharedPref = getSharedPreferences("user", Context.MODE_PRIVATE);
-//        sharedPref.edit().clear().apply();
+        SharedPreferences sharedPref = getSharedPreferences("user", Context.MODE_PRIVATE);
+        sharedPref.edit().clear().apply();
         if (!Configs.isConfigInitialized) {
             Configs.initConfig(this);
         }
@@ -45,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
         // on click go to register activity
         btnRegister.setOnClickListener(
                 v -> {
-                    Intent intent = new Intent(this, RegisterActivity.class);
+                    Intent intent = new Intent(this, CreateActivity.class);
 
 
                     startActivity(intent);
