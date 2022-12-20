@@ -47,7 +47,7 @@ public class FeedActivity extends AppCompatActivity {
     ImageButton imageButton1;
     ImageButton imageButton2;
     ImageButton imageButton3;
-    ImageButton imageButton4;
+    ImageButton settings;
 
     // DEBUG
     private final String TAG = "JOAO";
@@ -69,7 +69,7 @@ public class FeedActivity extends AppCompatActivity {
         progressBar = findViewById(R.id.feedProgressBar);
         newEvent = findViewById(R.id.btnNewEvent);
         noPostsText = findViewById(R.id.noPostsText);
-        imageButton4 = findViewById(R.id.imageButton4);
+        settings = findViewById(R.id.btnSettings);
 
         recyclerView = findViewById(R.id.recyclerView);
 
@@ -82,7 +82,7 @@ public class FeedActivity extends AppCompatActivity {
 
         getEventsData();
 
-        imageButton4.setOnClickListener(
+        settings.setOnClickListener(
                 v -> {
                     Intent intent = new Intent(this, SettingsActivity.class);
 
