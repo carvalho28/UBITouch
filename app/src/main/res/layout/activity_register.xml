@@ -16,14 +16,33 @@
     <!-- text to show error messages -->
 
     <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:text="REGISTER"
+        android:textColor="@color/blue"
+        android:textSize="36sp" />
+
+    <TextView
+        android:id="@+id/descriprion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="10dp"
+        android:text="Let's get you on board."
+        android:textColor="@color/blue"
+        android:textSize="20sp" />
+
+    <TextView
         android:id="@+id/textViewError"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
+        android:layout_margin="20dp"
         android:gravity="center"
         android:textColor="#FF0000"
         android:textSize="20sp"
         android:visibility="gone" />
+
 
     <!-- Name -->
     <com.google.android.material.textfield.TextInputLayout
@@ -31,9 +50,9 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
+        android:layout_marginStart="40dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="32dp"
+        android:layout_marginEnd="40dp"
         android:hint="@string/name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -45,7 +64,9 @@
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:inputType="text"
-          android:textColorHint="#0066FF" />
+          android:shadowRadius="10"
+          android:textColorHint="#0066FF"
+          android:textColorLink="#000000" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <!-- email -->
@@ -54,9 +75,9 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
+        android:layout_marginStart="40dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="32dp"
+        android:layout_marginEnd="40dp"
         android:hint="@string/email"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -77,9 +98,9 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
+        android:layout_marginStart="40dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="32dp"
+        android:layout_marginEnd="40dp"
         android:hint="@string/username"
         app:counterEnabled="true"
         app:counterMaxLength="20"
@@ -102,9 +123,9 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
+        android:layout_marginStart="40dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="32dp"
+        android:layout_marginEnd="40dp"
         android:hint="@string/password"
         app:endIconMode="password_toggle"
         app:layout_constraintEnd_toEndOf="parent"
@@ -126,9 +147,9 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
+        android:layout_marginStart="40dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="32dp"
+        android:layout_marginEnd="40dp"
         android:hint="@string/confirm_password"
         app:endIconMode="password_toggle"
         app:layout_constraintEnd_toEndOf="parent"
@@ -157,17 +178,29 @@
         android:id="@+id/buttonRegister"
         style="@style/RegisterButtonStyle"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:layout_marginStart="32dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="40dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="32dp"
+        android:layout_marginEnd="40dp"
+        android:background="@color/orange"
         android:text="@string/register"
         android:textSize="20sp"
+        app:backgroundTint="@color/orange"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout6"
-        app:strokeColor="@color/azul4"
         app:strokeWidth="2dp" />
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:gravity="center"
+        android:text="Already have an account? Sign in"
+        android:textColor="@color/blue"
+        android:textSize="16sp" />
+
 
   </LinearLayout>
 </ScrollView>

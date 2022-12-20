@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/footer"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentTop="true"
+    android:gravity="center">
+
+    <ImageView
+        android:id="@+id/feather"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="10dp"
+        android:layout_centerVertical="true"
+        tools:srcCompat="@tools:sample/avatars"
+        android:contentDescription="TODO" />
+
+    <TextView
+        android:id="@+id/header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_toEndOf="@+id/feather"
+        android:text="UBITouch">
+    </TextView>
+
+    <ImageButton
+        android:id="@+id/notifications"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="190dp"
+        android:layout_marginTop="10dp"
+        android:layout_toEndOf="@+id/header"
+        android:contentDescription="TODO"
+        tools:ignore="SpeakableTextPresentCheck"
+        app:srcCompat="@drawable/notification"
+        android:background="@android:color/transparent">
+    </ImageButton>
+
+    <ImageButton
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="10dp"
+        android:layout_toEndOf="@+id/notifications"
+        android:contentDescription="TODO"
+        tools:ignore="SpeakableTextPresentCheck"
+        app:srcCompat="@drawable/settings"
+        android:background="@android:color/transparent">
+    </ImageButton>
+</RelativeLayout>

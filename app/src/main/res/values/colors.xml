@@ -10,9 +10,15 @@
     <color name="azul2">#78C0E0</color>
     <color name="azul1">#A6E1FA</color>
     <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
-    <color name="red">#FF0000</color>
     <!-- nova cor: vermelho? usada nas discard changes -->
     <!-- nova cor: amarelo? usada no unverified post -->
     <!-- <color name="warning">#FFE252</color> -->
+    <color name="blue">#002A5C</color>
+    <color name="orange">#EE8000</color>
+    <color name="babyBlue">#5570FE</color>
+    <color name="darkOrange">#7C4300</color>
+    <color name="grey">#ECECEC</color>
+    <color name="red">#DD4528</color>
+    <color name="white">#FFF4F4</color>
+    <color name="darkGrey">#7E7E7E</color>
 </resources>
