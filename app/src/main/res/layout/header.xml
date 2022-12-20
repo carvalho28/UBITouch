@@ -10,69 +10,47 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent">
+        <ImageView
+            android:id="@+id/headerLogo"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:paddingHorizontal="10dp"
+            app:srcCompat="@drawable/logo_header" />
 
-            <ImageView
-                android:id="@+id/headerLogo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="15dp"
-                android:layout_marginTop="15dp"
-                android:layout_marginBottom="15dp"
-                android:padding="5dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/logo_header" />
+        <View
+            android:id="@+id/view"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="1.5" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        <ImageButton
+            android:id="@+id/btnNotifications"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_toEndOf="@+id/header"
+            android:layout_weight="0.5"
+            android:background="@android:color/transparent"
+            android:contentDescription="TODO"
+            app:srcCompat="@drawable/notification"
+            tools:ignore="SpeakableTextPresentCheck"></ImageButton>
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <ImageButton
-                android:id="@+id/btnNotifications"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:layout_marginTop="15dp"
-                android:layout_marginEnd="15dp"
-                android:layout_marginBottom="15dp"
-                android:layout_toEndOf="@+id/header"
-                android:background="@android:color/transparent"
-                android:contentDescription="TODO"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/btnSettings"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/notification"
-                tools:ignore="SpeakableTextPresentCheck"></ImageButton>
-
-            <ImageButton
-                android:id="@+id/btnSettings"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:layout_marginTop="15dp"
-                android:layout_marginEnd="15dp"
-                android:layout_marginBottom="15dp"
-                android:layout_toEndOf="@+id/btnNotifications"
-                android:background="@android:color/transparent"
-                android:contentDescription="TODO"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/settings"
-                tools:ignore="SpeakableTextPresentCheck"></ImageButton>
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        <ImageButton
+            android:id="@+id/btnSettings"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_toEndOf="@+id/btnNotifications"
+            android:layout_weight="0.5"
+            android:background="@android:color/transparent"
+            android:contentDescription="TODO"
+            app:srcCompat="@drawable/settings"
+            tools:ignore="SpeakableTextPresentCheck"></ImageButton>
 
     </LinearLayout>
 

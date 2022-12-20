@@ -79,7 +79,7 @@
     <string name="post_verified">Verified</string>
     <string name="post_unverified">Unverified</string>
 
-<!--    Maps -->
+    <!--    Maps -->
     <string name="mapbox_access_token" translatable="false">pk.eyJ1IjoiY2FydmFsaG8yOCIsImEiOiJjbGJwYmlrcXYwOXFzM29wazZxZHU5eGJmIn0.SKuQy2CnJf3NLeT2c1MljQ</string>
 
 
@@ -89,5 +89,10 @@
     <string name="lp_copyright" translatable="false">UBITouch Team © 2022</string>
     <string name="lp_slogan">Get in touch with what’s happening at UBI.</string>
     <string name="lp_slogan_hl">touch</string>
+
+    <!-- Create page -->
+    <string name="cr_title">NEW EVENT</string>
+    <string name="cr_subtitle">What\'s happening at UBI?</string>
+    <string name="cr_subtitle_hl">happening</string>
 
 </resources>
