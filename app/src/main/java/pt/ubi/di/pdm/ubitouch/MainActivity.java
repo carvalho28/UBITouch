@@ -1,6 +1,7 @@
 package pt.ubi.di.pdm.ubitouch;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,8 +15,18 @@ public class MainActivity extends AppCompatActivity {
     Button btnRegister;
     Button btnLogin;
 
+    DarkMode darkmode;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        darkmode = new DarkMode(this);
+
+        if (darkmode.loadDarkMode() == true) {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+        } else {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        }
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Log.d("Diogo", String.valueOf(Configs.isConfigInitialized));

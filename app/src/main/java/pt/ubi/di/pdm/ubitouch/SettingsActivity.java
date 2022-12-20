@@ -31,6 +31,8 @@ public class SettingsActivity extends AppCompatActivity {
     RelativeLayout aboutUsSetting;
     RelativeLayout logoutSetting;
 
+    DarkMode darkmode;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,23 +44,20 @@ public class SettingsActivity extends AppCompatActivity {
         securityPrivacySetting = findViewById(R.id.securityPrivacySetting);
         aboutUsSetting = findViewById(R.id.aboutUsSetting);
         logoutSetting = findViewById(R.id.logoutSetting);
+        darkmode = new DarkMode(this);
 
-        // Verificar se o sistema se encontra em dark mode ou nao
-        int currentNightMode = getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK;
-        switch (currentNightMode) {
-            case Configuration.UI_MODE_NIGHT_NO:
-                break;
-            case Configuration.UI_MODE_NIGHT_YES:
-                switchLightDark.setChecked(true);
-                break;
+        if (darkmode.loadDarkMode() == true) {
+            switchLightDark.setChecked(true);
         }
 
         // Mudar theme
         switchLightDark.setOnCheckedChangeListener((buttonView, isChecked) -> {
             if (isChecked) {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                darkmode.setDarkmodeState(true);
             } else {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+                darkmode.setDarkmodeState(false);
             }
         });
 
