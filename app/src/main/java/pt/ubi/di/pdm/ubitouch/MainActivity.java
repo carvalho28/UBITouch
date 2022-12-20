@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
         // on click go to login activity
         btnLogin.setOnClickListener(
                 v -> {
-                    Intent intent = new Intent(this, LoginActivity.class);
+                    Intent intent = new Intent(this, ProfileActivity.class);
                     startActivity(intent);
                 });
     }
