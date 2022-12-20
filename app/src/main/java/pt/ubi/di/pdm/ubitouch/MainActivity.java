@@ -7,11 +7,10 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
 
-import com.google.firebase.messaging.FirebaseMessaging;
-
 public class MainActivity extends AppCompatActivity {
 
-    Button btnMain;
+    Button btnRegister;
+    Button btnLogin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,7 +18,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Log.d("Diogo", String.valueOf(Configs.isConfigInitialized));
 
-        btnMain = findViewById(R.id.btnRegister);
+        btnRegister = findViewById(R.id.btnRegister);
+        btnLogin = findViewById(R.id.btnLogin);
 
         // TO REMOVE token, id, username
 //        SharedPreferences sharedPref = getSharedPreferences("user", Context.MODE_PRIVATE);
@@ -30,11 +30,18 @@ public class MainActivity extends AppCompatActivity {
 
 
         // on click go to register activity
-        btnMain.setOnClickListener(
+        btnRegister.setOnClickListener(
+                v -> {
+                    Intent intent = new Intent(this, RegisterActivity.class);
+
+
+                    startActivity(intent);
+                });
+
+        // on click go to login activity
+        btnLogin.setOnClickListener(
                 v -> {
                     Intent intent = new Intent(this, LoginActivity.class);
-
-
                     startActivity(intent);
                 });
     }
