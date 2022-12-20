@@ -5,146 +5,100 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
-  <androidx.constraintlayout.widget.ConstraintLayout
-      android:id="@+id/header"
-      style="@style/FeedColorsStyle"
+
+  <include layout="@layout/header" />
+
+  <include layout="@layout/footer" />
+
+  <LinearLayout
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:layout_alignParentTop="true"
-      android:gravity="center"
-      android:minHeight="50dp">
+      android:layout_marginStart="20dp"
+      android:layout_marginTop="60dp"
+      android:layout_marginBottom="48dp"
+      android:layout_marginEnd="20dp"
+      android:orientation="vertical"
+      android:padding="15dp">
 
-    <ImageView
-        android:id="@+id/profileImageView"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars" />
-
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="5dp"
-        android:layout_marginBottom="10dp"
-        android:text="@string/header_title"
-        android:textColor="@color/white"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-  </androidx.constraintlayout.widget.ConstraintLayout>
-
-  <!-- Footer aligned to bottom -->
-
-  <androidx.constraintlayout.widget.ConstraintLayout
-      android:id="@+id/footer"
-      style="@style/FeedColorsStyle"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:layout_alignParentBottom="true"
-      android:minHeight="50dp">
-
-    <LinearLayout
+    <!-- Image, Name, Description -->
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="wrap_content">
 
-      <!-- PROFILE TAB -->
-      <ImageButton
-          android:id="@+id/imageButton"
+      <ImageView
+          android:id="@+id/profileImageView"
+          android:layout_width="60dp"
+          android:layout_height="60dp"
+          android:layout_centerVertical="true"
+          tools:srcCompat="@tools:sample/avatars"
+          android:contentDescription="TODO" />
+
+      <LinearLayout
+          android:id="@+id/userandname"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
-          android:layout_weight="1"
-          android:backgroundTint="#00FFFFFF"
-          app:srcCompat="@drawable/ic_baseline_search_24"
-          app:tint="@color/white" />
+          android:orientation="vertical"
+          android:layout_toEndOf="@+id/profileImageView"
+          android:layout_marginStart="20dp">
 
-      <!-- TIMELINE TAB -->
-      <!-- Still has placeholder icon -->
-      <ImageButton
-          android:id="@+id/imageButton2"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_weight="1"
-          android:backgroundTint="#00FFFFFF"
-          app:srcCompat="@drawable/ic_baseline_home_24"
-          app:tint="@color/white" />
+        <TextView
+            android:id="@+id/profileName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hello, Name!"
+            android:textColor="@color/blue"
+            android:textSize="15sp" />
 
-      <!-- SETTINGS TAB -->
-      <!-- Still has placeholder icon -->
-      <ImageButton
-          android:id="@+id/imageButton3"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_weight="1"
-          android:backgroundTint="#00FFFFFF"
-          app:srcCompat="@drawable/ic_baseline_notifications_24"
-          app:tint="@color/white" />
+        <TextView
+            android:id="@+id/profileUsername"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Let's explore what's happening."
+            android:textColor="@color/blue"
+            android:textSize="10sp" />
+      </LinearLayout>
 
-      <ImageButton
-          android:id="@+id/imageButton4"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_weight="1"
-          android:backgroundTint="#00FFFFFF"
-          app:srcCompat="@drawable/ic_baseline_settings_24"
-          app:tint="@color/white" />
-    </LinearLayout>
-  </androidx.constraintlayout.widget.ConstraintLayout>
-
-  <!-- Content between header and footer -->
-
-  <androidx.constraintlayout.widget.ConstraintLayout
-      android:id="@+id/content"
-      android:layout_width="fill_parent"
-      android:layout_height="fill_parent"
-      android:layout_above="@id/footer"
-      android:layout_below="@id/header">
-
-    <!-- If no posts are retrieved -->
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
+    </RelativeLayout>
+    <!-- Recycler view -->
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="-35dp"
-        tools:layout_editor_absoluteY="114dp">
+        android:layout_height="wrap_content">
 
-    </androidx.recyclerview.widget.RecyclerView>
+      <androidx.recyclerview.widget.RecyclerView
+          android:id="@+id/recyclerView"
+          android:layout_marginTop="40dp"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/noPostsText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/no_posts"
-        android:textColor="#DCDCDC"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+      </androidx.recyclerview.widget.RecyclerView>
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/btnNewEvent"
-        style="@style/FeedButtonStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="15dp"
-        android:layout_marginBottom="15dp"
-        app:tint="@color/white"
-        android:clickable="true"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/ic_baseline_add_24" />
+      <TextView
+          android:id="@+id/noPostsText"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_centerHorizontal="true"
+          android:layout_centerVertical="true"
+          android:layout_marginBottom="515dp"
+          android:text="@string/no_posts"
+          android:textColor="#DCDCDC"
+          android:textSize="15sp" />
+
+      <com.google.android.material.floatingactionbutton.FloatingActionButton
+          android:id="@+id/btnNewEvent"
+          style="@style/ProfileButtonStyle"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_alignParentEnd="true"
+          android:layout_alignParentBottom="true"
+          android:layout_gravity="end|bottom"
+          android:clickable="true"
+          app:srcCompat="@drawable/ic_baseline_add_24"
+          app:tint="@color/white"
+          android:background="@color/orange"
+          android:backgroundTint="@color/orange"
+          tools:ignore="SpeakableTextPresentCheck"
+          android:contentDescription="TODO" />
+    </RelativeLayout>
 
     <ProgressBar
         android:id="@+id/feedProgressBar"
@@ -155,6 +109,5 @@
         app:layout_constraintTop_toBottomOf="@+id/noPostsText"
         android:visibility="gone"
         />
-  </androidx.constraintlayout.widget.ConstraintLayout>
-
+  </LinearLayout>
 </RelativeLayout>
