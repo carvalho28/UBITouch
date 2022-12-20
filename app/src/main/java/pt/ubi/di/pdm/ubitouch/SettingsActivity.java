@@ -4,12 +4,23 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.CompoundButton;
 import android.widget.RelativeLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.SwitchCompat;
+
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONException;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class SettingsActivity extends AppCompatActivity {
 
@@ -74,14 +85,51 @@ public class SettingsActivity extends AppCompatActivity {
 
         logoutSetting.setOnClickListener(
                 v -> {
-                    SharedPreferences sharedPref = getSharedPreferences("user", MODE_PRIVATE);
-                    SharedPreferences.Editor editor = sharedPref.edit();
-                    editor.clear();
-                    editor.apply();
-
-                    Intent intent = new Intent(this, LoginActivity.class);
-
-                    startActivity(intent);
+                    fcmTokenClear();
                 });
+    }
+
+    private void fcmTokenClear() {
+        SharedPreferences sharedPref = getSharedPreferences("user", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPref.edit();
+        String token = sharedPref.getString("token", "");
+        String userId = sharedPref.getString("id", "");
+
+        Log.d("Diogo", token);
+        Log.d("Diogo", userId);
+
+        String url = "https://server-ubi-touch.herokuapp.com/users/deleteFcmToken/" + userId;
+
+        RequestQueue queue = Volley.newRequestQueue(this);
+        // json request, sending token as header
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url, null,
+                response -> {
+                    String msg = null;
+                    try {
+                        msg = response.getString("message");
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                    if (msg.equals("Fcm token deleted successfully")) {
+                        // clear shared preferences
+                        editor.clear();
+                        editor.apply();
+                        Intent intent = new Intent(this, LoginActivity.class);
+                        startActivity(intent);
+                    }
+                }, error -> {
+                    Log.e("Volley", "Error");
+                    // error
+                }) {
+            @Override
+            public Map<String, String> getHeaders() {
+                Map<String, String> params = new HashMap<>();
+                params.put("Authorization", "Bearer " + token);
+                return params;
+            }
+        };
+
+        // add request to queue
+        queue.add(jsonObjectRequest);
     }
 }
