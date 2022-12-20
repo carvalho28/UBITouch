@@ -97,70 +97,73 @@ public class LoginActivity extends AppCompatActivity {
                 jsonBody.put("username", username.getText().toString());
             }
             jsonBody.put("password", password.getText().toString());
-            // firebase token
-            FirebaseMessaging.getInstance().getToken()
-                    .addOnCompleteListener(task -> {
-                        if (!task.isSuccessful()) {
-                            Log.w("Diogo", "Fetching FCM registration token failed", task.getException());
-                            return;
-                        }
+            // await firebase token
+            FirebaseMessaging.getInstance().getToken().addOnCompleteListener(task -> {
+                if (!task.isSuccessful()) {
+                    Log.w(TAG, "Fetching FCM registration token failed", task.getException());
+                    return;
+                }
+                // Get new FCM registration token
+                fcmToken.set(task.getResult());
 
-                        // Get new FCM registration token
-                        fcmToken.set(task.getResult());
+                if (!fcmToken.get().isEmpty()) {
+                    try {
+                        jsonBody.put("fcmToken", fcmToken);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                } else {
+                    try {
+                        jsonBody.put("fcmToken", "null");
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+                Log.d(TAG, jsonBody.toString());
 
-                        // Log and toast
-                        Log.d("Diogo", fcmToken.get());
-                        // Toast.makeText(LoginActivity.this, "Token: " + token,
-                        // Toast.LENGTH_SHORT).show();
-                    });
-            if (!fcmToken.get().isEmpty()) {
-                jsonBody.put("fcmToken", fcmToken);
-            } else {
-                jsonBody.put("fcmToken", "null");
-            }
-            console.log(jsonBody);
+                // create the request
+                JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, URL, jsonBody,
+                        response -> {
+                            // if the login was successful
+                            if (response.has("token")) {
+                                Log.i(TAG, response.toString());
+                                // save the token, id and username
+                                SharedPreferences sharedPref = getSharedPreferences("user", MODE_PRIVATE);
+                                SharedPreferences.Editor editor = sharedPref.edit();
+                                try {
+                                    editor.putString("token", response.getString("token"));
+                                    editor.putString("id", response.getString("idUser"));
+                                    editor.putString("username", response.getString("username"));
+                                    editor.putString("picture", response.getString("picture"));
+                                    editor.apply();
+
+                                    // print the token
+                                    Log.i(TAG, "token: " + response.getString("token"));
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
+
+                                // show loading circle
+                                progressBar.setVisibility(View.VISIBLE);
+
+                                // go to the feed activity
+                                Intent intent = new Intent(LoginActivity.this, FeedActivity.class);
+                                startActivity(intent);
+                            }
+                        },
+                        error -> {
+                            // if there was an error
+                            msgError.setText(R.string.incorrect_credentials);
+                            msgError.setVisibility(View.VISIBLE);
+                        });
+
+                // add the request to the queue
+                RequestQueue queue = Volley.newRequestQueue(this);
+                queue.add(request);
+            });
+
         } catch (JSONException e) {
             e.printStackTrace();
         }
-
-        // create the request
-        JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, URL, jsonBody,
-                response -> {
-                    // if the login was successful
-                    if (response.has("token")) {
-                        Log.i(TAG, response.toString());
-                        // save the token, id and username
-                        SharedPreferences sharedPref = getSharedPreferences("user", MODE_PRIVATE);
-                        SharedPreferences.Editor editor = sharedPref.edit();
-                        try {
-                            editor.putString("token", response.getString("token"));
-                            editor.putString("id", response.getString("idUser"));
-                            editor.putString("username", response.getString("username"));
-                            editor.putString("picture", response.getString("picture"));
-                            editor.apply();
-
-                            // print the token
-                            Log.i(TAG, "token: " + response.getString("token"));
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-
-                        // show loading circle
-                        progressBar.setVisibility(View.VISIBLE);
-
-                        // go to the feed activity
-                        Intent intent = new Intent(LoginActivity.this, FeedActivity.class);
-                        startActivity(intent);
-                    }
-                },
-                error -> {
-                    // if there was an error
-                    msgError.setText(R.string.incorrect_credentials);
-                    msgError.setVisibility(View.VISIBLE);
-                });
-
-        // add the request to the queue
-        RequestQueue queue = Volley.newRequestQueue(this);
-        queue.add(request);
     }
 }
