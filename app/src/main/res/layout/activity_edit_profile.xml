@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,32 +7,56 @@
     tools:context=".EditProfileActivity">
 
 
+    <include layout="@layout/header" />
+
+    <include layout="@layout/footer" />
+
     <LinearLayout
-        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
         android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editProfileImage"
-        app:layout_constraintVertical_bias="0.154">
+        app:layout_constraintTop_toBottomOf="@+id/editProfileImage">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
+
+            <ImageButton
+                android:id="@+id/editProfileImage"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="116dp"
+                android:alpha="0.6"
+                tools:srcCompat="@tools:sample/avatars" />
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/editProfileImage"
+                android:layout_alignTop="@+id/editProfileImage"
+                android:layout_alignEnd="@+id/editProfileImage"
+                android:layout_marginStart="33dp"
+                android:layout_marginTop="35dp"
+                android:layout_marginEnd="33dp"
+                app:srcCompat="@drawable/ic_username" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/registerName"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="336dp"
                 android:layout_height="60dp"
-                android:layout_margin="10dp"
-                android:hint="@string/name"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="40dp"
+                android:hint="@string/name">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/editProfileName"
@@ -40,27 +64,26 @@
                     android:layout_height="match_parent"
                     android:textColorHint="#0066FF" />
             </com.google.android.material.textfield.TextInputLayout>
-        </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+
+        </RelativeLayout>
+
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="10dp">
+            android:layout_height="wrap_content">
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/registerBio"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="336dp"
                 android:layout_height="60dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="20dp"
                 android:hint="@string/bio"
                 android:inputType="textMultiLine"
                 android:lines="8"
                 android:maxLines="10"
-                android:minLines="6"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                android:minLines="6">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/editProfileBio"
@@ -68,48 +91,29 @@
                     android:layout_height="match_parent"
                     android:textColorHint="#0066FF" />
             </com.google.android.material.textfield.TextInputLayout>
-        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <Button
+                android:id="@+id/editProfileButton"
+                style="@style/EditProfileButtons"
+                android:layout_width="130dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="245dp"
+                android:layout_marginTop="40dp"
+                android:backgroundTint="@color/orange"
+                android:text="@string/save">
+            </Button>
+        </RelativeLayout>
 
     </LinearLayout>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/bannerImage"
-        style="@style/EditProfileColorsStyle"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <!--Edit Image-->
-    <ImageButton
-        android:id="@+id/editProfileImage"
-        android:layout_width="126dp"
-        android:layout_height="109dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="116dp"
-        android:layout_marginEnd="240dp"
-        android:alpha="0.6"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars" />
-
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@+id/editProfileImage"
-        app:layout_constraintEnd_toEndOf="@+id/editProfileImage"
-        app:layout_constraintStart_toStartOf="@+id/editProfileImage"
-        app:layout_constraintTop_toTopOf="@+id/editProfileImage"
-        app:srcCompat="@drawable/ic_username" />
 
     <ProgressBar
         android:id="@+id/editProfileProgressBar"
@@ -123,23 +127,4 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
-    <Button
-        android:id="@+id/editProfileButton"
-        style="@style/EditProfileButtons"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="117dp"
-        android:layout_marginBottom="4dp"
-        android:text="@string/save"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.845"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-        app:layout_constraintVertical_bias="0.0" />
-
-
-    <!--Floating Button -->
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>
