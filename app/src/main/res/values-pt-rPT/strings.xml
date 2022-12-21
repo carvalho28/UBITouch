@@ -83,4 +83,9 @@
     <string name="cr_title">NOVO EVENTO</string>
     <string name="cr_subtitle">O que está a acontecer na tua UBI?</string>
     <string name="cr_subtitle_hl">acontecer</string>
+
+    <!-- Event page -->
+    <string name="ev_localization">Mapa</string>
+    <string name="ev_interested">Interessado</string>
+    <string name="ev_share">Partilhar</string>
 </resources>

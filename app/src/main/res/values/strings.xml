@@ -95,4 +95,9 @@
     <string name="cr_subtitle">What\'s happening at UBI?</string>
     <string name="cr_subtitle_hl">happening</string>
 
+    <!-- Event page -->
+    <string name="ev_localization">Maps</string>
+    <string name="ev_interested">Interested</string>
+    <string name="ev_share">Share</string>
+
 </resources>
