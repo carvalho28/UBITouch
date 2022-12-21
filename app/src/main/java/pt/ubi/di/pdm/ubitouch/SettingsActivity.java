@@ -3,9 +3,11 @@ package pt.ubi.di.pdm.ubitouch;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
+import android.media.Image;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.CompoundButton;
+import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -26,9 +28,9 @@ public class SettingsActivity extends AppCompatActivity {
 
     SwitchCompat switchLightDark;
     SwitchCompat switchNotification;
-    RelativeLayout languageSetting;
-    RelativeLayout securityPrivacySetting;
-    RelativeLayout aboutUsSetting;
+    ImageButton languageSetting;
+    ImageButton securityPrivacySetting;
+    ImageButton aboutUsSetting;
     RelativeLayout logoutSetting;
 
     DarkMode darkmode;
