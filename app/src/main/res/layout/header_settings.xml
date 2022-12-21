@@ -2,7 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/header"
+    android:id="@+id/header_settings"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_alignParentTop="true"
@@ -33,24 +33,12 @@
         <ImageButton
             android:id="@+id/btnNotifications"
             android:layout_width="0dp"
-            android:layout_height="48dp"
+            android:layout_height="60dp"
             android:layout_toEndOf="@+id/header"
             android:layout_weight="0.5"
             android:background="@android:color/transparent"
             android:contentDescription="TODO"
-            app:srcCompat="@drawable/notification"
-            tools:ignore="SpeakableTextPresentCheck">
-        </ImageButton>
-
-        <ImageButton
-            android:id="@+id/btnSettings"
-            android:layout_width="0dp"
-            android:layout_height="48dp"
-            android:layout_toEndOf="@+id/btnNotifications"
-            android:layout_weight="0.5"
-            android:background="@android:color/transparent"
-            android:contentDescription="TODO"
-            app:srcCompat="@drawable/settings"
+            app:srcCompat="@drawable/ic_baseline_arrow_back_ios_24"
             tools:ignore="SpeakableTextPresentCheck">
         </ImageButton>
 
