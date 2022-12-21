@@ -63,18 +63,23 @@
                         android:textSize="13sp" />
                 </LinearLayout>
 
-                <Button
+                <com.google.android.material.button.MaterialButton
                     android:id="@+id/editProfileButton"
                     style="@style/ProfileButtonStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="100dp"
+                    android:layout_marginStart="87dp"
                     android:layout_toEndOf="@+id/userandname"
-                    android:backgroundTint="@color/grey"
+                    android:elevation="10dp"
+                    android:stateListAnimator="@null"
                     android:text="@string/edit_profile"
                     android:textColor="@color/darkGrey"
                     android:textColorHighlight="@color/grey"
-                    android:textSize="10sp" />
+                    android:textSize="10sp"
+                    app:backgroundTint="@color/grey"
+                    app:cornerRadius="10dp"
+                    app:strokeColor="#DCDCDC"
+                    app:strokeWidth="1dp" />
 
             </RelativeLayout>
 
@@ -127,14 +132,15 @@
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentBottom="true"
                     android:layout_gravity="end|bottom"
-                    android:layout_margin="16dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="16dp"
                     android:clickable="true"
+                    android:contentDescription="TODO"
                     app:srcCompat="@drawable/ic_username"
                     app:tint="@color/white"
-                    android:background="@color/orange"
-                    android:backgroundTint="@color/orange"
-                    tools:ignore="SpeakableTextPresentCheck"
-                    android:contentDescription="TODO" />
+                    tools:ignore="SpeakableTextPresentCheck" />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/userPosts"

@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
         // on click go to register activity
         btnRegister.setOnClickListener(
                 v -> {
-                    Intent intent = new Intent(this, SettingsActivity.class);
+                    Intent intent = new Intent(this, ProfileActivity.class);
 
 
                     startActivity(intent);

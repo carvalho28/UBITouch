@@ -49,6 +49,7 @@
             android:layout_marginStart="32dp"
             android:layout_marginTop="32dp"
             android:layout_marginEnd="32dp"
+            android:elevation="10dp"
             android:hint="@string/username_email"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -107,19 +108,20 @@
             android:id="@+id/buttonLogin"
             style="@style/LoginButtonStyle"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="80dp"
             android:layout_marginStart="32dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="32dp"
-            android:background="@color/orange"
+            android:elevation="10dp"
+            android:stateListAnimator="@null"
             android:text="@string/login"
             android:textSize="20sp"
-            app:backgroundTint="@color/orange"
+            app:cornerRadius="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/loginPasswordInputLayout"
-            app:strokeColor="@color/azul4"
-            app:strokeWidth="2dp" />
+            app:strokeColor="@color/orange"
+            app:strokeWidth="1dp" />
 
         <!-- register text -->
         <TextView
@@ -128,12 +130,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="10dp"
             android:layout_marginEnd="32dp"
-            android:gravity="end"
+            android:gravity="center"
             android:text="@string/no_account"
             android:textColor="@color/blue"
-            android:textSize="11sp"></TextView>
+            android:textSize="16sp" >
+        </TextView>
 
         <ProgressBar
             android:id="@+id/loginProgressBar"
