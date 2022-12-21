@@ -28,8 +28,10 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:orientation="vertical">
+        android:layout_marginTop="20dp"
+        android:orientation="vertical"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="20dp">
 
         <!-- Night Mode | Notifications -->
         <androidx.cardview.widget.CardView
@@ -38,7 +40,7 @@
             android:layout_margin="16dp"
             app:cardBackgroundColor="@color/grey"
             app:cardCornerRadius="8dp"
-            app:cardElevation="20dp">
+            app:cardElevation="10dp">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -49,14 +51,18 @@
                     android:id="@+id/nightMode"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
+                    android:layout_centerVertical="true"
                     android:layout_marginLeft="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="16dp"
                     android:background="@drawable/purple_roundbackground"
                     android:backgroundTint="@color/blue"
+                    android:padding="12dp"
                     android:src="@drawable/ic_baseline_nightlight_24"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.238" />
+                    app:layout_constraintVertical_bias="0.0" />
 
                 <TextView
                     android:id="@+id/textView"
@@ -64,7 +70,7 @@
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_marginStart="20dp"
-                    android:layout_marginTop="32dp"
+                    android:layout_marginTop="28dp"
                     android:layout_toEndOf="@+id/nightMode"
                     android:text="@string/night_mode"
                     android:textColor="@color/darkGrey"
@@ -84,7 +90,7 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.162"
+                    app:layout_constraintVertical_bias="0.1"
                     tools:ignore="UseSwitchCompatOrMaterialXml" />
 
                 <ImageView
@@ -102,7 +108,7 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/nightMode"
-                    app:layout_constraintVertical_bias="1.0" />
+                    app:layout_constraintVertical_bias="0.0" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -143,7 +149,7 @@
             android:layout_margin="16dp"
             app:cardBackgroundColor="@color/grey"
             app:cardCornerRadius="8dp"
-            app:cardElevation="20dp">
+            app:cardElevation="10dp">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -153,7 +159,7 @@
                     android:id="@+id/securityPrivacySetting"
                     android:layout_width="48dp"
                     android:layout_height="48dp"
-                    android:layout_marginTop="76dp"
+                    android:layout_marginTop="68dp"
                     android:layout_marginEnd="16dp"
                     android:background="@android:color/transparent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -166,14 +172,18 @@
                     android:id="@+id/language"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
+                    android:layout_centerVertical="true"
                     android:layout_marginLeft="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="16dp"
                     android:background="@drawable/purple_roundbackground"
                     android:backgroundTint="@color/blue"
+                    android:padding="12dp"
                     android:src="@drawable/ic_baseline_language_24"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.238" />
+                    app:layout_constraintVertical_bias="0.067" />
 
                 <TextView
                     android:id="@+id/textView2"
@@ -181,7 +191,7 @@
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_marginStart="20dp"
-                    android:layout_marginTop="32dp"
+                    android:layout_marginTop="28dp"
                     android:layout_toEndOf="@+id/language"
                     android:text="@string/language"
                     android:textColor="@color/darkGrey"
@@ -224,7 +234,7 @@
                     android:id="@+id/languageSetting"
                     android:layout_width="48dp"
                     android:layout_height="48dp"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="12dp"
                     android:layout_marginEnd="16dp"
                     android:background="@android:color/transparent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -243,7 +253,7 @@
             android:layout_margin="16dp"
             app:cardBackgroundColor="@color/grey"
             app:cardCornerRadius="8dp"
-            app:cardElevation="20dp">
+            app:cardElevation="10dp">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -254,11 +264,14 @@
                     android:id="@+id/about_us"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="16dp"
                     android:layout_marginLeft="16dp"
                     android:layout_marginTop="16dp"
                     android:layout_marginBottom="16dp"
                     android:background="@drawable/purple_roundbackground"
                     android:backgroundTint="@color/blue"
+                    android:padding="12dp"
                     android:src="@drawable/ic_baseline_priority_high_24"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintLeft_toLeftOf="parent"
@@ -302,7 +315,7 @@
             android:layout_margin="16dp"
             app:cardBackgroundColor="@color/grey"
             app:cardCornerRadius="8dp"
-            app:cardElevation="20dp">
+            app:cardElevation="10dp">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/logoutSetting"
@@ -313,11 +326,13 @@
                     android:id="@+id/imageView2"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
+                    android:layout_centerVertical="true"
                     android:layout_marginLeft="16dp"
                     android:layout_marginTop="16dp"
                     android:layout_marginBottom="16dp"
                     android:background="@drawable/purple_roundbackground"
-                    android:backgroundTint="@color/blue"
+                    android:backgroundTint="@color/orange"
+                    android:padding="12dp"
                     android:src="@drawable/ic_baseline_logout_24"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintLeft_toLeftOf="parent"
