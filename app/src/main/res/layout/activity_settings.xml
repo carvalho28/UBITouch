@@ -48,7 +48,7 @@
 
 
                 <ImageView
-                    android:id="@+id/nightMode"
+                    android:id="@+id/password"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_centerVertical="true"
@@ -71,12 +71,12 @@
                     android:layout_centerVertical="true"
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="28dp"
-                    android:layout_toEndOf="@+id/nightMode"
+                    android:layout_toEndOf="@+id/password"
                     android:text="@string/night_mode"
                     android:textColor="@color/darkGrey"
                     app:layout_constraintEnd_toStartOf="@+id/switchLD"
                     app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toEndOf="@+id/nightMode"
+                    app:layout_constraintStart_toEndOf="@+id/password"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <androidx.appcompat.widget.SwitchCompat
@@ -107,7 +107,7 @@
                     android:src="@drawable/ic_baseline_notifications_24"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/nightMode"
+                    app:layout_constraintTop_toBottomOf="@id/password"
                     app:layout_constraintVertical_bias="0.0" />
 
                 <TextView
@@ -231,7 +231,7 @@
                     app:layout_constraintVertical_bias="1.0" />
 
                 <ImageButton
-                    android:id="@+id/languageSetting"
+                    android:id="@+id/changePasswordSetting"
                     android:layout_width="48dp"
                     android:layout_height="48dp"
                     android:layout_marginTop="12dp"

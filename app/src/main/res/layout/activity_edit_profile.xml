@@ -100,16 +100,18 @@
             android:layout_height="wrap_content">
 
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/editProfileButton"
                 style="@style/EditProfileButtons"
                 android:layout_width="130dp"
                 android:layout_height="60dp"
                 android:layout_marginStart="245dp"
                 android:layout_marginTop="40dp"
+                android:elevation="10dp"
+                android:stateListAnimator="@null"
                 android:backgroundTint="@color/orange"
-                android:text="@string/save">
-            </Button>
+                android:text="@string/save"
+                app:cornerRadius="10dp"/>
         </RelativeLayout>
 
     </LinearLayout>

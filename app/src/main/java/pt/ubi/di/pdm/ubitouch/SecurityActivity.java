@@ -4,12 +4,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 
 public class SecurityActivity extends AppCompatActivity {
 
-    RelativeLayout changePasswordSetting;
-    RelativeLayout deleteSetting;
+    ImageButton changePasswordSetting;
+    ImageButton deleteSetting;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

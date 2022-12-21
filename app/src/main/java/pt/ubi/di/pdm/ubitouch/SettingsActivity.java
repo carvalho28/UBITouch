@@ -2,11 +2,8 @@ package pt.ubi.di.pdm.ubitouch;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.res.Configuration;
-import android.media.Image;
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.CompoundButton;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 
@@ -42,7 +39,7 @@ public class SettingsActivity extends AppCompatActivity {
 
         switchLightDark = findViewById(R.id.switchLD);
         switchNotification = findViewById(R.id.switchN);
-        languageSetting = findViewById(R.id.languageSetting);
+        languageSetting = findViewById(R.id.changePasswordSetting);
         securityPrivacySetting = findViewById(R.id.securityPrivacySetting);
         aboutUsSetting = findViewById(R.id.aboutUsSetting);
         logoutSetting = findViewById(R.id.logoutSetting);

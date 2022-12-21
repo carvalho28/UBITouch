@@ -21,13 +21,13 @@
         <item name="android:textColor">@color/azul1</item>
     </style>
     <style name="LoginButtonStyle">
-        <item name="android:backgroundTint">@color/azul3</item>
+        <item name="android:backgroundTint">@color/orange</item>
         <item name="android:textColor">@color/white</item>
     </style>
 
     <!-- Register colors -->
     <style name="RegisterButtonStyle">
-        <item name="android:backgroundTint">@color/azul3</item>
+        <item name="android:backgroundTint">@color/orange</item>
         <item name="android:textColor">@color/white</item>
     </style>
 
