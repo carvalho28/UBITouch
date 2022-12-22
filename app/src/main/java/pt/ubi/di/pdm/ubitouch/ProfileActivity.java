@@ -153,14 +153,7 @@ public class ProfileActivity extends AppCompatActivity {
 
                         for (int i = 0; i < events.length(); i++) {
                             JSONObject e = (JSONObject) events.get(i);
-//                            event_IDs[i] = Integer.parseInt(e.getString("idEvent"));
-//                            event_titles[i] = e.getString("title");
-//                            event_descriptions[i] = e.getString("description");
-//                            event_images[i] = e.getString(e.getString("image"));
-//                            event_dates[i] = e.getString("eventDate");
-//                            event_times[i] = e.getString("eventHour");
-//                            event_creation_dates[i] = e.getString("createdAt");
-//                            event_updated_dates[i] = e.getString("updatedAt");
+//
                             // int id = Integer.parseInt(e.getString("idEvent"));
                             String title = e.getString("title");
                             String description = e.getString("description");

@@ -23,6 +23,7 @@ import com.cloudinary.android.MediaManager;
 import com.cloudinary.android.callback.ErrorInfo;
 import com.cloudinary.android.callback.UploadCallback;
 import com.google.android.material.textfield.TextInputEditText;
+import com.mapbox.maps.extension.style.image.ImageExtensionImpl;
 import com.squareup.picasso.Picasso;
 
 import org.json.JSONException;
@@ -37,6 +38,7 @@ public class EditProfileActivity extends AppCompatActivity {
     Button btnEditSave;
     ImageButton profileImage;
     ProgressBar progressBar;
+    ImageButton back;
 
     // Variables
     String userId;
@@ -74,6 +76,15 @@ public class EditProfileActivity extends AppCompatActivity {
         btnEditSave = findViewById(R.id.editProfileButton);
         profileImage = findViewById(R.id.editProfileImage);
         progressBar = findViewById(R.id.editProfileProgressBar);
+        back = findViewById(R.id.btnBack);
+
+        back.setOnClickListener(
+                v -> {
+                    Intent intent = new Intent(this, ProfileActivity.class);
+
+                    startActivity(intent);
+                }
+        );
 
         // get the user id from the shared preferences
         SharedPreferences sharedPref = getSharedPreferences("user", Context.MODE_PRIVATE);
