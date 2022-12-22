@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 
 import com.android.volley.Request;
@@ -36,7 +37,7 @@ public class EditProfileActivity extends AppCompatActivity {
 
     TextInputEditText name, bio;
     Button btnEditSave;
-    ImageButton profileImage;
+    ImageView profileImage;
     ProgressBar progressBar;
     ImageButton back;
 

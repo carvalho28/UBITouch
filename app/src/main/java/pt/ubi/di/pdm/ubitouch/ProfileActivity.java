@@ -111,7 +111,7 @@ public class ProfileActivity extends AppCompatActivity {
                 response -> {
                     try {
                         name.setText(response.getString("name"));
-                        username.setText(response.getString("username"));
+                        username.setText("@" + response.getString("username"));
                         bio.setText(response.getString("biography"));
                         Picasso.get().load(response.getString("picture")).into(profileUserImage);
                     } catch (JSONException e) {
