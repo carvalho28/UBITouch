@@ -54,6 +54,8 @@ public class FeedActivity extends AppCompatActivity {
     private final String TAG = "JOAO";
     private final String events_query_URI = "https://server-ubi-touch.herokuapp.com/events/all";
     private final String URL = "https://server-ubi-touch.herokuapp.com/users/";
+    String userID;
+    String token;
 
     private int nOfEvents;
 
@@ -82,9 +84,10 @@ public class FeedActivity extends AppCompatActivity {
 
         SharedPreferences sharedPref = getSharedPreferences("user", Context.MODE_PRIVATE);
         String imageProfile = sharedPref.getString("picture", "false");
-        String userID = sharedPref.getString("id", "false");
-        Picasso.get().load(imageProfile).into(imageView);
+        userID = sharedPref.getString("id", "false");
+        token = sharedPref.getString("token", "false");
 
+        //profileName.setText(userID);
 
         getUserData(userID);
         getEventsData();
@@ -108,20 +111,30 @@ public class FeedActivity extends AppCompatActivity {
     }
 
     private void getUserData(String userId) {
+        RequestQueue queue = Volley.newRequestQueue(this);
         String url = URL + userId;
 
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null,
                 response -> {
                     try {
-                        profileName.setText("Hello, " + response.get("name") + "!");
+                        profileName.setText(response.getString("name"));
                         Picasso.get().load(response.getString("picture")).into(imageView);
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
                 }, error -> {
             Log.i("Diogo", "getUserData: " + error);
-        });
-        RequestQueue queue = Volley.newRequestQueue(this);
+        }) {
+
+            @Override
+            public Map<String, String> getHeaders() {
+                Map<String, String> headers = new HashMap<>();
+                headers.put("Authorization", "Bearer " + token);
+                Log.i("Diogo", "getHeaders: " + headers);
+                return headers;
+            }
+        };
+
         queue.add(jsonObjectRequest);
     }
 
