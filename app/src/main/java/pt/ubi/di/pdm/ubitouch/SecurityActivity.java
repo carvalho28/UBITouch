@@ -11,6 +11,7 @@ public class SecurityActivity extends AppCompatActivity {
 
     ImageButton changePasswordSetting;
     ImageButton deleteSetting;
+    ImageButton back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +20,15 @@ public class SecurityActivity extends AppCompatActivity {
 
         changePasswordSetting = findViewById(R.id.changePasswordSetting);
         deleteSetting = findViewById(R.id.deleteSetting);
+        back = findViewById(R.id.btnBack);
+
+        back.setOnClickListener(
+                v -> {
+                    Intent intent = new Intent(this, SettingsActivity.class);
+
+                    startActivity(intent);
+                }
+        );
 
         changePasswordSetting.setOnClickListener(
                 v -> {

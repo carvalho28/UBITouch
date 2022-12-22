@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
         // on click go to register activity
         btnRegister.setOnClickListener(
                 v -> {
-                    Intent intent = new Intent(this, ProfileActivity.class);
+                    Intent intent = new Intent(this, RegisterActivity.class);
 
 
                     startActivity(intent);
@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
         // on click go to login activity
         btnLogin.setOnClickListener(
                 v -> {
-                    Intent intent = new Intent(this, FeedActivity.class);
+                    Intent intent = new Intent(this, LoginActivity.class);
                     startActivity(intent);
                 });
     }

@@ -35,6 +35,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class FeedActivity extends AppCompatActivity {
@@ -44,14 +46,14 @@ public class FeedActivity extends AppCompatActivity {
     FloatingActionButton newEvent;
     TextView noPostsText;
     RecyclerView recyclerView;
-    ImageButton imageButton1;
-    ImageButton imageButton2;
-    ImageButton imageButton3;
     ImageButton settings;
+    TextView profileName;
+    ImageButton profile;
 
     // DEBUG
     private final String TAG = "JOAO";
     private final String events_query_URI = "https://server-ubi-touch.herokuapp.com/events/all";
+    private final String URL = "https://server-ubi-touch.herokuapp.com/users/";
 
     private int nOfEvents;
 
@@ -70,6 +72,8 @@ public class FeedActivity extends AppCompatActivity {
         newEvent = findViewById(R.id.btnNewEvent);
         noPostsText = findViewById(R.id.noPostsText);
         settings = findViewById(R.id.btnSettings);
+        profileName = findViewById(R.id.profileName);
+        profile = findViewById(R.id.btnProfile);
 
         recyclerView = findViewById(R.id.recyclerView);
 
@@ -78,8 +82,11 @@ public class FeedActivity extends AppCompatActivity {
 
         SharedPreferences sharedPref = getSharedPreferences("user", Context.MODE_PRIVATE);
         String imageProfile = sharedPref.getString("picture", "false");
+        String userID = sharedPref.getString("id", "false");
         Picasso.get().load(imageProfile).into(imageView);
 
+
+        getUserData(userID);
         getEventsData();
 
         settings.setOnClickListener(
@@ -93,6 +100,29 @@ public class FeedActivity extends AppCompatActivity {
             Intent intent = new Intent(FeedActivity.this, CreateActivity.class);
             startActivity(intent);
         });
+
+        profile.setOnClickListener(v -> {
+            Intent intent = new Intent(this, ProfileActivity.class);
+            startActivity(intent);
+        });
+    }
+
+    private void getUserData(String userId) {
+        String url = URL + userId;
+
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null,
+                response -> {
+                    try {
+                        profileName.setText("Hello, " + response.get("name") + "!");
+                        Picasso.get().load(response.getString("picture")).into(imageView);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }, error -> {
+            Log.i("Diogo", "getUserData: " + error);
+        });
+        RequestQueue queue = Volley.newRequestQueue(this);
+        queue.add(jsonObjectRequest);
     }
 
     public void getEventsData() {

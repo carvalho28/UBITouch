@@ -7,7 +7,7 @@
     tools:context=".EditProfileActivity">
 
 
-    <include layout="@layout/header" />
+    <include layout="@layout/header_settings" />
 
     <include layout="@layout/footer" />
 
