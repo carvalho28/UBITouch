@@ -40,7 +40,6 @@ public class EventsFragment extends Fragment {
 
     // URL
     private String user_events_URL = "https://server-ubi-touch.herokuapp.com/events/user/";
-    private final String TAG = "JOAO";
 
 
 
