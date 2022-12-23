@@ -86,8 +86,10 @@ public class InterestsFragment extends Fragment {
                             String eventDate = e.getString("eventDate");
                             String eventHour = e.getString("eventHour");
                             String creationDate = e.getString("createdAt");
+                            String latitude = e.getString("latitude");
+                            String longitude = e.getString("longitude");
                             //String updated_dates = e.getString("updatedAt");
-                            listEvents.add(new Event(title, image, description, eventHour, eventDate, "1", "0"));
+                            listEvents.add(new Event(title, image, description, eventHour, eventDate, "1", "0", latitude, longitude));
                             // if user is admin then verified flag is visible
                             // ----- if verified == 1 then it is verified, else verified == 0 it is unverified
                             // if the user is not an admin then the flag is invisible
