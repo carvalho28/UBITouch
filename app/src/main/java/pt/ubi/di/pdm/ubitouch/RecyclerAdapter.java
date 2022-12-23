@@ -81,19 +81,6 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
                 }
             }
         }
-
-        // private View.OnClickListener openMaps() {
-        // return v -> {
-        // String latitude = listRecyclerView.get(getAdapterPosition()).getLatitude();
-        // String longitude = listRecyclerView.get(getAdapterPosition()).getLongitude();
-        //
-        // Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("geo:<" + latitude +
-        // ">,<" + longitude
-        // + ">?q=<" + latitude + ">,<" + longitude + ">(" + Title.getText() + ")"));
-        // intent.setPackage("com.google.android.apps.maps");
-        // context.startActivity(intent);
-        // };
-        // }
     }
 
     @NonNull
@@ -110,13 +97,39 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         ItemViewHolder itemViewHolder = (ItemViewHolder) holder;
         Event posts = (Event) listRecyclerView.get(position);
         itemViewHolder.Title.setText(posts.getTitle());
-        itemViewHolder.EventDate.setText(posts.getEventDate());
+
+        // itemViewHolder.EventDate.setText(posts.getEventDate());
+        // set date as dd/mm/yyyy
+
+        String date = posts.getEventDate();
+        String time = posts.getEventHour();
+        // if date is not null and not empty
+        if (date != null && !Objects.equals(date, "") && !Objects.equals(date, "null")) {
+            // convert date from 2022-12-22T00:00:00.000Z to dd/mm/yyyy
+            String[] dateParts = date.substring(0, 10).split("-");
+            String year = dateParts[0];
+            String month = dateParts[1];
+            String day = dateParts[2];
+            date = day + "/" + month + "/" + year;
+            itemViewHolder.EventDate.setText(date);
+        }
+        // if time is not null and not empty
+        if (time != null && !Objects.equals(time, "") && !Objects.equals(time, "null")) {
+            // convert time to hh:mm
+            String[] timeParts = time.split(":");
+            String hour = timeParts[0];
+            String minutes = timeParts[1];
+            time = hour + ":" + minutes;
+            itemViewHolder.EventHour.setText(time);
+        }
+
         if (posts.getImage().length() > 0)
             Picasso.get().load(posts.getImage()).into(itemViewHolder.UserImage);
-        itemViewHolder.Description.setText(posts.getDescription());
+        if (posts.getDescription() != null && !Objects.equals(posts.getDescription(), "")) {
+            itemViewHolder.Description.setText(posts.getDescription());
+        }
         if (itemViewHolder.Description.length() > 0)
             itemViewHolder.Description.setVisibility(View.VISIBLE);
-        itemViewHolder.EventHour.setText(posts.getEventHour());
         if (itemViewHolder.EventHour.length() > 0)
             itemViewHolder.EventHour.setVisibility(View.VISIBLE);
         if (itemViewHolder.mapLocation.length() > 0)
@@ -124,6 +137,31 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         if (Objects.equals(posts.getLatitude(), "") && Objects.equals(posts.getLongitude(), "")) {
             itemViewHolder.mapLocation.setVisibility(View.INVISIBLE);
         }
+        if (Objects.equals(posts.getEventHour(), "") || Objects.equals(posts.getEventHour(), "null")) {
+            itemViewHolder.EventHour.setVisibility(View.INVISIBLE);
+        }
+
+        // if (posts.getEventDate() != null && !Objects.equals(posts.getEventDate(),
+        // "")) {
+        // // set date as dd/mm/yyyy
+        // String date = posts.getEventDate();
+        // String[] dateArray = date.split("-");
+        // String day = dateArray[2];
+        // String month = dateArray[1];
+        // String year = dateArray[0];
+        // String newDate = day + "/" + month + "/" + year;
+        // itemViewHolder.EventDate.setText(newDate);
+        // }
+        // if (posts.getEventHour() != null && !Objects.equals(posts.getEventHour(),
+        // "")) {
+        // // set date as hh:mm
+        // String time = posts.getEventHour();
+        // String[] timeArray = time.split(":");
+        // String hour = timeArray[0];
+        // String minutes = timeArray[1];
+        // String newTime = hour + ":" + minutes;
+        // itemViewHolder.EventHour.setText(newTime);
+        // }
 
     }
 
