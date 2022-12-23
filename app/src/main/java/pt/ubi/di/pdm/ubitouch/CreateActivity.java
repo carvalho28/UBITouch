@@ -15,6 +15,7 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
@@ -56,7 +57,7 @@ import java.util.Map;
 public class CreateActivity extends AppCompatActivity {
 
     ImageView profilePicture;
-    FloatingActionButton btnCreatePost;
+    Button btnCreatePost;
     ImageView btnAttachFile;
     TextInputEditText createTitle, createDescription;
     TextView dateText, timeText, msgError;
@@ -174,7 +175,7 @@ public class CreateActivity extends AppCompatActivity {
         dateText = findViewById(R.id.dateText);
         timeText = findViewById(R.id.timeText);
         msgError = findViewById(R.id.msgError);
-        btnCreatePost = findViewById(R.id.btnCreatePost);
+        btnCreatePost = findViewById(R.id.btnPublish);
         createImage = findViewById(R.id.createImage);
         createVideo = findViewById(R.id.createVideo);
         btnAttachFile = findViewById(R.id.btnAttachFile);
