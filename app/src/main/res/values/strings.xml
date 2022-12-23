@@ -99,5 +99,6 @@
     <string name="ev_localization">Maps</string>
     <string name="ev_interested">Interested</string>
     <string name="ev_share">Share</string>
+    <!-- TODO: Remove or change this placeholder text -->
 
 </resources>

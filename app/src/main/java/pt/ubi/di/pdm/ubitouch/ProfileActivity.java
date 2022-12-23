@@ -1,8 +1,13 @@
 package pt.ubi.di.pdm.ubitouch;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager.widget.ViewPager;
+import androidx.viewpager2.widget.ViewPager2;
 
 import android.content.Context;
 import android.content.Intent;
@@ -19,6 +24,8 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.android.material.tabs.TabLayout;
+import com.google.android.material.tabs.TabLayoutMediator;
 import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
@@ -31,53 +38,72 @@ import java.util.Map;
 
 public class ProfileActivity extends AppCompatActivity {
 
+    TabLayout tabLayout;
+    ViewPager2 viewPager;
+
     TextView name, username, bio;
     ImageView profileUserImage;
     Button editProfileButton;
-    ProgressBar progressBar;
-    RecyclerView recyclerView;
 
     // Variables
     String userId;
     String token;
 
-//    private Integer[] event_IDs;
-//    private String[] event_titles;
-//    private String[] event_descriptions;
-//    private String[] event_images;
-    private int event_creator;
-//    private String[] event_creation_dates;
-//    private String[] event_updated_dates;
-//    private String[] event_dates;
-//    private String[] event_times;
-    private int nOfEvents;
-    private ArrayList<Event> listEvents = new ArrayList<>();
-
-    private RecyclerAdapter customAdapter;
-    private RecyclerView.LayoutManager layoutManager;
 
     // URL
     private final String URL = "https://server-ubi-touch.herokuapp.com/users/";
-    private String user_events_URL = "https://server-ubi-touch.herokuapp.com/events/user/";
-    private final String TAG = "JOAO";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
+        //User info
         name = findViewById(R.id.profileName);
         username = findViewById(R.id.profileUsername);
         bio = findViewById(R.id.profileBio);
         profileUserImage = findViewById(R.id.editProfileImage);
         editProfileButton = findViewById(R.id.editProfileButton);
-        progressBar = findViewById(R.id.userProgressBar);
 
-        recyclerView = findViewById(R.id.userPosts);
-        layoutManager = new LinearLayoutManager(this);
-        recyclerView.setLayoutManager(layoutManager);
 
-        progressBar.setVisibility(View.VISIBLE);
+        //Tabs
+        tabLayout = findViewById(R.id.tab_layout);
+        viewPager = findViewById(R.id.viewPager);
+
+        VPAdapter vpAdapter = new VPAdapter(getSupportFragmentManager(), getLifecycle());
+        viewPager.setAdapter(vpAdapter);
+        vpAdapter.addFragment(new InterestsFragment());
+        vpAdapter.addFragment(new EventsFragment());
+
+
+
+
+        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener(){
+
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                viewPager.setCurrentItem(tab.getPosition());
+                Log.d("here", String.valueOf(tab.getPosition()));
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
+
+        viewPager.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
+            @Override
+            public void onPageSelected(int position) {
+                tabLayout.selectTab(tabLayout.getTabAt(position));
+            }
+        });
+
 
         // get the user id from the shared preferences
         SharedPreferences sharedPref = getSharedPreferences("user", Context.MODE_PRIVATE);
@@ -85,22 +111,18 @@ public class ProfileActivity extends AppCompatActivity {
         token = sharedPref.getString("token", "false");
         // TODO If false, will it lead to not found, login ...?
 
-        event_creator = Integer.parseInt(userId);
-        user_events_URL += event_creator;
 
         // print the user id and token
         // Log.i("Diogo", "Profile: " + userId);
         // Log.i("Diogo", "Profile: " + token);
 
         getUserData(userId);
-        getUserEvents();
 
         editProfileButton.setOnClickListener(
                 v -> {
                     Intent intent = new Intent(this, EditProfileActivity.class);
                     startActivity(intent);
                 });
-        progressBar.setVisibility(View.GONE);
     }
 
     private void getUserData(String userId) {
@@ -118,8 +140,8 @@ public class ProfileActivity extends AppCompatActivity {
                         e.printStackTrace();
                     }
                 }, error -> {
-                    Log.i("Diogo", "getUserData: " + error);
-                }) {
+            Log.i("Diogo", "getUserData: " + error);
+        }) {
 
             @Override
             public Map<String, String> getHeaders() {
@@ -132,59 +154,5 @@ public class ProfileActivity extends AppCompatActivity {
 
         queue.add(jsonObjectRequest);
     }
-
-    private void getUserEvents() {
-        // Get events from DB
-        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, user_events_URL, null,
-                response -> {
-                    try {
-                        JSONArray events = response.getJSONArray("data");
-                        nOfEvents = events.length();
-                        Log.i(TAG, "N of events: " + nOfEvents);
-
-//                        event_IDs = new Integer[nOfEvents];
-//                        event_titles = new String[nOfEvents];
-//                        event_descriptions = new String[nOfEvents];
-//                        event_images = new String[nOfEvents];
-//                        event_dates = new String[nOfEvents];
-//                        event_times = new String[nOfEvents];
-//                        event_creation_dates = new String[nOfEvents];
-//                        event_updated_dates = new String[nOfEvents];
-
-                        for (int i = 0; i < events.length(); i++) {
-                            JSONObject e = (JSONObject) events.get(i);
-//
-                            // int id = Integer.parseInt(e.getString("idEvent"));
-                            String title = e.getString("title");
-                            String description = e.getString("description");
-                            String image = e.getString("image");
-                            String isVerified = e.getString("isVerified");
-                            //String userId = e.getString("idUser");
-                            String eventDate = e.getString("eventDate");
-                            String eventHour = e.getString("eventHour");
-                            String creationDate = e.getString("createdAt");
-                            //String updated_dates = e.getString("updatedAt");
-                            listEvents.add(new Event(title, image, description, eventHour, eventDate, "1", "0"));
-                            // if user is admin then verified flag is visible
-                            // ----- if verified == 1 then it is verified, else verified == 0 it is unverified
-                            // if the user is not an admin then the flag is invisible
-                        }
-
-                        customAdapter = new RecyclerAdapter(this, listEvents);
-                        recyclerView.setAdapter(customAdapter);
-                    } catch (JSONException e) {
-                        Log.e(TAG, "json error");
-                    }
-                },
-                error -> {
-                    // if there was an error TODO
-                    // msgError.setText(R.string.error_msg);
-                    // msgError.setVisibility(View.VISIBLE);
-                    Log.e(TAG, "Error");
-                });
-
-        // add the request to the queue
-        RequestQueue queue = Volley.newRequestQueue(this);
-        queue.add(request);
-    }
 }
+
