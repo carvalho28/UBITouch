@@ -101,7 +101,7 @@ public class FeedActivity extends AppCompatActivity {
         userID = sharedPref.getString("id", "false");
         token = sharedPref.getString("token", "false");
 
-        //profileName.setText(userID);
+        // profileName.setText(userID);
 
         getUserData(userID);
         getEventsData();
@@ -114,12 +114,14 @@ public class FeedActivity extends AppCompatActivity {
                     startActivity(intent);
                 });
 
-        /*notifications.setOnClickListener(
-                v -> {
-                    Intent intent = new Intent(this, NotificationsActivity.class);
-
-                    startActivity(intent);
-                });*/
+        /*
+         * notifications.setOnClickListener(
+         * v -> {
+         * Intent intent = new Intent(this, NotificationsActivity.class);
+         * 
+         * startActivity(intent);
+         * });
+         */
 
         // Footer
         home.setOnClickListener(v -> {
@@ -137,7 +139,6 @@ public class FeedActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
-
     }
 
     private void getUserData(String userId) {
@@ -153,8 +154,8 @@ public class FeedActivity extends AppCompatActivity {
                         e.printStackTrace();
                     }
                 }, error -> {
-            Log.i("Diogo", "getUserData: " + error);
-        }) {
+                    Log.i("Diogo", "getUserData: " + error);
+                }) {
 
             @Override
             public Map<String, String> getHeaders() {
@@ -184,7 +185,7 @@ public class FeedActivity extends AppCompatActivity {
                             // int id = Integer.parseInt(e.getString("idEvent"));
                             String title = e.getString("title");
                             String description = e.getString("description");
-                            String image = e.getString("image");
+                            String imageUser = e.getString("picture");
                             String isVerified = e.getString("isVerified");
                             // String userId = e.getString("idUser");
                             String eventDate = e.getString("eventDate");
@@ -192,8 +193,10 @@ public class FeedActivity extends AppCompatActivity {
                             String creationDate = e.getString("createdAt");
                             String latitude = e.getString("latitude");
                             String longitude = e.getString("longitude");
-                            // String updated_dates = e.getString("updatedAt");
-                            listEvents.add(new Event(title, image, description, eventHour, eventDate, "1", "0", latitude, longitude));
+                            String name = e.getString("name");
+                            String username = e.getString("username");
+                            listEvents.add(new Event(title, imageUser, description, eventHour, eventDate, "1", "0",
+                                    latitude, longitude, name, username));
                             // if user is admin then verified flag is visible
                             // ----- if verified == 1 then it is verified, else verified == 0 it is
                             // unverified

@@ -12,10 +12,12 @@ public class Event {
     private final String unverifiedFlag;
     private final String latitude;
     private final String longitude;
+    private final String name;
+    private final String username;
 
     public Event(String title, String image, String description, String eventHour, String eventDate,
-            String verifiedFlag, String unverifiedFlag, String latitude, String longitude) {
-        // this.username = username;
+            String verifiedFlag, String unverifiedFlag, String latitude, String longitude, String name,
+            String username) {
         this.title = title;
         this.eventDate = eventDate;
         this.image = image;
@@ -25,6 +27,8 @@ public class Event {
         this.unverifiedFlag = unverifiedFlag;
         this.latitude = latitude;
         this.longitude = longitude;
+        this.name = name;
+        this.username = username;
     }
 
     // public String getUsername() {
@@ -65,6 +69,14 @@ public class Event {
 
     public String getLongitude() {
         return longitude;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getUsername() {
+        return username;
     }
 
     /*

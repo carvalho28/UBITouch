@@ -28,7 +28,6 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-
 public class EventsFragment extends Fragment {
 
     private int event_creator;
@@ -41,8 +40,6 @@ public class EventsFragment extends Fragment {
     // URL
     private String user_events_URL = "https://server-ubi-touch.herokuapp.com/events/user/";
 
-
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,7 +47,7 @@ public class EventsFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+            Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_events, container, false);
     }
@@ -82,18 +79,21 @@ public class EventsFragment extends Fragment {
                             // int id = Integer.parseInt(e.getString("idEvent"));
                             String title = e.getString("title");
                             String description = e.getString("description");
-                            String image = e.getString("image");
+                            String imageUser = e.getString("picture");
                             String isVerified = e.getString("isVerified");
-                            //String userId = e.getString("idUser");
+                            // String userId = e.getString("idUser");
                             String eventDate = e.getString("eventDate");
                             String eventHour = e.getString("eventHour");
                             String creationDate = e.getString("createdAt");
                             String latitude = e.getString("latitude");
                             String longitude = e.getString("longitude");
-                            //String updated_dates = e.getString("updatedAt");
-                            listEvents.add(new Event(title, image, description, eventHour, eventDate, "1", "0", latitude, longitude));
+                            String name = e.getString("name");
+                            String username = e.getString("username");
+                            listEvents.add(new Event(title, imageUser, description, eventHour, eventDate, "1", "0",
+                                    latitude, longitude, name, username));
                             // if user is admin then verified flag is visible
-                            // ----- if verified == 1 then it is verified, else verified == 0 it is unverified
+                            // ----- if verified == 1 then it is verified, else verified == 0 it is
+                            // unverified
                             // if the user is not an admin then the flag is invisible
                         }
 

@@ -29,7 +29,6 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     }
 
     public class ItemViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        // private TextView Username; // first name + last name
         private TextView Title;
         private TextView Description;
         private TextView EventDate;
@@ -38,6 +37,8 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         private TextView verifiedFlag;
         private TextView unverifiedFLag;
         private TextView mapLocation;
+        private TextView name;
+        private TextView username;
 
         public ItemViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -49,6 +50,8 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             verifiedFlag = itemView.findViewById(R.id.verifiedFlag);
             unverifiedFLag = itemView.findViewById(R.id.unverifiedFlag);
             mapLocation = itemView.findViewById(R.id.postLocalization);
+            name = itemView.findViewById(R.id.postName);
+            username = itemView.findViewById(R.id.postUsername);
 
             mapLocation.setOnClickListener(this);
 
@@ -141,28 +144,9 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             itemViewHolder.EventHour.setVisibility(View.INVISIBLE);
         }
 
-        // if (posts.getEventDate() != null && !Objects.equals(posts.getEventDate(),
-        // "")) {
-        // // set date as dd/mm/yyyy
-        // String date = posts.getEventDate();
-        // String[] dateArray = date.split("-");
-        // String day = dateArray[2];
-        // String month = dateArray[1];
-        // String year = dateArray[0];
-        // String newDate = day + "/" + month + "/" + year;
-        // itemViewHolder.EventDate.setText(newDate);
-        // }
-        // if (posts.getEventHour() != null && !Objects.equals(posts.getEventHour(),
-        // "")) {
-        // // set date as hh:mm
-        // String time = posts.getEventHour();
-        // String[] timeArray = time.split(":");
-        // String hour = timeArray[0];
-        // String minutes = timeArray[1];
-        // String newTime = hour + ":" + minutes;
-        // itemViewHolder.EventHour.setText(newTime);
-        // }
-
+        // load username and name
+        itemViewHolder.username.setText("@" + posts.getUsername());
+        itemViewHolder.name.setText(posts.getName());
     }
 
     @Override
