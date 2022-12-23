@@ -6,14 +6,17 @@
     android:layout_height="match_parent"
     tools:context=".CreateActivity">
 
-    <include layout="@layout/header" />
+    <include
+        layout="@layout/header_create"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 
     <include layout="@layout/footer" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="58dp"
         android:layout_marginBottom="48dp"
         android:orientation="vertical">
 
@@ -23,7 +26,8 @@
             android:layout_marginStart="20dp"
             android:text="@string/cr_title"
             android:textColor="@color/blue"
-            android:textSize="36sp" />
+            android:textSize="36sp"
+            android:visibility="gone" />
 
         <TextView
             android:id="@+id/textView9"
@@ -230,21 +234,6 @@
                 app:srcCompat="@drawable/ic_marker"
                 app:tint="#EE8000" />
 
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/btnCreatePost"
-                style="@style/ProfileButtonStyle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentBottom="true"
-                android:layout_gravity="end"
-                android:layout_marginEnd="20dp"
-                android:clickable="true"
-                android:contentDescription="TODO"
-                app:backgroundTint="#EE8000"
-                app:srcCompat="@drawable/feather"
-                app:tint="@color/white"
-                tools:ignore="SpeakableTextPresentCheck" />
         </LinearLayout>
 
         <com.mapbox.maps.MapView

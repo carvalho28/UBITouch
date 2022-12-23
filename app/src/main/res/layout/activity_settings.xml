@@ -8,18 +8,18 @@
     tools:context=".SettingsActivity">
 
     <include layout="@layout/header_settings" />
+
     <RelativeLayout
-        android:layout_marginTop="10dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginStart="20dp"
             android:text="@string/settings"
             android:textAllCaps="true"
-            android:layout_marginStart="20dp"
             android:textColor="@color/blue"
             android:textSize="36sp" />
     </RelativeLayout>
