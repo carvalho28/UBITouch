@@ -31,7 +31,7 @@
             android:layout_weight="1.5" />
 
         <ImageButton
-            android:id="@+id/btnBack"
+            android:id="@+id/btnNotif"
             android:layout_width="0dp"
             android:layout_height="60dp"
             android:layout_toEndOf="@+id/header"

@@ -30,6 +30,7 @@ public class RegisterActivity extends AppCompatActivity {
     TextInputEditText name, email, username, password, confirmPassword;
     TextView msgError;
     ProgressBar progressBar;
+    TextView signIn;
 
     // DEBUG
     private final String TAG = "Diogo";
@@ -56,8 +57,16 @@ public class RegisterActivity extends AppCompatActivity {
         confirmPassword = findViewById(R.id.registerInputConfirmPassword);
         msgError = findViewById(R.id.textViewError);
         progressBar = findViewById(R.id.registerProgressBar);
+        signIn = findViewById(R.id.signIn);
 
         Log.i(TAG, "RegisterActivity: onCreate()");
+
+        signIn.setOnClickListener(
+                v -> {
+                    Intent intent = new Intent(this, LoginActivity.class);
+                    startActivity(intent);
+                }
+        );
 
         btnRegister.setOnClickListener(
                 v -> {

@@ -16,6 +16,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -44,10 +45,20 @@ public class ProfileActivity extends AppCompatActivity {
     TextView name, username, bio;
     ImageView profileUserImage;
     Button editProfileButton;
+    ImageButton post;
 
     // Variables
     String userId;
     String token;
+
+    // Header
+    ImageButton settings;
+    ImageButton notifications;
+
+    // Footer
+    ImageButton home;
+    ImageButton search;
+    ImageButton profile;
 
 
     // URL
@@ -57,6 +68,18 @@ public class ProfileActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
+
+        post = findViewById(R.id.postButton);
+
+        // Header
+        settings = findViewById(R.id.btnSettings);
+        notifications = findViewById(R.id.btnNotif);
+
+        // Footer
+        profile = findViewById(R.id.btnProfile);
+        search = findViewById(R.id.btnSearch);
+        home = findViewById(R.id.btnHome);
+
 
         //User info
         name = findViewById(R.id.profileName);
@@ -75,7 +98,37 @@ public class ProfileActivity extends AppCompatActivity {
         vpAdapter.addFragment(new InterestsFragment());
         vpAdapter.addFragment(new EventsFragment());
 
+        post.setOnClickListener(
+                v -> {
+                    Intent intent = new Intent(this, CreateActivity.class);
+                }
+        );
 
+        // Header
+        settings.setOnClickListener(
+                v -> {
+                    Intent intent = new Intent(this, SettingsActivity.class);
+
+                    startActivity(intent);
+                });
+
+        /*notifications.setOnClickListener(
+                v -> {
+                    Intent intent = new Intent(this, NotificationsActivity.class);
+
+                    startActivity(intent);
+                });*/
+
+        // Footer
+        home.setOnClickListener(v -> {
+            Intent intent = new Intent(this, FeedActivity.class);
+            startActivity(intent);
+        });
+
+        profile.setOnClickListener(v -> {
+            finish();
+            startActivity(getIntent());
+        });
 
 
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener(){

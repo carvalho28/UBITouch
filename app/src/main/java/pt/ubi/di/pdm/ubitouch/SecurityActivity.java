@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ImageButton;
-import android.widget.RelativeLayout;
 
 public class SecurityActivity extends AppCompatActivity {
 
@@ -20,7 +19,7 @@ public class SecurityActivity extends AppCompatActivity {
 
         changePasswordSetting = findViewById(R.id.changePasswordSetting);
         deleteSetting = findViewById(R.id.deleteSetting);
-        back = findViewById(R.id.btnBack);
+        back = findViewById(R.id.btnNotif);
 
         back.setOnClickListener(
                 v -> {

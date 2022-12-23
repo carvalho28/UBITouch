@@ -46,8 +46,15 @@ public class FeedActivity extends AppCompatActivity {
     FloatingActionButton newEvent;
     TextView noPostsText;
     RecyclerView recyclerView;
-    ImageButton settings;
     TextView profileName;
+
+    // Header
+    ImageButton settings;
+    ImageButton notifications;
+
+    // Footer
+    ImageButton home;
+    ImageButton search;
     ImageButton profile;
 
     // DEBUG
@@ -69,14 +76,21 @@ public class FeedActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_feed);
 
+        // Header
+        settings = findViewById(R.id.btnSettings);
+        notifications = findViewById(R.id.btnNotif);
+
+        // Footer
+        profile = findViewById(R.id.btnProfile);
+        search = findViewById(R.id.btnSearch);
+        home = findViewById(R.id.btnHome);
+
+        // Middle
         imageView = findViewById(R.id.profileImageView);
         progressBar = findViewById(R.id.feedProgressBar);
         newEvent = findViewById(R.id.btnNewEvent);
         noPostsText = findViewById(R.id.noPostsText);
-        settings = findViewById(R.id.btnSettings);
         profileName = findViewById(R.id.profileName);
-        profile = findViewById(R.id.btnProfile);
-
         recyclerView = findViewById(R.id.recyclerView);
 
         layoutManager = new LinearLayoutManager(this);
@@ -92,6 +106,7 @@ public class FeedActivity extends AppCompatActivity {
         getUserData(userID);
         getEventsData();
 
+        // Header
         settings.setOnClickListener(
                 v -> {
                     Intent intent = new Intent(this, SettingsActivity.class);
@@ -99,15 +114,30 @@ public class FeedActivity extends AppCompatActivity {
                     startActivity(intent);
                 });
 
-        newEvent.setOnClickListener(v -> {
-            Intent intent = new Intent(FeedActivity.this, CreateActivity.class);
-            startActivity(intent);
+        /*notifications.setOnClickListener(
+                v -> {
+                    Intent intent = new Intent(this, NotificationsActivity.class);
+
+                    startActivity(intent);
+                });*/
+
+        // Footer
+        home.setOnClickListener(v -> {
+            finish();
+            startActivity(getIntent());
         });
 
         profile.setOnClickListener(v -> {
             Intent intent = new Intent(this, ProfileActivity.class);
             startActivity(intent);
         });
+
+        newEvent.setOnClickListener(v -> {
+            Intent intent = new Intent(FeedActivity.this, CreateActivity.class);
+            startActivity(intent);
+        });
+
+
     }
 
     private void getUserData(String userId) {
