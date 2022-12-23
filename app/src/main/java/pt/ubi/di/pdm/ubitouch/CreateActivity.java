@@ -15,7 +15,6 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
@@ -33,6 +32,7 @@ import com.android.volley.toolbox.Volley;
 import com.cloudinary.android.MediaManager;
 import com.cloudinary.android.callback.ErrorInfo;
 import com.cloudinary.android.callback.UploadCallback;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.textfield.TextInputEditText;
 import com.mapbox.maps.MapView;
 import com.mapbox.maps.Style;
@@ -56,7 +56,7 @@ import java.util.Map;
 public class CreateActivity extends AppCompatActivity {
 
     ImageView profilePicture;
-    Button btnCreatePost;
+    FloatingActionButton btnCreatePost;
     ImageView btnAttachFile;
     TextInputEditText createTitle, createDescription;
     TextView dateText, timeText, msgError;
@@ -193,7 +193,7 @@ public class CreateActivity extends AppCompatActivity {
         }
 
         // maps
-        //mapView = findViewById(R.id.mapView);
+        mapView = findViewById(R.id.mapView);
         mapView.getMapboxMap().loadStyleUri(mapStyle,
                 style -> {
                     addAnnotationToMap();

@@ -247,6 +247,15 @@
                 tools:ignore="SpeakableTextPresentCheck" />
         </LinearLayout>
 
+        <com.mapbox.maps.MapView
+            android:id="@+id/mapView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="visible"
+            app:mapbox_cameraTargetLat="40.27782"
+            app:mapbox_cameraTargetLng="-7.50902"
+            app:mapbox_cameraZoom="15.0" />
+
     </LinearLayout>
 
 </RelativeLayout>
