@@ -63,6 +63,7 @@ public class EventsFragment extends Fragment {
         String userId = sharedPref.getString("id", "false");
         String token = sharedPref.getString("token", "false");
 
+
         event_creator = Integer.parseInt(userId);
         user_events_URL += event_creator;
 
@@ -71,7 +72,7 @@ public class EventsFragment extends Fragment {
                     try {
                         JSONArray events = response.getJSONArray("data");
                         nOfEvents = events.length();
-                        Log.i(TAG, "N of events: " + nOfEvents);
+                        Log.i("Diogo", "N of events: " + nOfEvents);
 
                         for (int i = 0; i < events.length(); i++) {
                             JSONObject e = (JSONObject) events.get(i);
@@ -100,7 +101,7 @@ public class EventsFragment extends Fragment {
                         customAdapter = new RecyclerAdapter(getContext(), listEvents);
                         recyclerView.setAdapter(customAdapter);
                     } catch (JSONException e) {
-                        Log.e(TAG, "json error");
+                        Log.e("Diogo", "json error");
                     }
                 },
                 error -> {
