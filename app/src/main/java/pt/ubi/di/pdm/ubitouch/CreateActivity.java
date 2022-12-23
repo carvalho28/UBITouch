@@ -11,14 +11,12 @@ import android.graphics.Canvas;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
-import android.nfc.Tag;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -58,8 +56,8 @@ import java.util.Map;
 public class CreateActivity extends AppCompatActivity {
 
     ImageView profilePicture;
-    Button btnCreatePost, btnDiscard;
-    ImageButton btnAttachFile;
+    Button btnCreatePost;
+    ImageView btnAttachFile;
     TextInputEditText createTitle, createDescription;
     TextView dateText, timeText, msgError;
     DatePickerDialog datePickerDialog;
@@ -171,8 +169,8 @@ public class CreateActivity extends AppCompatActivity {
 
         profilePicture = findViewById(R.id.profilePicture);
 
-        createTitle = findViewById(R.id.createTitle);
-        createDescription = findViewById(R.id.createDescription);
+        createTitle = findViewById(R.id.registerName);
+        createDescription = findViewById(R.id.registerInputEmail);
         dateText = findViewById(R.id.dateText);
         timeText = findViewById(R.id.timeText);
         msgError = findViewById(R.id.msgError);
@@ -180,7 +178,7 @@ public class CreateActivity extends AppCompatActivity {
         createImage = findViewById(R.id.createImage);
         createVideo = findViewById(R.id.createVideo);
         btnAttachFile = findViewById(R.id.btnAttachFile);
-        btnDiscard = findViewById(R.id.btnDiscard);
+        //btnDiscard = findViewById(R.id.btnDiscard);
         progressBar = findViewById(R.id.createProgressBar);
 
         // check if dark mode is enabled
@@ -195,7 +193,7 @@ public class CreateActivity extends AppCompatActivity {
         }
 
         // maps
-        mapView = findViewById(R.id.mapView);
+        //mapView = findViewById(R.id.mapView);
         mapView.getMapboxMap().loadStyleUri(mapStyle,
                 style -> {
                     addAnnotationToMap();
@@ -213,10 +211,12 @@ public class CreateActivity extends AppCompatActivity {
         getUserData();
 
         // Discard
+        /*
         btnDiscard.setOnClickListener(v -> {
             Intent intent = new Intent(CreateActivity.this, FeedActivity.class);
             startActivity(intent);
         });
+        */
 
         // Image
         btnAttachFile.setOnClickListener(v -> {

@@ -2,10 +2,8 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    style="@style/PostBackColors"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#00FFFFFF"
     android:paddingHorizontal="15sp"
     android:paddingVertical="15sp"
     tools:context=".Event">
@@ -16,7 +14,6 @@
         app:cardBackgroundColor="#ECECEC"
         app:cardCornerRadius="8dp"
         app:cardElevation="30dp"
-        app:cardMaxElevation="2dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
