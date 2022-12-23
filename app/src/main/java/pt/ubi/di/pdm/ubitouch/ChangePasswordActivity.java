@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -33,6 +34,8 @@ public class ChangePasswordActivity extends AppCompatActivity {
 
     private String userId, token;
 
+    ImageButton back;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,14 +46,22 @@ public class ChangePasswordActivity extends AppCompatActivity {
         confirmPassword = findViewById(R.id.confirmPassword);
         buttonChangePassword = findViewById(R.id.buttonSave);
         textViewError = findViewById(R.id.msgChangePasswordError);
+        back = findViewById(R.id.btnNotif);
 
         SharedPreferences sharedPref = getSharedPreferences("user", Context.MODE_PRIVATE);
         userId = sharedPref.getString("id", "");
         token = sharedPref.getString("token", "");
 
+        back.setOnClickListener(v -> {
+            Intent intent = new Intent(this, SecurityActivity.class);
+            startActivity(intent);
+        });
+
         buttonChangePassword.setOnClickListener(v -> {
             changePassword();
         });
+
+
     }
 
     private void changePassword() {

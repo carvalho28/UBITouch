@@ -5,7 +5,6 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ImageButton;
-import android.widget.RelativeLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
@@ -46,7 +45,7 @@ public class SettingsActivity extends AppCompatActivity {
         // aboutUsSetting = findViewById(R.id.aboutUsSetting);
         logoutSetting = findViewById(R.id.logoutSetting);
         darkmode = new DarkMode(this);
-        back = findViewById(R.id.btnBack);
+        back = findViewById(R.id.btnNotif);
 
         if (darkmode.loadDarkMode() == true) {
             switchLightDark.setChecked(true);

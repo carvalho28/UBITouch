@@ -10,6 +10,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -35,6 +36,8 @@ public class DeleteActivity extends AppCompatActivity {
     private String userId;
     private String token;
 
+    ImageButton back;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,6 +53,11 @@ public class DeleteActivity extends AppCompatActivity {
 
         buttonDeleteAcc = findViewById(R.id.buttonDeleteAcc);
         currentPassword = findViewById(R.id.currentPassword);
+        back = findViewById(R.id.btnNotif);
+
+        back.setOnClickListener(v -> {
+            Intent intent = new Intent(this, SecurityActivity.class);
+        });
 
         buttonDeleteAcc.setOnClickListener(v -> {
             deleteAcc();

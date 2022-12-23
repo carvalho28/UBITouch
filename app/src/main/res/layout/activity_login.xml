@@ -100,7 +100,8 @@
             android:gravity="end"
             android:text="@string/forgot_password"
             android:textColor="@color/blue"
-            android:textSize="11sp"></TextView>
+            android:textSize="11sp">
+        </TextView>
 
         <!-- log in button -->
 
@@ -124,19 +125,6 @@
             app:strokeWidth="1dp" />
 
         <!-- register text -->
-        <TextView
-            android:id="@+id/noAccountText"
-            style="@style/LoginColorsStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="32dp"
-            android:gravity="center"
-            android:text="@string/no_account"
-            android:textColor="@color/blue"
-            android:textSize="16sp" >
-        </TextView>
 
         <ProgressBar
             android:id="@+id/loginProgressBar"
@@ -145,6 +133,43 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:visibility="gone" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp">
+
+            <TextView
+                android:id="@+id/register"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:text=" Register here!"
+                android:textColor="@color/orange"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/noAccountText"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.08" />
+
+            <TextView
+                android:id="@+id/noAccountText"
+                style="@style/LoginColorsStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Don't have an account yet?"
+                android:textColor="@color/blue"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.278"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.08"></TextView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </LinearLayout>
 </ScrollView>

@@ -32,6 +32,7 @@ public class LoginActivity extends AppCompatActivity {
     TextInputEditText username, password;
     TextView msgError;
     ProgressBar progressBar;
+    TextView register;
 
     // URL of the API
     private final String URLEmail = "https://server-ubi-touch.herokuapp.com/users/loginEmail";
@@ -61,6 +62,14 @@ public class LoginActivity extends AppCompatActivity {
         password = findViewById(R.id.loginInputPassword);
         msgError = findViewById(R.id.loginTextViewError);
         progressBar = findViewById(R.id.loginProgressBar);
+        register = findViewById(R.id.register);
+
+        register.setOnClickListener(
+                v -> {
+                    Intent intent = new Intent(this, RegisterActivity.class);
+                    startActivity(intent);
+                }
+        );
 
         btnLogin.setOnClickListener(
                 v -> {
