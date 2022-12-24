@@ -12,14 +12,13 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_vertical"
-        android:orientation="vertical"
-        app:layout_constraintTop_toBottomOf="@+id/editProfileImage">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:id="@+id/relativeLayout"
+            android:layout_width="412dp"
+            android:layout_height="245dp">
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/editProfileImage"
@@ -44,74 +43,80 @@
 
         </RelativeLayout>
 
-        <RelativeLayout
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/registerName"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="40dp"
+            android:hint="@string/name">
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/registerName"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="336dp"
-                android:layout_height="60dp"
-                android:layout_marginStart="40dp"
-                android:layout_marginTop="40dp"
-                android:hint="@string/name">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editProfileName"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:inputType="text"
+                android:shadowRadius="10"
+                android:textColorHint="#0066FF"
+                android:textColorLink="#000000" />
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/editProfileName"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:textColorHint="#0066FF" />
-            </com.google.android.material.textfield.TextInputLayout>
+        </com.google.android.material.textfield.TextInputLayout>
 
-
-        </RelativeLayout>
-
-        <RelativeLayout
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/registerBio"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="40dp"
+            android:hint="@string/bio">
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/registerBio"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="336dp"
-                android:layout_height="60dp"
-                android:layout_marginStart="40dp"
-                android:layout_marginTop="20dp"
-                android:hint="@string/bio"
-                android:inputType="textMultiLine"
-                android:lines="8"
-                android:maxLines="10"
-                android:minLines="6">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editProfileBio"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:inputType="text"
+                android:shadowRadius="10"
+                android:textColorHint="#0066FF"
+                android:textColorLink="#000000"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/editProfileBio"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:textColorHint="#0066FF" />
-            </com.google.android.material.textfield.TextInputLayout>
-
-
-        </RelativeLayout>
-
-        <RelativeLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
+            android:layout_height="100dp">
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/editProfileButton"
-                style="@style/EPButtonStyle"
                 android:layout_width="130dp"
                 android:layout_height="60dp"
-                android:layout_marginStart="245dp"
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="10dp"
                 android:backgroundTint="@color/orange"
                 android:elevation="10dp"
                 android:stateListAnimator="@null"
                 android:text="@string/save"
-                app:cornerRadius="10dp" />
-        </RelativeLayout>
+                app:cornerRadius="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.846"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.333" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
 
     </LinearLayout>
 

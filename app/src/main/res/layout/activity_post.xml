@@ -185,15 +185,23 @@
                     android:text="@string/ev_localization"
                     android:visibility="invisible" />
 
+                <ImageButton
+                    android:id="@+id/btnInterested"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@android:color/transparent"
+                    android:minWidth="48dp"
+                    android:minHeight="48dp"
+                    android:src="@drawable/empty_heart"></ImageButton>
+
                 <TextView
                     android:id="@+id/postInterested"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="2"
                     android:clickable="true"
-                    android:drawableStart="@drawable/ic_baseline_favorite_border_24"
                     android:drawablePadding="5dp"
-                    android:drawableTint="@color/orange"
                     android:gravity="center_vertical"
                     android:paddingStart="10dp"
                     android:text="@string/ev_interested" />
