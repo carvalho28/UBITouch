@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_alignParentBottom="true"
-    android:background="@color/blue">
+    style="@style/FooterColorStyle">
 
 
     <LinearLayout
@@ -24,7 +24,9 @@
             android:layout_weight="1"
             android:background="@android:color/transparent"
             android:contentDescription="Home"
-            app:srcCompat="@drawable/ic_baseline_home_24"></ImageButton>
+            app:srcCompat="@drawable/ic_baseline_home_24">
+
+        </ImageButton>
 
         <ImageButton
             android:id="@+id/btnSearch"
@@ -33,7 +35,9 @@
             android:layout_weight="1"
             android:background="@android:color/transparent"
             android:contentDescription="Search"
-            app:srcCompat="@drawable/ic_baseline_search_24"></ImageButton>
+            app:srcCompat="@drawable/ic_baseline_search_24">
+
+        </ImageButton>
 
         <ImageButton
             android:id="@+id/btnProfile"
@@ -42,7 +46,9 @@
             android:layout_weight="1"
             android:background="@android:color/transparent"
             android:contentDescription="Profile"
-            app:srcCompat="@drawable/ic_person"></ImageButton>
+            app:srcCompat="@drawable/ic_person">
+
+        </ImageButton>
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

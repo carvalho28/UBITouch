@@ -21,22 +21,22 @@
         android:orientation="vertical">
 
         <TextView
+            style="@style/CreateTextStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:text="@string/cr_title"
-            android:textColor="@color/blue"
             android:textSize="36sp"
             android:visibility="gone" />
 
         <TextView
             android:id="@+id/textView9"
+            style="@style/CreateTextStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="10dp"
             android:text="@string/cr_subtitle"
-            android:textColor="@color/blue"
             android:textSize="20sp" />
 
         <TextView
@@ -71,19 +71,19 @@
 
                 <TextView
                     android:id="@+id/createName"
+                    style="@style/CreateNameStyle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/post_default_username"
-                    android:textColor="#EE8000"
                     android:textSize="16sp"
                     android:textStyle="bold" />
 
                 <TextView
+                    style="@style/CreateUsernameStyle"
                     android:id="@+id/createUsername"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/post_default_username"
-                    android:textColor="#7E7E7E"
                     android:textSize="11sp" />
             </LinearLayout>
         </LinearLayout>
@@ -140,11 +140,11 @@
 
         <TextView
             android:id="@+id/dateText"
+            style="@style/CreateIconStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:drawableStart="@drawable/ic_baseline_calendar_month_24"
             android:drawablePadding="5dp"
-            android:drawableTint="#7E7E7E"
             android:gravity="center_vertical"
             android:paddingVertical="5dp"
             android:paddingStart="20dp"
@@ -153,11 +153,11 @@
 
         <TextView
             android:id="@+id/timeText"
+            style="@style/CreateIconStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:drawableStart="@drawable/ic_baseline_access_time_24"
             android:drawablePadding="5dp"
-            android:drawableTint="#7E7E7E"
             android:gravity="center_vertical"
             android:paddingVertical="5dp"
             android:paddingStart="20dp"
@@ -202,7 +202,7 @@
                 android:layout_marginTop="5dp"
                 android:padding="5dp"
                 app:srcCompat="@drawable/ic_baseline_calendar_month_24"
-                app:tint="#EE8000" />
+                app:tint="@color/orange" />
 
             <ImageView
                 android:id="@+id/btnPickTime"
@@ -212,7 +212,7 @@
                 android:layout_marginTop="5dp"
                 android:padding="5dp"
                 app:srcCompat="@drawable/ic_baseline_access_time_24"
-                app:tint="#EE8000" />
+                app:tint="@color/orange" />
 
             <ImageView
                 android:id="@+id/btnAttachFile"
@@ -222,7 +222,7 @@
                 android:layout_marginTop="5dp"
                 android:padding="5dp"
                 app:srcCompat="@drawable/ic_baseline_image_24"
-                app:tint="#EE8000" />
+                app:tint="@color/orange" />
 
             <ImageView
                 android:id="@+id/btnMap"
@@ -232,7 +232,7 @@
                 android:layout_marginTop="5dp"
                 android:padding="5dp"
                 app:srcCompat="@drawable/ic_marker"
-                app:tint="#EE8000" />
+                app:tint="@color/orange" />
 
         </LinearLayout>
 

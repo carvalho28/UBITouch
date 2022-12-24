@@ -14,13 +14,13 @@
         android:layout_height="wrap_content">
 
         <TextView
+            style="@style/SecurityTextStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:text="@string/security_privacy"
             android:textAllCaps="true"
             android:layout_marginStart="20dp"
-            android:textColor="@color/blue"
             android:textSize="36sp" />
     </RelativeLayout>
 
@@ -35,10 +35,10 @@
 
         <!-- Night Mode | Notifications -->
         <androidx.cardview.widget.CardView
+            style="@style/SecurityCardStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
-            app:cardBackgroundColor="@color/grey"
             app:cardCornerRadius="8dp"
             app:cardElevation="10dp">
 
@@ -49,6 +49,7 @@
 
                 <ImageView
                     android:id="@+id/password"
+                    style="@style/SecurityCardIconStyle"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_centerVertical="true"
@@ -56,7 +57,6 @@
                     android:layout_marginTop="16dp"
                     android:layout_marginBottom="16dp"
                     android:background="@drawable/purple_roundbackground"
-                    android:backgroundTint="@color/blue"
                     android:padding="12dp"
                     android:src="@drawable/ic_baseline_key_24"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -66,6 +66,7 @@
 
                 <TextView
                     android:id="@+id/textView"
+                    style="@style/SecurityCardTextStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
@@ -73,7 +74,6 @@
                     android:layout_marginTop="28dp"
                     android:layout_toEndOf="@+id/password"
                     android:text="@string/change_password"
-                    android:textColor="@color/darkGrey"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toEndOf="@+id/password"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -81,6 +81,7 @@
 
                 <ImageButton
                     android:id="@+id/changePasswordSetting"
+                    style="@style/ArrowColorStyle"
                     android:layout_width="48dp"
                     android:layout_height="48dp"
                     android:layout_marginTop="16dp"
@@ -111,13 +112,13 @@
 
                 <TextView
                     android:id="@+id/textView3"
+                    style="@style/SecurityCardTextStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_marginStart="20dp"
                     android:layout_toEndOf="@+id/notification"
                     android:text="@string/deactivate_account"
-                    android:textColor="@color/darkGrey"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toEndOf="@+id/notification"
@@ -126,6 +127,7 @@
 
                 <ImageButton
                     android:id="@+id/deleteSetting"
+                    style="@style/ArrowColorStyle"
                     android:layout_width="48dp"
                     android:layout_height="48dp"
                     android:layout_marginTop="4dp"

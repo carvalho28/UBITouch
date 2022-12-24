@@ -15,12 +15,12 @@
         android:layout_marginTop="10dp">
 
         <TextView
+            style="@style/SettingTextStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:text="@string/settings"
             android:textAllCaps="true"
-            android:textColor="@color/blue"
             android:textSize="36sp" />
     </RelativeLayout>
 
@@ -35,10 +35,10 @@
 
         <!-- Night Mode | Notifications -->
         <androidx.cardview.widget.CardView
+            style="@style/SettingCardStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
-            app:cardBackgroundColor="@color/grey"
             app:cardCornerRadius="8dp"
             app:cardElevation="10dp">
 
@@ -49,6 +49,7 @@
 
                 <ImageView
                     android:id="@+id/password"
+                    style="@style/SettingCardIconStyle"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_centerVertical="true"
@@ -56,7 +57,6 @@
                     android:layout_marginTop="16dp"
                     android:layout_marginBottom="16dp"
                     android:background="@drawable/purple_roundbackground"
-                    android:backgroundTint="@color/blue"
                     android:padding="12dp"
                     android:src="@drawable/ic_baseline_nightlight_24"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -66,6 +66,7 @@
 
                 <TextView
                     android:id="@+id/textView"
+                    style="@style/SettingCardTextStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
@@ -73,7 +74,6 @@
                     android:layout_marginTop="28dp"
                     android:layout_toEndOf="@+id/password"
                     android:text="@string/night_mode"
-                    android:textColor="@color/darkGrey"
                     app:layout_constraintEnd_toStartOf="@+id/switchLD"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toEndOf="@+id/password"
@@ -111,13 +111,13 @@
                     app:layout_constraintVertical_bias="0.0" />
 
                 <TextView
+                    style="@style/SettingCardTextStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_marginStart="20dp"
                     android:layout_toEndOf="@+id/notification"
                     android:text="@string/notifications"
-                    android:textColor="@color/darkGrey"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@+id/switchN"
                     app:layout_constraintHorizontal_bias="0.0"
@@ -144,10 +144,10 @@
 
         <!-- Language | Security and Privacy -->
         <androidx.cardview.widget.CardView
+            style="@style/SettingCardStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
-            app:cardBackgroundColor="@color/grey"
             app:cardCornerRadius="8dp"
             app:cardElevation="10dp">
 
@@ -157,6 +157,7 @@
 
                 <ImageButton
                     android:id="@+id/securityPrivacySetting"
+                    style="@style/ArrowColorStyle"
                     android:layout_width="48dp"
                     android:layout_height="48dp"
                     android:layout_marginTop="68dp"
@@ -170,6 +171,7 @@
 
                 <ImageView
                     android:id="@+id/language"
+                    style="@style/SettingCardIconStyle"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_centerVertical="true"
@@ -177,7 +179,6 @@
                     android:layout_marginTop="16dp"
                     android:layout_marginBottom="16dp"
                     android:background="@drawable/purple_roundbackground"
-                    android:backgroundTint="@color/blue"
                     android:padding="12dp"
                     android:src="@drawable/ic_baseline_language_24"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -187,6 +188,7 @@
 
                 <TextView
                     android:id="@+id/textView2"
+                    style="@style/SettingCardTextStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
@@ -194,7 +196,6 @@
                     android:layout_marginTop="28dp"
                     android:layout_toEndOf="@+id/language"
                     android:text="@string/language"
-                    android:textColor="@color/darkGrey"
                     app:layout_constraintStart_toEndOf="@+id/language"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -217,6 +218,7 @@
 
                 <TextView
                     android:id="@+id/textView4"
+                    style="@style/SettingCardTextStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
@@ -224,7 +226,6 @@
                     android:layout_marginBottom="28dp"
                     android:layout_toEndOf="@+id/security"
                     android:text="@string/security_privacy"
-                    android:textColor="@color/darkGrey"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/security"
                     app:layout_constraintTop_toBottomOf="@+id/textView2"
@@ -232,6 +233,7 @@
 
                 <ImageButton
                     android:id="@+id/changePasswordSetting"
+                    style="@style/ArrowColorStyle"
                     android:layout_width="48dp"
                     android:layout_height="48dp"
                     android:layout_marginTop="12dp"
@@ -248,10 +250,10 @@
 
         <!-- About Us -->
         <androidx.cardview.widget.CardView
+            style="@style/SettingCardStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
-            app:cardBackgroundColor="@color/grey"
             app:cardCornerRadius="8dp"
             app:cardElevation="10dp">
 
@@ -262,6 +264,7 @@
 
                 <ImageView
                     android:id="@+id/about_us"
+                    style="@style/SettingCardIconStyle"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_centerVertical="true"
@@ -270,7 +273,6 @@
                     android:layout_marginTop="16dp"
                     android:layout_marginBottom="16dp"
                     android:background="@drawable/purple_roundbackground"
-                    android:backgroundTint="@color/blue"
                     android:padding="12dp"
                     android:src="@drawable/ic_baseline_priority_high_24"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -280,12 +282,12 @@
 
                 <TextView
                     android:id="@+id/textView5"
+                    style="@style/SettingCardTextStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_marginStart="20dp"
                     android:text="@string/about_us"
-                    android:textColor="@color/darkGrey"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/about_us"
                     app:layout_constraintTop_toTopOf="parent"
@@ -293,6 +295,7 @@
 
                 <ImageButton
                     android:id="@+id/aboutUsSetting"
+                    style="@style/ArrowColorStyle"
                     android:layout_width="48dp"
                     android:layout_height="48dp"
                     android:layout_marginEnd="16dp"
@@ -310,10 +313,10 @@
 
         <!-- Logout -->
         <androidx.cardview.widget.CardView
+            style="@style/SettingCardStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
-            app:cardBackgroundColor="@color/grey"
             app:cardCornerRadius="8dp"
             app:cardElevation="10dp">
 
@@ -340,12 +343,12 @@
                     app:layout_constraintVertical_bias="0.238" />
 
                 <TextView
+                    style="@style/SettingCardTextStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_marginStart="20dp"
                     android:text="@string/logout"
-                    android:textColor="@color/darkGrey"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/imageView2"
                     app:layout_constraintTop_toTopOf="parent"

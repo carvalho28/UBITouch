@@ -40,19 +40,19 @@
           android:orientation="vertical">
 
         <TextView
+            style="@style/FeedTextStyle"
             android:id="@+id/profileName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Hello, Name!"
-            android:textColor="@color/blue"
             android:textSize="15sp" />
 
         <TextView
+            style="@style/RegisterTextStyle"
             android:id="@+id/profileUsername"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Let's explore what's happening."
-            android:textColor="@color/blue"
             android:textSize="10sp" />
       </LinearLayout>
 
@@ -83,14 +83,12 @@
 
       <com.google.android.material.floatingactionbutton.FloatingActionButton
           android:id="@+id/btnNewEvent"
-          style="@style/ProfileButtonStyle"
+          style="@style/FeedButtonStyle"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:layout_alignParentEnd="true"
           android:layout_alignParentBottom="true"
           android:layout_gravity="end|bottom"
-          android:background="@color/orange"
-          android:backgroundTint="@color/orange"
           android:clickable="true"
           android:contentDescription="TODO"
           app:srcCompat="@drawable/ic_baseline_add_24"
