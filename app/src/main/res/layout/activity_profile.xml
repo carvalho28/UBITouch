@@ -18,56 +18,71 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
             android:layout_marginTop="60dp"
-            android:layout_marginBottom="48dp"
-            android:layout_marginEnd="20dp"
             android:orientation="vertical"
             android:padding="15dp">
 
             <!-- Username, Name, Image, Button -->
+
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp">
 
-                <de.hdodenhof.circleimageview.CircleImageView
-                    android:id="@+id/editProfileImage"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:layout_centerVertical="true"
-                    android:contentDescription="TODO"
-                    tools:srcCompat="@tools:sample/avatars" />
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/editProfileButton"
-                    style="@style/ProfileButtonStyle"
-                    android:layout_width="wrap_content"
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="147dp"
-                    android:layout_toEndOf="@id/editProfileImage"
-                    android:elevation="10dp"
-                    android:stateListAnimator="@null"
-                    android:text="@string/edit_profile"
-                    android:textSize="10sp"
-                    app:cornerRadius="10dp"
-                    app:strokeColor="#DCDCDC"
-                    app:strokeWidth="1dp" />
+                    android:layout_marginStart="5dp">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/editProfileImage"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:contentDescription="TODO"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:srcCompat="@tools:sample/avatars" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/editProfileButton"
+                        style="@style/ProfileButtonStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:elevation="10dp"
+                        android:gravity="center|center_horizontal"
+                        android:stateListAnimator="@null"
+                        android:text="@string/edit_profile"
+                        android:textSize="10sp"
+                        app:cornerRadius="10dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.862"
+                        app:layout_constraintStart_toEndOf="@+id/editProfileImage"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:strokeColor="#DCDCDC"
+                        app:strokeWidth="1dp" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
             </RelativeLayout>
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp">
+
                 <LinearLayout
                     android:id="@+id/userandname"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
+
                     <TextView
                         android:id="@+id/profileName"
                         style="@style/ProfileNameStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
                         android:text="Name"
                         android:textSize="20sp" />
 
@@ -83,7 +98,9 @@
             <!-- Bio -->
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp">
+
                 <TextView
                     android:id="@+id/profileBio"
                     style="@style/ProfileBioStyle"
@@ -98,6 +115,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="50dp">
+
                 <com.google.android.material.tabs.TabLayout
                     android:id="@+id/tab_layout"
                     android:layout_width="match_parent"
@@ -113,7 +131,7 @@
                     <com.google.android.material.tabs.TabItem
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Interested"/>
+                        android:text="Interested" />
                 </com.google.android.material.tabs.TabLayout>
 
             </RelativeLayout>
@@ -121,30 +139,36 @@
             <!-- Posts -->
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="0dp"
+                android:layout_marginBottom="35dp"
+                android:layout_weight="0.6"
+                android:orientation="vertical">
 
                 <com.google.android.material.floatingactionbutton.FloatingActionButton
                     android:id="@+id/postButton"
                     style="@style/ProfileButtonStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="end|bottom"
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentBottom="true"
-                    android:layout_gravity="end|bottom"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="16dp"
-                    android:layout_marginBottom="16dp"
+                    android:layout_margin="16dp"
+                    android:background="@android:color/transparent"
                     android:clickable="true"
                     android:contentDescription="TODO"
-                    app:srcCompat="@drawable/ic_username"
+                    app:borderWidth="0dp"
+                    app:elevation="8dp"
+                    app:srcCompat="@drawable/ic_baseline_add_24"
                     app:tint="@color/white"
                     tools:ignore="SpeakableTextPresentCheck" />
 
                 <androidx.viewpager2.widget.ViewPager2
                     android:id="@+id/viewPager"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:scrollbarStyle="outsideOverlay"
+                    android:scrollbars="vertical"/>
 
             </RelativeLayout>
 

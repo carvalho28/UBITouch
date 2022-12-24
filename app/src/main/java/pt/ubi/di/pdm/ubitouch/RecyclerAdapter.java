@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -39,6 +40,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         private TextView mapLocation;
         private TextView name;
         private TextView username;
+        private ImageButton interested;
 
         public ItemViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -52,10 +54,13 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             mapLocation = itemView.findViewById(R.id.postLocalization);
             name = itemView.findViewById(R.id.postName);
             username = itemView.findViewById(R.id.postUsername);
+            interested = itemView.findViewById(R.id.btnInterested);
 
             mapLocation.setOnClickListener(this);
 
             UserImage.setOnClickListener(this);
+
+            interested.setOnClickListener(this);
         }
 
         @Override
