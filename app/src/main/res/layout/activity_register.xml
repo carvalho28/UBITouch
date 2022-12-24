@@ -16,22 +16,24 @@
     <!-- text to show error messages -->
 
     <TextView
+        style="@style/RegisterTextStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="80dp"
         android:layout_marginStart="30dp"
         android:text="REGISTER"
-        android:textColor="@color/blue"
+
         android:textSize="36sp" />
 
     <TextView
         android:id="@+id/descriprion"
+        style="@style/RegisterTextStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
         android:layout_marginTop="10dp"
         android:text="Let's get you on board."
-        android:textColor="@color/blue"
+
         android:textSize="20sp" />
 
     <TextView
@@ -40,7 +42,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
         android:gravity="center"
-        android:textColor="#FF0000"
+        android:textColor="@color/red"
         android:textSize="20sp"
         android:visibility="gone" />
 
@@ -201,11 +203,11 @@
 
       <TextView
           android:id="@+id/text"
+          style="@style/RegisterTextStyle"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:gravity="center|center_horizontal|center_vertical"
           android:text="Already have an account? "
-          android:textColor="@color/blue"
           android:textSize="16sp"
           app:layout_constraintBottom_toBottomOf="parent"
           app:layout_constraintEnd_toEndOf="parent"

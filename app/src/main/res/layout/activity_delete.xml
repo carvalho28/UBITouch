@@ -15,11 +15,11 @@
         android:layout_height="wrap_content">
 
         <TextView
+            style="@style/DeleteTextStyle"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
             android:text="DELETE ACCOUNT"
-            android:textColor="@color/blue"
             android:textSize="36sp" />
     </RelativeLayout>
 
@@ -28,13 +28,13 @@
         android:layout_height="wrap_content">
 
         <TextView
+            style="@style/DeleteTextStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="40dp"
             android:layout_marginEnd="20dp"
             android:gravity="center"
-            android:textColor="@color/blue"
             android:text="@string/deactivate_info"
             android:textSize="20sp" />
     </RelativeLayout>
@@ -69,7 +69,7 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/buttonDeleteAcc"
-        style="@style/LoginButtonStyle"
+        style="@style/DeleteButtonStyle"
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:layout_marginStart="80dp"
@@ -77,7 +77,6 @@
         android:layout_marginEnd="80dp"
         android:text="Delete"
         android:textSize="20sp"
-        android:backgroundTint="@color/red"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/loginPasswordInputLayout"

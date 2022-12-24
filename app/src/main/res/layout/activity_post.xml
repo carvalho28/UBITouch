@@ -9,9 +9,9 @@
     tools:context=".Event">
 
     <androidx.cardview.widget.CardView
+        style="@style/PostCardColor"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardBackgroundColor="#ECECEC"
         app:cardCornerRadius="8dp"
         android:elevation="30dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -46,12 +46,12 @@
 
                     <TextView
                         android:id="@+id/postDate"
+                        style="@style/PostCardIconColor"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:drawableStart="@drawable/ic_baseline_calendar_month_24"
                         android:drawablePadding="5dp"
-                        android:drawableTint="#7E7E7E"
                         android:gravity="center_vertical"
                         android:paddingStart="10dp"
                         android:text="@string/post_default_text"
@@ -59,11 +59,11 @@
 
                     <TextView
                         android:id="@+id/postTime"
+                        style="@style/PostCardIconColor"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:drawableStart="@drawable/ic_baseline_access_time_24"
                         android:drawablePadding="5dp"
-                        android:drawableTint="#7E7E7E"
                         android:gravity="center_vertical"
                         android:paddingStart="10dp"
                         android:text="@string/post_default_text"
@@ -71,12 +71,12 @@
                         android:visibility="visible" />
 
                     <TextView
+                        style="@style/PostCardIconColor"
                         android:id="@+id/unverifiedFlag"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:drawableStart="@drawable/ic_baseline_error_outline_24"
                         android:drawablePadding="5dp"
-                        android:drawableTint="#7E7E7E"
                         android:gravity="center_vertical"
                         android:paddingStart="10dp"
                         android:text="@string/post_unverified"
@@ -85,11 +85,11 @@
 
                     <TextView
                         android:id="@+id/verifiedFlag"
+                        style="@style/PostCardIconColor"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:drawableStart="@drawable/ic_baseline_check_circle_outline_24"
                         android:drawablePadding="5dp"
-                        android:drawableTint="#7E7E7E"
                         android:gravity="center_vertical"
                         android:paddingStart="10dp"
                         android:text="@string/post_verified"
@@ -107,23 +107,24 @@
 
                     <TextView
                         android:id="@+id/postName"
+                        style="@style/PostNameStyle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/post_default_username"
-                        android:textColor="#EE8000"
                         android:textSize="16sp"
                         android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/postUsername"
+                        style="@style/PostUsernameStyle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/post_default_username"
-                        android:textColor="#7E7E7E"
                         android:textSize="11sp" />
 
                     <TextView
                         android:id="@+id/postTitle"
+                        style="@style/PostTextColor"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
@@ -172,13 +173,13 @@
 
                 <TextView
                     android:id="@+id/postLocalization"
+                    style="@style/PostCardIconColor"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="3"
                     android:clickable="true"
                     android:drawableStart="@drawable/ic_marker"
                     android:drawablePadding="5dp"
-                    android:drawableTint="#7E7E7E"
                     android:gravity="center_vertical"
                     android:paddingStart="10dp"
                     android:text="@string/ev_localization"
@@ -192,20 +193,20 @@
                     android:clickable="true"
                     android:drawableStart="@drawable/ic_baseline_favorite_border_24"
                     android:drawablePadding="5dp"
-                    android:drawableTint="#EE8000"
+                    android:drawableTint="@color/orange"
                     android:gravity="center_vertical"
                     android:paddingStart="10dp"
                     android:text="@string/ev_interested" />
 
                 <TextView
                     android:id="@+id/postShare"
+                    style="@style/PostCardIconColor"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="2"
                     android:clickable="true"
                     android:drawableStart="@drawable/ic_baseline_send_24"
                     android:drawablePadding="5dp"
-                    android:drawableTint="#7E7E7E"
                     android:gravity="center_vertical"
                     android:paddingStart="10dp"
                     android:text="@string/ev_share" />

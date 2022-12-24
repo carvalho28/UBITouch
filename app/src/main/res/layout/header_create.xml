@@ -14,6 +14,7 @@
 
         <ImageView
             android:id="@+id/btnReturn"
+            style="@style/ArrowColorStyle"
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:layout_weight="0.3"
@@ -28,12 +29,11 @@
 
         <Button
             android:id="@+id/btnPublish"
+            style="@style/HeaderButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="5dp"
             android:layout_weight="0.3"
-            android:backgroundTint="#FFFFFF"
-            android:text="@string/post_publish"
-            android:textColor="#EE8000" />
+            android:text="@string/post_publish" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -32,6 +32,7 @@
 
         <ImageButton
             android:id="@+id/btnNotif"
+            style="@style/HeaderIconColorsStyle"
             android:layout_width="0dp"
             android:layout_height="48dp"
             android:layout_toEndOf="@+id/header"
@@ -44,6 +45,7 @@
 
         <ImageButton
             android:id="@+id/btnSettings"
+            style="@style/HeaderIconColorsStyle"
             android:layout_width="0dp"
             android:layout_height="48dp"
             android:layout_toEndOf="@+id/btnNotif"

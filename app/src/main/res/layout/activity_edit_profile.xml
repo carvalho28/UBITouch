@@ -101,7 +101,7 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/editProfileButton"
-                style="@style/EditProfileButtons"
+                style="@style/EPButtonStyle"
                 android:layout_width="130dp"
                 android:layout_height="60dp"
                 android:layout_marginStart="245dp"

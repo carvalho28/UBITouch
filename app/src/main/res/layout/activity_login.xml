@@ -13,20 +13,20 @@
         android:orientation="vertical">
 
         <TextView
+            style="@style/LoginTextStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
             android:text="LOGIN"
-            android:textColor="@color/blue"
             android:textSize="36sp" />
 
         <TextView
+            style="@style/LoginTextStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
             android:layout_marginTop="10dp"
             android:text="Welcome back!"
-            android:textColor="@color/blue"
             android:textSize="20sp" />
 
         <!-- username or email -->
@@ -37,7 +37,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:gravity="center"
-            android:textColor="#FF0000"
+            android:textColor="@color/red"
             android:textSize="20sp"
             android:textAllCaps="true"/>
 
@@ -91,7 +91,7 @@
         <!-- forgot password text -->
         <TextView
             android:id="@+id/forgotPasswordText"
-            style="@style/LoginColorsStyle"
+            style="@style/LoginTextStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
@@ -99,7 +99,6 @@
             android:layout_marginEnd="32dp"
             android:gravity="end"
             android:text="@string/forgot_password"
-            android:textColor="@color/blue"
             android:textSize="11sp">
         </TextView>
 
@@ -156,19 +155,20 @@
 
             <TextView
                 android:id="@+id/noAccountText"
-                style="@style/LoginColorsStyle"
+                style="@style/LoginTextStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="Don't have an account yet?"
-                android:textColor="@color/blue"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.278"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.08"></TextView>
+                app:layout_constraintVertical_bias="0.08">
+
+            </TextView>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </LinearLayout>
