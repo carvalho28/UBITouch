@@ -188,7 +188,7 @@ public class FeedActivity extends AppCompatActivity {
                             String description = e.getString("description");
                             String imageUser = e.getString("picture");
                             String isVerified = e.getString("isVerified");
-                            // String userId = e.getString("idUser");
+                            String userId = e.getString("idUser");
                             String eventDate = e.getString("eventDate");
                             String eventHour = e.getString("eventHour");
                             String creationDate = e.getString("createdAt");
@@ -199,7 +199,7 @@ public class FeedActivity extends AppCompatActivity {
                             String idEvent = e.getString("idEvent");
                             String isInterested = e.getString("isInterested");
                             listEvents.add(new Event(title, imageUser, description, eventHour, eventDate, "1", "0",
-                                    latitude, longitude, name, username, idEvent, isInterested));
+                                    latitude, longitude, name, username, idEvent, isInterested, userId));
                             // if user is admin then verified flag is visible
                             // ----- if verified == 1 then it is verified, else verified == 0 it is
                             // unverified

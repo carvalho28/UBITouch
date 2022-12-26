@@ -72,6 +72,10 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
             UserImage.setOnClickListener(this);
 
+            name.setOnClickListener(this);
+
+            username.setOnClickListener(this);
+
             interested.setOnClickListener(this);
 
             share.setOnClickListener(this);
@@ -82,12 +86,15 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             int position = getAdapterPosition();
             Event event = listRecyclerView.get(position);
 
-            if (view.getId() == R.id.postUserImage) {
-                Log.d("Diogo", "Click" + position);
+            int viewId = view.getId();
+            if (viewId == R.id.postUserImage || viewId == R.id.postName || viewId == R.id.postUsername) {
+                Intent i = new Intent(context, ProfileActivity.class);
+                i.putExtra("userID", event.getUserID());
+                context.startActivity(i);
             }
 
             // open maps with the location of the event
-            if (view.getId() == R.id.postLocalization) {
+            if (viewId == R.id.postLocalization) {
                 // log the event
                 Log.d("Diogo", "Click" + position);
                 Log.d("Diogo", "Latitude: " + event.getLatitude());

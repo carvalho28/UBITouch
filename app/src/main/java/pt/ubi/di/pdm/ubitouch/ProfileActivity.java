@@ -48,8 +48,8 @@ public class ProfileActivity extends AppCompatActivity {
     ImageButton post;
 
     // Variables
-    String userId;
-    String token;
+    private String userId = "";
+    private String token = "";
 
     // Header
     ImageButton settings;
@@ -88,6 +88,31 @@ public class ProfileActivity extends AppCompatActivity {
         profileUserImage = findViewById(R.id.editProfileImage);
         editProfileButton = findViewById(R.id.editProfileButton);
 
+        // get the user id from the shared preferences or intent
+        SharedPreferences sharedPref = getSharedPreferences("user", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPref.edit();
+        editor.putString("profEvents", sharedPref.getString("id", "false"));
+        editor.apply();
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            userId = extras.getString("userID");
+            token = "";
+            Log.i("JOAO", "ProfileActivity " + userId);
+            editor.putString("profEvents", userId);
+            editor.apply();
+            Log.i("JOAO", sharedPref.getString("profEvents", sharedPref.getString("id", "false")));
+            if (sharedPref.getString("profEvents", "false") == sharedPref.getString("id", "false")) {
+                editProfileButton.setVisibility(View.VISIBLE);
+            } else {
+                editProfileButton.setVisibility(View.GONE);
+            }
+        } else {
+            editor.putString("profEvents", sharedPref.getString("id", "false"));
+            editor.apply();
+            editProfileButton.setVisibility(View.VISIBLE);
+            userId = sharedPref.getString("id", "false");
+            token = sharedPref.getString("token", "false");
+        }
 
         //Tabs
         tabLayout = findViewById(R.id.tab_layout);
@@ -158,13 +183,22 @@ public class ProfileActivity extends AppCompatActivity {
         });
 
 
-        // get the user id from the shared preferences
-        SharedPreferences sharedPref = getSharedPreferences("user", Context.MODE_PRIVATE);
-        userId = sharedPref.getString("id", "false");
-        token = sharedPref.getString("token", "false");
-        // TODO If false, will it lead to not found, login ...?
-
-
+        // get the user id from the shared preferences or intent
+//        SharedPreferences sharedPref = getSharedPreferences("user", Context.MODE_PRIVATE);
+//        Bundle extras = getIntent().getExtras();
+//        if (extras != null) {
+//            userId = extras.getString("userID");
+//            token = "";
+//            if (userId == sharedPref.getString("id", "false")) {
+//                editProfileButton.setVisibility(View.VISIBLE);
+//            } else {
+//                editProfileButton.setVisibility(View.GONE);
+//            }
+//        } else {
+//            editProfileButton.setVisibility(View.VISIBLE);
+//            userId = sharedPref.getString("id", "false");
+//            token = sharedPref.getString("token", "false");
+//        }
         // print the user id and token
         // Log.i("Diogo", "Profile: " + userId);
         // Log.i("Diogo", "Profile: " + token);
@@ -196,13 +230,13 @@ public class ProfileActivity extends AppCompatActivity {
             Log.i("Diogo", "getUserData: " + error);
         }) {
 
-            @Override
-            public Map<String, String> getHeaders() {
-                Map<String, String> headers = new HashMap<>();
-                headers.put("Authorization", "Bearer " + token);
-                Log.i("Diogo", "getHeaders: " + headers);
-                return headers;
-            }
+//            @Override
+//            public Map<String, String> getHeaders() {
+//                Map<String, String> headers = new HashMap<>();
+//                headers.put("Authorization", "Bearer " + token);
+//                Log.i("Diogo", "getHeaders: " + headers);
+//                return headers;
+//            }
         };
 
         queue.add(jsonObjectRequest);

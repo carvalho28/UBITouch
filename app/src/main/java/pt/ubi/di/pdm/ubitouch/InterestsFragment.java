@@ -81,7 +81,7 @@ public class InterestsFragment extends Fragment {
                             String description = e.getString("description");
                             String imageUser = e.getString("picture");
                             String isVerified = e.getString("isVerified");
-                            // String userId = e.getString("idUser");
+                            String userID = e.getString("idUser");
                             String eventDate = e.getString("eventDate");
                             String eventHour = e.getString("eventHour");
                             String creationDate = e.getString("createdAt");
@@ -91,7 +91,7 @@ public class InterestsFragment extends Fragment {
                             String username = e.getString("username");
                             String idEvent = e.getString("idEvent");
                             listEvents.add(new Event(title, imageUser, description, eventHour, eventDate, "1", "0",
-                                    latitude, longitude, name, username, idEvent, "1"));
+                                    latitude, longitude, name, username, idEvent, "1", userID));
                             // if user is admin then verified flag is visible
                             // ----- if verified == 1 then it is verified, else verified == 0 it is
                             // unverified
