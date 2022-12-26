@@ -145,6 +145,7 @@ public class LoginActivity extends AppCompatActivity {
                                     editor.putString("id", response.getString("idUser"));
                                     editor.putString("username", response.getString("username"));
                                     editor.putString("picture", response.getString("picture"));
+                                    editor.putString("profEvents", response.getString("idUser"));
                                     editor.apply();
 
                                     // print the token
