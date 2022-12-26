@@ -51,6 +51,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         private TextView name;
         private TextView username;
         private ImageButton interested;
+        private TextView share;
 
         public ItemViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -65,12 +66,15 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             name = itemView.findViewById(R.id.postName);
             username = itemView.findViewById(R.id.postUsername);
             interested = itemView.findViewById(R.id.btnInterested);
+            share = itemView.findViewById(R.id.postShare);
 
             mapLocation.setOnClickListener(this);
 
             UserImage.setOnClickListener(this);
 
             interested.setOnClickListener(this);
+
+            share.setOnClickListener(this);
         }
 
         @Override
@@ -108,6 +112,11 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
                     // if it is full heart change to empty heart
                     removeInterestedEvent(event, interested);
                 }
+            }
+
+            if (view.getId() == R.id.postShare) {
+                // share the event
+                shareEvent(event);
             }
         }
     }
@@ -241,6 +250,28 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
                 },
                 error -> Log.d("Diogo", "Error: " + error.toString()));
         queue.add(jsonObjectRequest);
+
+    }
+
+    private void shareEvent(Event event) {
+        String title = event.getTitle();
+        String description = event.getDescription();
+        String date = event.getEventDate();
+
+        if (date != null && !Objects.equals(date, "") && !Objects.equals(date, "null")) {
+            // convert date from 2022-12-22T00:00:00.000Z to dd/mm/yyyy
+            String[] dateParts = date.substring(0, 10).split("-");
+            String year = dateParts[0];
+            String month = dateParts[1];
+            String day = dateParts[2];
+            date = day + "/" + month + "/" + year;
+        }
+
+        Intent sendIntent = new Intent();
+        sendIntent.setAction(Intent.ACTION_SEND);
+        sendIntent.putExtra(Intent.EXTRA_TEXT, title + " - " + description + " - " + date);
+        sendIntent.setType("text/plain");
+        context.startActivity(sendIntent);
 
     }
 }
