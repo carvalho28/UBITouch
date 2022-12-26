@@ -102,7 +102,6 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             if (view.getId() == R.id.btnInterested) {
                 // if it is empty heart change to full heart
                 if (interested.getTag().equals("empty")) {
-
                     // add event to the user's interested events
                     addInterestedEvent(event, interested);
                 } else {
@@ -174,6 +173,16 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         // load username and name
         itemViewHolder.username.setText("@" + posts.getUsername());
         itemViewHolder.name.setText(posts.getName());
+
+        // if isInterested is true, change the heart to full
+        if (!Objects.equals(posts.getIsInterested(), "0")) {
+            Log.d("Diogo", "interested");
+            itemViewHolder.interested.setImageResource(R.drawable.filled_heart);
+            itemViewHolder.interested.setTag("full");
+        } else {
+            itemViewHolder.interested.setImageResource(R.drawable.empty_heart);
+            itemViewHolder.interested.setTag("empty");
+        }
     }
 
     @Override

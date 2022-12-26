@@ -40,7 +40,6 @@ public class InterestsFragment extends Fragment {
     // URL
     private String user_events_URL = "https://server-ubi-touch.herokuapp.com/interests/user/";
 
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,7 +47,7 @@ public class InterestsFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+            Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_interests, container, false);
     }
@@ -82,7 +81,7 @@ public class InterestsFragment extends Fragment {
                             String description = e.getString("description");
                             String imageUser = e.getString("picture");
                             String isVerified = e.getString("isVerified");
-                            //String userId = e.getString("idUser");
+                            // String userId = e.getString("idUser");
                             String eventDate = e.getString("eventDate");
                             String eventHour = e.getString("eventHour");
                             String creationDate = e.getString("createdAt");
@@ -92,9 +91,10 @@ public class InterestsFragment extends Fragment {
                             String username = e.getString("username");
                             String idEvent = e.getString("idEvent");
                             listEvents.add(new Event(title, imageUser, description, eventHour, eventDate, "1", "0",
-                                    latitude, longitude, name, username, idEvent));
+                                    latitude, longitude, name, username, idEvent, "1"));
                             // if user is admin then verified flag is visible
-                            // ----- if verified == 1 then it is verified, else verified == 0 it is unverified
+                            // ----- if verified == 1 then it is verified, else verified == 0 it is
+                            // unverified
                             // if the user is not an admin then the flag is invisible
                         }
 

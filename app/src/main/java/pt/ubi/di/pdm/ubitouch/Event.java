@@ -15,10 +15,11 @@ public class Event {
     private final String name;
     private final String username;
     private final String eventId;
+    private final String isInterested;
 
     public Event(String title, String image, String description, String eventHour, String eventDate,
             String verifiedFlag, String unverifiedFlag, String latitude, String longitude, String name,
-            String username, String eventId) {
+            String username, String eventId, String isInterested) {
         this.title = title;
         this.eventDate = eventDate;
         this.image = image;
@@ -31,6 +32,7 @@ public class Event {
         this.name = name;
         this.username = username;
         this.eventId = eventId;
+        this.isInterested = isInterested;
     }
 
     // public String getUsername() {
@@ -83,6 +85,10 @@ public class Event {
 
     public String getEventId() {
         return eventId;
+    }
+
+    public String getIsInterested() {
+        return isInterested;
     }
 
     /*
