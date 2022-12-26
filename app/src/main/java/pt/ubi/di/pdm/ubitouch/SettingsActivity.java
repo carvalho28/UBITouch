@@ -53,8 +53,7 @@ public class SettingsActivity extends AppCompatActivity {
 
         back.setOnClickListener(
                 v -> {
-                    Intent intent = new Intent(this, FeedActivity.class);
-                    startActivity(intent);
+                    finish();
                 });
 
         // Mudar theme

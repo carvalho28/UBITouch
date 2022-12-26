@@ -56,7 +56,8 @@ public class DeleteActivity extends AppCompatActivity {
         back = findViewById(R.id.btnNotif);
 
         back.setOnClickListener(v -> {
-            Intent intent = new Intent(this, SecurityActivity.class);
+            //Intent intent = new Intent(this, SecurityActivity.class);
+            finish(); // Delete activity from stack
         });
 
         buttonDeleteAcc.setOnClickListener(v -> {

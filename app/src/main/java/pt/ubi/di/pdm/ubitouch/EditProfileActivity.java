@@ -80,9 +80,7 @@ public class EditProfileActivity extends AppCompatActivity {
 
         back.setOnClickListener(
                 v -> {
-                    Intent intent = new Intent(this, ProfileActivity.class);
-
-                    startActivity(intent);
+                    finish();
                 }
         );
 

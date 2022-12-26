@@ -56,6 +56,7 @@ import java.util.Map;
 
 public class CreateActivity extends AppCompatActivity {
 
+    ImageView btnReturn;
     ImageView profilePicture;
     Button btnCreatePost;
     ImageView btnAttachFile;
@@ -180,6 +181,7 @@ public class CreateActivity extends AppCompatActivity {
         createVideo = findViewById(R.id.createVideo);
         btnAttachFile = findViewById(R.id.btnAttachFile);
         //btnDiscard = findViewById(R.id.btnDiscard);
+        btnReturn = findViewById(R.id.btnReturn);
         progressBar = findViewById(R.id.createProgressBar);
 
         // check if dark mode is enabled
@@ -211,13 +213,12 @@ public class CreateActivity extends AppCompatActivity {
         initDatePicker();
         getUserData();
 
-        // Discard
-        /*
-        btnDiscard.setOnClickListener(v -> {
-            Intent intent = new Intent(CreateActivity.this, FeedActivity.class);
-            startActivity(intent);
+        // HEADER RETURN BUTTON
+        btnReturn.setOnClickListener(v -> {
+            //Intent intent = new Intent(CreateActivity.this, FeedActivity.class);
+            //startActivity(intent);
+            finish(); // Removes the activity from the stack
         });
-        */
 
         // Image
         btnAttachFile.setOnClickListener(v -> {

@@ -23,9 +23,7 @@ public class SecurityActivity extends AppCompatActivity {
 
         back.setOnClickListener(
                 v -> {
-                    Intent intent = new Intent(this, SettingsActivity.class);
-
-                    startActivity(intent);
+                    finish();
                 }
         );
 

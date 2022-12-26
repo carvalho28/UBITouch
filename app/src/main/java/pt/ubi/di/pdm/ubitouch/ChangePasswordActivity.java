@@ -53,8 +53,7 @@ public class ChangePasswordActivity extends AppCompatActivity {
         token = sharedPref.getString("token", "");
 
         back.setOnClickListener(v -> {
-            Intent intent = new Intent(this, SecurityActivity.class);
-            startActivity(intent);
+            finish();
         });
 
         buttonChangePassword.setOnClickListener(v -> {
