@@ -14,10 +14,11 @@ public class Event {
     private final String longitude;
     private final String name;
     private final String username;
+    private final String eventId;
 
     public Event(String title, String image, String description, String eventHour, String eventDate,
             String verifiedFlag, String unverifiedFlag, String latitude, String longitude, String name,
-            String username) {
+            String username, String eventId) {
         this.title = title;
         this.eventDate = eventDate;
         this.image = image;
@@ -29,6 +30,7 @@ public class Event {
         this.longitude = longitude;
         this.name = name;
         this.username = username;
+        this.eventId = eventId;
     }
 
     // public String getUsername() {
@@ -77,6 +79,10 @@ public class Event {
 
     public String getUsername() {
         return username;
+    }
+
+    public String getEventId() {
+        return eventId;
     }
 
     /*

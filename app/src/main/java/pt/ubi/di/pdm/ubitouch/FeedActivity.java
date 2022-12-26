@@ -195,8 +195,9 @@ public class FeedActivity extends AppCompatActivity {
                             String longitude = e.getString("longitude");
                             String name = e.getString("name");
                             String username = e.getString("username");
+                            String idEvent = e.getString("idEvent");
                             listEvents.add(new Event(title, imageUser, description, eventHour, eventDate, "1", "0",
-                                    latitude, longitude, name, username));
+                                    latitude, longitude, name, username, idEvent));
                             // if user is admin then verified flag is visible
                             // ----- if verified == 1 then it is verified, else verified == 0 it is
                             // unverified

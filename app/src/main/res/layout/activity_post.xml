@@ -193,7 +193,8 @@
                     android:background="@android:color/transparent"
                     android:minWidth="48dp"
                     android:minHeight="48dp"
-                    android:src="@drawable/empty_heart"></ImageButton>
+                    android:src="@drawable/empty_heart"
+                    android:tag="empty"></ImageButton>
 
                 <TextView
                     android:id="@+id/postInterested"

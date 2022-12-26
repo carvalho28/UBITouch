@@ -2,6 +2,7 @@ package pt.ubi.di.pdm.ubitouch;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -17,7 +18,16 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.Objects;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
 import com.squareup.picasso.Picasso;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
@@ -86,6 +96,18 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
                             + ">?q=<" + latitude + ">,<" + longitude + ">(" + Title.getText() + ")"));
                     intent.setPackage("com.google.android.apps.maps");
                     context.startActivity(intent);
+                }
+            }
+
+            if (view.getId() == R.id.btnInterested) {
+                // if it is empty heart change to full heart
+                if (interested.getTag().equals("empty")) {
+
+                    // add event to the user's interested events
+                    addInterestedEvent(event, interested);
+                } else {
+                    // if it is full heart change to empty heart
+                    removeInterestedEvent(event, interested);
                 }
             }
         }
@@ -157,5 +179,59 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     @Override
     public int getItemCount() {
         return listRecyclerView.size();
+    }
+
+    private void addInterestedEvent(Event event, ImageView interested) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences("user", Context.MODE_PRIVATE);
+        String idUser = sharedPreferences.getString("id", "");
+        String idEvent = event.getEventId();
+
+        String url = "https://server-ubi-touch.herokuapp.com/interests/add";
+
+        RequestQueue queue = Volley.newRequestQueue(context);
+        JSONObject jsonBody = new JSONObject();
+        try {
+            jsonBody.put("idUser", idUser);
+            jsonBody.put("idEvent", idEvent);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url, jsonBody,
+                response -> {
+                    Log.d("Diogo", "Response: " + response.toString());
+                    interested.setImageResource(R.drawable.filled_heart);
+                    interested.setTag("full");
+                },
+                error -> Log.d("Diogo", "Error: " + error.toString()));
+        queue.add(jsonObjectRequest);
+
+    }
+
+    private void removeInterestedEvent(Event event, ImageView interested) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences("user", Context.MODE_PRIVATE);
+        String idUser = sharedPreferences.getString("id", "");
+        String idEvent = event.getEventId();
+
+        String url = "https://server-ubi-touch.herokuapp.com/interests/remove";
+
+        RequestQueue queue = Volley.newRequestQueue(context);
+        JSONObject jsonBody = new JSONObject();
+        try {
+            jsonBody.put("idUser", idUser);
+            jsonBody.put("idEvent", idEvent);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url, jsonBody,
+                response -> {
+                    interested.setImageResource(R.drawable.empty_heart);
+                    interested.setTag("empty");
+                    Log.d("Diogo", "Response: " + response.toString());
+                },
+                error -> Log.d("Diogo", "Error: " + error.toString()));
+        queue.add(jsonObjectRequest);
+
     }
 }
