@@ -195,9 +195,9 @@
 
                 <TextView
                     android:id="@+id/postInterested"
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_weight="1.60"
+                    android:layout_marginEnd="10dp"
                     android:gravity="center_vertical"
                     android:text="@string/ev_interested"
                     android:textColor="@color/darkGrey" />
@@ -205,9 +205,9 @@
                 <TextView
                     android:id="@+id/postShare"
                     style="@style/PostCardIconColor"
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_weight="1.70"
+                    android:layout_marginEnd="10dp"
                     android:clickable="true"
                     android:drawableStart="@drawable/send"
                     android:drawablePadding="5dp"
