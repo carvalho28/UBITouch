@@ -7,124 +7,85 @@
     android:orientation="vertical"
     tools:context=".LanguageActivity">
 
+    <include
+        layout="@layout/header_settings"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
     <RelativeLayout
         android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <TextView
-            android:layout_marginTop="10dp"
+            android:id="@+id/textView6"
+            style="@style/SecurityTextStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:text="@string/choose_language"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/language"
+            android:textAllCaps="true"
+            android:textSize="36sp" />
+
     </RelativeLayout>
 
-    <ScrollView
+    <androidx.cardview.widget.CardView
+        style="@style/SecurityCardStyle"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_margin="30dp"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="10dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <LinearLayout
+            <TextView
+                android:id="@+id/langEn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                style="@style/LanguageColorsStyle"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="40dp"
-                android:layout_marginEnd="20dp"
-                android:background="@drawable/settings_roundbackground"
-                android:orientation="vertical"
-                android:padding="15dp">
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:clickable="true"
+                android:drawableStart="@drawable/flag_en"
+                android:drawablePadding="16dp"
+                android:gravity="center_vertical"
+                android:paddingVertical="6dp"
+                android:text="@string/en" />
 
-                <!-- Arabic -->
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/langFr"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:clickable="true"
+                android:drawableStart="@drawable/flag_fr"
+                android:drawablePadding="16dp"
+                android:gravity="center_vertical"
+                android:paddingVertical="6dp"
+                android:text="@string/fr" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_marginStart="20dp"
-                        android:text="عربى" />
-
-                </RelativeLayout>
-
-                <!-- Chinese -->
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_marginStart="20dp"
-                        android:text="普通话" />
-
-                </RelativeLayout>
-
-                <!-- English -->
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_marginStart="20dp"
-                        android:text="English" />
-                </RelativeLayout>
-
-                <!-- French -->
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_marginStart="20dp"
-                        android:text="Français" />
-                </RelativeLayout>
-
-                <!-- English -->
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_marginStart="20dp"
-                        android:text="日本" />
-                </RelativeLayout>
-
-                <!-- Russian -->
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_marginStart="20dp"
-                        android:text="Русский" />
-                </RelativeLayout>
-            </LinearLayout>
-
-
+            <TextView
+                android:id="@+id/langPt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                android:clickable="true"
+                android:drawableStart="@drawable/flag_pt"
+                android:drawablePadding="16dp"
+                android:gravity="center_vertical"
+                android:paddingVertical="6dp"
+                android:text="@string/pt" />
         </LinearLayout>
+    </androidx.cardview.widget.CardView>
 
-    </ScrollView>
 </LinearLayout>

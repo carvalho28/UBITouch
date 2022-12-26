@@ -30,14 +30,12 @@ public class SecurityActivity extends AppCompatActivity {
         changePasswordSetting.setOnClickListener(
                 v -> {
                     Intent intent = new Intent(this, ChangePasswordActivity.class);
-
                     startActivity(intent);
                 });
 
         deleteSetting.setOnClickListener(
                 v -> {
                     Intent intent = new Intent(this, DeleteActivity.class);
-
                     startActivity(intent);
                 });
     }

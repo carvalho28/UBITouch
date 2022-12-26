@@ -101,4 +101,10 @@
     <string name="ev_share">Share</string>
     <!-- TODO: Remove or change this placeholder text -->
 
+    <!-- Language -->
+    <string name="en" translatable="false">English</string>
+    <string name="pt" translatable="false">Português</string>
+    <string name="fr" translatable="false">Français</string>
+
+
 </resources>
