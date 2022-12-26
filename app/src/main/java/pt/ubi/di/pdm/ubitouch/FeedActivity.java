@@ -179,7 +179,8 @@ public class FeedActivity extends AppCompatActivity {
                     try {
                         JSONArray events = response.getJSONArray("data");
                         nOfEvents = events.length();
-
+                        if (nOfEvents > 0)
+                            noPostsText.setVisibility(View.INVISIBLE);
                         for (int i = 0; i < events.length(); i++) {
                             JSONObject e = (JSONObject) events.get(i);
                             // int id = Integer.parseInt(e.getString("idEvent"));

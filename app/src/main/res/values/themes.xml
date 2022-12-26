@@ -63,8 +63,8 @@
 
     <!-- Edit Profile colors -->
     <style name="EPButtonStyle">
-        <item name="android:backgroundTint">@color/orange</item>
-        <item name="android:textColor">@color/white</item>
+        <item name="android:backgroundTint">@color/grey</item>
+        <item name="android:textColor">@color/darkGrey</item>
     </style>
 
     <!-- Post colors -->

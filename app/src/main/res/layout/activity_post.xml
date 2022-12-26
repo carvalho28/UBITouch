@@ -1,28 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".Event"
+    style="@style/PostCardColor"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingHorizontal="15sp"
-    android:paddingVertical="15sp"
-    tools:context=".Event">
-
-    <androidx.cardview.widget.CardView
-        style="@style/PostCardColor"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:cardCornerRadius="8dp"
-        android:elevation="30dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+    app:cardCornerRadius="10dp"
+    app:cardElevation="10dp"
+    app:cardMaxElevation="10dp"
+    app:cardPreventCornerOverlap="true"
+    app:cardUseCompatPadding="true">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:paddingTop="5dp">
+            android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -55,7 +48,8 @@
                         android:gravity="center_vertical"
                         android:paddingStart="10dp"
                         android:text="@string/post_default_text"
-                        android:textSize="11sp" />
+                        android:textColor="@color/darkGrey"
+                        android:textSize="8sp" />
 
                     <TextView
                         android:id="@+id/postTime"
@@ -67,12 +61,13 @@
                         android:gravity="center_vertical"
                         android:paddingStart="10dp"
                         android:text="@string/post_default_text"
-                        android:textSize="11sp"
+                        android:textColor="@color/darkGrey"
+                        android:textSize="8sp"
                         android:visibility="visible" />
 
                     <TextView
-                        style="@style/PostCardIconColor"
                         android:id="@+id/unverifiedFlag"
+                        style="@style/PostCardIconColor"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:drawableStart="@drawable/ic_baseline_error_outline_24"
@@ -138,6 +133,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
                         android:text="@string/post_default_text"
+                        android:textColor="@color/black"
                         android:visibility="visible" />
 
                     <ImageView
@@ -163,7 +159,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:layout_weight="7"
-                android:background="#7E7E7E" />
+                android:background="#AFAFAF" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -193,6 +189,7 @@
                     android:background="@android:color/transparent"
                     android:minWidth="48dp"
                     android:minHeight="48dp"
+                    android:paddingStart="10dp"
                     android:src="@drawable/empty_heart"
                     android:tag="empty"></ImageButton>
 
@@ -200,26 +197,23 @@
                     android:id="@+id/postInterested"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="2"
-                    android:clickable="true"
-                    android:drawablePadding="5dp"
+                    android:layout_weight="1.60"
                     android:gravity="center_vertical"
-                    android:paddingStart="10dp"
-                    android:text="@string/ev_interested" />
+                    android:text="@string/ev_interested"
+                    android:textColor="@color/darkGrey" />
 
                 <TextView
                     android:id="@+id/postShare"
                     style="@style/PostCardIconColor"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="2"
+                    android:layout_weight="1.70"
                     android:clickable="true"
-                    android:drawableStart="@drawable/ic_baseline_send_24"
+                    android:drawableStart="@drawable/send"
                     android:drawablePadding="5dp"
                     android:gravity="center_vertical"
-                    android:paddingStart="10dp"
-                    android:text="@string/ev_share" />
+                    android:text="@string/ev_share"
+                    android:textColor="@color/darkGrey" />
             </LinearLayout>
         </LinearLayout>
     </androidx.cardview.widget.CardView>
-</androidx.constraintlayout.widget.ConstraintLayout>
