@@ -81,7 +81,7 @@
 
                 <TextView
                     style="@style/CreateUsernameStyle"
-                    android:id="@+id/createUsernameStyle"
+                    android:id="@+id/createUsername"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/post_default_username"
