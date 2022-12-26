@@ -1,16 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-    <!-- nova cor: vermelho? usada nas discard changes -->
-    <!-- nova cor: amarelo? usada no unverified post -->
-    <!-- <color name="warning">#FFE252</color> -->
+    <!-- Colors used only on Light theme -->
     <color name="blue">#002A5C</color>
-    <color name="orange">#EE8000</color>
+    <!-- Colors used only on Dark theme -->
+    <!-- Cards -->
+    <color name="softBlack">#1F1F1F</color>
+    <!-- Strokes -->
     <color name="babyBlue">#5570FE</color>
-    <color name="darkOrange">#7C4300</color>
-    <color name="red">#DD4528</color>
-    <color name="grey">#ECECEC</color>
-    <color name="white">#FFF4F4</color>
+    <!-- Colors for both themes-->
+    <!-- Icons and Username -->
     <color name="darkGrey">#7E7E7E</color>
-    <color name="black">#FF000000</color>
+    <color name="grey">#ECECEC</color>
+    <!-- Warnings and Dangerous Buttons -->
+    <color name="red">#DD4528</color>
+    <!-- Buttons, Names and icons -->
+    <color name="orange">#EE8000</color>
+    <!-- Background and text Colors -->
+    <color name="white">#FFF4F4</color>
+    <color name="black">#181818</color>
 </resources>

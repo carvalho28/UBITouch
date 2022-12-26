@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ProfileActivity">
+    tools:context=".ProfileActivity"
+    style="@style/ProfileColorStyle">
 
     <include layout="@layout/header" />
 
@@ -34,15 +35,15 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="5dp">
 
-                    <de.hdodenhof.circleimageview.CircleImageView
-                        android:id="@+id/editProfileImage"
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
-                        android:contentDescription="TODO"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        tools:srcCompat="@tools:sample/avatars" />
+<!--                    <de.hdodenhof.circleimageview.CircleImageView-->
+<!--                        android:id="@+id/editProfileImage"-->
+<!--                        android:layout_width="60dp"-->
+<!--                        android:layout_height="60dp"-->
+<!--                        android:contentDescription="TODO"-->
+<!--                        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                        app:layout_constraintStart_toStartOf="parent"-->
+<!--                        app:layout_constraintTop_toTopOf="parent"-->
+<!--                        tools:srcCompat="@tools:sample/avatars" />-->
 
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/editProfileButton"
@@ -53,16 +54,13 @@
                         android:gravity="center|center_horizontal"
                         android:stateListAnimator="@null"
                         android:text="@string/edit_profile"
-                        android:textColor="@color/darkGrey"
                         android:textSize="10sp"
-                        app:backgroundTint="@color/grey"
                         app:cornerRadius="10dp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.862"
                         app:layout_constraintStart_toEndOf="@+id/editProfileImage"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:strokeColor="#DCDCDC"
                         app:strokeWidth="1dp" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -120,6 +118,7 @@
 
                 <com.google.android.material.tabs.TabLayout
                     android:id="@+id/tab_layout"
+                    style="@style/ProfileTabStyle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:tabIndicatorColor="@color/orange"
@@ -148,7 +147,6 @@
 
                 <com.google.android.material.floatingactionbutton.FloatingActionButton
                     android:id="@+id/postButton"
-                    style="@style/ProfileButtonStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="end|bottom"
@@ -158,6 +156,7 @@
                     android:background="@android:color/transparent"
                     android:clickable="true"
                     android:contentDescription="TODO"
+                    android:backgroundTint="@color/orange"
                     app:borderWidth="0dp"
                     app:elevation="8dp"
                     app:srcCompat="@drawable/ic_baseline_add_24"

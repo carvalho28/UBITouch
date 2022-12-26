@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".SecurityActivity">
+    tools:context=".SecurityActivity"
+    style="@style/SecurityColorStyle">
 
     <include layout="@layout/header_settings" />
     <RelativeLayout

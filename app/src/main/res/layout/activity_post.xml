@@ -48,7 +48,6 @@
                         android:gravity="center_vertical"
                         android:paddingStart="10dp"
                         android:text="@string/post_default_text"
-                        android:textColor="@color/darkGrey"
                         android:textSize="8sp" />
 
                     <TextView
@@ -61,7 +60,6 @@
                         android:gravity="center_vertical"
                         android:paddingStart="10dp"
                         android:text="@string/post_default_text"
-                        android:textColor="@color/darkGrey"
                         android:textSize="8sp"
                         android:visibility="visible" />
 
@@ -129,11 +127,11 @@
 
                     <TextView
                         android:id="@+id/postDescription"
+                        style="@style/PostTextColor"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
                         android:text="@string/post_default_text"
-                        android:textColor="@color/black"
                         android:visibility="visible" />
 
                     <ImageView
@@ -191,16 +189,17 @@
                     android:minHeight="48dp"
                     android:paddingStart="10dp"
                     android:src="@drawable/empty_heart"
-                    android:tag="empty"></ImageButton>
+                    android:tag="empty">
+                </ImageButton>
 
                 <TextView
                     android:id="@+id/postInterested"
+                    style="@style/PostTextColor"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_marginEnd="10dp"
                     android:gravity="center_vertical"
-                    android:text="@string/ev_interested"
-                    android:textColor="@color/darkGrey" />
+                    android:text="@string/ev_interested" />
 
                 <TextView
                     android:id="@+id/postShare"
@@ -212,8 +211,7 @@
                     android:drawableStart="@drawable/send"
                     android:drawablePadding="5dp"
                     android:gravity="center_vertical"
-                    android:text="@string/ev_share"
-                    android:textColor="@color/darkGrey" />
+                    android:text="@string/ev_share" />
             </LinearLayout>
         </LinearLayout>
     </androidx.cardview.widget.CardView>
