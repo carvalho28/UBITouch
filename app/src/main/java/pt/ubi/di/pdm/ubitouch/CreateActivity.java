@@ -211,7 +211,6 @@ public class CreateActivity extends AppCompatActivity {
         token = sharedPref.getString("token", "false");
         name = sharedPref.getString("name", "");
         username = sharedPref.getString("username", "");
-
         createName.setText(name);
         createUsername.setText("@" + username);
 
