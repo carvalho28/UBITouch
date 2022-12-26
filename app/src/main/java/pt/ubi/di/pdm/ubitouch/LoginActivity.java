@@ -64,12 +64,24 @@ public class LoginActivity extends AppCompatActivity {
         progressBar = findViewById(R.id.loginProgressBar);
         register = findViewById(R.id.register);
 
+        // on writing on the username field or password field, hide the error message
+        username.setOnFocusChangeListener((v, hasFocus) -> {
+            if (hasFocus) {
+                msgError.setVisibility(View.GONE);
+            }
+        });
+
+        password.setOnFocusChangeListener((v, hasFocus) -> {
+            if (hasFocus) {
+                msgError.setVisibility(View.GONE);
+            }
+        });
+
         register.setOnClickListener(
                 v -> {
                     Intent intent = new Intent(this, RegisterActivity.class);
                     startActivity(intent);
-                }
-        );
+                });
 
         btnLogin.setOnClickListener(
                 v -> {
