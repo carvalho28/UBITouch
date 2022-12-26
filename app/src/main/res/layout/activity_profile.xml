@@ -53,7 +53,9 @@
                         android:gravity="center|center_horizontal"
                         android:stateListAnimator="@null"
                         android:text="@string/edit_profile"
+                        android:textColor="@color/darkGrey"
                         android:textSize="10sp"
+                        app:backgroundTint="@color/grey"
                         app:cornerRadius="10dp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -131,7 +133,7 @@
                     <com.google.android.material.tabs.TabItem
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Interested" />
+                        android:text="Interests" />
                 </com.google.android.material.tabs.TabLayout>
 
             </RelativeLayout>

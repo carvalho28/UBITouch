@@ -101,6 +101,7 @@
                 android:elevation="10dp"
                 android:stateListAnimator="@null"
                 android:text="@string/save"
+                android:textColor="#FFFFFF"
                 app:cornerRadius="10dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
