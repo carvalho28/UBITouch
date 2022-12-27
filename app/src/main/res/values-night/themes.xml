@@ -26,11 +26,11 @@
         <item name="android:background">@color/black</item>
     </style>
     <style name="LoginTextStyle">
-        <item name="android:textColor">@color/white</item>
+        <item name="android:textColor">@color/whiteDarkMode</item>
     </style>
     <style name="LoginButtonStyle">
         <item name="android:backgroundTint">@color/orange</item>
-        <item name="android:textColor">@color/white</item>
+        <item name="android:textColor">@color/whiteDarkMode</item>
     </style>
 
     <!-- Register colors -->
@@ -38,11 +38,11 @@
         <item name="android:background">@color/black</item>
     </style>
     <style name="RegisterTextStyle">
-        <item name="android:textColor">@color/white</item>
+        <item name="android:textColor">@color/whiteDarkMode</item>
     </style>
     <style name="RegisterButtonStyle">
         <item name="android:backgroundTint">@color/orange</item>
-        <item name="android:textColor">@color/white</item>
+        <item name="android:textColor">@color/whiteDarkMode</item>
     </style>
 
     <!-- Feed colors -->
@@ -50,7 +50,7 @@
         <item name="android:background">@color/black</item>
     </style>
     <style name="FeedTextStyle">
-        <item name="android:textColor">@color/white</item>
+        <item name="android:textColor">@color/whiteDarkMode</item>
     </style>
     <style name="FeedButtonStyle">
         <item name="backgroundTint">@color/orange</item>
@@ -67,11 +67,11 @@
         <item name="android:textColor">@color/darkGrey</item>
     </style>
     <style name="ProfileBioStyle">
-        <item name="android:textColor">@color/white</item>
+        <item name="android:textColor">@color/whiteDarkMode</item>
     </style>
     <style name="ProfileButtonStyle">
         <item name="backgroundTint">@color/softBlack</item>
-        <item name="android:textColor">@color/white</item>
+        <item name="android:textColor">@color/whiteDarkMode</item>
         <item name="strokeColor">@color/babyBlue</item>
     </style>
     <style name="ProfileTabStyle">
@@ -84,7 +84,7 @@
     </style>
     <style name="EPButtonStyle">
         <item name="android:backgroundTint">@color/orange</item>
-        <item name="android:textColor">@color/white</item>
+        <item name="android:textColor">@color/whiteDarkMode</item>
     </style>
 
     <!-- Post colors -->
@@ -93,7 +93,7 @@
     </style>
     <style name="PostCardIconColor">
         <item name="android:drawableTint">@color/grey</item>
-        <item name="android:textColor">@color/white</item>
+        <item name="android:textColor">@color/whiteDarkMode</item>
     </style>
     <style name="PostNameStyle">
         <item name="android:textColor">@color/orange</item>
@@ -102,7 +102,7 @@
         <item name="android:textColor">@color/darkGrey</item>
     </style>
     <style name="PostTextColor">
-        <item name="android:textColor">@color/white</item>
+        <item name="android:textColor">@color/whiteDarkMode</item>
     </style>
 
     <!-- Create colors -->
@@ -116,11 +116,11 @@
         <item name="android:textColor">@color/darkGrey</item>
     </style>
     <style name="CreateTextStyle">
-        <item name="android:textColor">@color/white</item>
+        <item name="android:textColor">@color/whiteDarkMode</item>
     </style>
     <style name="CreateIconStyle">
         <item name="android:drawableTint">@color/grey</item>
-        <item name="android:textColor">@color/white</item>
+        <item name="android:textColor">@color/whiteDarkMode</item>
     </style>
 
     <!-- Setting colors -->
@@ -128,7 +128,7 @@
         <item name="android:background">@color/black</item>
     </style>
     <style name="SettingTextStyle">
-        <item name="android:textColor">@color/white</item>
+        <item name="android:textColor">@color/whiteDarkMode</item>
     </style>
     <style name="SettingCardStyle">
         <item name="android:backgroundTint">@color/softBlack</item>
@@ -137,7 +137,7 @@
         <item name="android:backgroundTint">@color/babyBlue</item>
     </style>
     <style name="SettingCardTextStyle">
-        <item name="android:textColor">@color/white</item>
+        <item name="android:textColor">@color/whiteDarkMode</item>
     </style>
 
     <!-- Security Colors -->
@@ -145,7 +145,7 @@
         <item name="android:background">@color/black</item>
     </style>
     <style name="SecurityTextStyle">
-        <item name="android:textColor">@color/white</item>
+        <item name="android:textColor">@color/whiteDarkMode</item>
     </style>
     <style name="SecurityCardStyle">
         <item name="android:backgroundTint">@color/softBlack</item>
@@ -154,7 +154,7 @@
         <item name="android:backgroundTint">@color/babyBlue</item>
     </style>
     <style name="SecurityCardTextStyle">
-        <item name="android:textColor">@color/white</item>
+        <item name="android:textColor">@color/whiteDarkMode</item>
     </style>
 
     <!-- Change Password Colors -->
@@ -162,11 +162,11 @@
         <item name="android:background">@color/black</item>
     </style>
     <style name="CPTextStyle">
-        <item name="android:textColor">@color/white</item>
+        <item name="android:textColor">@color/whiteDarkMode</item>
     </style>
     <style name="CPButtonStyle">
         <item name="android:backgroundTint">@color/orange</item>
-        <item name="android:textColor">@color/white</item>
+        <item name="android:textColor">@color/whiteDarkMode</item>
     </style>
 
     <!-- Delete Colors -->
@@ -174,11 +174,11 @@
         <item name="android:background">@color/black</item>
     </style>
     <style name="DeleteTextStyle">
-        <item name="android:textColor">@color/white</item>
+        <item name="android:textColor">@color/whiteDarkMode</item>
     </style>
     <style name="DeleteButtonStyle">
         <item name="android:backgroundTint">@color/red</item>
-        <item name="android:textColor">@color/white</item>
+        <item name="android:textColor">@color/whiteDarkMode</item>
     </style>
 
     <!-- Language Colors -->
@@ -186,13 +186,13 @@
         <item name="android:background">@color/black</item>
     </style>
     <style name="LanguageTextStyle">
-        <item name="android:textColor">@color/white</item>
+        <item name="android:textColor">@color/whiteDarkMode</item>
     </style>
     <style name="LanguageCardStyle">
         <item name="android:backgroundTint">@color/softBlack</item>
     </style>
     <style name="LanguageCardTextStyle">
-        <item name="android:textColor">@color/white</item>
+        <item name="android:textColor">@color/whiteDarkMode</item>
     </style>
 
     <!-- Footer Colors -->
@@ -226,7 +226,7 @@
         <item name="android:background">@color/softBlack</item>
     </style>
     <style name="URTextStyle">
-        <item name="android:textColor">@color/white
+        <item name="android:textColor">@color/whiteDarkMode
         </item>
     </style>
     <style name="URButtonStyle">
