@@ -1,8 +1,5 @@
 package pt.ubi.di.pdm.ubitouch;
 
-import static com.android.volley.VolleyLog.TAG;
-
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -11,14 +8,11 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
-import android.view.ViewGroup;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
-import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -28,21 +22,29 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+
 public class AdminUsersActivity extends AppCompatActivity {
 
+    private final String TAG = "JOAO";
     RecyclerView recyclerView;
     private final String URL = "https://server-ubi-touch.herokuapp.com/users/all";
     private ArrayList<User> listUsers = new ArrayList<>();
     private RecyclerAdapterUser customAdapter;
     private RecyclerView.LayoutManager layoutManager;
 
+    String token;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView (R.layout.activity_admin_users);
         recyclerView = findViewById(R.id.recyclerView);
 
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
+
+        SharedPreferences sharedPref = getSharedPreferences("user", Context.MODE_PRIVATE);
+        token = sharedPref.getString("token", "false");
 
         getUserData();
     }
@@ -75,7 +77,16 @@ public class AdminUsersActivity extends AppCompatActivity {
                 error -> {
                     // if there was an error TODO
                     Log.e(TAG, "Error");
-                });
+                })
+        {
+            @Override
+            public Map<String, String> getHeaders() {
+                Map<String, String> headers = new HashMap<>();
+                headers.put("Authorization", "Bearer " + token);
+                Log.i("Diogo", "getHeaders: " + headers);
+                return headers;
+            }
+        };
 
         // add the request to the queue
         RequestQueue queue = Volley.newRequestQueue(this);

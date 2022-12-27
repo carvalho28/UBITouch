@@ -12,9 +12,7 @@ public class User {
         this.image = image;
     }
 
-    public String getName() {
-        return name;
-    }
+    public String getName() { return name;}
 
     public String getUsername() {
         return username;
