@@ -88,4 +88,18 @@
     <string name="ev_localization">Mapa</string>
     <string name="ev_interested">Interessado</string>
     <string name="ev_share">Partilhar</string>
+
+    <!-- About Us -->
+    <string name="about_us_dev">Desenvolvido por</string>
+    <string name="about_us_dev1">Diogo Carvalho Nº45716</string>
+    <string name="about_us_dev2">Eduardo Mendes Nº45916</string>
+    <string name="about_us_dev3">Guilherme Barata Nº45779</string>
+    <string name="about_us_dev4">João Marques Nº45722</string>
+    <string name="about_us_dev5">Matilde Rosa Nº46785</string>
+
+    <string name="about_us_sup">Supervisionado por</string>
+
+    <string name="about_us_bsc">Licenciatura em Engenharia Informática</string>
+    <string name="about_us_uc">Programação de Dispositivos Móveis</string>
+    <string name="about_us_uni">Universidade da Beira Interior</string>
 </resources>
