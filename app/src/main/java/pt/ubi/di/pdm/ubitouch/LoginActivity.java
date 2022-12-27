@@ -48,13 +48,12 @@ public class LoginActivity extends AppCompatActivity {
 
         SharedPreferences sharedPref = getSharedPreferences("user", Context.MODE_PRIVATE);
         String x = sharedPref.getString("token", "");
+        String isAdmin = sharedPref.getString("isAdmin", "0");
 
         Log.i(TAG, x);
 
         if (!x.isEmpty()) {
-            // go to the feed activity
-            Intent intent = new Intent(LoginActivity.this, FeedActivity.class);
-            startActivity(intent);
+            checkAdmin();
         }
 
         btnLogin = findViewById(R.id.buttonLogin);
@@ -64,15 +63,24 @@ public class LoginActivity extends AppCompatActivity {
         progressBar = findViewById(R.id.loginProgressBar);
         register = findViewById(R.id.register);
 
-        // show loading circle
-        progressBar.setVisibility(View.VISIBLE);
+        // on writing on the username field or password field, hide the error message
+        username.setOnFocusChangeListener((v, hasFocus) -> {
+            if (hasFocus) {
+                msgError.setVisibility(View.GONE);
+            }
+        });
+
+        password.setOnFocusChangeListener((v, hasFocus) -> {
+            if (hasFocus) {
+                msgError.setVisibility(View.GONE);
+            }
+        });
 
         register.setOnClickListener(
                 v -> {
                     Intent intent = new Intent(this, RegisterActivity.class);
                     startActivity(intent);
-                }
-        );
+                });
 
         btnLogin.setOnClickListener(
                 v -> {
@@ -91,9 +99,6 @@ public class LoginActivity extends AppCompatActivity {
                         }
                     }
                 });
-
-        // show loading circle
-        progressBar.setVisibility(View.VISIBLE);
     }
 
     private void login(String URL) {
@@ -150,8 +155,10 @@ public class LoginActivity extends AppCompatActivity {
                                     editor.putString("token", response.getString("token"));
                                     editor.putString("id", response.getString("idUser"));
                                     editor.putString("username", response.getString("username"));
+                                    editor.putString("name", response.getString("name"));
                                     editor.putString("picture", response.getString("picture"));
                                     editor.putString("profEvents", response.getString("idUser"));
+                                    editor.putString("isAdmin", response.getString("isAdmin"));
                                     editor.apply();
 
                                     // print the token
@@ -163,9 +170,7 @@ public class LoginActivity extends AppCompatActivity {
                                 // show loading circle
                                 progressBar.setVisibility(View.VISIBLE);
 
-                                // go to the feed activity
-                                Intent intent = new Intent(LoginActivity.this, FeedActivity.class);
-                                startActivity(intent);
+                                checkAdmin();
                             }
                         },
                         error -> {
@@ -182,5 +187,19 @@ public class LoginActivity extends AppCompatActivity {
         } catch (JSONException e) {
             e.printStackTrace();
         }
+    }
+
+    // check admin and intent to the correct activity
+    private void checkAdmin() {
+        SharedPreferences sharedPref = getSharedPreferences("user", Context.MODE_PRIVATE);
+        String isAdmin = sharedPref.getString("isAdmin", "0");
+
+        Intent intent;
+        if (isAdmin.equals("1")) {
+            intent = new Intent(this, AdminUsersActivity.class);
+        } else {
+            intent = new Intent(this, FeedActivity.class);
+        }
+        startActivity(intent);
     }
 }

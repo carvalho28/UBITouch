@@ -1,17 +1,12 @@
 package pt.ubi.di.pdm.ubitouch;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -24,10 +19,7 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.firebase.messaging.FirebaseMessaging;
 import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
@@ -37,7 +29,6 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.concurrent.atomic.AtomicInteger;
 
 public class FeedActivity extends AppCompatActivity {
 
@@ -202,8 +193,9 @@ public class FeedActivity extends AppCompatActivity {
                             String username = e.getString("username");
                             String idEvent = e.getString("idEvent");
                             String isInterested = e.getString("isInterested");
+                            String imageOrVideo = e.getString("image");
                             listEvents.add(new Event(title, imageUser, description, eventHour, eventDate, "1", "0",
-                                    latitude, longitude, name, username, idEvent, isInterested, userId));
+                                    latitude, longitude, name, username, idEvent, isInterested, userID, imageOrVideo));
                             // if user is admin then verified flag is visible
                             // ----- if verified == 1 then it is verified, else verified == 0 it is
                             // unverified

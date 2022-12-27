@@ -66,6 +66,7 @@ public class CreateActivity extends AppCompatActivity {
     ImageView createImage;
     VideoView createVideo;
     ProgressBar progressBar;
+    TextView createName, createUsername;
 
     MapView mapView;
 
@@ -76,7 +77,7 @@ public class CreateActivity extends AppCompatActivity {
     int hour, minute;
 
     // Variables
-    private String userId, token;
+    private String userId, token, name, username;
     boolean imageChanged = false;
     private Uri imageUri;
     private String latitude = "";
@@ -180,9 +181,11 @@ public class CreateActivity extends AppCompatActivity {
         createImage = findViewById(R.id.createImage);
         createVideo = findViewById(R.id.createVideo);
         btnAttachFile = findViewById(R.id.btnAttachFile);
-        //btnDiscard = findViewById(R.id.btnDiscard);
+        // btnDiscard = findViewById(R.id.btnDiscard);
         btnReturn = findViewById(R.id.btnReturn);
         progressBar = findViewById(R.id.createProgressBar);
+        createName = findViewById(R.id.createName);
+        createUsername = findViewById(R.id.createUsername);
 
         // check if dark mode is enabled
         SharedPreferences sharedPrefMode = getSharedPreferences("DarkMode", Context.MODE_PRIVATE);
@@ -206,6 +209,10 @@ public class CreateActivity extends AppCompatActivity {
         SharedPreferences sharedPref = getSharedPreferences("user", Context.MODE_PRIVATE);
         userId = sharedPref.getString("id", "false");
         token = sharedPref.getString("token", "false");
+        name = sharedPref.getString("name", "");
+        username = sharedPref.getString("username", "");
+        createName.setText(name);
+        createUsername.setText("@" + username);
 
         Log.i(TAG, "CreateActivity: onCreate(): User ID: " + userId);
         Log.i(TAG, "CreateActivity: onCreate(): Token: " + token);
@@ -215,8 +222,8 @@ public class CreateActivity extends AppCompatActivity {
 
         // HEADER RETURN BUTTON
         btnReturn.setOnClickListener(v -> {
-            //Intent intent = new Intent(CreateActivity.this, FeedActivity.class);
-            //startActivity(intent);
+            // Intent intent = new Intent(CreateActivity.this, FeedActivity.class);
+            // startActivity(intent);
             finish(); // Removes the activity from the stack
         });
 

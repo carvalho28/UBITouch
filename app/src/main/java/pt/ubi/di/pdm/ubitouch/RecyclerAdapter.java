@@ -3,6 +3,7 @@ package pt.ubi.di.pdm.ubitouch;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.MediaPlayer;
 import android.net.Uri;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -11,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.VideoView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -52,6 +54,8 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         private TextView username;
         private ImageButton interested;
         private TextView share;
+        private ImageView imageView;
+        private VideoView videoView;
 
         public ItemViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -67,6 +71,9 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             username = itemView.findViewById(R.id.postUsername);
             interested = itemView.findViewById(R.id.btnInterested);
             share = itemView.findViewById(R.id.postShare);
+
+            imageView = itemView.findViewById(R.id.postImage);
+            videoView = itemView.findViewById(R.id.postVideo);
 
             mapLocation.setOnClickListener(this);
 
@@ -192,12 +199,31 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
         // if isInterested is true, change the heart to full
         if (!Objects.equals(posts.getIsInterested(), "0")) {
-            Log.d("Diogo", "interested");
             itemViewHolder.interested.setImageResource(R.drawable.filled_heart);
             itemViewHolder.interested.setTag("full");
         } else {
             itemViewHolder.interested.setImageResource(R.drawable.empty_heart);
             itemViewHolder.interested.setTag("empty");
+        }
+
+        // if imageOrVideo is different from null and not empty
+        if (posts.getImageOrVideo() != null && !Objects.equals(posts.getImageOrVideo(), "")
+                && !Objects.equals(posts.getImageOrVideo(), "null")) {
+            // if imageOrVideo is a video
+            if (posts.getImageOrVideo().contains("video")) {
+                itemViewHolder.imageView.setVisibility(View.GONE);
+                itemViewHolder.videoView.setVisibility(View.VISIBLE);
+                itemViewHolder.videoView.setVideoURI(Uri.parse(posts.getImageOrVideo()));
+                // play loop
+                itemViewHolder.videoView.setOnPreparedListener(mp -> {
+                    mp.setLooping(true);
+                });
+                itemViewHolder.videoView.start();
+            } else {
+                itemViewHolder.videoView.setVisibility(View.GONE);
+                itemViewHolder.imageView.setVisibility(View.VISIBLE);
+                Picasso.get().load(posts.getImageOrVideo()).into(itemViewHolder.imageView);
+            }
         }
     }
 

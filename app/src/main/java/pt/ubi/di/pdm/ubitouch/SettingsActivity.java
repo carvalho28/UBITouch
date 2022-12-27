@@ -61,9 +61,11 @@ public class SettingsActivity extends AppCompatActivity {
             if (isChecked) {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
                 darkmode.setDarkmodeState(true);
+                finish();
             } else {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
                 darkmode.setDarkmodeState(false);
+                finish();
             }
         });
 

@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".EditProfileActivity">
+    tools:context=".EditProfileActivity"
+    style="@style/EPColorStyle">
 
 
     <include layout="@layout/header_settings" />
@@ -101,7 +102,7 @@
                 android:elevation="10dp"
                 android:stateListAnimator="@null"
                 android:text="@string/save"
-                android:textColor="#FFFFFF"
+                android:textColor="@color/white"
                 app:cornerRadius="10dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
