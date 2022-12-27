@@ -42,9 +42,9 @@ public class MainActivity extends AppCompatActivity {
         btnLogin = findViewById(R.id.btnLogin);
 
         // TO REMOVE token, id, username
-        // SharedPreferences sharedPref = getSharedPreferences("user",
-        // Context.MODE_PRIVATE);
-        // sharedPref.edit().clear().apply();
+//         SharedPreferences sharedPref = getSharedPreferences("user",
+//         Context.MODE_PRIVATE);
+//         sharedPref.edit().clear().apply();
         if (!Configs.isConfigInitialized) {
             Configs.initConfig(this);
         }
@@ -81,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
         // on click go to login activity
         btnLogin.setOnClickListener(
                 v -> {
-                    Intent intent = new Intent(this, LoginActivity.class);
+                    Intent intent = new Intent(this, AdminUsersActivity.class);
                     startActivity(intent);
                 });
     }

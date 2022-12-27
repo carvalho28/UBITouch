@@ -35,15 +35,15 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="5dp">
 
-<!--                    <de.hdodenhof.circleimageview.CircleImageView-->
-<!--                        android:id="@+id/editProfileImage"-->
-<!--                        android:layout_width="60dp"-->
-<!--                        android:layout_height="60dp"-->
-<!--                        android:contentDescription="TODO"-->
-<!--                        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--                        app:layout_constraintStart_toStartOf="parent"-->
-<!--                        app:layout_constraintTop_toTopOf="parent"-->
-<!--                        tools:srcCompat="@tools:sample/avatars" />-->
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/editProfileImage"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:contentDescription="TODO"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:srcCompat="@tools:sample/avatars" />
 
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/editProfileButton"
