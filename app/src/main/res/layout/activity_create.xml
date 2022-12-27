@@ -139,32 +139,49 @@
                 android:textColorHint="#0066FF" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <TextView
-            android:id="@+id/dateText"
-            style="@style/CreateIconStyle"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:drawableStart="@drawable/ic_baseline_calendar_month_24"
-            android:drawablePadding="5dp"
-            android:gravity="center_vertical"
-            android:paddingVertical="5dp"
-            android:paddingStart="20dp"
-            android:text="@string/post_default_text"
-            android:textSize="14sp" />
+            android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/timeText"
-            style="@style/CreateIconStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:drawableStart="@drawable/ic_baseline_access_time_24"
-            android:drawablePadding="5dp"
-            android:gravity="center_vertical"
-            android:paddingVertical="5dp"
-            android:paddingStart="20dp"
-            android:text="@string/post_default_text"
-            android:textSize="14sp"
-            android:visibility="visible" />
+            <TextView
+                android:id="@+id/timeText"
+                style="@style/CreateIconStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/ic_baseline_access_time_24"
+                android:drawablePadding="5dp"
+                android:gravity="center_vertical"
+                android:paddingVertical="5dp"
+                android:paddingStart="20dp"
+                android:text="@string/post_default_text"
+                android:textSize="14sp"
+                android:visibility="visible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/dateText"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/dateText"
+                style="@style/CreateIconStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/ic_baseline_calendar_month_24"
+                android:drawablePadding="5dp"
+                android:gravity="center_vertical"
+                android:paddingVertical="5dp"
+                android:paddingStart="20dp"
+                android:text="@string/post_default_text"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.054"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <ProgressBar
             android:id="@+id/createProgressBar"
