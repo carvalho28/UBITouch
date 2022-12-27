@@ -126,6 +126,8 @@ public class ProfileActivity extends AppCompatActivity {
         post.setOnClickListener(
                 v -> {
                     Intent intent = new Intent(this, CreateActivity.class);
+
+                    startActivity(intent);
                 }
         );
 
