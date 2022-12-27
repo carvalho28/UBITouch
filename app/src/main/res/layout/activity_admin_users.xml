@@ -35,7 +35,9 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerViewUsers"
             android:layout_width="409dp"
-            android:layout_height="729dp">
+            android:layout_height="729dp"
+            android:paddingBottom="50dp"
+        >
 
         </androidx.recyclerview.widget.RecyclerView>
 

@@ -48,13 +48,12 @@ public class LoginActivity extends AppCompatActivity {
 
         SharedPreferences sharedPref = getSharedPreferences("user", Context.MODE_PRIVATE);
         String x = sharedPref.getString("token", "");
+        String isAdmin = sharedPref.getString("isAdmin", "0");
 
         Log.i(TAG, x);
 
         if (!x.isEmpty()) {
-            // go to the feed activity
-            Intent intent = new Intent(LoginActivity.this, FeedActivity.class);
-            startActivity(intent);
+            checkAdmin();
         }
 
         btnLogin = findViewById(R.id.buttonLogin);
@@ -159,6 +158,7 @@ public class LoginActivity extends AppCompatActivity {
                                     editor.putString("name", response.getString("name"));
                                     editor.putString("picture", response.getString("picture"));
                                     editor.putString("profEvents", response.getString("idUser"));
+                                    editor.putString("isAdmin", response.getString("isAdmin"));
                                     editor.apply();
 
                                     // print the token
@@ -170,9 +170,7 @@ public class LoginActivity extends AppCompatActivity {
                                 // show loading circle
                                 progressBar.setVisibility(View.VISIBLE);
 
-                                // go to the feed activity
-                                Intent intent = new Intent(LoginActivity.this, FeedActivity.class);
-                                startActivity(intent);
+                                checkAdmin();
                             }
                         },
                         error -> {
@@ -189,5 +187,19 @@ public class LoginActivity extends AppCompatActivity {
         } catch (JSONException e) {
             e.printStackTrace();
         }
+    }
+
+    // check admin and intent to the correct activity
+    private void checkAdmin() {
+        SharedPreferences sharedPref = getSharedPreferences("user", Context.MODE_PRIVATE);
+        String isAdmin = sharedPref.getString("isAdmin", "0");
+
+        Intent intent;
+        if (isAdmin.equals("1")) {
+            intent = new Intent(this, AdminUsersActivity.class);
+        } else {
+            intent = new Intent(this, FeedActivity.class);
+        }
+        startActivity(intent);
     }
 }
