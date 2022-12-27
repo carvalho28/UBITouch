@@ -49,8 +49,6 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         private TextView EventDate;
         private TextView EventHour;
         private ImageView UserImage;
-        private TextView verifiedFlag;
-        private TextView unverifiedFLag;
         private TextView mapLocation;
         private TextView name;
         private TextView username;
@@ -59,6 +57,8 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         private ImageView imageView;
         private VideoView videoView;
         private ImageButton removePost;
+        private TextView verifiedFlag;
+        private TextView unverifiedFLag;
 
         public ItemViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -74,6 +74,8 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             username = itemView.findViewById(R.id.postUsername);
             interested = itemView.findViewById(R.id.btnInterested);
             share = itemView.findViewById(R.id.postShare);
+            verifiedFlag = itemView.findViewById(R.id.verifiedFlag);
+            unverifiedFLag = itemView.findViewById(R.id.unverifiedFlag);
 
             imageView = itemView.findViewById(R.id.postImage);
             videoView = itemView.findViewById(R.id.postVideo);
@@ -87,6 +89,9 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             interested.setOnClickListener(this);
             share.setOnClickListener(this);
             removePost.setOnClickListener(this);
+
+            verifiedFlag.setOnClickListener(this);
+            unverifiedFLag.setOnClickListener(this);
         }
 
         @Override
@@ -144,6 +149,21 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
                 builder.setNegativeButton("No", (dialogInterface, i) -> dialogInterface.dismiss());
                 builder.show();
 
+            }
+
+            // verify/unverify event
+            if (view.getId() == R.id.verifiedFlag || view.getId() == R.id.unverifiedFlag) {
+                Log.d("Diogo", "Verify/unverify event");
+                verifyEvent(event);
+                // icon verified -> unverified
+                if (view.getId() == R.id.verifiedFlag) {
+                    verifiedFlag.setVisibility(View.GONE);
+                    unverifiedFLag.setVisibility(View.VISIBLE);
+                } else {
+                    // icon unverified -> verified
+                    verifiedFlag.setVisibility(View.VISIBLE);
+                    unverifiedFLag.setVisibility(View.GONE);
+                }
             }
         }
     }
@@ -254,6 +274,20 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         } else {
             itemViewHolder.removePost.setVisibility(View.GONE);
         }
+
+        // if isAd is true, turn the verify button visible
+        if (isAdmin.equals("1")) {
+            if (posts.getIsVerified().equals("1")) {
+                itemViewHolder.verifiedFlag.setVisibility(View.VISIBLE);
+                itemViewHolder.unverifiedFLag.setVisibility(View.GONE);
+            } else {
+                itemViewHolder.unverifiedFLag.setVisibility(View.VISIBLE);
+                itemViewHolder.verifiedFlag.setVisibility(View.GONE);
+            }
+        } else {
+            itemViewHolder.unverifiedFLag.setVisibility(View.GONE);
+            itemViewHolder.verifiedFlag.setVisibility(View.GONE);
+        }
     }
 
     @Override
@@ -354,6 +388,31 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
                     listRecyclerView.remove(event);
                     // refresh recycler view
                     notifyDataSetChanged();
+                },
+                error -> Log.d("Diogo", "Error: " + error.toString())) {
+            @Override
+            public Map<String, String> getHeaders() {
+                Map<String, String> params = new HashMap<>();
+                params.put("Authorization", "Bearer " + token);
+                return params;
+            }
+        };
+        queue.add(jsonObjectRequest);
+    }
+
+    // verifyEvent
+    private void verifyEvent(Event event) {
+        String idEvent = event.getEventId();
+        SharedPreferences sharedPreferences = context.getSharedPreferences("user", Context.MODE_PRIVATE);
+        String token = sharedPreferences.getString("token", "");
+
+        String url = "https://server-ubi-touch.herokuapp.com/events/verify/" + idEvent;
+
+        RequestQueue queue = Volley.newRequestQueue(context);
+
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.PUT, url, null,
+                response -> {
+                    Log.d("Diogo", "Response: " + response.toString());
                 },
                 error -> Log.d("Diogo", "Error: " + error.toString())) {
             @Override

@@ -90,7 +90,7 @@ public class EventsFragment extends Fragment {
                             String idEvent = e.getString("idEvent");
                             String isInterested = e.getString("isInterested");
                             String imageOrVideo = e.getString("image");
-                            listEvents.add(new Event(title, imageUser, description, eventHour, eventDate, "1", "0",
+                            listEvents.add(new Event(title, imageUser, description, eventHour, eventDate, isVerified,
                                     latitude, longitude, name, username, idEvent, isInterested, userID, imageOrVideo));
                             // if user is admin then verified flag is visible
                             // ----- if verified == 1 then it is verified, else verified == 0 it is

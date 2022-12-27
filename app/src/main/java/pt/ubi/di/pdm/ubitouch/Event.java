@@ -8,8 +8,7 @@ public class Event {
     private final String image;
     private final String description;
     private final String eventHour;
-    private final String verifiedFlag;
-    private final String unverifiedFlag;
+    private final String isVerified;
     private final String latitude;
     private final String longitude;
     private final String name;
@@ -20,15 +19,14 @@ public class Event {
     private final String imageOrVideo;
 
     public Event(String title, String image, String description, String eventHour, String eventDate,
-            String verifiedFlag, String unverifiedFlag, String latitude, String longitude, String name,
+            String isVerified, String latitude, String longitude, String name,
             String username, String eventId, String isInterested, String userID, String imageOrVideo) {
         this.title = title;
         this.eventDate = eventDate;
         this.image = image;
         this.description = description;
         this.eventHour = eventHour;
-        this.verifiedFlag = verifiedFlag;
-        this.unverifiedFlag = unverifiedFlag;
+        this.isVerified = isVerified;
         this.latitude = latitude;
         this.longitude = longitude;
         this.name = name;
@@ -63,12 +61,8 @@ public class Event {
         return eventHour;
     }
 
-    public String getVerifiedFlag() {
-        return verifiedFlag;
-    }
-
-    public String getUnverifiedFlag() {
-        return unverifiedFlag;
+    public String getIsVerified() {
+        return isVerified;
     }
 
     public String getLatitude() {
