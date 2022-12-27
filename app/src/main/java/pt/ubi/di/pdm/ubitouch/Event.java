@@ -17,10 +17,11 @@ public class Event {
     private final String eventId;
     private final String isInterested;
     private final String userID;
+    private final String imageOrVideo;
 
     public Event(String title, String image, String description, String eventHour, String eventDate,
             String verifiedFlag, String unverifiedFlag, String latitude, String longitude, String name,
-            String username, String eventId, String isInterested, String userID) {
+            String username, String eventId, String isInterested, String userID, String imageOrVideo) {
         this.title = title;
         this.eventDate = eventDate;
         this.image = image;
@@ -35,6 +36,7 @@ public class Event {
         this.eventId = eventId;
         this.isInterested = isInterested;
         this.userID = userID;
+        this.imageOrVideo = imageOrVideo;
     }
 
     // public String getUsername() {
@@ -94,6 +96,10 @@ public class Event {
     }
 
     public String getUserID() { return userID; }
+
+    public String getImageOrVideo() {
+        return imageOrVideo;
+    }
 
     /*
      * get from database:
