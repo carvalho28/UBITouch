@@ -204,7 +204,7 @@
         <item name="android:background">@color/white</item>
     </style>
     <style name="HeaderIconColorsStyle">
-        <item name="android:strokeColor">@color/white</item>
+        <item name="android:tint">@color/blue</item>
     </style>
     <style name="HeaderButtonStyle">
         <item name="android:backgroundTint">@color/white</item>

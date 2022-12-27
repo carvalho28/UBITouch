@@ -205,13 +205,12 @@
         <item name="android:background">@color/softBlack</item>
     </style>
     <style name="HeaderIconColorsStyle">
-        <item name="android:strokeColor">@color/babyBlue</item>
+        <item name="android:tint">@color/babyBlue</item>
     </style>
     <style name="HeaderButtonStyle">
         <item name="android:backgroundTint">@color/softBlack</item>
         <item name="android:textColor">@color/orange</item>
         <item name="strokeColor">@color/babyBlue</item>
-
     </style>
 
     <!-- Arrows Colors -->
