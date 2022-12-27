@@ -84,6 +84,9 @@ public class FeedActivity extends AppCompatActivity {
         profileName = findViewById(R.id.profileName);
         recyclerView = findViewById(R.id.recyclerView);
 
+        // show loading circle
+        progressBar.setVisibility(View.VISIBLE);
+
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
 
@@ -130,6 +133,9 @@ public class FeedActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
+        // show loading circle
+        progressBar.setVisibility(View.GONE);
+
     }
 
     private void getUserData(String userId) {
@@ -161,8 +167,6 @@ public class FeedActivity extends AppCompatActivity {
     }
 
     public void getEventsData() {
-        // show loading circle
-        progressBar.setVisibility(View.VISIBLE);
 
         // Get events from DB
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, events_query_URI + userID, null,
@@ -214,9 +218,6 @@ public class FeedActivity extends AppCompatActivity {
         // add the request to the queue
         RequestQueue queue = Volley.newRequestQueue(this);
         queue.add(request);
-
-        // hide loading circle
-        progressBar.setVisibility(View.GONE);
     }
 
 }

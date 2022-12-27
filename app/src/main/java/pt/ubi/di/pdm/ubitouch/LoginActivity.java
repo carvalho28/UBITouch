@@ -63,6 +63,9 @@ public class LoginActivity extends AppCompatActivity {
         progressBar = findViewById(R.id.loginProgressBar);
         register = findViewById(R.id.register);
 
+        // show loading circle
+        progressBar.setVisibility(View.VISIBLE);
+
         // on writing on the username field or password field, hide the error message
         username.setOnFocusChangeListener((v, hasFocus) -> {
             if (hasFocus) {
@@ -99,6 +102,8 @@ public class LoginActivity extends AppCompatActivity {
                         }
                     }
                 });
+        // show loading circle
+        progressBar.setVisibility(View.VISIBLE);
     }
 
     private void login(String URL) {
