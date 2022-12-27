@@ -46,7 +46,7 @@
             style="@style/FeedTextStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Hello, Name!"
+            android:text="@string/feed_welcome"
             android:textSize="15sp" />
 
         <TextView
@@ -54,7 +54,7 @@
             style="@style/FeedTextStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Let's explore what's happening."
+            android:text="@string/feed_explore"
             android:textSize="10sp" />
     </LinearLayout>
 

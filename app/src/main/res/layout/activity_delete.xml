@@ -20,7 +20,7 @@
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
-            android:text="DELETE ACCOUNT"
+            android:text="@string/delete_acc"
             android:textSize="36sp" />
     </RelativeLayout>
 
