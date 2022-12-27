@@ -180,16 +180,18 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         if (posts.getDescription() != null && !Objects.equals(posts.getDescription(), "")) {
             itemViewHolder.Description.setText(posts.getDescription());
         }
-        // if (itemViewHolder.Description.length() > 0)
-        // itemViewHolder.Description.setVisibility(View.VISIBLE);
         if (posts.getDescription() != null && !Objects.equals(posts.getDescription(), "")
                 && !Objects.equals(posts.getDescription(), "null")) {
             itemViewHolder.Description.setVisibility(View.VISIBLE);
         }
-        if (itemViewHolder.EventHour.length() > 0)
+        if (posts.getEventHour() != null && !Objects.equals(posts.getEventHour(), "")
+                && !Objects.equals(posts.getEventHour(), "null")) {
             itemViewHolder.EventHour.setVisibility(View.VISIBLE);
-        if (itemViewHolder.mapLocation.length() > 0)
+        }
+        if (posts.getLatitude() != null && !Objects.equals(posts.getLatitude(), "")
+                && !Objects.equals(posts.getLatitude(), "null")) {
             itemViewHolder.mapLocation.setVisibility(View.VISIBLE);
+        }
         if (Objects.equals(posts.getLatitude(), "") && Objects.equals(posts.getLongitude(), "")) {
             itemViewHolder.mapLocation.setVisibility(View.INVISIBLE);
         }
