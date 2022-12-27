@@ -64,6 +64,9 @@ public class LoginActivity extends AppCompatActivity {
         progressBar = findViewById(R.id.loginProgressBar);
         register = findViewById(R.id.register);
 
+        // show loading circle
+        progressBar.setVisibility(View.VISIBLE);
+
         register.setOnClickListener(
                 v -> {
                     Intent intent = new Intent(this, RegisterActivity.class);
@@ -88,6 +91,9 @@ public class LoginActivity extends AppCompatActivity {
                         }
                     }
                 });
+
+        // show loading circle
+        progressBar.setVisibility(View.VISIBLE);
     }
 
     private void login(String URL) {
