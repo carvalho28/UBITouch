@@ -266,7 +266,11 @@ public class CreateActivity extends AppCompatActivity {
                         msgError.setText(R.string.post_tmc_desc);
                         msgError.setVisibility(TextView.VISIBLE);
                     }
-
+                else if (dateText.getText().toString().equals(getString(R.string.post_default_text))) {
+                        Log.i(TAG, "CreateActivity: onCreate(): Description is too long.");
+                        msgError.setText(R.string.post_date_error);
+                        msgError.setVisibility(TextView.VISIBLE);
+                    }
                 else {
                         Log.i(TAG, "CreateActivity: onCreate(): Creating post...");
                         createPost();

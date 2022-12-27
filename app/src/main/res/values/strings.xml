@@ -37,7 +37,7 @@
     <string name="post_tmc_title">Title is too long.</string>
     <string name="post_tmc_desc">Description is too long.</string>
     <string name="post_media_error">Error loading attachment.</string>
-    <string name="post_date_error">Error inserting date.</string>
+    <string name="post_date_error">You must pick a date.</string>
     <string name="post_time_error">Error inserting hour.</string>
     <string name="post_nd">Undefined</string>
     <string name="select_time">Select time</string>

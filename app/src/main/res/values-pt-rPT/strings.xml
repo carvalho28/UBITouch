@@ -30,7 +30,7 @@
     <string name="post_tmc_title">O limite de caracteres do título foi excedido.</string>
     <string name="post_tmc_desc">O limite de caracteres da descrição foi excedido.</string>
     <string name="post_media_error">Erro ao carregar o anexo.</string>
-    <string name="post_date_error">Erro ao inserir a data.</string>
+    <string name="post_date_error">É necessário inserir uma data.</string>
     <string name="post_time_error">Erro ao inserir a hora.</string>
     <string name="post_nd">Não definido</string>
     <string name="select_time">Selecione a hora</string>
