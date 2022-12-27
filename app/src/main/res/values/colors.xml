@@ -16,6 +16,7 @@
     <!-- Buttons, Names and icons -->
     <color name="orange">#EE8000</color>
     <!-- Background and text Colors -->
-    <color name="white">#FFF4F4</color>
+    <color name="white">#FFFFFF</color>
     <color name="black">#181818</color>
+    <color name="whiteDarkMode">#D1D1D1</color>
 </resources>
