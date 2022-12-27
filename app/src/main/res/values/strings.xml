@@ -106,5 +106,21 @@
     <string name="pt" translatable="false">Português</string>
     <string name="fr" translatable="false">Français</string>
 
+    <!-- About Us -->
+    <string name="about_us_dev">Developed by</string>
+    <string name="about_us_dev1">Diogo Carvalho no.45716</string>
+    <string name="about_us_dev2">Eduardo Mendes no.45916</string>
+    <string name="about_us_dev3">Guilherme Barata no.45779</string>
+    <string name="about_us_dev4">João Marques no.45722</string>
+    <string name="about_us_dev5">Matilde Rosa no.46785</string>
+
+    <string name="about_us_sup">Supervised by</string>
+    <string name="about_us_sup1" translatable="false">Prof. Paulo Fazendeiro</string>
+
+    <string name="about_us_bsc">BsC in Computer Science and Engineering</string>
+    <string name="about_us_uc">Mobile Device Programming</string>
+    <string name="about_us_year" translatable="false">2022/2023</string>
+    <string name="about_us_uni">University of Beira Interior</string>
+
 
 </resources>
