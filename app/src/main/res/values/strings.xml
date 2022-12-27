@@ -12,6 +12,8 @@
     <!-- Feed -->
     <string name="header_title" translatable="false">Timeline</string>
     <string name="no_posts">Oops! No posts yet.</string>
+    <string name="feed_welcome">Hello, dear user!</string>
+    <string name="feed_explore">Let\'s explore what\'s happening.</string>
     <!-- Profile -->
     <string name="edit_profile">Edit profile</string>
     <string name="bio" translatable="false">Bio</string>
@@ -61,11 +63,13 @@
     <string name="security_privacy">Security and Privacy</string>
     <string name="language">Language</string>
     <string name="about_us">About Us</string>
-    <string name="logout" translatable="false">Logout</string>
+    <string name="logout" translatable="false">Logout</string>\
+    <string name="remove_users">Remove Users</string>
     <!-- Security and Privacy -->
     <string name="change_password">Change Password</string>
     <string name="deactivate_account">Delete your account</string>
     <!-- Change Password -->
+    <string name="pw_error_occurred">An error has occurred! Try again!</string>
     <string name="current_password">Current password</string>
     <string name="new_password">New password</string>
     <!-- Deactivate -->
@@ -101,10 +105,37 @@
     <string name="ev_share">Share</string>
     <!-- TODO: Remove or change this placeholder text -->
 
+    <!--  Delete  -->
+    <string name="delete_acc">DELETE ACCOUNT</string>
+
     <!-- Language -->
     <string name="en" translatable="false">English</string>
     <string name="pt" translatable="false">Português</string>
     <string name="fr" translatable="false">Français</string>
 
+    <!-- Login -->
+    <string name="login_welcome">Welcome back!</string>
+    <string name="login_register"> Register here!</string>
+    <string name="login_no_password">Don\'t have an account yet?</string>
+
+    <!--  Profile  -->
+    <string name="profile_name">Name</string>
+    <string name="events">Events</string>
+    <string name="interests">Interests</string>
+
+    <!--  Register  -->
+    <string name="on_board">Let\'s get you on board.</string>
+    <string name="already_have_acc">Already have an account? </string>
+
+    <!--  Misc  -->
+    <string name="lorem_ipsum" translatable="false">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</string>
+
+    <!--  Footer  -->
+    <string name="home">Home</string>
+    <string name="search">Search</string>
+    <string name="profile">Profile</string>
+
+    <!--  User Recycler  -->
+    <string name="delete">Delete</string>
 
 </resources>

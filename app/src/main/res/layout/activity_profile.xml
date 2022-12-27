@@ -83,7 +83,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
-                        android:text="Name"
+                        android:text="@string/profile_name"
                         android:textSize="20sp" />
 
                     <TextView
@@ -91,7 +91,7 @@
                         style="@style/ProfileUsernameStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="username"
+                        android:text="@string/username"
                         android:textSize="13sp" />
                 </LinearLayout>
             </RelativeLayout>
@@ -107,7 +107,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
-                    android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." />
+                    android:text="@string/lorem_ipsum" />
             </RelativeLayout>
 
             <!-- Tabs -->
@@ -127,12 +127,12 @@
                     <com.google.android.material.tabs.TabItem
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Events" />
+                        android:text="@string/events" />
 
                     <com.google.android.material.tabs.TabItem
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Interests" />
+                        android:text="@string/interests" />
                 </com.google.android.material.tabs.TabLayout>
 
             </RelativeLayout>

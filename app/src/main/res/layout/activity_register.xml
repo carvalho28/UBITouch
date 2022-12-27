@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="80dp"
         android:layout_marginStart="30dp"
-        android:text="REGISTER"
+        android:text="@string/register"
         android:textSize="36sp" />
 
     <TextView
@@ -32,7 +32,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
         android:layout_marginTop="10dp"
-        android:text="Let's get you on board."
+        android:text="@string/on_board"
 
         android:textSize="20sp" />
 
@@ -205,7 +205,7 @@
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:gravity="center|center_horizontal|center_vertical"
-          android:text="Already have an account? "
+          android:text=""
           android:textSize="16sp"
           app:layout_constraintBottom_toBottomOf="parent"
           app:layout_constraintEnd_toEndOf="parent"
@@ -219,7 +219,7 @@
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:clickable="true"
-          android:text="Sign in"
+          android:text="@string/already_have_acc"
           android:textColor="@color/orange"
           android:textSize="16sp"
           app:layout_constraintBottom_toBottomOf="parent"
