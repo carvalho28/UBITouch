@@ -232,4 +232,9 @@
     <style name="URButtonStyle">
         <item name="backgroundTint">@color/red</item>
     </style>
+
+    <!-- Logo Theme -->
+    <style name="LogoStyle">
+        <item name="android:src">@drawable/logo_white</item>
+    </style>
 </resources>
