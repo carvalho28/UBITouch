@@ -14,6 +14,7 @@ public class Configs {
     public static String CLOUD_NAME = "dvo3vlsl3";
     public static  String UPLOAD_PRESET = "ubitouch";
 
+
     public static void initConfig(Context context){
         Map<String, String> config = new HashMap<>();
         config.put("cloud_name", CLOUD_NAME);

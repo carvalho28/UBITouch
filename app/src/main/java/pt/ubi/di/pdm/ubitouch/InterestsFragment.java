@@ -37,9 +37,6 @@ public class InterestsFragment extends Fragment {
 
     private RecyclerAdapter customAdapter;
 
-    // URL
-    private String user_events_URL = "https://server-ubi-touch.herokuapp.com/interests/user/";
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,13 +55,15 @@ public class InterestsFragment extends Fragment {
 
         recyclerView = view.findViewById(R.id.userInterests);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+    }
 
+    public void getInterests() {
+        // URL
+        String user_events_URL = "https://server-ubi-touch.herokuapp.com/interests/user/";
         SharedPreferences sharedPref = this.getActivity().getSharedPreferences("user", Context.MODE_PRIVATE);
         String userId = sharedPref.getString("id", "false");
-        String token = sharedPref.getString("token", "false");
 
-        event_creator = Integer.parseInt(userId);
-        user_events_URL += event_creator;
+        user_events_URL += userId;
 
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, user_events_URL, null,
                 response -> {
@@ -117,4 +116,13 @@ public class InterestsFragment extends Fragment {
         queue.add(request);
     }
 
+    // on tab selected
+    @Override
+    public void onResume() {
+        super.onResume();
+        // only if changes were made
+            // delete all events
+            listEvents.clear();
+            getInterests();
+    }
 }
