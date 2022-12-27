@@ -216,4 +216,18 @@
     <style name="ArrowColorStyle">
         <item name="android:tint">@color/blue</item>
     </style>
+
+    <!-- User Recycler Colors -->
+    <style name="URColorStyle">
+        <item name="android:background">@color/white</item>
+    </style>
+    <style name="URCardstyle">
+        <item name="android:background">@color/grey</item>
+    </style>
+    <style name="URTextStyle">
+        <item name="android:textColor">@color/black</item>
+    </style>
+    <style name="URButtonStyle">
+        <item name="backgroundTint">@color/red</item>
+    </style>
 </resources>

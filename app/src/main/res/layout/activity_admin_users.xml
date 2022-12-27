@@ -5,7 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AdminUsersActivity">
+    tools:context=".AdminUsersActivity"
+    style="@style/URColorStyle">
 
     <!-- search bar on top of recycler view, leaving space below for recycler view -->
     <LinearLayout
