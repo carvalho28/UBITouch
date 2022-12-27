@@ -91,9 +91,7 @@ public class FeedActivity extends AppCompatActivity {
         // Refresh
         swipeRefreshLayout = findViewById(R.id.swipeRefreshLayout);
         swipeRefreshLayout.setOnRefreshListener(() -> {
-            // clear the list
             listEvents.clear();
-            // get the data again
             getEventsData();
             swipeRefreshLayout.setRefreshing(false);
         });
