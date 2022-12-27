@@ -58,6 +58,7 @@ public class FeedActivity extends AppCompatActivity {
     private final String URL = "https://server-ubi-touch.herokuapp.com/users/";
     String userID;
     String token;
+    String isAdmin;
 
     private int nOfEvents;
 
@@ -106,6 +107,7 @@ public class FeedActivity extends AppCompatActivity {
         String imageProfile = sharedPref.getString("picture", "false");
         userID = sharedPref.getString("id", "false");
         token = sharedPref.getString("token", "false");
+        isAdmin = sharedPref.getString("isAdmin", "0");
 
         // profileName.setText(userID);
 
@@ -179,9 +181,16 @@ public class FeedActivity extends AppCompatActivity {
     }
 
     public void getEventsData() {
+        // if isAdmin == 1 add admin to query
+        String url;
+        if (isAdmin.equals("1")) {
+            url = events_query_URI + "admin/" + userID;
+        } else {
+            url = events_query_URI + userID;
+        }
 
         // Get events from DB
-        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, events_query_URI + userID, null,
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null,
                 response -> {
                     try {
                         JSONArray events = response.getJSONArray("data");
