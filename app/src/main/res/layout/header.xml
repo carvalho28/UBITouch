@@ -19,11 +19,11 @@
 
         <ImageView
             android:id="@+id/headerLogo"
+            style="@style/LogoStyle"
             android:layout_width="0dp"
             android:layout_height="48dp"
             android:layout_weight="1"
-            android:paddingHorizontal="10dp"
-            app:srcCompat="@drawable/logo_header" />
+            android:paddingHorizontal="10dp" />
 
         <View
             android:id="@+id/view"
