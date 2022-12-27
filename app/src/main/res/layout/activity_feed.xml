@@ -10,15 +10,20 @@
 
     <include layout="@layout/footer" />
 
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefreshLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:paddingTop="15dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginBottom="48dp">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="60dp"
-        android:layout_marginBottom="48dp"
-        android:orientation="vertical"
-        android:paddingLeft="15dp"
-        android:paddingRight="15dp"
-        android:paddingTop="15dp">
+        android:orientation="vertical">
 
     <!-- Image, Name, Description -->
     <RelativeLayout
@@ -116,4 +121,5 @@
         app:layout_constraintBottom_toBottomOf="@+id/recyclerView"
         app:layout_constraintTop_toBottomOf="@+id/noPostsText" />
     </LinearLayout>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 </RelativeLayout>

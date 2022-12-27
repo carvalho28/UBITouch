@@ -3,6 +3,7 @@ package pt.ubi.di.pdm.ubitouch;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.content.Context;
 import android.content.Intent;
@@ -48,6 +49,9 @@ public class FeedActivity extends AppCompatActivity {
     ImageButton search;
     ImageButton profile;
 
+    // Refresh
+    SwipeRefreshLayout swipeRefreshLayout;
+
     // DEBUG
     private final String TAG = "JOAO";
     private final String events_query_URI = "https://server-ubi-touch.herokuapp.com/events/";
@@ -83,6 +87,16 @@ public class FeedActivity extends AppCompatActivity {
         noPostsText = findViewById(R.id.noPostsText);
         profileName = findViewById(R.id.profileName);
         recyclerView = findViewById(R.id.recyclerView);
+
+        // Refresh
+        swipeRefreshLayout = findViewById(R.id.swipeRefreshLayout);
+        swipeRefreshLayout.setOnRefreshListener(() -> {
+            // clear the list
+            listEvents.clear();
+            // get the data again
+            getEventsData();
+            swipeRefreshLayout.setRefreshing(false);
+        });
 
         // show loading circle
         progressBar.setVisibility(View.VISIBLE);
