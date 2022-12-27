@@ -1,6 +1,8 @@
 package pt.ubi.di.pdm.ubitouch;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
@@ -11,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.VideoView;
 
 import androidx.annotation.NonNull;
@@ -26,6 +29,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
@@ -53,6 +58,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         private TextView share;
         private ImageView imageView;
         private VideoView videoView;
+        private ImageButton removePost;
 
         public ItemViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -72,17 +78,15 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             imageView = itemView.findViewById(R.id.postImage);
             videoView = itemView.findViewById(R.id.postVideo);
 
+            removePost = itemView.findViewById(R.id.removePost);
+
             mapLocation.setOnClickListener(this);
-
             UserImage.setOnClickListener(this);
-
             name.setOnClickListener(this);
-
             username.setOnClickListener(this);
-
             interested.setOnClickListener(this);
-
             share.setOnClickListener(this);
+            removePost.setOnClickListener(this);
         }
 
         @Override
@@ -125,9 +129,21 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
                 }
             }
 
+            // share event
             if (view.getId() == R.id.postShare) {
-                // share the event
                 shareEvent(event);
+            }
+
+            // remove post
+            if (view.getId() == R.id.removePost) {
+                // removeEvent(event);
+                AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                builder.setTitle("Delete post");
+                builder.setMessage("Are you sure you want to delete this post?");
+                builder.setPositiveButton("Yes", (dialogInterface, i) -> removeEvent(event));
+                builder.setNegativeButton("No", (dialogInterface, i) -> dialogInterface.dismiss());
+                builder.show();
+
             }
         }
     }
@@ -228,6 +244,16 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
                 Picasso.get().load(posts.getImageOrVideo()).into(itemViewHolder.imageView);
             }
         }
+        // get isAdmin from shared preferences
+        final SharedPreferences sharedPreferences = context.getSharedPreferences("user", Context.MODE_PRIVATE);
+        final String isAdmin = sharedPreferences.getString("isAdmin", "0");
+
+        // if isAd is true, turn the delete button visible
+        if (isAdmin.equals("1")) {
+            itemViewHolder.removePost.setVisibility(View.VISIBLE);
+        } else {
+            itemViewHolder.removePost.setVisibility(View.GONE);
+        }
     }
 
     @Override
@@ -309,5 +335,34 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         sendIntent.setType("text/plain");
         context.startActivity(sendIntent);
 
+    }
+
+    private void removeEvent(Event event) {
+        String idEvent = event.getEventId();
+        SharedPreferences sharedPreferences = context.getSharedPreferences("user", Context.MODE_PRIVATE);
+        String token = sharedPreferences.getString("token", "");
+
+        String url = "https://server-ubi-touch.herokuapp.com/events/" + idEvent;
+
+        RequestQueue queue = Volley.newRequestQueue(context);
+
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.DELETE, url, null,
+                response -> {
+                    Log.d("Diogo", "Response: " + response.toString());
+                    Toast.makeText(context, "Event removed", Toast.LENGTH_SHORT).show();
+                    // remove event from list
+                    listRecyclerView.remove(event);
+                    // refresh recycler view
+                    notifyDataSetChanged();
+                },
+                error -> Log.d("Diogo", "Error: " + error.toString())) {
+            @Override
+            public Map<String, String> getHeaders() {
+                Map<String, String> params = new HashMap<>();
+                params.put("Authorization", "Bearer " + token);
+                return params;
+            }
+        };
+        queue.add(jsonObjectRequest);
     }
 }

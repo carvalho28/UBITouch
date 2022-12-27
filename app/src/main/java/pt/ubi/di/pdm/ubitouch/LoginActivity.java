@@ -48,7 +48,6 @@ public class LoginActivity extends AppCompatActivity {
 
         SharedPreferences sharedPref = getSharedPreferences("user", Context.MODE_PRIVATE);
         String x = sharedPref.getString("token", "");
-        String isAdmin = sharedPref.getString("isAdmin", "0");
 
         Log.i(TAG, x);
 
@@ -201,7 +200,7 @@ public class LoginActivity extends AppCompatActivity {
 
         Intent intent;
         if (isAdmin.equals("1")) {
-            intent = new Intent(this, AdminUsersActivity.class);
+            intent = new Intent(this, FeedActivity.class);
         } else {
             intent = new Intent(this, FeedActivity.class);
         }
