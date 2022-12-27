@@ -133,7 +133,7 @@ public class FeedActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
-        // hide loading circle
+        // show loading circle
         progressBar.setVisibility(View.GONE);
 
     }
