@@ -18,7 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
-            android:text="LOGIN"
+            android:text="@string/login"
             android:textSize="36sp" />
 
         <TextView
@@ -27,7 +27,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
             android:layout_marginTop="10dp"
-            android:text="Welcome back!"
+            android:text="@string/login_welcome"
             android:textSize="20sp" />
 
         <!-- username or email -->
@@ -142,7 +142,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:clickable="true"
-                android:text=" Register here!"
+                android:text="@string/login_register"
                 android:textColor="@color/orange"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -158,7 +158,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="Don't have an account yet?"
+                android:text="@string/login_no_password"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"

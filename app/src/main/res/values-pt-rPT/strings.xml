@@ -30,7 +30,7 @@
     <string name="post_tmc_title">O limite de caracteres do título foi excedido.</string>
     <string name="post_tmc_desc">O limite de caracteres da descrição foi excedido.</string>
     <string name="post_media_error">Erro ao carregar o anexo.</string>
-    <string name="post_date_error">Erro ao inserir a data.</string>
+    <string name="post_date_error">É necessário inserir uma data.</string>
     <string name="post_time_error">Erro ao inserir a hora.</string>
     <string name="post_nd">Não definido</string>
     <string name="select_time">Selecione a hora</string>
@@ -88,4 +88,35 @@
     <string name="ev_localization">Mapa</string>
     <string name="ev_interested">Interessado</string>
     <string name="ev_share">Partilhar</string>
+    <string name="pw_error_occurred">Ocorreu um erro! Tente novamente!</string>
+    <string name="delete_acc">APAGAR CONTA</string>
+    <string name="feed_welcome">Olá, querido utilizador!</string>
+    <string name="feed_explore">Vamos explorar o que se passa.</string>
+    <string name="login_welcome">Seja bam-vind@ de volta!</string>
+    <string name="login_register">Registe-se aqui!</string>
+    <string name="login_no_password">Ainda não tem conta?</string>
+    <string name="profile_name">Nome</string>
+    <string name="events">Eventos</string>
+    <string name="interests">Interesses</string>
+    <string name="on_board">Vamos pôr-te a bordo.</string>
+    <string name="already_have_acc">"Já tem conta? "</string>
+    <string name="remove_users">Remover Utilizadores</string>
+    <string name="home">Página Principal</string>
+    <string name="search">Pesquisar</string>
+    <string name="profile">Perfil</string>
+    <string name="delete">Delete</string>
+
+    <!-- About Us -->
+    <string name="about_us_dev">Desenvolvido por</string>
+    <string name="about_us_dev1">Diogo Carvalho Nº45716</string>
+    <string name="about_us_dev2">Eduardo Mendes Nº45916</string>
+    <string name="about_us_dev3">Guilherme Barata Nº45779</string>
+    <string name="about_us_dev4">João Marques Nº45722</string>
+    <string name="about_us_dev5">Matilde Rosa Nº46785</string>
+
+    <string name="about_us_sup">Supervisionado por</string>
+
+    <string name="about_us_bsc">Licenciatura em Engenharia Informática</string>
+    <string name="about_us_uc">Programação de Dispositivos Móveis</string>
+    <string name="about_us_uni">Universidade da Beira Interior</string>
 </resources>

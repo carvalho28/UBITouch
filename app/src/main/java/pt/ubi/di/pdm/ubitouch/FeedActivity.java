@@ -3,6 +3,7 @@ package pt.ubi.di.pdm.ubitouch;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.content.Context;
 import android.content.Intent;
@@ -48,12 +49,16 @@ public class FeedActivity extends AppCompatActivity {
     ImageButton search;
     ImageButton profile;
 
+    // Refresh
+    SwipeRefreshLayout swipeRefreshLayout;
+
     // DEBUG
     private final String TAG = "JOAO";
     private final String events_query_URI = "https://server-ubi-touch.herokuapp.com/events/";
     private final String URL = "https://server-ubi-touch.herokuapp.com/users/";
     String userID;
     String token;
+    String isAdmin;
 
     private int nOfEvents;
 
@@ -84,6 +89,14 @@ public class FeedActivity extends AppCompatActivity {
         profileName = findViewById(R.id.profileName);
         recyclerView = findViewById(R.id.recyclerView);
 
+        // Refresh
+        swipeRefreshLayout = findViewById(R.id.swipeRefreshLayout);
+        swipeRefreshLayout.setOnRefreshListener(() -> {
+            listEvents.clear();
+            getEventsData();
+            swipeRefreshLayout.setRefreshing(false);
+        });
+
         // show loading circle
         progressBar.setVisibility(View.VISIBLE);
 
@@ -94,6 +107,7 @@ public class FeedActivity extends AppCompatActivity {
         String imageProfile = sharedPref.getString("picture", "false");
         userID = sharedPref.getString("id", "false");
         token = sharedPref.getString("token", "false");
+        isAdmin = sharedPref.getString("isAdmin", "0");
 
         // profileName.setText(userID);
 
@@ -167,9 +181,16 @@ public class FeedActivity extends AppCompatActivity {
     }
 
     public void getEventsData() {
+        // if isAdmin == 1 add admin to query
+        String url;
+        if (isAdmin.equals("1")) {
+            url = events_query_URI + "admin/" + userID;
+        } else {
+            url = events_query_URI + userID;
+        }
 
         // Get events from DB
-        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, events_query_URI + userID, null,
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null,
                 response -> {
                     try {
                         JSONArray events = response.getJSONArray("data");
@@ -196,7 +217,7 @@ public class FeedActivity extends AppCompatActivity {
                             String idEvent = e.getString("idEvent");
                             String isInterested = e.getString("isInterested");
                             String imageOrVideo = e.getString("image");
-                            listEvents.add(new Event(title, imageUser, description, eventHour, eventDate, "1", "0",
+                            listEvents.add(new Event(title, imageUser, description, eventHour, eventDate, isVerified,
                                     latitude, longitude, name, username, idEvent, isInterested, userId, imageOrVideo));
                             // if user is admin then verified flag is visible
                             // ----- if verified == 1 then it is verified, else verified == 0 it is

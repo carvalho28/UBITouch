@@ -67,6 +67,7 @@ public class CreateActivity extends AppCompatActivity {
     VideoView createVideo;
     ProgressBar progressBar;
     TextView createName, createUsername;
+    ImageView btnPickDate, btnPickTime, btnMap;
 
     MapView mapView;
 
@@ -186,6 +187,9 @@ public class CreateActivity extends AppCompatActivity {
         progressBar = findViewById(R.id.createProgressBar);
         createName = findViewById(R.id.createName);
         createUsername = findViewById(R.id.createUsername);
+        btnPickDate = findViewById(R.id.btnPickDate);
+        btnPickTime = findViewById(R.id.btnPickTime);
+        btnMap = findViewById(R.id.btnMap);
 
         // check if dark mode is enabled
         SharedPreferences sharedPrefMode = getSharedPreferences("DarkMode", Context.MODE_PRIVATE);
@@ -232,6 +236,16 @@ public class CreateActivity extends AppCompatActivity {
             getImageOrVideo();
         });
 
+        // Date
+        btnPickDate.setOnClickListener(v -> {
+            openDatePicker(v);
+        });
+
+        // Time
+        btnPickTime.setOnClickListener(v -> {
+            openTimePicker(v);
+        });
+
         // BACKEND STUFF
         btnCreatePost.setOnClickListener(
                 v -> {
@@ -252,7 +266,11 @@ public class CreateActivity extends AppCompatActivity {
                         msgError.setText(R.string.post_tmc_desc);
                         msgError.setVisibility(TextView.VISIBLE);
                     }
-
+                else if (dateText.getText().toString().equals(getString(R.string.post_default_text))) {
+                        Log.i(TAG, "CreateActivity: onCreate(): Description is too long.");
+                        msgError.setText(R.string.post_date_error);
+                        msgError.setVisibility(TextView.VISIBLE);
+                    }
                 else {
                         Log.i(TAG, "CreateActivity: onCreate(): Creating post...");
                         createPost();
