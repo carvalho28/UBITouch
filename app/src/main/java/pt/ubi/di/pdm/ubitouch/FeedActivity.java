@@ -51,7 +51,6 @@ public class FeedActivity extends AppCompatActivity {
 
     // Footer
     ImageButton home;
-    ImageButton search;
     ImageButton profile;
 
     // Refresh
@@ -85,7 +84,6 @@ public class FeedActivity extends AppCompatActivity {
 
         // Footer
         profile = findViewById(R.id.btnProfile);
-        search = findViewById(R.id.btnSearch);
         home = findViewById(R.id.btnHome);
 
         // Middle

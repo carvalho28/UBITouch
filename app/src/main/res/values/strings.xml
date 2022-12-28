@@ -98,6 +98,7 @@
     <string name="cr_title">NEW EVENT</string>
     <string name="cr_subtitle">What\'s happening at UBI?</string>
     <string name="cr_subtitle_hl">happening</string>
+    <string name="cr_review">After submitting, the created event will be reviewed by a moderator.</string>
 
     <!-- Event page -->
     <string name="ev_localization">Maps</string>

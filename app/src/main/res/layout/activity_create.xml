@@ -41,6 +41,17 @@
             android:textSize="20sp" />
 
         <TextView
+            android:id="@+id/textView7"
+            style="@style/CreateTextStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:text="@string/cr_review"
+            android:textSize="11sp" />
+
+        <TextView
             android:id="@+id/msgError"
             style="@style/ErrorMessageStyle"
             android:layout_width="match_parent"
@@ -240,22 +251,13 @@
                 app:srcCompat="@drawable/ic_baseline_image_24"
                 app:tint="@color/orange" />
 
-            <ImageView
-                android:id="@+id/btnMap"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="5dp"
-                android:padding="5dp"
-                app:srcCompat="@drawable/ic_marker"
-                app:tint="@color/orange" />
-
         </LinearLayout>
 
         <com.mapbox.maps.MapView
             android:id="@+id/mapView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_margin="15dp"
             android:visibility="visible"
             app:mapbox_cameraTargetLat="40.27782"
             app:mapbox_cameraTargetLng="-7.50902"

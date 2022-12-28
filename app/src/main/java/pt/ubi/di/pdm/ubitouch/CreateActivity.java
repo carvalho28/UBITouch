@@ -67,7 +67,7 @@ public class CreateActivity extends AppCompatActivity {
     VideoView createVideo;
     ProgressBar progressBar;
     TextView createName, createUsername;
-    ImageView btnPickDate, btnPickTime, btnMap;
+    ImageView btnPickDate, btnPickTime;
 
     MapView mapView;
 
@@ -189,7 +189,6 @@ public class CreateActivity extends AppCompatActivity {
         createUsername = findViewById(R.id.createUsername);
         btnPickDate = findViewById(R.id.btnPickDate);
         btnPickTime = findViewById(R.id.btnPickTime);
-        btnMap = findViewById(R.id.btnMap);
 
         // check if dark mode is enabled
         SharedPreferences sharedPrefMode = getSharedPreferences("DarkMode", Context.MODE_PRIVATE);

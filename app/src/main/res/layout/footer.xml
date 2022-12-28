@@ -29,17 +29,6 @@
         </ImageButton>
 
         <ImageButton
-            android:id="@+id/btnSearch"
-            android:layout_width="0dp"
-            android:layout_height="48dp"
-            android:layout_weight="1"
-            android:background="@android:color/transparent"
-            android:contentDescription="@string/search"
-            app:srcCompat="@drawable/ic_baseline_search_24">
-
-        </ImageButton>
-
-        <ImageButton
             android:id="@+id/btnProfile"
             android:layout_width="0dp"
             android:layout_height="48dp"

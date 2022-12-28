@@ -83,6 +83,7 @@
     <string name="cr_title">NOVO EVENTO</string>
     <string name="cr_subtitle">O que está a acontecer na tua UBI?</string>
     <string name="cr_subtitle_hl">acontecer</string>
+    <string name="cr_review">Após submeter, o evento criado será revisto por um moderador.</string>
 
     <!-- Event page -->
     <string name="ev_localization">Mapa</string>
