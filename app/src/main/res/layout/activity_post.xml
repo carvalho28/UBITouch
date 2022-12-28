@@ -141,7 +141,8 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:visibility="gone"
-                            app:srcCompat="@drawable/ic_baseline_check_circle_outline_24" />
+                            app:srcCompat="@drawable/ic_baseline_check_circle_outline_24"
+                            app:tint="#2D9C06" />
 
                         <ImageView
                             android:id="@+id/unverifiedFlag"
@@ -149,7 +150,8 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:visibility="gone"
-                            app:srcCompat="@drawable/ic_baseline_error_outline_24" />
+                            app:srcCompat="@drawable/ic_baseline_error_outline_24"
+                            app:tint="#CD1313" />
 
                         <ImageButton
                             android:id="@+id/removePost"
