@@ -144,7 +144,7 @@ public class FeedActivity extends AppCompatActivity {
          * notifications.setOnClickListener(
          * v -> {
          * Intent intent = new Intent(this, NotificationsActivity.class);
-         * 
+         *
          * startActivity(intent);
          * });
          */
@@ -156,7 +156,9 @@ public class FeedActivity extends AppCompatActivity {
         });
 
         profile.setOnClickListener(v -> {
+            SharedPreferences sp = getSharedPreferences("user", Context.MODE_PRIVATE);
             Intent intent = new Intent(this, ProfileActivity.class);
+            intent.putExtra("userID", sp.getString("id", "false"));
             startActivity(intent);
         });
 
@@ -182,8 +184,8 @@ public class FeedActivity extends AppCompatActivity {
                         e.printStackTrace();
                     }
                 }, error -> {
-                    Log.i("Diogo", "getUserData: " + error);
-                }) {
+            Log.i("Diogo", "getUserData: " + error);
+        }) {
 
             @Override
             public Map<String, String> getHeaders() {
