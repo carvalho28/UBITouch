@@ -57,8 +57,8 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         private ImageView imageView;
         private VideoView videoView;
         private ImageButton removePost;
-        private TextView verifiedFlag;
-        private TextView unverifiedFLag;
+        private ImageView verifiedFlag;
+        private ImageView unverifiedFLag;
 
         private TextView interestedText;
 
