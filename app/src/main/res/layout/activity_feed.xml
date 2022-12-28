@@ -44,7 +44,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_toEndOf="@+id/profileImageView"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:visibility="gone">
 
         <TextView
             android:id="@+id/profileName"
@@ -62,6 +63,15 @@
             android:text="@string/feed_explore"
             android:textSize="10sp" />
     </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/feedProgressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@+id/userandname"
+        />
 
     </RelativeLayout>
     <!-- Recycler view -->
@@ -112,14 +122,6 @@
 
         </RelativeLayout>
 
-        <ProgressBar
-        android:id="@+id/feedProgressBar"
-        style="?android:attr/progressBarStyle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="@+id/recyclerView"
-        app:layout_constraintTop_toBottomOf="@+id/noPostsText" />
     </LinearLayout>
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 </RelativeLayout>

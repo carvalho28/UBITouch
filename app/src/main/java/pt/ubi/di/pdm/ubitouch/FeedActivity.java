@@ -16,6 +16,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -42,6 +43,7 @@ public class FeedActivity extends AppCompatActivity {
     TextView noPostsText;
     RecyclerView recyclerView;
     TextView profileName;
+    LinearLayout linLayout;
 
     // Header
     ImageButton settings;
@@ -93,6 +95,7 @@ public class FeedActivity extends AppCompatActivity {
         noPostsText = findViewById(R.id.noPostsText);
         profileName = findViewById(R.id.profileName);
         recyclerView = findViewById(R.id.recyclerView);
+        linLayout = findViewById(R.id.userandname);
 
         darkmode = new DarkMode(this);
 
@@ -167,6 +170,7 @@ public class FeedActivity extends AppCompatActivity {
 
         // show loading circle
         progressBar.setVisibility(View.GONE);
+        linLayout.setVisibility(View.VISIBLE);
 
     }
 

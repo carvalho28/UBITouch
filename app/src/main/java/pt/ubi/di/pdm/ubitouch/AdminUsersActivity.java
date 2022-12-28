@@ -9,6 +9,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.ProgressBar;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -29,12 +31,17 @@ public class AdminUsersActivity extends AppCompatActivity {
     private RecyclerAdapterUser customAdapter;
     private RecyclerView.LayoutManager layoutManager;
     private SearchView searchView;
+    ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_users);
         recyclerView = findViewById(R.id.recyclerViewUsers);
+        progressBar = findViewById(R.id.adminUserProgressBar);
+
+        // show loading circle
+        progressBar.setVisibility(View.VISIBLE);
 
         Log.d("Diogo", String.valueOf(R.id.recyclerViewUsers));
 
@@ -63,6 +70,9 @@ public class AdminUsersActivity extends AppCompatActivity {
                 return false;
             }
         });
+
+        // hide loading circle
+        progressBar.setVisibility(View.GONE);
 
     }
 
