@@ -195,6 +195,11 @@
         <item name="android:textColor">@color/whiteDarkMode</item>
     </style>
 
+    <!-- About Us Colors -->
+    <style name="AboutUsColorStyle">
+        <item name="android:background">@color/black</item>
+    </style>
+
     <!-- Footer Colors -->
     <style name="FooterColorStyle">
         <item name="android:background">@color/softBlack</item>

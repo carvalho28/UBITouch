@@ -42,7 +42,7 @@ public class SettingsActivity extends AppCompatActivity {
         switchNotification = findViewById(R.id.switchN);
         languageSetting = findViewById(R.id.changePasswordSetting);
         securityPrivacySetting = findViewById(R.id.securityPrivacySetting);
-        // aboutUsSetting = findViewById(R.id.aboutUsSetting);
+        aboutUsSetting = findViewById(R.id.aboutUsSetting);
         logoutSetting = findViewById(R.id.logoutSetting);
         darkmode = new DarkMode(this);
         back = findViewById(R.id.btnNotif);
@@ -83,12 +83,13 @@ public class SettingsActivity extends AppCompatActivity {
                     startActivity(intent);
                 });
 
-        // aboutUsSetting.setOnClickListener(
-        // v -> {
-        // Intent intent = new Intent(this, AboutUsActivity.class);
-        //
-        // startActivity(intent);
-        // });*/
+        aboutUsSetting.setOnClickListener(
+                v -> {
+                    Intent intent = new Intent(this, AboutUsActivity.class);
+
+                    startActivity(intent);
+                }
+        );
 
         logoutSetting.setOnClickListener(
                 v -> {

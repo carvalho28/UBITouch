@@ -1,6 +1,8 @@
 package pt.ubi.di.pdm.ubitouch;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
@@ -8,6 +10,7 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -67,6 +70,8 @@ public class FeedActivity extends AppCompatActivity {
     private RecyclerAdapter customAdapter;
     private RecyclerView.LayoutManager layoutManager;
 
+    DarkMode darkmode;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -89,8 +94,21 @@ public class FeedActivity extends AppCompatActivity {
         profileName = findViewById(R.id.profileName);
         recyclerView = findViewById(R.id.recyclerView);
 
+        darkmode = new DarkMode(this);
+
         // Refresh
         swipeRefreshLayout = findViewById(R.id.swipeRefreshLayout);
+        if (darkmode.loadDarkMode() == true) {
+            swipeRefreshLayout.setProgressBackgroundColorSchemeResource(R.color.softBlack);
+            swipeRefreshLayout.setColorSchemeColors(
+                    ContextCompat.getColor(this, R.color.babyBlue)
+            );
+        } else {
+            swipeRefreshLayout.setProgressBackgroundColorSchemeResource(R.color.grey);
+            swipeRefreshLayout.setColorSchemeColors(
+                    ContextCompat.getColor(this, R.color.blue)
+            );
+        }
         swipeRefreshLayout.setOnRefreshListener(() -> {
             listEvents.clear();
             getEventsData();
