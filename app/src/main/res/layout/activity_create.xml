@@ -240,16 +240,6 @@
                 app:srcCompat="@drawable/ic_baseline_image_24"
                 app:tint="@color/orange" />
 
-            <ImageView
-                android:id="@+id/btnMap"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="5dp"
-                android:padding="5dp"
-                app:srcCompat="@drawable/ic_marker"
-                app:tint="@color/orange" />
-
         </LinearLayout>
 
         <com.mapbox.maps.MapView
