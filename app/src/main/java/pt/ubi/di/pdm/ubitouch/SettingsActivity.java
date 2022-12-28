@@ -39,6 +39,11 @@ public class SettingsActivity extends AppCompatActivity {
     ImageView notificationIcon;
     TextView notificationText;
 
+    ImageView languageIcon;
+    ImageView securityIcon;
+    ImageView aboutUsIcon;
+    ImageView logOutIcon;
+
     DarkMode darkmode;
 
     @Override
@@ -56,6 +61,10 @@ public class SettingsActivity extends AppCompatActivity {
         back = findViewById(R.id.btnNotif);
         notificationIcon = findViewById(R.id.notificationIcon);
         notificationText = findViewById(R.id.notificationText);
+        languageIcon = findViewById(R.id.language);
+        securityIcon = findViewById(R.id.security);
+        aboutUsIcon = findViewById(R.id.about_us);
+        logOutIcon = findViewById(R.id.imageView2);
 
         if (darkmode.loadDarkMode() == true) {
             switchLightDark.setChecked(true);
@@ -73,6 +82,21 @@ public class SettingsActivity extends AppCompatActivity {
             switchNotification.setVisibility(SwitchCompat.GONE);
             notificationIcon.setVisibility(SwitchCompat.GONE);
             notificationText.setVisibility(SwitchCompat.GONE);
+
+            languageIcon.setBackgroundTintList(getResources().getColorStateList(R.color.orange));
+            aboutUsIcon.setBackgroundTintList(getResources().getColorStateList(R.color.orange));
+
+            if (darkmode.loadDarkMode() == true) {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+
+                securityIcon.setBackgroundTintList(getResources().getColorStateList(R.color.babyBlue));
+                logOutIcon.setBackgroundTintList(getResources().getColorStateList(R.color.babyBlue));
+            } else {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+
+                securityIcon.setBackgroundTintList(getResources().getColorStateList(R.color.blue));
+                logOutIcon.setBackgroundTintList(getResources().getColorStateList(R.color.blue));
+            }
         }
         if (Objects.equals(notification, "1") || Objects.equals(notification, "x")) {
             switchNotification.setChecked(true);
@@ -96,6 +120,8 @@ public class SettingsActivity extends AppCompatActivity {
                 darkmode.setDarkmodeState(false);
                 finish();
             }
+
+
         });
 
         // switch notification to enable or disable

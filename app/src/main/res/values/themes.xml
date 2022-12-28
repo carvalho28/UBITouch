@@ -104,6 +104,7 @@
     </style>
     <style name="PostCardIconColor">
         <item name="android:drawableTint">@color/darkGrey</item>
+        <item name="android:tint">@color/darkGrey</item>
         <item name="android:textColor">@color/black</item>
     </style>
     <style name="PostNameStyle">

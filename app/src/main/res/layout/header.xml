@@ -32,19 +32,6 @@
             android:layout_weight="1.5" />
 
         <ImageButton
-            android:id="@+id/btnNotif"
-            style="@style/HeaderIconColorsStyle"
-            android:layout_width="0dp"
-            android:layout_height="48dp"
-            android:layout_toEndOf="@+id/header"
-            android:layout_weight="0.5"
-            android:background="@android:color/transparent"
-            android:contentDescription="TODO"
-            app:srcCompat="@drawable/notification"
-            tools:ignore="SpeakableTextPresentCheck">
-        </ImageButton>
-
-        <ImageButton
             android:id="@+id/btnSettings"
             style="@style/HeaderIconColorsStyle"
             android:layout_width="0dp"
