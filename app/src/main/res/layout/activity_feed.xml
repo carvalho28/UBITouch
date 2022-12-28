@@ -53,7 +53,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/feed_welcome"
-                        android:textSize="15sp" />
+                        android:textSize="18sp" />
 
                     <TextView
                         android:id="@+id/profileUsername"
@@ -61,7 +61,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/feed_explore"
-                        android:textSize="10sp" />
+                        android:textSize="14sp" />
                 </LinearLayout>
 
                 <ProgressBar

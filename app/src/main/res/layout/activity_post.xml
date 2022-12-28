@@ -40,6 +40,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
                     android:layout_marginTop="5dp"
                     android:orientation="horizontal"
                     android:paddingStart="5dp">
@@ -66,6 +67,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
                     android:layout_marginTop="5dp"
                     android:orientation="horizontal"
                     android:paddingStart="5dp">
