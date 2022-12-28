@@ -151,7 +151,10 @@ public class ProfileActivity extends AppCompatActivity {
 
         profile.setOnClickListener(v -> {
             finish();
-            startActivity(getIntent());
+            SharedPreferences sp = getSharedPreferences("user", Context.MODE_PRIVATE);
+            Intent intent = new Intent(this, ProfileActivity.class);
+            intent.putExtra("userID", sp.getString("id", "false"));
+            startActivity(intent);
         });
 
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
