@@ -101,8 +101,8 @@ public class LoginActivity extends AppCompatActivity {
                         }
                     }
                 });
-        // show loading circle
-        progressBar.setVisibility(View.VISIBLE);
+        // hide loading circle
+        progressBar.setVisibility(View.GONE);
     }
 
     private void login(String URL) {

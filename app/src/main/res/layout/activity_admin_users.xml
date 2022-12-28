@@ -8,6 +8,15 @@
     tools:context=".AdminUsersActivity"
     style="@style/URColorStyle">
 
+    <ProgressBar
+        android:id="@+id/adminUserProgressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
     <!-- search bar on top of recycler view, leaving space below for recycler view -->
     <LinearLayout
         android:layout_width="match_parent"
