@@ -33,18 +33,16 @@
         android:layout_marginStart="30dp"
         android:layout_marginTop="10dp"
         android:text="@string/on_board"
-
         android:textSize="20sp" />
 
     <TextView
         android:id="@+id/textViewError"
+        style="@style/ErrorMessageStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
         android:gravity="center"
-        android:textColor="@color/red"
-        android:textSize="20sp"
-        android:visibility="gone" />
+        android:textSize="20sp" />
 
 
     <!-- Name -->

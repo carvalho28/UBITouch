@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
         // on click go to register activity
         btnRegister.setOnClickListener(
                 v -> {
-                    Intent intent = new Intent(this, AdminUsersActivity.class);
+                    Intent intent = new Intent(this, RegisterActivity.class);
                     startActivity(intent);
                 });
 

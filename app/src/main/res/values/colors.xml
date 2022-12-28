@@ -12,7 +12,8 @@
     <color name="darkGrey">#7E7E7E</color>
     <color name="grey">#ECECEC</color>
     <!-- Warnings and Dangerous Buttons -->
-    <color name="red">#DD4528</color>
+    <color name="red">#FF0000</color>
+    <color name="brightRed">#fbdcdc</color>
     <!-- Buttons, Names and icons -->
     <color name="orange">#EE8000</color>
     <!-- Background and text Colors -->

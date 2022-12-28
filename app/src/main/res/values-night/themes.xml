@@ -13,12 +13,20 @@
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Font Style -->
         <item name="android:fontFamily">@font/abeezeeregular</item>
-        <!-- Customize your theme here. -->
     </style>
 
     <!--  Main colors  -->
     <style name="MainColorStyle">
         <item name="android:background">@color/black</item>
+    </style>
+
+    <!-- Error Colors -->
+    <style name="ErrorMessageStyle">
+        <item name="android:textColor">@color/red</item>
+        <item name="android:background">@drawable/error_box_back</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:visibility">gone</item>
+        <item name="android:textStyle">bold</item>
     </style>
 
     <!-- Login colors -->
