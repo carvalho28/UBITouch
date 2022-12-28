@@ -42,10 +42,9 @@ public class MainActivity extends AppCompatActivity {
         btnLogin = findViewById(R.id.btnLogin);
 
         // TO REMOVE token, id, username
-//         SharedPreferences sharedPref = getSharedPreferences("user",
-//         Context.MODE_PRIVATE);
-//         sharedPref.edit().clear().apply();
-
+        // SharedPreferences sharedPref = getSharedPreferences("user",
+        // Context.MODE_PRIVATE);
+        // sharedPref.edit().clear().apply();
 
         if (!Configs.isConfigInitialized) {
             Configs.initConfig(this);
@@ -89,5 +88,14 @@ public class MainActivity extends AppCompatActivity {
         if (!NoInternet.isConnectedToInternet(this)) {
             NoInternet.showNoInternetDialog(this);
         }
+
+        // get shared preferences, if id is not null, go to feed
+        SharedPreferences sharedPref = getSharedPreferences("user", Context.MODE_PRIVATE);
+        String id = sharedPref.getString("id", "");
+        if (!id.equals("")) {
+            Intent intent = new Intent(this, FeedActivity.class);
+            startActivity(intent);
+        }
+
     }
 }

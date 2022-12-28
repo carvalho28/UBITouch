@@ -59,6 +59,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         private ImageButton removePost;
         private ImageView verifiedFlag;
         private ImageView unverifiedFLag;
+        private ImageView clockIcon;
 
         private TextView interestedText;
 
@@ -84,6 +85,8 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             videoView = itemView.findViewById(R.id.postVideo);
 
             removePost = itemView.findViewById(R.id.removePost);
+
+            clockIcon = itemView.findViewById(R.id.imageView7);
 
             mapLocation.setOnClickListener(this);
             UserImage.setOnClickListener(this);
@@ -215,12 +218,13 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
         if (posts.getImage().length() > 0)
             Picasso.get().load(posts.getImage()).into(itemViewHolder.UserImage);
-        if (posts.getDescription() != null && !Objects.equals(posts.getDescription(), "")) {
+        if (posts.getDescription() != null && !Objects.equals(posts.getDescription(), "") &&
+                !Objects.equals(posts.getDescription(), "null")) {
+            Log.d("Diogo", "Description: " + posts.getDescription());
             itemViewHolder.Description.setText(posts.getDescription());
-        }
-        if (posts.getDescription() != null && !Objects.equals(posts.getDescription(), "")
-                && !Objects.equals(posts.getDescription(), "null")) {
             itemViewHolder.Description.setVisibility(View.VISIBLE);
+        } else {
+            itemViewHolder.Description.setVisibility(View.INVISIBLE);
         }
         if (posts.getEventHour() != null && !Objects.equals(posts.getEventHour(), "")
                 && !Objects.equals(posts.getEventHour(), "null")) {
@@ -235,6 +239,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         }
         if (Objects.equals(posts.getEventHour(), "") || Objects.equals(posts.getEventHour(), "null")) {
             itemViewHolder.EventHour.setVisibility(View.INVISIBLE);
+            itemViewHolder.clockIcon.setVisibility(View.INVISIBLE);
         }
 
         // load username and name

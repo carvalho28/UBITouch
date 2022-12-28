@@ -265,13 +265,11 @@ public class CreateActivity extends AppCompatActivity {
                         Log.i(TAG, "CreateActivity: onCreate(): Description is too long.");
                         msgError.setText(R.string.post_tmc_desc);
                         msgError.setVisibility(TextView.VISIBLE);
-                    }
-                else if (dateText.getText().toString().equals(getString(R.string.post_default_text))) {
+                    } else if (dateText.getText().toString().equals(getString(R.string.post_default_text))) {
                         Log.i(TAG, "CreateActivity: onCreate(): Description is too long.");
                         msgError.setText(R.string.post_date_error);
                         msgError.setVisibility(TextView.VISIBLE);
-                    }
-                else {
+                    } else {
                         Log.i(TAG, "CreateActivity: onCreate(): Creating post...");
                         createPost();
                         Log.i(TAG, "CreateActivity: onCreate(): Created post!");
@@ -288,6 +286,7 @@ public class CreateActivity extends AppCompatActivity {
                 m += 1;
                 String date = getDateString(d, m, y);
                 dateText.setText(date);
+                Log.i(TAG, "CreateActivity: initDatePicker(): Date: " + date);
             }
         };
 
@@ -373,16 +372,21 @@ public class CreateActivity extends AppCompatActivity {
         String Date;
         String Time;
         try {
+            Log.d(dateText.getText().toString(), timeText.getText().toString());
             Date = convertDate(dateText.getText().toString());
-            Time = convertTime(timeText.getText().toString());
         } catch (Exception e) {
             Log.e(TAG, e.getMessage());
             Date = "";
+        }
+        try {
+            Time = convertTime(timeText.getText().toString());
+        } catch (Exception e) {
+            Log.e(TAG, e.getMessage());
             Time = "";
         }
         final String selectedDate = Date;
         final String selectedTime = Time;
-        Log.i(TAG, "Got date and time");
+        Log.d(TAG, "createPost: " + selectedDate + " " + selectedTime);
 
         if (imageChanged) {
             Log.i(TAG, "Got on imageChanged");
@@ -515,6 +519,8 @@ public class CreateActivity extends AppCompatActivity {
         String month = dateArray[1];
         String year = dateArray[2];
 
+        Log.d(TAG, "convertDate: " + day + " " + month + " " + year);
+
         if (month.equals(getString(R.string.january)))
             month = "01";
         else if (month.equals(getString(R.string.february)))
@@ -540,6 +546,7 @@ public class CreateActivity extends AppCompatActivity {
         else if (month.equals(getString(R.string.december)))
             month = "12";
 
+        Log.d(TAG, "convertDate2: " + day + " " + month + " " + year);
         return year + "-" + month + "-" + day;
     }
 
