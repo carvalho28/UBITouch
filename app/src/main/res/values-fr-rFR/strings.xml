@@ -95,8 +95,9 @@
     <string name="login_welcome">Bienvenue!</string>
     <string name="feed_welcome">Salut, cher utilisateur!</string>
     <string name="feed_explore">Voyons ce qui se passe.</string>
-    <string name="no_posts">Oups ! Pas encore de publications.</string>
+    <string name="no_posts">Oups! Pas encore de publications.</string>
     <string name="edit_profile">Éditer le profil</string>
     <string name="cr_subtitle_hl">se passer</string>
     <string name="about_us_uni">Université da Beira Interior</string>
+    <string name="cr_review">Après avoir été soumis, l\'événement créé sera examiné par un modérateur.</string>
 </resources>
