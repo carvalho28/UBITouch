@@ -97,9 +97,6 @@ public class FeedActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.recyclerView);
         linLayout = findViewById(R.id.userandname);
 
-        // show loading circle
-        progressBar.setVisibility(View.VISIBLE);
-
         darkmode = new DarkMode(this);
 
         // Refresh
@@ -168,10 +165,8 @@ public class FeedActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
-        // show loading circle
-        progressBar.setVisibility(View.GONE);
-        linLayout.setVisibility(View.VISIBLE);
-
+        progressBar.setVisibility(View.VISIBLE);
+        linLayout.setVisibility(View.INVISIBLE);
     }
 
     private void getUserData(String userId) {
@@ -249,6 +244,9 @@ public class FeedActivity extends AppCompatActivity {
 
                         customAdapter = new RecyclerAdapter(this, listEvents);
                         recyclerView.setAdapter(customAdapter);
+
+                        progressBar.setVisibility(View.GONE);
+                        linLayout.setVisibility(View.VISIBLE);
                     } catch (JSONException e) {
                         Log.e("Diogo", "json error");
                     }
