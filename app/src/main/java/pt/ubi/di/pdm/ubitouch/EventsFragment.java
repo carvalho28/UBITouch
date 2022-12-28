@@ -36,6 +36,9 @@ public class EventsFragment extends Fragment {
 
     private RecyclerAdapter customAdapter;
 
+    // URL
+    private String user_events_URL = "https://server-ubi-touch.herokuapp.com/events/user/";
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,10 +60,9 @@ public class EventsFragment extends Fragment {
     }
 
     public void getEvents() {
-        // URL
-        String user_events_URL = "https://server-ubi-touch.herokuapp.com/events/user/";
         SharedPreferences sharedPref = this.getActivity().getSharedPreferences("user", Context.MODE_PRIVATE);
-        String userId = sharedPref.getString("id", "false");
+        String userId = sharedPref.getString("profEvents", sharedPref.getString("id", "false"));
+        Log.i("JOAO", "EventsFragment " + userId);
 
         user_events_URL += userId;
 

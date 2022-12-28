@@ -97,6 +97,9 @@ public class FeedActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.recyclerView);
         linLayout = findViewById(R.id.userandname);
 
+        // show loading circle
+        progressBar.setVisibility(View.VISIBLE);
+
         darkmode = new DarkMode(this);
 
         // Refresh
@@ -117,9 +120,6 @@ public class FeedActivity extends AppCompatActivity {
             getEventsData();
             swipeRefreshLayout.setRefreshing(false);
         });
-
-        // show loading circle
-        progressBar.setVisibility(View.VISIBLE);
 
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
