@@ -15,6 +15,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -39,6 +40,7 @@ public class EditProfileActivity extends AppCompatActivity {
     ImageView profileImage;
     ProgressBar progressBar;
     ImageButton back;
+    TextView errmsg;
 
     // Variables
     String userId;
@@ -77,6 +79,7 @@ public class EditProfileActivity extends AppCompatActivity {
         profileImage = findViewById(R.id.editProfileImage);
         progressBar = findViewById(R.id.editProfileProgressBar);
         back = findViewById(R.id.btnNotif);
+        errmsg = findViewById(R.id.EPTextViewError);
 
         back.setOnClickListener(
                 v -> {
@@ -104,7 +107,12 @@ public class EditProfileActivity extends AppCompatActivity {
 
         btnEditSave.setOnClickListener(
                 v -> {
-                    updateProfile(userId);
+                    if (name.getText().toString().isEmpty()){
+                        errmsg.setVisibility(View.VISIBLE);
+                        errmsg.setText("O nome não pode ser vazio");
+                    }else{
+                        updateProfile(userId);
+                    }
                 });
     }
 
