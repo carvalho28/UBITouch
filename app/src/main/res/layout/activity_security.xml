@@ -95,7 +95,7 @@
                     app:srcCompat="@drawable/ic_baseline_arrow_forward_ios_24" />
 
                 <ImageView
-                    android:id="@+id/notification"
+                    android:id="@+id/notificationIcon"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_centerVertical="true"
@@ -118,10 +118,10 @@
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_marginStart="24dp"
-                    android:layout_toEndOf="@+id/notification"
+                    android:layout_toEndOf="@+id/notificationIcon"
                     android:text="@string/deactivate_account"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/notification"
+                    app:layout_constraintStart_toEndOf="@+id/notificationIcon"
                     app:layout_constraintTop_toBottomOf="@+id/textView"
                     app:layout_constraintVertical_bias="0.575" />
 

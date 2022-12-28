@@ -1,10 +1,15 @@
 package pt.ubi.di.pdm.ubitouch;
 
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
@@ -20,6 +25,7 @@ import org.json.JSONException;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 public class SettingsActivity extends AppCompatActivity {
 
@@ -30,6 +36,8 @@ public class SettingsActivity extends AppCompatActivity {
     ImageButton aboutUsSetting;
     ConstraintLayout logoutSetting;
     ImageButton back;
+    ImageView notificationIcon;
+    TextView notificationText;
 
     DarkMode darkmode;
 
@@ -46,9 +54,30 @@ public class SettingsActivity extends AppCompatActivity {
         logoutSetting = findViewById(R.id.logoutSetting);
         darkmode = new DarkMode(this);
         back = findViewById(R.id.btnNotif);
+        notificationIcon = findViewById(R.id.notificationIcon);
+        notificationText = findViewById(R.id.notificationText);
 
         if (darkmode.loadDarkMode() == true) {
             switchLightDark.setChecked(true);
+        }
+
+        // check if notification is enabled
+        SharedPreferences sharedPref = getSharedPreferences("user", MODE_PRIVATE);
+        String notification = sharedPref.getString("notification", "x");
+        String isAdmin = sharedPref.getString("isAdmin", "0");
+        if (isAdmin.equals("1")) {
+            switchNotification.setVisibility(SwitchCompat.VISIBLE);
+            notificationIcon.setVisibility(SwitchCompat.VISIBLE);
+            notificationText.setVisibility(SwitchCompat.VISIBLE);
+        } else {
+            switchNotification.setVisibility(SwitchCompat.GONE);
+            notificationIcon.setVisibility(SwitchCompat.GONE);
+            notificationText.setVisibility(SwitchCompat.GONE);
+        }
+        if (Objects.equals(notification, "1") || Objects.equals(notification, "x")) {
+            switchNotification.setChecked(true);
+        } else {
+            switchNotification.setChecked(false);
         }
 
         back.setOnClickListener(
@@ -66,6 +95,33 @@ public class SettingsActivity extends AppCompatActivity {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
                 darkmode.setDarkmodeState(false);
                 finish();
+            }
+        });
+
+        // switch notification to enable or disable
+        switchNotification.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if (isChecked) {
+                // enable notifications
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                    NotificationChannel channel = new NotificationChannel("UBITouch", "UBITouch",
+                            NotificationManager.IMPORTANCE_DEFAULT);
+                    NotificationManager manager = getSystemService(NotificationManager.class);
+                    manager.createNotificationChannel(channel);
+                    // save notification state
+                    SharedPreferences.Editor editor = sharedPref.edit();
+                    editor.putString("notification", "1");
+                    editor.apply();
+                }
+            } else {
+                // disable notification
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                    NotificationManager manager = getSystemService(NotificationManager.class);
+                    manager.deleteNotificationChannel("UBITouch");
+                    // save notification state
+                    SharedPreferences.Editor editor = sharedPref.edit();
+                    editor.putString("notification", "0");
+                    editor.apply();
+                }
             }
         });
 
@@ -88,8 +144,7 @@ public class SettingsActivity extends AppCompatActivity {
                     Intent intent = new Intent(this, AboutUsActivity.class);
 
                     startActivity(intent);
-                }
-        );
+                });
 
         logoutSetting.setOnClickListener(
                 v -> {
