@@ -295,9 +295,8 @@ public class CreateActivity extends AppCompatActivity {
         int year = cal.get(Calendar.YEAR);
         int month = cal.get(Calendar.MONTH);
         int day = cal.get(Calendar.DAY_OF_MONTH);
-        int style = AlertDialog.THEME_DEVICE_DEFAULT_DARK;
 
-        datePickerDialog = new DatePickerDialog(this, style, dateSetListener, year, month, day);
+        datePickerDialog = new DatePickerDialog(this, dateSetListener, year, month, day);
         datePickerDialog.getDatePicker().setMinDate(System.currentTimeMillis() - 1000); // TODAY
     }
 
@@ -361,7 +360,7 @@ public class CreateActivity extends AppCompatActivity {
                 timeText.setText(String.format(Locale.getDefault(), "%02d:%02d", hour, minute));
             }
         };
-        int style = AlertDialog.THEME_DEVICE_DEFAULT_DARK;
+
         TimePickerDialog timePickerDialog = new TimePickerDialog(this, onTimeSetListener, hour, minute, true);
         timePickerDialog.setTitle(getString(R.string.select_time));
         timePickerDialog.show();
