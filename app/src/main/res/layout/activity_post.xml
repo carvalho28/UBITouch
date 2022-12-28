@@ -51,7 +51,7 @@
                         android:layout_height="20dp"
                         android:layout_weight="0.3"
                         android:src="@drawable/ic_baseline_calendar_month_24"
-                        android:tint="@color/darkGrey" />
+                        app:tint="@color/darkGrey" />
 
                     <TextView
                         android:id="@+id/postDate"
@@ -77,7 +77,7 @@
                         android:layout_height="20dp"
                         android:layout_weight="0.3"
                         android:src="@drawable/ic_baseline_access_time_24"
-                        android:tint="@color/darkGrey" />
+                        app:tint="@color/darkGrey" />
 
                     <TextView
                         android:id="@+id/postTime"
