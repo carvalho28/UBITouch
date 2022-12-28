@@ -196,9 +196,11 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             // convert date from 2022-12-22T00:00:00.000Z to dd/mm/yyyy
             String[] dateParts = date.substring(0, 10).split("-");
             String year = dateParts[0];
+            // 2022 as 22, 2021 as 21 etc
+            year = year.substring(2);
             String month = dateParts[1];
             String day = dateParts[2];
-            date = day + "/" + month + "/" + year;
+            date = day + "/" + month;
             itemViewHolder.EventDate.setText(date);
         }
         // if time is not null and not empty

@@ -85,15 +85,9 @@ public class MainActivity extends AppCompatActivity {
                     Intent intent = new Intent(this, LoginActivity.class);
                     startActivity(intent);
                 });
-    }
 
-    // private void initConfig() {
-    // Map config = new HashMap();
-    // config.put("cloud_name", CLOUD_NAME);
-    // config.put("api_key", "966681439871748");
-    // config.put("api_secret", "QYlGWWg5A9I7JSt4D0r4GXdnG6w");
-    // // config.put("secure", true);
-    // MediaManager.init(this, config);
-    // isConfigInitialized = true;
-    // }
+        if (!NoInternet.isConnectedToInternet(this)) {
+            NoInternet.showNoInternetDialog(this);
+        }
+    }
 }
