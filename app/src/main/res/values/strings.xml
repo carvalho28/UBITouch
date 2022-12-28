@@ -115,7 +115,7 @@
 
     <!-- Login -->
     <string name="login_welcome">Welcome back!</string>
-    <string name="login_register"> Register here!</string>
+    <string name="login_register">Register here!</string>
     <string name="login_no_password">Don\'t have an account yet?</string>
 
     <!--  Profile  -->

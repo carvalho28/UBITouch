@@ -64,7 +64,7 @@
     <string name="new_password">Nova senha</string>
     <!-- Deactivate Account -->
     <string name="deactivate_info">Você está prestes a desativar a sua conta UBItouch. Para concluir a sua solicitação, insira a sua senha.</string>
-    <string name="deactivate">Desativar</string>
+    <string name="deactivate">Apagar</string>
     <!-- Language -->
     <string name="choose_language">Escolha o idioma</string>
     <!-- Post -->
@@ -92,7 +92,7 @@
     <string name="delete_acc">APAGAR CONTA</string>
     <string name="feed_welcome">Olá, querido utilizador!</string>
     <string name="feed_explore">Vamos explorar o que se passa.</string>
-    <string name="login_welcome">Seja bam-vind@ de volta!</string>
+    <string name="login_welcome">Seja bem-vind@ de volta!</string>
     <string name="login_register">Registe-se aqui!</string>
     <string name="login_no_password">Ainda não tem conta?</string>
     <string name="profile_name">Nome</string>
