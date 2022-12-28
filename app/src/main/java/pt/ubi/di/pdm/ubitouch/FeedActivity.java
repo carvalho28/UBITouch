@@ -107,13 +107,11 @@ public class FeedActivity extends AppCompatActivity {
         if (darkmode.loadDarkMode() == true) {
             swipeRefreshLayout.setProgressBackgroundColorSchemeResource(R.color.softBlack);
             swipeRefreshLayout.setColorSchemeColors(
-                    ContextCompat.getColor(this, R.color.babyBlue)
-            );
+                    ContextCompat.getColor(this, R.color.babyBlue));
         } else {
             swipeRefreshLayout.setProgressBackgroundColorSchemeResource(R.color.grey);
             swipeRefreshLayout.setColorSchemeColors(
-                    ContextCompat.getColor(this, R.color.blue)
-            );
+                    ContextCompat.getColor(this, R.color.blue));
         }
         swipeRefreshLayout.setOnRefreshListener(() -> {
             listEvents.clear();
@@ -129,6 +127,8 @@ public class FeedActivity extends AppCompatActivity {
         userID = sharedPref.getString("id", "false");
         token = sharedPref.getString("token", "false");
         isAdmin = sharedPref.getString("isAdmin", "0");
+        // set profEvents to x
+        sharedPref.edit().putString("profEvents", "x").apply();
 
         // profileName.setText(userID);
 

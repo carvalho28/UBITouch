@@ -60,6 +60,8 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         private TextView verifiedFlag;
         private TextView unverifiedFLag;
 
+        private TextView interestedText;
+
         public ItemViewHolder(@NonNull View itemView) {
             super(itemView);
             Title = itemView.findViewById(R.id.postTitle);
@@ -73,6 +75,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             name = itemView.findViewById(R.id.postName);
             username = itemView.findViewById(R.id.postUsername);
             interested = itemView.findViewById(R.id.btnInterested);
+            interestedText = itemView.findViewById(R.id.postInterested);
             share = itemView.findViewById(R.id.postShare);
             verifiedFlag = itemView.findViewById(R.id.verifiedFlag);
             unverifiedFLag = itemView.findViewById(R.id.unverifiedFlag);
@@ -236,13 +239,26 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         itemViewHolder.username.setText("@" + posts.getUsername());
         itemViewHolder.name.setText(posts.getName());
 
-        // if isInterested is true, change the heart to full
-        if (!Objects.equals(posts.getIsInterested(), "0")) {
-            itemViewHolder.interested.setImageResource(R.drawable.filled_heart);
-            itemViewHolder.interested.setTag("full");
+        // get shared preferences profEvent
+        SharedPreferences sharedPreferences = context.getSharedPreferences("user", Context.MODE_PRIVATE);
+        String id = sharedPreferences.getString("id", "x");
+        String profEvents = sharedPreferences.getString("profEvents", "x");
+        Log.d("Diogo", "profEvents: " + profEvents);
+
+        if (Objects.equals(profEvents, id) || Objects.equals(profEvents, "x")) {
+            // if isInterested is true, change the heart to full
+            if (!Objects.equals(posts.getIsInterested(), "0")) {
+                itemViewHolder.interestedText.setVisibility(View.VISIBLE);
+                itemViewHolder.interested.setImageResource(R.drawable.filled_heart);
+                itemViewHolder.interested.setTag("full");
+            } else {
+                itemViewHolder.interestedText.setVisibility(View.INVISIBLE);
+                itemViewHolder.interested.setImageResource(R.drawable.empty_heart);
+                itemViewHolder.interested.setTag("empty");
+            }
         } else {
-            itemViewHolder.interested.setImageResource(R.drawable.empty_heart);
-            itemViewHolder.interested.setTag("empty");
+            itemViewHolder.interested.setVisibility(View.INVISIBLE);
+            itemViewHolder.interestedText.setVisibility(View.INVISIBLE);
         }
 
         // if imageOrVideo is different from null and not empty
@@ -265,7 +281,6 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             }
         }
         // get isAdmin from shared preferences
-        final SharedPreferences sharedPreferences = context.getSharedPreferences("user", Context.MODE_PRIVATE);
         final String isAdmin = sharedPreferences.getString("isAdmin", "0");
 
         // if isAd is true, turn the delete button visible

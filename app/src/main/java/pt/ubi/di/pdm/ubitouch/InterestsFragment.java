@@ -61,7 +61,7 @@ public class InterestsFragment extends Fragment {
         // URL
         String user_events_URL = "https://server-ubi-touch.herokuapp.com/interests/user/";
         SharedPreferences sharedPref = this.getActivity().getSharedPreferences("user", Context.MODE_PRIVATE);
-        String userId = sharedPref.getString("id", "false");
+        String userId = sharedPref.getString("profEvents", sharedPref.getString("id", "false"));
 
         user_events_URL += userId;
 
@@ -121,8 +121,8 @@ public class InterestsFragment extends Fragment {
     public void onResume() {
         super.onResume();
         // only if changes were made
-            // delete all events
-            listEvents.clear();
-            getInterests();
+        // delete all events
+        listEvents.clear();
+        getInterests();
     }
 }

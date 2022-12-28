@@ -60,7 +60,6 @@ public class ProfileActivity extends AppCompatActivity {
     ImageButton search;
     ImageButton profile;
 
-
     // URL
     private final String URL = "https://server-ubi-touch.herokuapp.com/users/";
 
@@ -80,8 +79,7 @@ public class ProfileActivity extends AppCompatActivity {
         search = findViewById(R.id.btnSearch);
         home = findViewById(R.id.btnHome);
 
-
-        //User info
+        // User info
         name = findViewById(R.id.profileName);
         username = findViewById(R.id.profileUsername);
         bio = findViewById(R.id.profileBio);
@@ -97,10 +95,8 @@ public class ProfileActivity extends AppCompatActivity {
         if (extras != null) {
             userId = extras.getString("userID");
             token = "";
-            Log.i("JOAO", "ProfileActivity " + userId);
             editor.putString("profEvents", userId);
             editor.apply();
-            Log.i("JOAO", sharedPref.getString("profEvents", sharedPref.getString("id", "false")));
             if (sharedPref.getString("profEvents", "false") == sharedPref.getString("id", "false")) {
                 editProfileButton.setVisibility(View.VISIBLE);
             } else {
@@ -114,7 +110,7 @@ public class ProfileActivity extends AppCompatActivity {
             token = sharedPref.getString("token", "false");
         }
 
-        //Tabs
+        // Tabs
         tabLayout = findViewById(R.id.tab_layout);
         viewPager = findViewById(R.id.viewPager);
 
@@ -128,8 +124,7 @@ public class ProfileActivity extends AppCompatActivity {
                     Intent intent = new Intent(this, CreateActivity.class);
 
                     startActivity(intent);
-                }
-        );
+                });
 
         // Header
         settings.setOnClickListener(
@@ -139,12 +134,14 @@ public class ProfileActivity extends AppCompatActivity {
                     startActivity(intent);
                 });
 
-        /*notifications.setOnClickListener(
-                v -> {
-                    Intent intent = new Intent(this, NotificationsActivity.class);
-
-                    startActivity(intent);
-                });*/
+        /*
+         * notifications.setOnClickListener(
+         * v -> {
+         * Intent intent = new Intent(this, NotificationsActivity.class);
+         * 
+         * startActivity(intent);
+         * });
+         */
 
         // Footer
         home.setOnClickListener(v -> {
@@ -157,8 +154,7 @@ public class ProfileActivity extends AppCompatActivity {
             startActivity(getIntent());
         });
 
-
-        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener(){
+        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
 
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
@@ -184,23 +180,23 @@ public class ProfileActivity extends AppCompatActivity {
             }
         });
 
-
         // get the user id from the shared preferences or intent
-//        SharedPreferences sharedPref = getSharedPreferences("user", Context.MODE_PRIVATE);
-//        Bundle extras = getIntent().getExtras();
-//        if (extras != null) {
-//            userId = extras.getString("userID");
-//            token = "";
-//            if (userId == sharedPref.getString("id", "false")) {
-//                editProfileButton.setVisibility(View.VISIBLE);
-//            } else {
-//                editProfileButton.setVisibility(View.GONE);
-//            }
-//        } else {
-//            editProfileButton.setVisibility(View.VISIBLE);
-//            userId = sharedPref.getString("id", "false");
-//            token = sharedPref.getString("token", "false");
-//        }
+        // SharedPreferences sharedPref = getSharedPreferences("user",
+        // Context.MODE_PRIVATE);
+        // Bundle extras = getIntent().getExtras();
+        // if (extras != null) {
+        // userId = extras.getString("userID");
+        // token = "";
+        // if (userId == sharedPref.getString("id", "false")) {
+        // editProfileButton.setVisibility(View.VISIBLE);
+        // } else {
+        // editProfileButton.setVisibility(View.GONE);
+        // }
+        // } else {
+        // editProfileButton.setVisibility(View.VISIBLE);
+        // userId = sharedPref.getString("id", "false");
+        // token = sharedPref.getString("token", "false");
+        // }
         // print the user id and token
         // Log.i("Diogo", "Profile: " + userId);
         // Log.i("Diogo", "Profile: " + token);
@@ -229,19 +225,18 @@ public class ProfileActivity extends AppCompatActivity {
                         e.printStackTrace();
                     }
                 }, error -> {
-            Log.i("Diogo", "getUserData: " + error);
-        }) {
+                    Log.i("Diogo", "getUserData: " + error);
+                }) {
 
-//            @Override
-//            public Map<String, String> getHeaders() {
-//                Map<String, String> headers = new HashMap<>();
-//                headers.put("Authorization", "Bearer " + token);
-//                Log.i("Diogo", "getHeaders: " + headers);
-//                return headers;
-//            }
+            // @Override
+            // public Map<String, String> getHeaders() {
+            // Map<String, String> headers = new HashMap<>();
+            // headers.put("Authorization", "Bearer " + token);
+            // Log.i("Diogo", "getHeaders: " + headers);
+            // return headers;
+            // }
         };
 
         queue.add(jsonObjectRequest);
     }
 }
-
