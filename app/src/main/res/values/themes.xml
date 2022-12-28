@@ -54,6 +54,9 @@
     <style name="FeedButtonStyle">
         <item name="backgroundTint">@color/orange</item>
     </style>
+    <style name="FeedRefreshStyle">
+        <item name="android:background">@color/black</item>
+    </style>
 
     <!-- Profile colors -->
     <style name="ProfileColorStyle">
@@ -192,6 +195,11 @@
     </style>
     <style name="LanguageCardTextStyle">
         <item name="android:textColor">@color/black</item>
+    </style>
+
+    <!-- About Us Colors -->
+    <style name="AboutUsColorStyle">
+        <item name="android:background">@color/blue</item>
     </style>
 
     <!-- Footer Colors -->

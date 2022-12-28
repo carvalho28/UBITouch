@@ -2,7 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    style="@style/MainColorStyle"
+    style="@style/AboutUsColorStyle"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".AboutUsActivity">
@@ -47,11 +47,10 @@
             android:layout_gravity="center"
             android:layout_marginTop="48dp"
             android:layout_marginBottom="5dp"
-            android:text="TextView"
+            android:text="@string/about_us_dev"
             android:textColor="@color/white"
             android:textSize="18sp"
-            android:textStyle="bold"
-            tools:text="@string/about_us_dev" />
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/textView11"
@@ -59,10 +58,9 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="5dp"
             android:gravity="center"
-            android:text="TextView"
+            android:text="@string/about_us_dev1"
             android:textColor="@color/white"
-            android:textSize="16sp"
-            tools:text="@string/about_us_dev1" />
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/textView12"
@@ -70,10 +68,9 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="5dp"
             android:gravity="center"
-            android:text="TextView"
+            android:text="@string/about_us_dev2"
             android:textColor="@color/white"
-            android:textSize="16sp"
-            tools:text="@string/about_us_dev2" />
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/textView13"
@@ -81,10 +78,9 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="5dp"
             android:gravity="center"
-            android:text="TextView"
+            android:text="@string/about_us_dev3"
             android:textColor="@color/white"
-            android:textSize="16sp"
-            tools:text="@string/about_us_dev3" />
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/textView14"
@@ -92,10 +88,9 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="5dp"
             android:gravity="center"
-            android:text="TextView"
+            android:text="@string/about_us_dev4"
             android:textColor="@color/white"
-            android:textSize="16sp"
-            tools:text="@string/about_us_dev4" />
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/textView15"
@@ -103,10 +98,9 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="5dp"
             android:gravity="center"
-            android:text="TextView"
+            android:text="@string/about_us_dev5"
             android:textColor="@color/white"
-            android:textSize="16sp"
-            tools:text="@string/about_us_dev5" />
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/textView16"
@@ -115,11 +109,10 @@
             android:layout_marginTop="16dp"
             android:layout_marginBottom="5dp"
             android:gravity="center"
-            android:text="TextView"
+            android:text="@string/about_us_sup"
             android:textColor="@color/white"
             android:textSize="18sp"
-            android:textStyle="bold"
-            tools:text="@string/about_us_sup" />
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/textView17"
@@ -127,10 +120,9 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="5dp"
             android:gravity="center"
-            android:text="TextView"
+            android:text="@string/about_us_sup1"
             android:textColor="@color/white"
-            android:textSize="16sp"
-            tools:text="@string/about_us_sup1" />
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/textView18"
@@ -139,10 +131,9 @@
             android:layout_marginTop="16dp"
             android:layout_marginBottom="5dp"
             android:gravity="center"
-            android:text="TextView"
+            android:text="@string/about_us_bsc"
             android:textColor="@color/white"
-            android:textSize="16sp"
-            tools:text="@string/about_us_bsc" />
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/textView19"
@@ -150,10 +141,9 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="5dp"
             android:gravity="center"
-            android:text="TextView"
+            android:text="@string/about_us_uc"
             android:textColor="@color/white"
-            android:textSize="16sp"
-            tools:text="@string/about_us_uc" />
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/textView21"
@@ -162,11 +152,10 @@
             android:layout_marginTop="16dp"
             android:layout_marginBottom="5dp"
             android:gravity="center"
-            android:text="TextView"
+            android:text="@string/about_us_uni"
             android:textColor="@color/white"
             android:textSize="18sp"
-            android:textStyle="bold"
-            tools:text="@string/about_us_uni" />
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/textView20"
@@ -174,10 +163,9 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="5dp"
             android:gravity="center"
-            android:text="TextView"
+            android:text="@string/about_us_year"
             android:textColor="@color/white"
-            android:textSize="16sp"
-            tools:text="@string/about_us_year" />
+            android:textSize="16sp" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
