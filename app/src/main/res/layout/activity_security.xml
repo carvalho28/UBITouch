@@ -143,6 +143,7 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/cardViewUsers"
             style="@style/SettingCardStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
