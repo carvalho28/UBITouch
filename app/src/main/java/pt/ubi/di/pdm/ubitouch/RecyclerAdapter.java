@@ -252,7 +252,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
                 itemViewHolder.interested.setImageResource(R.drawable.filled_heart);
                 itemViewHolder.interested.setTag("full");
             } else {
-                itemViewHolder.interestedText.setVisibility(View.INVISIBLE);
+                itemViewHolder.interestedText.setVisibility(View.VISIBLE);
                 itemViewHolder.interested.setImageResource(R.drawable.empty_heart);
                 itemViewHolder.interested.setTag("empty");
             }
