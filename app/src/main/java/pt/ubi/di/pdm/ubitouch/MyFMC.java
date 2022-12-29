@@ -54,11 +54,11 @@ public class MyFMC extends FirebaseMessagingService {
         String notification = sharedPref.getString("notification", "x");
 
         if (Objects.equals(notification, "1") || Objects.equals(notification, "x")) {
-            String channelId = "UBItouch";
+            String channelId = "UBITouch";
             Uri defaultSoundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
             NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this, channelId)
                     .setSmallIcon(R.drawable.ic_launcher_foreground)
-                    .setContentTitle("UBItouch")
+                    .setContentTitle("UBITouch")
                     .setContentText(messageBody)
                     .setAutoCancel(true)
                     .setSound(defaultSoundUri)
@@ -70,7 +70,7 @@ public class MyFMC extends FirebaseMessagingService {
             // Since android Oreo notification channel is needed.
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 NotificationChannel channel = new NotificationChannel(channelId,
-                        "UBItouch",
+                        "UBITouch",
                         NotificationManager.IMPORTANCE_DEFAULT);
                 notificationManager.createNotificationChannel(channel);
             }
