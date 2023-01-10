@@ -182,8 +182,8 @@ public class FeedActivity extends AppCompatActivity {
                         e.printStackTrace();
                     }
                 }, error -> {
-            Log.i("Diogo", "getUserData: " + error);
-        }) {
+                    Log.i("Diogo", "getUserData: " + error);
+                }) {
 
             @Override
             public Map<String, String> getHeaders() {
