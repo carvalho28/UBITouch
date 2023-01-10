@@ -217,7 +217,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         }
 
         if (posts.getImage().length() > 0)
-            Picasso.get().load(posts.getImage()).into(itemViewHolder.UserImage);
+            Picasso.get().load(posts.getImage()).error(R.drawable.ic_error_load).into(itemViewHolder.UserImage);
         if (posts.getDescription() != null && !Objects.equals(posts.getDescription(), "") &&
                 !Objects.equals(posts.getDescription(), "null")) {
             Log.d("Diogo", "Description: " + posts.getDescription());
@@ -284,7 +284,8 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             } else {
                 itemViewHolder.videoView.setVisibility(View.GONE);
                 itemViewHolder.imageView.setVisibility(View.VISIBLE);
-                Picasso.get().load(posts.getImageOrVideo()).into(itemViewHolder.imageView);
+                Picasso.get().load(posts.getImageOrVideo()).error(R.drawable.ic_error_load).into(itemViewHolder.imageView)
+                        ;
             }
         }
         // get isAdmin from shared preferences
