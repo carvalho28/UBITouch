@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name" translatable="false">UBItouch</string>
+    <string name="app_name" translatable="false">UBITouch</string>
     <string name="email" translatable="false">Email</string>
     <string name="username">Username</string>
     <string name="password">Password</string>
