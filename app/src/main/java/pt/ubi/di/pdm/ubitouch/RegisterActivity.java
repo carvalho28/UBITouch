@@ -59,6 +59,8 @@ public class RegisterActivity extends AppCompatActivity {
         progressBar = findViewById(R.id.registerProgressBar);
         signIn = findViewById(R.id.signIn);
 
+        msgError.setVisibility(TextView.GONE);
+
         Log.i(TAG, "RegisterActivity: onCreate()");
 
         signIn.setOnClickListener(
@@ -82,14 +84,17 @@ public class RegisterActivity extends AppCompatActivity {
                     // if the password and the confirm password are different
                     else if (!password.getText().toString().equals(confirmPassword.getText().toString())) {
                         msgError.setText(R.string.differentPasswords);
+                        msgError.setVisibility(TextView.VISIBLE);
                     }
                     // if the password is less than 10 characters
                     else if (password.getText().toString().length() < 8) {
                         msgError.setText(R.string.tooShortPassword);
+                        msgError.setVisibility(TextView.VISIBLE);
                     }
                     // if the email is not valid
                     else if (!email.getText().toString().contains("@") || !email.getText().toString().contains(".")) {
                         msgError.setText(R.string.invalidEmail);
+                        msgError.setVisibility(TextView.VISIBLE);
                     }
                     // create the user
                     else {
