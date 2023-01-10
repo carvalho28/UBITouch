@@ -96,7 +96,7 @@
                 android:id="@+id/editProfileBio"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:inputType="text"
+                android:inputType="textMultiLine"
                 android:shadowRadius="10"
                 android:textColorHint="#0066FF"
                 android:textColorLink="#000000"/>
